@@ -6,7 +6,7 @@ const theme = {
 		ligth: 'white',
 		dark: 'black',
 	},
-	fonts: ['sans-serif'],
+	fonts: ['sans-serif', 'Lora'],
 	fontSize: {
 		smal: '1em',
 		medium: '2em',
