@@ -1,18 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import bg from '../assets/bg1.jpeg';
+import bgSmall from '../assets/bg2.jpg';
 import { Link } from 'react-router-dom';
 
 const HomeWrapper = styled.div`
-	background-image: url(${bg}) no-repeat center center fixed;
+	background-image: url(${bg});
 	background-size: cover;
-	background-color: #ffffff;
-	width: fit-content;
-	margin: auto;
-	margin-top: 15em;
-	@media only screen and (max-width: 850px) {
-		margin-top: 0em;
-		margin: 8em 0em;
+	background-color: #000000;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@media (max-width: 650px) {
+		color: black;
+		background-image: url(${bgSmall});
 	}
 	h1 {
 		backdrop-filter: blur(2px);
@@ -26,6 +29,8 @@ const HomeWrapper = styled.div`
 		}
 	}
 `;
+
+const HomeContent = styled.div``;
 
 const ButtonBox = styled.div`
 	display: flex;
@@ -66,14 +71,16 @@ const Button = styled.button`
 export const Home = () => {
 	return (
 		<HomeWrapper>
-			<h1>Are you being all the green that you can be?</h1>
-			<ButtonBox>
-				<Link to='Carbon'>
-					<Button>Carbon</Button>
-				</Link>
-				<Button>Hydrogin</Button>
-				<Button>hectarin</Button>
-			</ButtonBox>
+			<HomeContent>
+				<h1>Are you being all the green that you can be?</h1>
+				<ButtonBox>
+					<Link to='Carbon'>
+						<Button>Carbon</Button>
+					</Link>
+					<Button>Hydrogin</Button>
+					<Button>hectarin</Button>
+				</ButtonBox>
+			</HomeContent>
 		</HomeWrapper>
 	);
 };
