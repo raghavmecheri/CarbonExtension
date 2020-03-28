@@ -1,6 +1,5 @@
 import React from 'react';
 import { Home } from './components/Home';
-import { Background } from './components/Background';
 import styled from 'styled-components';
 import Theme from './style/Theme';
 
@@ -14,7 +13,7 @@ function App() {
 	return (
 		<Theme>
 			<AppContainer>
-				<Background />
+				{/* <Background /> */}
 				<Home />
 			</AppContainer>
 		</Theme>
