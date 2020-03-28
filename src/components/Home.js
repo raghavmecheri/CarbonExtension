@@ -5,12 +5,19 @@ const HomeWrapper = styled.div`
 	width: fit-content;
 	margin: auto;
 	margin-top: 15em;
+	@media only screen and (max-width: 850px) {
+		margin-top: 10em;
+	}
 	h1 {
 		backdrop-filter: blur(2px);
 		text-transform: uppercase;
-		font-family: 'Lora', serif;
+		font-family: ${props => props.theme.fonts.tittle}, serif;
 		font-weight: 700;
 		font-size: 40px;
+		@media (max-width: 1000px) {
+			display: flex;
+			padding: 0px 0.45em;
+		}
 	}
 `;
 
@@ -20,6 +27,12 @@ const ButtonBox = styled.div`
 	justify-content: space-evenly;
 	margin: auto;
 	margin-top: 5em;
+	@media only screen and (max-width: 850px) {
+		display: grid;
+		align-items: center;
+		justify-content: center;
+		margin-top: 0;
+	}
 `;
 
 const Button = styled.button`
@@ -37,6 +50,10 @@ const Button = styled.button`
 		color: ${props => props.theme.colors.dark};
 		background: ${props => props.theme.colors.ligth};
 		font-weight: 500;
+	}
+	@media only screen and (max-width: 850px) {
+		width: 10em;
+		margin: 0.8em;
 	}
 `;
 

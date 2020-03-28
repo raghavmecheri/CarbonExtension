@@ -11,6 +11,9 @@ const BgStyled = styled.img`
 	min-height: 800px;
 	min-width: 1024px;
 	z-index: -999999;
+	@media only screen and (max-width: 850px) {
+		display: none;
+	}
 `;
 
 export const Background = () => {
