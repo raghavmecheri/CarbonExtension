@@ -6,7 +6,8 @@ const HomeWrapper = styled.div`
 	margin: auto;
 	margin-top: 15em;
 	@media only screen and (max-width: 850px) {
-		margin-top: 10em;
+		margin-top: 0em;
+		margin: 8em 0em;
 	}
 	h1 {
 		backdrop-filter: blur(2px);
