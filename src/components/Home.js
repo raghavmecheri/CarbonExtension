@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import bg from '../assets/bg1.jpeg';
-import bgSmall from '../assets/bg2.jpg';
+import bgSmall from '../assets/bg3.jpg';
 import { Link } from 'react-router-dom';
 
 const HomeWrapper = styled.div`
@@ -18,7 +18,7 @@ const HomeWrapper = styled.div`
 		background-image: url(${bgSmall});
 	}
 	h1 {
-		backdrop-filter: blur(2px);
+		background: #ffffff6b;
 		text-transform: uppercase;
 		font-family: ${props => props.theme.fonts.tittle}, serif;
 		font-weight: 700;
