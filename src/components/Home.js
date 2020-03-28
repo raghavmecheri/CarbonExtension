@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import bg from '../assets/bg1.jpeg';
+import { Link } from 'react-router-dom';
 
 const HomeWrapper = styled.div`
+	background-image: url(${bg}) no-repeat center center fixed;
+	background-size: cover;
+	background-color: #ffffff;
 	width: fit-content;
 	margin: auto;
 	margin-top: 15em;
@@ -63,7 +68,9 @@ export const Home = () => {
 		<HomeWrapper>
 			<h1>Are you being all the green that you can be?</h1>
 			<ButtonBox>
-				<Button>Carbon</Button>
+				<Link to='Carbon'>
+					<Button>Carbon</Button>
+				</Link>
 				<Button>Hydrogin</Button>
 				<Button>hectarin</Button>
 			</ButtonBox>
