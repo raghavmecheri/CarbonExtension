@@ -2,6 +2,8 @@ import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import bgCarbon from '../assets/quizBg.png';
 import PersonQuiz from './person-quiz';
+import { PersonQuizDefinition } from '../data/person-quiz-data';
+import { CompanyQuizDefinition } from '../data/company-quiz-data';
 
 const CarbonWrapper = styled.div`
 	/* background-image: url(${bgCarbon}); */
@@ -99,10 +101,10 @@ const QuizWrapper = ({ quizType, handleClick }) => {
 const getQuizType = type => {
 	switch (type) {
 		case PERSON:
-			return <PersonQuiz />;
+			return <PersonQuiz QuizDefinition={PersonQuizDefinition} />;
 
 		case COMPANY:
-			return <div>{type}</div>;
+			return <PersonQuiz QuizDefinition={CompanyQuizDefinition} />;
 
 		case UNIVERSITY:
 			return <div>{type}</div>;

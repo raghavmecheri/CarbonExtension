@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { PersonQuizDefinition } from '../data/person-quiz-data';
 
 const QuizWrapper = styled.div`
 	display: flex;
@@ -92,33 +91,61 @@ const Question = ({ questionDef }) => {
 	);
 };
 
-const PersonQuiz = () => {
+const Buttons = ({ back, next, end, finish }) => {
+	if (!end) {
+		return (
+			<ButtonBox>
+				<Button onClick={back}>Back</Button>
+				<Button onClick={next}>Next</Button>
+			</ButtonBox>
+		);
+	} else {
+		return (
+			<ButtonBox>
+				<Button onClick={back}>Back</Button>
+				<Button onClick={finish}>Finish</Button>
+			</ButtonBox>
+		);
+	}
+};
+
+const Quiz = ({ QuizDefinition }) => {
 	const [questionIndex, setQuestionIndex] = useState(0);
+	const [endQuestion, setEndQuestion] = useState(false);
 
 	const next = useCallback(() => {
-		if (questionIndex < PersonQuizDefinition.length - 1) {
-			const newIndex = questionIndex + 1;
+		if (questionIndex == QuizDefinition.length - 2) {
+			console.log(questionIndex);
+			let newIndex = questionIndex + 1;
+			setQuestionIndex(newIndex);
+			setEndQuestion(true);
+		} else if (questionIndex < QuizDefinition.length - 1) {
+			console.log('question', questionIndex);
+			console.log('total', QuizDefinition.length - 1);
+			let newIndex = questionIndex + 1;
 			setQuestionIndex(newIndex);
 		}
 	}, [questionIndex, setQuestionIndex]);
+
 	const back = useCallback(() => {
-		console.log(questionIndex);
 		if (questionIndex > 0) {
 			const newIndex = questionIndex - 1;
 			setQuestionIndex(newIndex);
 		}
 	}, [questionIndex, setQuestionIndex]);
+
+	const finish = useCallback(() => {
+		console.log('finish');
+	}, [questionIndex, setQuestionIndex]);
+
 	return (
 		<QuizWrapper>
 			<Box>
-				<Question questionDef={PersonQuizDefinition[questionIndex]} />
-				<ButtonBox>
-					<Button onClick={back}>Back</Button>
-					<Button onClick={next}>Next</Button>
-				</ButtonBox>
+				<Question questionDef={QuizDefinition[questionIndex]} />
+				<Buttons back={back} next={next} finish={finish} end={endQuestion} />
 			</Box>
 		</QuizWrapper>
 	);
 };
 
-export default PersonQuiz;
+export default Quiz;
