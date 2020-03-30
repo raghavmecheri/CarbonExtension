@@ -66,6 +66,7 @@ const Title = () => {
 		</TittleWrapper>
 	);
 };
+
 const PERSON = 'Person';
 const COMPANY = 'Company';
 const UNIVERSITY = 'University';

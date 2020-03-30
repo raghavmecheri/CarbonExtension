@@ -22,6 +22,11 @@ const Tittle = styled.div`
 const QuestionsOptionsWrapper = styled.div`
 	font-size: 30px;
 	padding: 1em 1em;
+	&:hover {
+		cursor: pointer;
+		background: black;
+		color: white;
+	}
 `;
 
 const QuestionsBox = styled.div`
@@ -131,6 +136,7 @@ const Quiz = ({ QuizDefinition }) => {
 		if (questionIndex > 0) {
 			const newIndex = questionIndex - 1;
 			setQuestionIndex(newIndex);
+			setEndQuestion(false);
 		}
 	}, [questionIndex, setQuestionIndex]);
 
