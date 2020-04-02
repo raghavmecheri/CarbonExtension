@@ -1,9 +1,24 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-
+import bgCarbon from '../assets/quizBg.png';
 import PersonQuiz from './person-quiz';
+import { PersonQuizDefinition } from '../data/person-quiz-data';
+import { CompanyQuizDefinition } from '../data/company-quiz-data';
+
 const CarbonWrapper = styled.div`
+	/* background-image: url(${bgCarbon}); */
+	background-image: ${props =>
+		props.quizType ? console.log(props.quizType) : `url(${bgCarbon})`};
+	background-size: cover;
+	height: 100vh;
+	width: 100vw;
 	color: black;
+	margin: 0;
+`;
+
+const TittleWrapper = styled.div`
+	margin: 0;
+	padding: 2em;
 `;
 
 const ButtonBox = styled.div`
@@ -44,13 +59,14 @@ const Button = styled.button`
 
 const Title = () => {
 	return (
-		<>
-			<h1>Carbon</h1>
+		<TittleWrapper>
+			<h1>Carbon Footprint</h1>
 			<p>Start this quiz in order to know your carbon footprint.</p>
 			<p>Are you a...</p>
-		</>
+		</TittleWrapper>
 	);
 };
+
 const PERSON = 'Person';
 const COMPANY = 'Company';
 const UNIVERSITY = 'University';
@@ -75,16 +91,21 @@ const QuizWrapper = ({ quizType, handleClick }) => {
 	if (quizType) {
 		return getQuizType(quizType);
 	}
-	return <QuizSelectionComponent handleClick={handleClick} />;
+	return (
+		<>
+			<Title />
+			<QuizSelectionComponent handleClick={handleClick} />
+		</>
+	);
 };
 
 const getQuizType = type => {
 	switch (type) {
 		case PERSON:
-			return <PersonQuiz />;
+			return <PersonQuiz QuizDefinition={PersonQuizDefinition} />;
 
 		case COMPANY:
-			return <div>{type}</div>;
+			return <PersonQuiz QuizDefinition={CompanyQuizDefinition} />;
 
 		case UNIVERSITY:
 			return <div>{type}</div>;
@@ -102,7 +123,6 @@ export const Carbon = () => {
 
 	return (
 		<CarbonWrapper>
-			<Title />
 			<QuizWrapper quizType={quizType} handleClick={handleClick} />
 		</CarbonWrapper>
 	);

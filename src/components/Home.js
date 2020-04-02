@@ -77,8 +77,8 @@ export const Home = () => {
 					<Link to='Carbon'>
 						<Button>Carbon</Button>
 					</Link>
-					<Button>Hydrogin</Button>
-					<Button>hectarin</Button>
+					<Button>Hidric</Button>
+					<Button>Ecological</Button>
 				</ButtonBox>
 			</HomeContent>
 		</HomeWrapper>
