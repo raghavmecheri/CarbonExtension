@@ -22,8 +22,8 @@ const BgImg = styled.img`
 	height: 100vh;
 `;
 
-export const Question = ({ questionDef }) => {
-	const { title, description, options, image, layout } = questionDef;
+export const Question = ({ questionDef, handleOption }) => {
+	const { title, description, options, image } = questionDef;
 	return (
 		<QuestionsWrapper>
 			<Tittle>{title}</Tittle>

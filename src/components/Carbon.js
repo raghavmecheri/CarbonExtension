@@ -116,11 +116,11 @@ const getQuizType = type => {
 };
 export const Carbon = () => {
 	const [quizType, setQuizActiveType] = useState(null);
-	const [removeBg, setRemoveBg] = useState(false);
+	// const [removeBg, setRemoveBg] = useState(false);
 	const handleClick = useCallback((e = {}) => {
 		const { id } = e.currentTarget;
 		setQuizActiveType(id);
-		setRemoveBg(true);
+		// setRemoveBg(true);
 	}, []);
 
 	return (

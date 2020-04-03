@@ -18,22 +18,19 @@ const Box = styled.div`
 const Quiz = ({ QuizDefinition }) => {
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
-	const [clickOption, setClickOption] = useState(false);
+	const [clickOption, setClickOption] = useState([]);
 
-	const handleOption = () => {
-		setClickOption(true);
+	const handleOption = arr => {
+		setClickOption(arr);
 		console.log(clickOption);
 	};
 
 	const next = useCallback(() => {
-		if (questionIndex == QuizDefinition.length - 2) {
-			console.log(questionIndex);
+		if (questionIndex === QuizDefinition.length - 2) {
 			let newIndex = questionIndex + 1;
 			setQuestionIndex(newIndex);
 			setEndQuestion(true);
 		} else if (questionIndex < QuizDefinition.length - 1) {
-			console.log('question', questionIndex);
-			console.log('total', QuizDefinition.length - 1);
 			let newIndex = questionIndex + 1;
 			setQuestionIndex(newIndex);
 		}
