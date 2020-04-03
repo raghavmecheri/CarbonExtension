@@ -1,14 +1,14 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import bgCarbon from '../assets/quizBg.png';
-import PersonQuiz from './person-quiz';
+import PersonQuiz from './quiz';
 import { PersonQuizDefinition } from '../data/person-quiz-data';
 import { CompanyQuizDefinition } from '../data/company-quiz-data';
 
 const CarbonWrapper = styled.div`
-	/* background-image: url(${bgCarbon}); */
-	background-image: ${props =>
-		props.quizType ? console.log(props.quizType) : `url(${bgCarbon})`};
+	background-image: url(${bgCarbon});
+	/* background-image: ${props =>
+		props.quizType ? console.log('hola') : `url(${bgCarbon})`}; */
 	background-size: cover;
 	height: 100vh;
 	width: 100vw;
@@ -116,9 +116,11 @@ const getQuizType = type => {
 };
 export const Carbon = () => {
 	const [quizType, setQuizActiveType] = useState(null);
+	const [removeBg, setRemoveBg] = useState(false);
 	const handleClick = useCallback((e = {}) => {
 		const { id } = e.currentTarget;
 		setQuizActiveType(id);
+		setRemoveBg(true);
 	}, []);
 
 	return (
