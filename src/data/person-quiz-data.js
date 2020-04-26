@@ -1,12 +1,10 @@
-import bg1 from '../assets/bg.jpg';
-
-export const PersonQuizDefinition = [
+export const PersonQuizData = [
 	{
 		ref: '1',
 		title: 'Transport',
 		description: 'How much travel do you do?',
 		options: ['Low', 'Medium', 'High'],
-		image: bg1,
+		image: 'bg1',
 	},
 	{
 		ref: '2',
@@ -23,11 +21,11 @@ export const PersonQuizDefinition = [
 		image: 'www.google.com2',
 	},
 	{
-		ref: '1',
+		ref: '4',
 		title: 'Transport',
 		description: 'How much travel do you do?',
 		options: ['Low', 'Medium', 'High'],
-		image: bg1,
+		image: 'bg1',
 	},
 	{
 		ref: '2',

@@ -13,25 +13,16 @@ const QuestionsBox = styled.div`
 	display: flex;
 `;
 
-const BgImg = styled.img`
-	position: absolute;
-	z-index: -99;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-`;
-
-export const Question = ({ questionDef, handleOption }) => {
-	const { title, description, options, image } = questionDef;
+export const Question = ({ questionData, handleOption }) => {
+	const { title, description, options, image } = questionData;
+	console.log('questionData', title);
 	return (
 		<QuestionsWrapper>
 			<Tittle>{title}</Tittle>
 			<h3>{description}</h3>
 			<QuestionsBox>
-				<QuestionsOptions options={options} handleOption={handleOption} />
+				{/* <QuestionsOptions options={options} handleOption={handleOption} /> */}
 			</QuestionsBox>
-			<BgImg src={image} />
 		</QuestionsWrapper>
 	);
 };

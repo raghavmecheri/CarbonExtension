@@ -12,15 +12,9 @@ const QuestionsOptionsWrapper = styled.div`
 `;
 
 export const QuestionsOptions = ({ options, handleOption }) => {
-	const handleClick = option => {
-		let arr = [];
-		arr.push(option);
-		console.log(arr);
-		handleOption(arr);
-	};
 	return options.map((option, key) => {
 		return (
-			<QuestionsOptionsWrapper key={key} onClick={() => handleClick(option)}>
+			<QuestionsOptionsWrapper key={key} onClick={() => handleOption(option)}>
 				{option}
 			</QuestionsOptionsWrapper>
 		);
