@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ArrowForwardOutline } from '@styled-icons/evaicons-outline';
+import { ArrowBackOutline } from '@styled-icons/evaicons-outline';
 
 const ButtonBox = styled.div`
 	display: flex;
@@ -16,7 +18,7 @@ const Button = styled.button`
 	background: whites;
 	backdrop-filter: blur(2px);
 	padding: 8px;
-	color: ${props => props.theme.colors.dark};
+	color: ${(props) => props.theme.colors.dark};
 	font-size: 20px;
 	border: 2px solid dark;
 	border-radius: 0.12em;
@@ -24,8 +26,8 @@ const Button = styled.button`
 	text-transform: uppercase;
 	&:hover {
 		cursor: pointer;
-		color: ${props => props.theme.colors.ligth};
-		background: ${props => props.theme.colors.dark};
+		color: ${(props) => props.theme.colors.ligth};
+		background: ${(props) => props.theme.colors.dark};
 		font-weight: 500;
 	}
 	@media only screen and (max-width: 850px) {
@@ -34,12 +36,32 @@ const Button = styled.button`
 	}
 `;
 
+const ForwardIcon = styled(ArrowForwardOutline)`
+	width: 50px;
+	color: lightgreen;
+	&:hover {
+		cursor: pointer;
+		color: ${(props) => props.theme.colors.ligth};
+		font-weight: 500;
+	}
+`;
+
+const BackwardIcon = styled(ArrowBackOutline)`
+	width: 50px;
+	color: red;
+	&:hover {
+		cursor: pointer;
+		color: ${(props) => props.theme.colors.ligth};
+		font-weight: 500;
+	}
+`;
+
 export const Buttons = ({ back, next, end, finish }) => {
 	if (!end) {
 		return (
 			<ButtonBox>
-				<Button onClick={back}>Back</Button>
-				<Button onClick={next}>Next</Button>
+				<BackwardIcon onClick={back} />
+				<ForwardIcon onClick={next} />
 			</ButtonBox>
 		);
 	} else {

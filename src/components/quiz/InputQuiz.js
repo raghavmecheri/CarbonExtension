@@ -3,19 +3,15 @@ import styled from 'styled-components';
 
 const QuestionsOptionsWrapper = styled.div`
 	font-size: 30px;
-	padding: 1em 1em;
-	&:hover {
-		cursor: pointer;
-		background: black;
-		color: white;
-	}
 `;
 
-export const QuestionsOptions = ({ options, handleOption }) => {
+export const InputQuiz = ({ questionData, handleOption }) => {
+	const { options, type } = questionData;
 	return options.map((option, key) => {
+		console.log(type);
 		return (
 			<QuestionsOptionsWrapper key={key} onClick={() => handleOption(option)}>
-				{option}
+				<input type='text' id='lastName' name='lastName'></input>
 			</QuestionsOptionsWrapper>
 		);
 	});

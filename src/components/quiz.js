@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { ArrowBack } from '@styled-icons/boxicons-regular';
 
 import bg_error from '../assets/bg_error.jpeg';
-import { Question } from './quiz/QuestionsQuiz';
+import { QuestionQuiz } from './quiz/QuestionQuiz';
 import { Buttons } from './quiz/ButtonsQuiz';
 import { OrganizationQuizData } from '../data/organization-quiz-data';
 import { PersonQuizData } from '../data/person-quiz-data';
@@ -89,7 +89,7 @@ const ErrorPage = () => (
 export const Quiz = () => {
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
-	const [responses, setSelectedResponse] = useState([]);
+	const [responses, setSelectedResponse] = useState({});
 
 	let { type } = useParams();
 	let data;
@@ -105,29 +105,21 @@ export const Quiz = () => {
 	console.log(data);
 
 	const handleOption = (selectedResponse) => {
-		setSelectedResponse([...responses, selectedResponse]);
+		setSelectedResponse({ ...responses, questionIndex: selectedResponse });
 	};
 
-	// const next = () => {
-	// 	if (questionIndex === QuizDefinition.length - 2) {
-	// 		let newIndex = questionIndex + 1;
-	// 		setQuestionIndex(newIndex);
-	// 		setEndQuestion(true);
-	// 	} else if (questionIndex < QuizDefinition.length - 1) {
-	// 		let newIndex = questionIndex + 1;
-	// 		setQuestionIndex(newIndex);
-	// 	}
-	// };
+	console.log(responses);
 
 	const back = () => {
 		if (questionIndex > 0) {
 			let updateIndexQuestion = questionIndex - 1;
 			setQuestionIndex(updateIndexQuestion);
+			setEndQuestion(false);
 		}
 	};
 
 	const next = () => {
-		if (questionIndex === data.length - 2) {
+		if (questionIndex > data.length - 3) {
 			let newIndex = questionIndex + 1;
 			setQuestionIndex(newIndex);
 			setEndQuestion(true);
@@ -141,15 +133,13 @@ export const Quiz = () => {
 		console.log('finish');
 	};
 
-	console.log(questionIndex);
-
 	return (
 		<QuizWrapper questionData={data[questionIndex]}>
 			<Link to='/carbon'>
 				<ArrowIcon size='48' />
 			</Link>
 			<Box>
-				<Question
+				<QuestionQuiz
 					questionData={data[questionIndex]}
 					handleOption={handleOption}
 				/>
