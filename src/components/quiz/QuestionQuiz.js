@@ -17,13 +17,11 @@ const Description = styled.div`
 	font-weight: 300;
 `;
 
-const InputBox = styled.div`
-	width: 42em;
-`;
+const InputBox = styled.div``;
 
 const ColumnQuizWrapper = styled.div`
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
 `;
 
@@ -31,12 +29,13 @@ const InputQuizWrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 10px;
 `;
 
 const AddButton = styled(AddBox)`
 	width: 40px;
 	margin: 20px;
-	color: black;
+	color: white;
 	&:hover {
 		cursor: pointer;
 		color: green;
@@ -47,9 +46,20 @@ export const QuestionQuiz = ({ questionData, handleOption }) => {
 	const { title, description } = questionData;
 	const [inputAdd, setInputAdd] = useState({ input: ['input-0'] });
 
+	let newInput = 0;
+
 	const handleAddField = () => {
-		console.log('add');
+		newInput++;
+		setInputAdd({
+			...inputAdd,
+			input: [...inputAdd.input, `input-${newInput}`],
+		});
 	};
+
+	const clearAddField = () => {
+		console.log('cleeeeeaaaaar');
+	};
+
 	return (
 		<QuestionsWrapper>
 			<Tittle>{title}</Tittle>
@@ -58,15 +68,16 @@ export const QuestionQuiz = ({ questionData, handleOption }) => {
 				<ColumnQuizWrapper>
 					<ColumnQuiz questionData={questionData} />
 				</ColumnQuizWrapper>
-				<InputQuizWrapper>
-					{inputAdd.input.map((input) => (
+				{inputAdd.input.map((input, key) => (
+					<InputQuizWrapper clearAddField={clearAddField}>
 						<InputQuiz
-							key={input}
+							key={key}
 							questionData={questionData}
 							handleOption={handleOption}
 						/>
-					))}
-				</InputQuizWrapper>
+					</InputQuizWrapper>
+				))}
+
 				<AddButton onClick={handleAddField} />
 			</InputBox>
 		</QuestionsWrapper>

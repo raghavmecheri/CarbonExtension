@@ -47,7 +47,7 @@ const ArrowIcon = styled(ArrowBack)`
 `;
 
 const Box = styled.div`
-	background: #ffffff73;
+	background: #656464ad;
 	padding: 7px 35px;
 `;
 
@@ -102,13 +102,9 @@ export const Quiz = () => {
 		return <ErrorPage />;
 	}
 
-	console.log(data);
-
 	const handleOption = (selectedResponse) => {
 		setSelectedResponse({ ...responses, questionIndex: selectedResponse });
 	};
-
-	console.log(responses);
 
 	const back = () => {
 		if (questionIndex > 0) {
@@ -141,7 +137,7 @@ export const Quiz = () => {
 			<Box>
 				<QuestionQuiz
 					questionData={data[questionIndex]}
-					handleOption={handleOption}
+					handleOption={() => handleOption()}
 				/>
 				<Buttons back={back} next={next} finish={finish} end={endQuestion} />
 			</Box>

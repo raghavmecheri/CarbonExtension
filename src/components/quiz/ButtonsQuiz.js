@@ -15,12 +15,13 @@ const ButtonBox = styled.div`
 `;
 
 const Button = styled.button`
-	background: whites;
+	background: transparent;
 	backdrop-filter: blur(2px);
 	padding: 8px;
-	color: ${(props) => props.theme.colors.dark};
+	/* color: ${(props) => props.theme.colors.dark}; */
+	color: lightgreen;
 	font-size: 20px;
-	border: 2px solid dark;
+	border: 2px solid lightgreen;
 	border-radius: 0.12em;
 	font-weight: 500;
 	text-transform: uppercase;
@@ -67,8 +68,8 @@ export const Buttons = ({ back, next, end, finish }) => {
 	} else {
 		return (
 			<ButtonBox>
-				<Button onClick={back}>Back</Button>
-				<Button onClick={finish}>Finish</Button>
+				<BackwardIcon onClick={back} />
+				<Button onClick={finish}>Calculate</Button>
 			</ButtonBox>
 		);
 	}
