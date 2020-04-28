@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const QuestionsOptionsWrapper = styled.div`
@@ -15,6 +15,7 @@ const Input = styled.input`
 	padding: 0;
 	margin: 0;
 	font-size: medium;
+	text-align: center;
 	&:focus {
 		background: #00000080;
 	}
@@ -23,10 +24,13 @@ const Input = styled.input`
 const Selector = styled.select`
 	font-size: medium;
 	width: 17em;
+	text-align-last: center;
+	text-align: center;
 `;
 
-export const InputQuiz = ({ questionData, handleOption }) => {
-	const { options, type } = questionData;
+export const InputQuiz = ({ questionData, handleInput, name }) => {
+	const { options, type, gdp } = questionData;
+
 	return options.map((option, key) => {
 		if (key === 1) {
 			return (
@@ -36,14 +40,24 @@ export const InputQuiz = ({ questionData, handleOption }) => {
 					})}
 				</Selector>
 			);
+		} else if (key === 2 && gdp) {
+			return (
+				<Selector>
+					{gdp.map((item, i) => {
+						return <option key={i}>{item}</option>;
+					})}
+				</Selector>
+			);
 		}
+
 		return (
 			<QuestionsOptionsWrapper>
 				<Input
 					type='text'
 					id={key}
 					name={option}
-					placeholder='put something'></Input>
+					onChange={handleInput}
+					placeholder='Put Something'></Input>
 			</QuestionsOptionsWrapper>
 		);
 	});

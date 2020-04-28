@@ -42,23 +42,38 @@ const AddButton = styled(AddBox)`
 	}
 `;
 
-export const QuestionQuiz = ({ questionData, handleOption }) => {
+export const QuestionQuiz = ({ questionData }) => {
 	const { title, description } = questionData;
-	const [inputAdd, setInputAdd] = useState({ input: ['input-0'] });
-
-	let newInput = 0;
+	const [inputAdd, setInputAdd] = useState({ input: ['input'] });
+	const [value, setValue] = useState({});
 
 	const handleAddField = () => {
-		newInput++;
 		setInputAdd({
 			...inputAdd,
-			input: [...inputAdd.input, `input-${newInput}`],
+			input: [...inputAdd.input, `input`],
 		});
 	};
+
+	const handleDeleteQuestion = () => {
+		if (inputAdd.input.length < 2) return;
+		inputAdd.input.pop();
+		setInputAdd({
+			...inputAdd,
+			input: [...inputAdd.input],
+		});
+	};
+
+	console.log(inputAdd);
 
 	const clearAddField = () => {
 		console.log('cleeeeeaaaaar');
 	};
+
+	const handleInput = (e) => {
+		setValue({ [e.target.name]: e.target.value });
+	};
+
+	console.log(value);
 
 	return (
 		<QuestionsWrapper>
@@ -73,11 +88,12 @@ export const QuestionQuiz = ({ questionData, handleOption }) => {
 						<InputQuiz
 							key={key}
 							questionData={questionData}
-							handleOption={handleOption}
+							handleInput={handleInput}
+							value={value}
 						/>
 					</InputQuizWrapper>
 				))}
-
+				<button onClick={handleDeleteQuestion}>Delete last </button>
 				<AddButton onClick={handleAddField} />
 			</InputBox>
 		</QuestionsWrapper>

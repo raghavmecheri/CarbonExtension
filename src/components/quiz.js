@@ -103,7 +103,7 @@ export const Quiz = () => {
 	}
 
 	const handleOption = (selectedResponse) => {
-		setSelectedResponse({ ...responses, questionIndex: selectedResponse });
+		setSelectedResponse({ ...responses, [questionIndex]: selectedResponse });
 	};
 
 	const back = () => {

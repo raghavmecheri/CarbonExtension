@@ -216,6 +216,7 @@ export const OrganizationQuizData = [
 			'WATIUM, S.L.',
 			'WIND TO MARKET, S.A.',
 		],
+		gdp: ['Si', 'No'],
 		quantity: [],
 		image: bgO4,
 	},

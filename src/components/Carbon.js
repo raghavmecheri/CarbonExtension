@@ -31,6 +31,10 @@ const ButtonBox = styled.div`
 	align-items: center;
 	justify-content: space-evenly;
 	width: inherit;
+	Link {
+		text-decoration: none;
+	}
+
 	@media only screen and (max-width: 850px) {
 		display: grid;
 		align-items: center;
@@ -60,6 +64,27 @@ const Button = styled.button`
 		margin: 0.8em;
 	}
 `;
+
+// const Button = styled.div`
+// 	width: 10em;
+// 	height: 10em;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	border: 2px solid black;
+// 	font-weight: 600;
+// 	font-size: 25px;
+// 	backdrop-filter: blur(2px);
+// 	color: white;
+// 	text-decoration: underline;
+// 	&:hover {
+// 		cursor: pointer;
+// 	}
+// 	@media only screen and (max-width: 850px) {
+// 		width: 10em;
+// 		margin: 0.8em;
+// 	}
+// `;
 
 const ArrowIcon = styled(ArrowBack)`
 	position: absolute;
