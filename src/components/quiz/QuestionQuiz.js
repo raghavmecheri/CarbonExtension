@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { AddBox } from '@styled-icons/material';
 
 import { ColumnQuiz } from './ColumnQuiz';
-import { InputQuiz } from './InputQuiz';
+import { InputRow } from './InputQuiz';
 
 const QuestionsWrapper = styled.div``;
 
@@ -43,35 +43,34 @@ const AddButton = styled(AddBox)`
 `;
 
 export const QuestionQuiz = ({
-	questionData,
-	handleAddField,
+	handleAddRow,
 	handleDeleteQuestion,
-	inputAdd,
+	rowsHeaders = ['Edificio', 'energyType', 'quantity'],
+	rowsValues,
 	handleInput,
 	value,
 }) => {
-	const { title, description } = questionData;
-
+	const { title, description, rowStructure } = rowsValues;
 	return (
 		<QuestionsWrapper>
-			<Tittle>{title}</Tittle>
-			<Description>{description}</Description>
+			<Tittle>{rowsValues.title}</Tittle>
+			<Description>{rowsValues.description}</Description>
 			<InputBox>
 				<ColumnQuizWrapper>
-					<ColumnQuiz questionData={questionData} />
+					<ColumnQuiz rowsHeaders={rowsHeaders} />
 				</ColumnQuizWrapper>
-				{inputAdd.input.map((input, key) => (
+				{rowStructure.map((row, key) => (
 					<InputQuizWrapper>
-						<InputQuiz
-							keyRow={key}
-							questionData={questionData}
+						<InputRow
+							rowIndex={key}
+							rowData={row}
 							handleInput={handleInput}
 							value={value}
 						/>
 					</InputQuizWrapper>
 				))}
 				<button onClick={handleDeleteQuestion}>Delete last </button>
-				<AddButton onClick={handleAddField} />
+				<AddButton onClick={handleAddRow} />
 			</InputBox>
 		</QuestionsWrapper>
 	);

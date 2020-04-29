@@ -3,13 +3,13 @@ import bgO2 from '../assets/bg_orga_2.jpeg';
 import bgO3 from '../assets/bg_orga_3.jpeg';
 import bgO4 from '../assets/bg_orga_4.jpeg';
 
-export const OrganizationQuizData = [
-	{
-		ref: '1',
+export const OrganizationQuizData = {
+	0: {
 		title: 'Combustible Desplazamiento',
 		description: 'How much travel do you do?',
-		options: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
-		type: [
+		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
+		rowStructure: [{ title: '', energyType: '', quantity: '' }],
+		dropdownTypes: [
 			'Gasolina',
 			'Gasoleo A o B',
 			'E10',
@@ -25,15 +25,14 @@ export const OrganizationQuizData = [
 			'LPG',
 			'H2',
 		],
-		quantity: [],
 		image: bgO1,
 	},
-	{
-		ref: '2',
+	1: {
 		title: 'Combustible Instalaciones Fijas',
 		description: 'How much travel do you do?',
-		options: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
-		type: [
+		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
+		rowStructure: [{ title: '', energyType: '', quantity: '' }],
+		dropdownTypes: [
 			'Gas Natural',
 			'Gasoleo C',
 			'Gas Butano',
@@ -44,20 +43,19 @@ export const OrganizationQuizData = [
 			'Carbon de importacion',
 			'Coque de petroleo',
 		],
-		quantity: [],
 		image: bgO2,
 	},
-	{
-		ref: '3',
+	2: {
 		title: 'Refrigeracion y Climatizacion',
 		description: 'Fugas de gases fluorados',
-		options: [
+		rowStructure: [{ title: '', title: '', energyType: '', quantity: '' }],
+		rowTitles: [
 			'Edificio/Sede',
 			'Nombre del Gas',
 			'Tipo de Equipo',
 			'Emisiones Parciales',
 		],
-		type: [
+		dropdownTypes: [
 			'HFC-23',
 			'HFC-32',
 			'HFC-41',
@@ -78,20 +76,19 @@ export const OrganizationQuizData = [
 			'HFC-365mfc',
 			'HFC-43-10mee',
 		],
-		quantity: [],
 		image: bgO3,
 	},
-	{
-		ref: '4',
+	3: {
 		title: 'Electricity',
 		description: 'Fugas de gases fluorados',
-		options: [
+		rowStructure: [{ title: '', title: '', energyType: '', quantity: '' }],
+		rowTitles: [
 			'Edificio',
 			'Nombre de la Comercializadora Suministradora de Energia',
 			'GdO',
 			'Datos de Consumo',
 		],
-		type: [
+		dropdownTypes: [
 			'A-DOS ENERGíA, S.L.',
 			'ACCIONA GREEN ENERGY DEVELOPMENTS, S.L.',
 			'ACCIÓN ENERGÍA COMERCIALIZADORA, S.L.',
@@ -217,7 +214,6 @@ export const OrganizationQuizData = [
 			'WIND TO MARKET, S.A.',
 		],
 		gdp: ['Si', 'No'],
-		quantity: [],
 		image: bgO4,
 	},
-];
+};

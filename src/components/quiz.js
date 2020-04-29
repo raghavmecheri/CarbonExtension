@@ -86,11 +86,17 @@ const ErrorPage = () => (
 	</ErrorContainer>
 );
 
+const pantalla = [
+	{ title: 'Edificio', energyType: 'Gasolina', quantity: '100' },
+	{ title: 'Edificio2', energyType: 'Gasolina2', quantity: '200' },
+];
+
+const rowsType = [{ title: '', energyType: '', quantity: '' }];
+
 export const Quiz = () => {
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
-	const [inputAdd, setInputAdd] = useState({ input: ['input'] });
-	const [value, setValue] = useState({});
+	const [formState, setFormState] = useState(OrganizationQuizData);
 
 	let { type } = useParams();
 	let data;
@@ -103,9 +109,6 @@ export const Quiz = () => {
 		return <ErrorPage />;
 	}
 
-	const questionData = data[questionIndex];
-	const { title } = questionData;
-
 	const back = () => {
 		if (questionIndex > 0) {
 			let updateIndexQuestion = questionIndex - 1;
@@ -115,52 +118,61 @@ export const Quiz = () => {
 	};
 
 	const next = () => {
-		if (questionIndex > data.length - 3) {
+		if (questionIndex > Object.keys(formState).length - 3) {
 			let newIndex = questionIndex + 1;
 			setQuestionIndex(newIndex);
 			setEndQuestion(true);
-		} else if (questionIndex < data.length - 1) {
+		} else if (questionIndex < Object.keys(formState).length - 1) {
 			let updateIndexQuestion = questionIndex + 1;
 			setQuestionIndex(updateIndexQuestion);
 		}
 	};
 
-	const handleAddField = () => {
-		setInputAdd({
-			...inputAdd,
-			input: [...inputAdd.input, `input`],
+	const updateInputValueForm = ({ columName, rowIndex, value }) => {
+		const screenRows = formState[questionIndex].rowStructure;
+		console.log(screenRows[rowIndex]);
+		screenRows[rowIndex][columName] = value;
+		console.log({ screenRows });
+		setFormState({
+			...formState,
+			[questionIndex]: {
+				...formState[questionIndex],
+				rowStructure: screenRows,
+			},
+		});
+	};
+
+	const handleAddRow = () => {
+		const newScreenState = {
+			...formState[questionIndex],
+			rowStructure: [
+				...formState[questionIndex].rowStructure,
+				{ ...rowsType[0] },
+			],
+		};
+		setFormState({
+			...formState,
+			[questionIndex]: newScreenState,
 		});
 	};
 
 	const handleDeleteQuestion = () => {
-		if (inputAdd.input.length < 2) return;
-		inputAdd.input.pop();
-		setInputAdd({
-			...inputAdd,
-			input: [...inputAdd.input],
-		});
+		// if (screenState.length < 2) return;
+		// screenState.pop();
+		// setScreenState([...screenState]);
 	};
 
-	const handleInput = (e) => {
+	const saveInput = () => {};
+
+	const handleInput = (e, rowIndex, columName) => {
 		e.preventDefault();
-		const { name, id } = e.target;
-		setValue({
-			...value,
-			[title]: {
-				...value[title],
-				[id]: {
-					...value[title[id]],
-					[name]: e.target.value,
-				},
-			},
-		});
+		const { id, value } = e.target;
+		updateInputValueForm({ value, rowIndex, columName });
 	};
 
 	const finish = () => {
 		console.log('finish');
 	};
-
-	console.log(value);
 
 	return (
 		<QuizWrapper questionData={data[questionIndex]}>
@@ -169,12 +181,10 @@ export const Quiz = () => {
 			</Link>
 			<Box>
 				<QuestionQuiz
-					questionData={data[questionIndex]}
 					handleDeleteQuestion={handleDeleteQuestion}
-					handleAddField={handleAddField}
-					inputAdd={inputAdd}
+					handleAddRow={handleAddRow}
+					rowsValues={formState[questionIndex]}
 					handleInput={handleInput}
-					value={value}
 				/>
 				<Buttons back={back} next={next} finish={finish} end={endQuestion} />
 			</Box>

@@ -28,6 +28,30 @@ const Selector = styled.select`
 	text-align: center;
 `;
 
+export const InputRow = ({ rowData, handleInput, rowIndex }) => {
+	const { title, energyType, quantity, gdp } = rowData;
+
+	return (
+		<div>
+			<Input
+				type='text'
+				id={0}
+				onChange={(e) => handleInput(e, rowIndex, 'title')}
+				value={title}
+				placeholder='Put Something'
+			/>
+			<Selector>{energyType}</Selector>
+			<Input
+				type='text'
+				id={2}
+				value={quantity}
+				onChange={(e) => handleInput(e, rowIndex, 'quantity')}
+				placeholder='Put Something'
+			/>
+		</div>
+	);
+};
+
 export const InputQuiz = ({ questionData, handleInput, keyRow }) => {
 	const { options, type, gdp } = questionData;
 
@@ -57,7 +81,8 @@ export const InputQuiz = ({ questionData, handleInput, keyRow }) => {
 					id={keyRow}
 					name={option}
 					onChange={handleInput}
-					placeholder='Put Something'></Input>
+					placeholder='Put Something'
+				/>
 			</QuestionsOptionsWrapper>
 		);
 	});

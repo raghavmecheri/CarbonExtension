@@ -7,11 +7,9 @@ const QuestionsOptionsWrapper = styled.div`
 	width: 9em;
 `;
 
-export const ColumnQuiz = ({ questionData }) => {
-	const { options } = questionData;
-	return options.map((option, key) => {
+export const ColumnQuiz = ({ rowsHeaders }) =>
+	rowsHeaders.map((header, key) => {
 		return (
-			<QuestionsOptionsWrapper key={key}>{option}</QuestionsOptionsWrapper>
+			<QuestionsOptionsWrapper key={key}>{header}</QuestionsOptionsWrapper>
 		);
 	});
-};
