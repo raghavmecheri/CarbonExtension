@@ -89,7 +89,8 @@ const ErrorPage = () => (
 export const Quiz = () => {
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
-	const [responses, setSelectedResponse] = useState({});
+	const [inputAdd, setInputAdd] = useState({ input: ['input'] });
+	const [value, setValue] = useState({});
 
 	let { type } = useParams();
 	let data;
@@ -102,9 +103,8 @@ export const Quiz = () => {
 		return <ErrorPage />;
 	}
 
-	const handleOption = (selectedResponse) => {
-		setSelectedResponse({ ...responses, [questionIndex]: selectedResponse });
-	};
+	const questionData = data[questionIndex];
+	const { title } = questionData;
 
 	const back = () => {
 		if (questionIndex > 0) {
@@ -125,9 +125,42 @@ export const Quiz = () => {
 		}
 	};
 
+	const handleAddField = () => {
+		setInputAdd({
+			...inputAdd,
+			input: [...inputAdd.input, `input`],
+		});
+	};
+
+	const handleDeleteQuestion = () => {
+		if (inputAdd.input.length < 2) return;
+		inputAdd.input.pop();
+		setInputAdd({
+			...inputAdd,
+			input: [...inputAdd.input],
+		});
+	};
+
+	const handleInput = (e) => {
+		e.preventDefault();
+		const { name, id } = e.target;
+		setValue({
+			...value,
+			[title]: {
+				...value[title],
+				[id]: {
+					...value[title[id]],
+					[name]: e.target.value,
+				},
+			},
+		});
+	};
+
 	const finish = () => {
 		console.log('finish');
 	};
+
+	console.log(value);
 
 	return (
 		<QuizWrapper questionData={data[questionIndex]}>
@@ -137,7 +170,11 @@ export const Quiz = () => {
 			<Box>
 				<QuestionQuiz
 					questionData={data[questionIndex]}
-					handleOption={() => handleOption()}
+					handleDeleteQuestion={handleDeleteQuestion}
+					handleAddField={handleAddField}
+					inputAdd={inputAdd}
+					handleInput={handleInput}
+					value={value}
 				/>
 				<Buttons back={back} next={next} finish={finish} end={endQuestion} />
 			</Box>

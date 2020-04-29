@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { AddBox } from '@styled-icons/material';
 
@@ -42,36 +42,15 @@ const AddButton = styled(AddBox)`
 	}
 `;
 
-export const QuestionQuiz = ({ questionData }) => {
+export const QuestionQuiz = ({
+	questionData,
+	handleAddField,
+	handleDeleteQuestion,
+	inputAdd,
+	handleInput,
+	value,
+}) => {
 	const { title, description } = questionData;
-	const [inputAdd, setInputAdd] = useState({ input: ['input'] });
-	const [value, setValue] = useState({});
-
-	const handleAddField = () => {
-		setInputAdd({
-			...inputAdd,
-			input: [...inputAdd.input, `input`],
-		});
-	};
-
-	const handleDeleteQuestion = () => {
-		if (inputAdd.input.length < 2) return;
-		inputAdd.input.pop();
-		setInputAdd({
-			...inputAdd,
-			input: [...inputAdd.input],
-		});
-	};
-
-	const handleInput = (e) => {
-		const { name, id } = e.target;
-		setValue({
-			...value,
-			[e.target.id]: { ...value[id], [e.target.name]: e.target.value },
-		});
-	};
-
-	console.log(value);
 
 	return (
 		<QuestionsWrapper>
