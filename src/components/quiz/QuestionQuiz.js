@@ -63,14 +63,12 @@ export const QuestionQuiz = ({ questionData }) => {
 		});
 	};
 
-	console.log(inputAdd);
-
-	const clearAddField = () => {
-		console.log('cleeeeeaaaaar');
-	};
-
 	const handleInput = (e) => {
-		setValue({ [e.target.name]: e.target.value });
+		const { name, id } = e.target;
+		setValue({
+			...value,
+			[e.target.id]: { ...value[id], [e.target.name]: e.target.value },
+		});
 	};
 
 	console.log(value);
@@ -84,9 +82,9 @@ export const QuestionQuiz = ({ questionData }) => {
 					<ColumnQuiz questionData={questionData} />
 				</ColumnQuizWrapper>
 				{inputAdd.input.map((input, key) => (
-					<InputQuizWrapper clearAddField={clearAddField}>
+					<InputQuizWrapper>
 						<InputQuiz
-							key={key}
+							keyRow={key}
 							questionData={questionData}
 							handleInput={handleInput}
 							value={value}

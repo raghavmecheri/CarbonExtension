@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const QuestionsOptionsWrapper = styled.div`
@@ -28,7 +28,7 @@ const Selector = styled.select`
 	text-align: center;
 `;
 
-export const InputQuiz = ({ questionData, handleInput, name }) => {
+export const InputQuiz = ({ questionData, handleInput, keyRow }) => {
 	const { options, type, gdp } = questionData;
 
 	return options.map((option, key) => {
@@ -54,7 +54,7 @@ export const InputQuiz = ({ questionData, handleInput, name }) => {
 			<QuestionsOptionsWrapper>
 				<Input
 					type='text'
-					id={key}
+					id={keyRow}
 					name={option}
 					onChange={handleInput}
 					placeholder='Put Something'></Input>
