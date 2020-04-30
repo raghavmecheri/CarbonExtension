@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { AddBox } from '@styled-icons/material';
 
-import { ColumnQuiz } from './ColumnQuiz';
-import { InputRow } from './InputQuiz';
+import { RowTitles } from './RowTitles';
+import { InputRow } from './InputRow';
 
 const QuestionsWrapper = styled.div``;
 
@@ -17,15 +17,15 @@ const Description = styled.div`
 	font-weight: 300;
 `;
 
-const InputBox = styled.div``;
+const RowInputBox = styled.div``;
 
-const ColumnQuizWrapper = styled.div`
+const RowTitlesWrapper = styled.div`
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
 `;
 
-const InputQuizWrapper = styled.div`
+const InputRowWrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -45,33 +45,40 @@ const AddButton = styled(AddBox)`
 export const QuestionQuiz = ({
 	handleAddRow,
 	handleDeleteQuestion,
-	rowsHeaders = ['Edificio', 'energyType', 'quantity'],
 	rowsValues,
 	handleInput,
 	value,
 }) => {
-	const { title, description, rowStructure } = rowsValues;
+	const {
+		title,
+		description,
+		rowTitles,
+		rowStructure,
+		dropdownTypes,
+	} = rowsValues;
+
 	return (
 		<QuestionsWrapper>
-			<Tittle>{rowsValues.title}</Tittle>
-			<Description>{rowsValues.description}</Description>
-			<InputBox>
-				<ColumnQuizWrapper>
-					<ColumnQuiz rowsHeaders={rowsHeaders} />
-				</ColumnQuizWrapper>
+			<Tittle>{title}</Tittle>
+			<Description>{description}</Description>
+			<RowInputBox>
+				<RowTitlesWrapper>
+					<RowTitles rowTitles={rowTitles} />
+				</RowTitlesWrapper>
 				{rowStructure.map((row, key) => (
-					<InputQuizWrapper>
+					<InputRowWrapper>
 						<InputRow
 							rowIndex={key}
 							rowData={row}
 							handleInput={handleInput}
 							value={value}
+							dropdownTypes={dropdownTypes}
 						/>
-					</InputQuizWrapper>
+					</InputRowWrapper>
 				))}
 				<button onClick={handleDeleteQuestion}>Delete last </button>
 				<AddButton onClick={handleAddRow} />
-			</InputBox>
+			</RowInputBox>
 		</QuestionsWrapper>
 	);
 };

@@ -48,7 +48,7 @@ export const OrganizationQuizData = {
 	2: {
 		title: 'Refrigeracion y Climatizacion',
 		description: 'Fugas de gases fluorados',
-		rowStructure: [{ title: '', title: '', energyType: '', quantity: '' }],
+		rowStructure: [{ title: '', title2: '', energyType: '', quantity: '' }],
 		rowTitles: [
 			'Edificio/Sede',
 			'Nombre del Gas',
@@ -81,7 +81,7 @@ export const OrganizationQuizData = {
 	3: {
 		title: 'Electricity',
 		description: 'Fugas de gases fluorados',
-		rowStructure: [{ title: '', title: '', energyType: '', quantity: '' }],
+		rowStructure: [{ title: '', title2: '', energyType: '', quantity: '' }],
 		rowTitles: [
 			'Edificio',
 			'Nombre de la Comercializadora Suministradora de Energia',

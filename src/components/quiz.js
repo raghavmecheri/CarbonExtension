@@ -11,8 +11,8 @@ import { PersonQuizData } from '../data/person-quiz-data';
 
 const QuizWrapper = styled.div`
 	background-image: ${(props) =>
-		props.questionData
-			? `url(${props.questionData.image})`
+		props.formStateBackground
+			? `url(${props.formStateBackground.image})`
 			: `url(${bg_error})`};
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -86,11 +86,6 @@ const ErrorPage = () => (
 	</ErrorContainer>
 );
 
-const pantalla = [
-	{ title: 'Edificio', energyType: 'Gasolina', quantity: '100' },
-	{ title: 'Edificio2', energyType: 'Gasolina2', quantity: '200' },
-];
-
 const rowsType = [{ title: '', energyType: '', quantity: '' }];
 
 export const Quiz = () => {
@@ -98,16 +93,7 @@ export const Quiz = () => {
 	const [endQuestion, setEndQuestion] = useState(false);
 	const [formState, setFormState] = useState(OrganizationQuizData);
 
-	let { type } = useParams();
-	let data;
-
-	if (type === 'person') {
-		data = PersonQuizData;
-	} else if (type === 'organization') {
-		data = OrganizationQuizData;
-	} else {
-		return <ErrorPage />;
-	}
+	// let { type } = useParams();
 
 	const back = () => {
 		if (questionIndex > 0) {
@@ -130,9 +116,7 @@ export const Quiz = () => {
 
 	const updateInputValueForm = ({ columName, rowIndex, value }) => {
 		const screenRows = formState[questionIndex].rowStructure;
-		console.log(screenRows[rowIndex]);
 		screenRows[rowIndex][columName] = value;
-		console.log({ screenRows });
 		setFormState({
 			...formState,
 			[questionIndex]: {
@@ -150,6 +134,7 @@ export const Quiz = () => {
 				{ ...rowsType[0] },
 			],
 		};
+		console.log(newScreenState.rowStructure);
 		setFormState({
 			...formState,
 			[questionIndex]: newScreenState,
@@ -157,16 +142,19 @@ export const Quiz = () => {
 	};
 
 	const handleDeleteQuestion = () => {
-		// if (screenState.length < 2) return;
-		// screenState.pop();
-		// setScreenState([...screenState]);
+		const newScreenState = {
+			...formState[questionIndex],
+		};
+		newScreenState.rowStructure.pop();
+		setFormState({
+			...formState,
+			[questionIndex]: newScreenState,
+		});
 	};
-
-	const saveInput = () => {};
 
 	const handleInput = (e, rowIndex, columName) => {
 		e.preventDefault();
-		const { id, value } = e.target;
+		const { value } = e.target;
 		updateInputValueForm({ value, rowIndex, columName });
 	};
 
@@ -174,8 +162,10 @@ export const Quiz = () => {
 		console.log('finish');
 	};
 
+	console.log(formState);
+
 	return (
-		<QuizWrapper questionData={data[questionIndex]}>
+		<QuizWrapper formStateBackground={formState[questionIndex]}>
 			<Link to='/carbon'>
 				<ArrowIcon size='48' />
 			</Link>
