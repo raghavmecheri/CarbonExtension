@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { ArrowForwardOutline } from '@styled-icons/evaicons-outline';
 import { ArrowBackOutline } from '@styled-icons/evaicons-outline';
 
@@ -69,7 +70,9 @@ export const Buttons = ({ back, next, end, finish }) => {
 		return (
 			<ButtonBox>
 				<BackwardIcon onClick={back} />
-				<Button onClick={finish}>Calculate</Button>
+				<Link to='/result'>
+					<Button onClick={finish}>Calculate</Button>
+				</Link>
 			</ButtonBox>
 		);
 	}

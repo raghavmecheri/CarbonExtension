@@ -8,6 +8,7 @@ export const OrganizationQuizData = {
 		title: 'Combustible Desplazamiento',
 		description: 'How much travel do you do?',
 		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
+		rowsType: [{ title: '', energyType: '', quantity: '' }],
 		rowStructure: [{ title: '', energyType: '', quantity: '' }],
 		dropdownTypes: [
 			'Gasolina',
@@ -31,6 +32,7 @@ export const OrganizationQuizData = {
 		title: 'Combustible Instalaciones Fijas',
 		description: 'How much travel do you do?',
 		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
+		rowsType: [{ title: '', energyType: '', quantity: '' }],
 		rowStructure: [{ title: '', energyType: '', quantity: '' }],
 		dropdownTypes: [
 			'Gas Natural',
@@ -49,6 +51,7 @@ export const OrganizationQuizData = {
 		title: 'Refrigeracion y Climatizacion',
 		description: 'Fugas de gases fluorados',
 		rowStructure: [{ title: '', title2: '', energyType: '', quantity: '' }],
+		rowsType: [{ title: '', energyType: '', quantity: '' }],
 		rowTitles: [
 			'Edificio/Sede',
 			'Nombre del Gas',
@@ -82,6 +85,7 @@ export const OrganizationQuizData = {
 		title: 'Electricity',
 		description: 'Fugas de gases fluorados',
 		rowStructure: [{ title: '', title2: '', energyType: '', quantity: '' }],
+		rowsType: [{ title: '', title2: '', energyType: '', quantity: '' }],
 		rowTitles: [
 			'Edificio',
 			'Nombre de la Comercializadora Suministradora de Energia',

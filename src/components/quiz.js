@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer, reducer, initialState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { ArrowBack } from '@styled-icons/boxicons-regular';
@@ -86,14 +86,10 @@ const ErrorPage = () => (
 	</ErrorContainer>
 );
 
-const rowsType = [{ title: '', energyType: '', quantity: '' }];
-
-export const Quiz = () => {
+const Quiz = ({ stateScreen, setStateScreen }) => {
+	const [formState, setFormState] = useState(OrganizationQuizData);
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
-	const [formState, setFormState] = useState(OrganizationQuizData);
-
-	// let { type } = useParams();
 
 	const back = () => {
 		if (questionIndex > 0) {
@@ -110,7 +106,9 @@ export const Quiz = () => {
 			setEndQuestion(true);
 		} else if (questionIndex < Object.keys(formState).length - 1) {
 			let updateIndexQuestion = questionIndex + 1;
+			console.log(updateIndexQuestion);
 			setQuestionIndex(updateIndexQuestion);
+			console.log(questionIndex);
 		}
 	};
 
@@ -131,10 +129,9 @@ export const Quiz = () => {
 			...formState[questionIndex],
 			rowStructure: [
 				...formState[questionIndex].rowStructure,
-				{ ...rowsType[0] },
+				{ ...formState[questionIndex].rowsType[0] },
 			],
 		};
-		console.log(newScreenState.rowStructure);
 		setFormState({
 			...formState,
 			[questionIndex]: newScreenState,
@@ -159,10 +156,9 @@ export const Quiz = () => {
 	};
 
 	const finish = () => {
-		console.log('finish');
+		console.log('finsish');
+		setStateScreen({ ...stateScreen, formState });
 	};
-
-	console.log(formState);
 
 	return (
 		<QuizWrapper formStateBackground={formState[questionIndex]}>
@@ -181,3 +177,5 @@ export const Quiz = () => {
 		</QuizWrapper>
 	);
 };
+
+export { Quiz };
