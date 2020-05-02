@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import bg from '../assets/bg1.jpeg';
-import bgSmall from '../assets/bg3.jpg';
 import { Link } from 'react-router-dom';
+
+import bg from '../assets/bg_main.jpeg';
+import bgSmall from '../assets/bg_main_small.jpg';
 
 const HomeWrapper = styled.div`
 	background-image: url(${bg});
@@ -20,7 +21,7 @@ const HomeWrapper = styled.div`
 	h1 {
 		background: #ffffff6b;
 		text-transform: uppercase;
-		font-family: ${props => props.theme.fonts.tittle}, serif;
+		font-family: ${(props) => props.theme.fonts.tittle}, serif;
 		font-weight: 700;
 		font-size: 40px;
 		@media (max-width: 1000px) {
@@ -50,7 +51,7 @@ const Button = styled.button`
 	background: transparent;
 	backdrop-filter: blur(2px);
 	padding: 8px;
-	color: ${props => props.theme.colors.ligth};
+	color: ${(props) => props.theme.colors.ligth};
 	font-size: 20px;
 	border: 2px solid white;
 	border-radius: 0.12em;
@@ -58,8 +59,8 @@ const Button = styled.button`
 	text-transform: uppercase;
 	&:hover {
 		cursor: pointer;
-		color: ${props => props.theme.colors.dark};
-		background: ${props => props.theme.colors.ligth};
+		color: ${(props) => props.theme.colors.dark};
+		background: ${(props) => props.theme.colors.ligth};
 		font-weight: 500;
 	}
 	@media only screen and (max-width: 850px) {
