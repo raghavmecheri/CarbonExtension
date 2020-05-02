@@ -11,6 +11,7 @@ export const OrganizationQuizData = {
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
 		rowStructure: [{ title: '', energyType: '', quantity: '' }],
 		dropdownTypes: [
+			'--',
 			'Gasolina',
 			'Gasoleo A o B',
 			'E10',

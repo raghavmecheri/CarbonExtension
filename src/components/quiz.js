@@ -106,9 +106,8 @@ const Quiz = ({ stateScreen, setStateScreen }) => {
 			setEndQuestion(true);
 		} else if (questionIndex < Object.keys(formState).length - 1) {
 			let updateIndexQuestion = questionIndex + 1;
-			console.log(updateIndexQuestion);
+
 			setQuestionIndex(updateIndexQuestion);
-			console.log(questionIndex);
 		}
 	};
 
