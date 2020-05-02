@@ -36,6 +36,7 @@ export const OrganizationQuizData = {
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
 		rowStructure: [{ title: '', energyType: '', quantity: '' }],
 		dropdownTypes: [
+			'--',
 			'Gas Natural',
 			'Gasoleo C',
 			'Gas Butano',
@@ -60,6 +61,7 @@ export const OrganizationQuizData = {
 			'Emisiones Parciales',
 		],
 		dropdownTypes: [
+			'--',
 			'HFC-23',
 			'HFC-32',
 			'HFC-41',
@@ -94,6 +96,7 @@ export const OrganizationQuizData = {
 			'Datos de Consumo',
 		],
 		dropdownTypes: [
+			'--',
 			'A-DOS ENERGíA, S.L.',
 			'ACCIONA GREEN ENERGY DEVELOPMENTS, S.L.',
 			'ACCIÓN ENERGÍA COMERCIALIZADORA, S.L.',
