@@ -1,7 +1,6 @@
 import React, { useReducer } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { fakeData } from '../data/fakeData';
 import { fuelData } from '../data/fuelData';
 
 const ResultWrapper = styled.div`
