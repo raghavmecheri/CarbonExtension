@@ -86,7 +86,7 @@ const ErrorPage = () => (
 	</ErrorContainer>
 );
 
-const Quiz = ({ stateScreen, setStateScreen }) => {
+export const Quiz = ({ stateScreen, setStateScreen }) => {
 	const [formState, setFormState] = useState(OrganizationQuizData);
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
@@ -176,5 +176,3 @@ const Quiz = ({ stateScreen, setStateScreen }) => {
 		</QuizWrapper>
 	);
 };
-
-export { Quiz };
