@@ -5,6 +5,7 @@ import Theme from '../style/Theme';
 
 import { Home } from '../components/Home';
 import { Carbon } from '../components/Carbon';
+import { Hidric } from '../components/Hidric';
 import { Quiz } from '../components/Quiz';
 import { Result } from '../components/Result';
 
@@ -22,6 +23,7 @@ function App() {
 				<AppContainer>
 					<Route exact path='/' component={Home} />
 					<Route path='/carbon' component={Carbon} />
+					<Route path='/hidric' component={Hidric} />
 					<Route
 						path='/quiz/:type'
 						component={() => (
