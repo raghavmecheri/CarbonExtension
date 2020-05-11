@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import Theme from '../style/Theme';
 
 import { Home } from '../components/Home';
-import { Carbon } from '../components/Carbon';
-import { Quiz } from '../components/Quiz';
+import { Quiz } from '../components/quiz';
 import { Result } from '../components/Result';
 
 const AppContainer = styled.div`
@@ -21,7 +20,6 @@ function App() {
 			<Theme>
 				<AppContainer>
 					<Route exact path='/' component={Home} />
-					<Route path='/carbon' component={Carbon} />
 					<Route
 						path='/quiz/:type'
 						component={() => (

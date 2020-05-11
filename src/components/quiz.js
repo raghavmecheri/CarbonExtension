@@ -1,28 +1,29 @@
 import React, { useState, useReducer, reducer, initialState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { ArrowBack } from '@styled-icons/boxicons-regular';
+import logo from '../assets/logo.png';
 
 import bg_error from '../assets/bg_error.jpeg';
-import { QuestionQuiz } from './quiz/QuestionQuiz';
-import { Buttons } from './quiz/ButtonsQuiz';
+import { QuestionQuiz } from './quizComponents/QuestionQuiz';
+import { Buttons } from './quizComponents/ButtonsQuiz';
 import { OrganizationQuizData } from '../data/organization-quiz-data';
 import { PersonQuizData } from '../data/person-quiz-data';
 
 const QuizWrapper = styled.div`
-	background-image: ${(props) =>
+	/* background-image: ${(props) =>
 		props.formStateBackground
 			? `url(${props.formStateBackground.image})`
 			: `url(${bg_error})`};
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-color: #000000;
+	background-color: #000000; */
 	height: 100vh;
 	width: 100vw;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: relative;
 	@media (max-width: 650px) {
 		display: flex;
 		justify-content: center;
@@ -31,24 +32,17 @@ const QuizWrapper = styled.div`
 	}
 `;
 
-const ArrowIcon = styled(ArrowBack)`
+const LogoStyle = styled.img`
 	position: absolute;
-	background-color: transparent;
-	border: 1px solid red;
-	color: white;
-	text-decoration: none;
-	left: 0;
-	top: 0;
-	font-size: 16px;
-	&:hover {
-		cursor: pointer;
-	}
-	color: red;
+	top: -2em;
+	left: 0.5em;
+	width: 12em;
 `;
 
 const Box = styled.div`
-	background: #656464ad;
-	padding: 7px 35px;
+	/* background: #656464ad; */
+	/* padding: 7px 35px; */
+	color: black;
 `;
 
 const ErrorContainer = styled.div`
@@ -86,7 +80,7 @@ const ErrorPage = () => (
 	</ErrorContainer>
 );
 
-const Quiz = ({ stateScreen, setStateScreen }) => {
+export const Quiz = ({ stateScreen, setStateScreen }) => {
 	const [formState, setFormState] = useState(OrganizationQuizData);
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
@@ -161,20 +155,23 @@ const Quiz = ({ stateScreen, setStateScreen }) => {
 
 	return (
 		<QuizWrapper formStateBackground={formState[questionIndex]}>
-			<Link to='/carbon'>
-				<ArrowIcon size='48' />
+			<Link to='/'>
+				<LogoStyle src={logo} alt='logo'></LogoStyle>
 			</Link>
 			<Box>
 				<QuestionQuiz
-					handleDeleteQuestion={handleDeleteQuestion}
-					handleAddRow={handleAddRow}
 					rowsValues={formState[questionIndex]}
 					handleInput={handleInput}
 				/>
-				<Buttons back={back} next={next} finish={finish} end={endQuestion} />
+				<Buttons
+					back={back}
+					next={next}
+					finish={finish}
+					end={endQuestion}
+					handleDeleteQuestion={handleDeleteQuestion}
+					handleAddRow={handleAddRow}
+				/>
 			</Box>
 		</QuizWrapper>
 	);
 };
-
-export { Quiz };

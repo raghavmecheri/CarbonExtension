@@ -6,9 +6,10 @@ const QuestionsOptionsWrapper = styled.div`
 `;
 
 const Input = styled.input`
-	background: #ffffff6b;
+	background: #90ee9052;
 	border: none;
 	border-bottom: 2px solid lightgreen;
+	border-radius: 0 0.5em;
 	height: 3em;
 	width: 17em;
 	color: white;

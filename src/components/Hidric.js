@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowBackOutline } from '@styled-icons/typicons';
 import { Person } from '@styled-icons/evaicons-solid';
 import { Factory } from '@styled-icons/boxicons-solid';
-import CarImg from '../assets/carbon_img.png';
+import AquamanImg from '../assets/aquaman.png';
 
 const CarbonWrapper = styled.div`
 	color: black;
@@ -20,8 +20,8 @@ const ArrowIcon = styled(ArrowBackOutline)`
 	border: 2px solid #a67171;
 	border-radius: 50%;
 	padding-bottom: 5px;
-	left: 0;
-	top: -2em;
+	left: -1em;
+	top: 0em;
 	font-size: 16px;
 	color: #a67171;
 	&:hover {
@@ -36,9 +36,9 @@ const TitleWrapper = styled.div`
 	position: relative;
 `;
 
-const TitleCarbon = styled.div`
+const TitleHidric = styled.div`
 	text-transform: uppercase;
-	color: black;
+	color: cornflowerblue;
 	font-family: ${(props) => props.theme.fonts.tittle}, serif;
 	font-weight: 700;
 	text-align: center;
@@ -48,7 +48,8 @@ const TitleCarbon = styled.div`
 		padding: 0px 0.45em;
 	}
 `;
-const SubtitleCarbon = styled.div`
+
+const SubtitleHidric = styled.div`
 	text-transform: uppercase;
 	color: black;
 	font-family: ${(props) => props.theme.fonts.tittle}, serif;
@@ -60,13 +61,15 @@ const SubtitleCarbon = styled.div`
 	}
 `;
 
-const BodyCarbon = styled.div`
+const TitleIcon = styled.img``;
+
+const BodyHidric = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
 `;
 
-const TextCarbon = styled.div`
+const TextHidric = styled.div`
 	padding: 10px;
 	text-transform: none;
 	text-align: center;
@@ -79,8 +82,6 @@ const TextCarbon = styled.div`
 		padding: 0px 0.45em;
 	}
 `;
-
-const TitleIcon = styled.img``;
 
 const ButtonBox = styled.div`
 	display: flex;
@@ -104,8 +105,8 @@ const Button = styled.button`
 	border-radius: 0.12em;
 	font-weight: 800;
 	text-transform: uppercase;
-	color: cornflowerblue;
-	border: 2px solid cornflowerblue;
+	color: black;
+	border: 2px solid black;
 	&:hover {
 		cursor: pointer;
 		color: ${(props) => props.theme.colors.ligth};
@@ -130,29 +131,29 @@ const FactoryIcon = styled(Factory)`
 	color: black;
 `;
 
-const CarbonImage = styled.img`
-	width: 20em;
+const HidricImage = styled.img`
+	width: 15em;
 `;
 
-export const Carbon = ({ handleReturn }) => {
+export const Hidric = ({ handleReturn }) => {
 	return (
 		<CarbonWrapper>
 			<TitleWrapper>
 				<ArrowIcon size='48' onClick={handleReturn} />
-				<TitleCarbon>Carbon Footprint</TitleCarbon>
-				<SubtitleCarbon>Calculate your carbon footprint!</SubtitleCarbon>
-				<TitleIcon />
-				<BodyCarbon>
-					<CarbonImage src={CarImg} alt='image-carbon' />
-					<TextCarbon>
+				<TitleHidric>Water Footprint</TitleHidric>
+				<SubtitleHidric>Calculate your water footprint!</SubtitleHidric>
+				<TitleIcon></TitleIcon>
+				<BodyHidric>
+					<HidricImage src={AquamanImg} alt='image-carbon' />
+					<TextHidric>
 						With this calculator you can see
 						<br /> whats impact do you or your company <br /> have in the world.
 						<br />
 						<br />
-						Choose what type of carbon footprint
+						Choose what type of water footprint
 						<br /> do you want to calcualte?
-					</TextCarbon>
-				</BodyCarbon>
+					</TextHidric>
+				</BodyHidric>
 			</TitleWrapper>
 			<ButtonBox>
 				<Link to='/quiz/person'>

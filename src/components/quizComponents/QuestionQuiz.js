@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { AddBox } from '@styled-icons/material';
 
 import { RowTitles } from './RowTitles';
 import { InputRow } from './InputRow';
@@ -10,6 +9,7 @@ const QuestionsWrapper = styled.div``;
 const Tittle = styled.div`
 	font-size: 60px;
 	font-weight: 600;
+	padding-bottom: 0em;
 `;
 
 const Description = styled.div`
@@ -32,23 +32,7 @@ const InputRowWrapper = styled.div`
 	padding: 10px;
 `;
 
-const AddButton = styled(AddBox)`
-	width: 40px;
-	margin: 20px;
-	color: white;
-	&:hover {
-		cursor: pointer;
-		color: green;
-	}
-`;
-
-export const QuestionQuiz = ({
-	handleAddRow,
-	handleDeleteQuestion,
-	rowsValues,
-	handleInput,
-	value,
-}) => {
+export const QuestionQuiz = ({ rowsValues, handleInput, value }) => {
 	const {
 		title,
 		description,
@@ -76,8 +60,6 @@ export const QuestionQuiz = ({
 						/>
 					</InputRowWrapper>
 				))}
-				<button onClick={handleDeleteQuestion}>Delete last </button>
-				<AddButton onClick={handleAddRow} />
 			</RowInputBox>
 		</QuestionsWrapper>
 	);
