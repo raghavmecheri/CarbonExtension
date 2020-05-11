@@ -1,31 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import bg from '../assets/bg_main.jpeg';
-import bgSmall from '../assets/bg_main_small.jpg';
 import bgPng from '../assets/bg_home.png';
 
 import { HomeNavBar } from './HomeNavBar';
 import { BackgroundAnimation } from './BackgroundAnimation';
+import { Carbon } from './Carbon';
+import { Hidric } from './Hidric';
 
 const HomeWrapper = styled.div`
-	/* background-image: url(${bg});
-	background-size: cover;
-	background-color: #000000; */
-	
 	height: 100vh;
 	width: 100vw;
 	color: black;
-	margin-left: 20vw;
+	margin-left: 15vw;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	@media (max-width: 650px) {
 		color: black;
-		background-image: url(${bgSmall});
 	}
-
 `;
 
 const HomeNavBarWrapper = styled.div`
@@ -46,7 +40,7 @@ const BackgroundAnimationWrapper = styled.div`
 	z-index: -99999999;
 `;
 
-const HomeContent = styled.div``;
+const HomeBox = styled.div``;
 
 const TitleHome = styled.div`
 	text-transform: uppercase;
@@ -111,19 +105,20 @@ const Button = styled.button`
 	background: transparent;
 	backdrop-filter: blur(2px);
 	padding: 8px;
-	color: ${(props) =>
-		props.black ? 'black' : props.blue ? 'cornflowerblue' : '#a67171'};
 	font-size: 25px;
 	border: 2px solid;
-	border-color: ${(props) =>
-		props.black ? 'black' : props.blue ? 'cornflowerblue' : '#a67171'};
 	border-radius: 0.12em;
 	font-weight: 500;
 	text-transform: uppercase;
+	transition: background-color 1s ease;
+	color: ${(props) =>
+		props.black ? 'black' : props.blue ? 'cornflowerblue' : '#a67171'};
+	border-color: ${(props) =>
+		props.black ? 'black' : props.blue ? 'cornflowerblue' : '#a67171'};
 	&:hover {
 		cursor: pointer;
 		color: ${(props) => props.theme.colors.ligth};
-		background: #38a66d;
+		background-color: #38a66dab;
 		font-weight: 500;
 	}
 	@media only screen and (max-width: 850px) {
@@ -133,31 +128,76 @@ const Button = styled.button`
 `;
 
 export const Home = () => {
+	const [homeContent, setHomeContent] = useState(0);
+
+	const handleClick = (e) => {
+		console.log(e.target.id);
+		if (e.target.id === 'Carbon') {
+			setHomeContent(1);
+		} else if (e.target.id === 'Hidric') {
+			setHomeContent(2);
+		}
+		if (e.target.id === 'Ecological') {
+			setHomeContent(3);
+		}
+	};
+
+	const handleReturn = () => {
+		setHomeContent(0);
+	};
+
+	const HomeContent = () => {
+		if (homeContent === 0) {
+			return <Intro />;
+		} else if (homeContent === 1) {
+			return <Carbon handleReturn={handleReturn} />;
+		} else if (homeContent === 2) {
+			return <Hidric handleReturn={handleReturn} />;
+		} else if (homeContent === 3) {
+			return <Hidric handleReturn={handleReturn} />;
+		}
+	};
+
+	const Intro = () => {
+		return (
+			<>
+				<TitleHome>Calculate Your Footprint</TitleHome>
+				<TextHome>Are you being all the green that you can be?</TextHome>
+				<ButtonBox>
+					<Button black id='Carbon' onClick={handleClick}>
+						Carbon
+					</Button>
+					<Button blue id='Hidric' onClick={handleClick}>
+						Hidric
+					</Button>
+					<Button id='Ecological' onClick={handleClick}>
+						Ecological
+					</Button>
+				</ButtonBox>
+			</>
+		);
+	};
+
+	const Background = () => {
+		return (
+			<>
+				<BackgroundImage src={bgPng} alt='HomeBackground' />
+				<BackgroundColorImage />
+				<BackgroundAnimationWrapper>
+					<BackgroundAnimation />
+				</BackgroundAnimationWrapper>
+			</>
+		);
+	};
 	return (
 		<HomeWrapper>
 			<HomeNavBarWrapper>
 				<HomeNavBar />
 			</HomeNavBarWrapper>
-			<HomeContent>
-				<TitleHome>Ambiental Footprint</TitleHome>
-				<TextHome>Are you being all the green that you can be?</TextHome>
-				<ButtonBox>
-					<Link to='Carbon'>
-						<Button black>Carbon</Button>
-					</Link>
-					<Link to='Hidric'>
-						<Button blue>Hidric</Button>
-					</Link>
-					<Link to='Ecological'>
-						<Button>Ecological</Button>
-					</Link>
-				</ButtonBox>
-			</HomeContent>
-			<BackgroundImage src={bgPng} alt='HomeBackground' />
-			<BackgroundColorImage />
-			<BackgroundAnimationWrapper>
-				<BackgroundAnimation />
-			</BackgroundAnimationWrapper>
+			<HomeBox>
+				<HomeContent />
+			</HomeBox>
+			<Background />
 		</HomeWrapper>
 	);
 };

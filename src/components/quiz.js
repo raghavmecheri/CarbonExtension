@@ -161,7 +161,7 @@ export const Quiz = ({ stateScreen, setStateScreen }) => {
 
 	return (
 		<QuizWrapper formStateBackground={formState[questionIndex]}>
-			<Link to='/carbon'>
+			<Link to='/'>
 				<ArrowIcon size='48' />
 			</Link>
 			<Box>

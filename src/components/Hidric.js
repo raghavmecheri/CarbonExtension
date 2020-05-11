@@ -1,40 +1,73 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { ArrowBack } from '@styled-icons/boxicons-regular';
-
-import bgCarbon from '../assets/bg_carbon.jpg';
-import bgSmall from '../assets/bg_carbon_small.jpeg';
+import { ArrowBackOutline } from '@styled-icons/typicons';
+import { Person } from '@styled-icons/evaicons-solid';
+import { Factory } from '@styled-icons/boxicons-solid';
 
 const CarbonWrapper = styled.div`
-	background-image: url(${bgCarbon});
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-color: #000000;
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	color: black;
+	margin-right: 2vw;
 	@media (max-width: 650px) {
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		color: black;
-		background-image: url(${bgSmall});
+	}
+`;
+
+const ArrowIcon = styled(ArrowBackOutline)`
+	position: absolute;
+	background-color: transparent;
+	border: 2px solid #a67171;
+	border-radius: 50%;
+	padding-bottom: 5px;
+	left: -5em;
+	top: -2em;
+	font-size: 16px;
+	color: #a67171;
+	&:hover {
+		cursor: pointer;
+		background-color: #38a66dab;
+		color: white;
+		border-color: white;
+	}
+`;
+
+const TitleWrapper = styled.div`
+	position: relative;
+`;
+
+const TextHidric = styled.div`
+	padding: 10px;
+	text-transform: uppercase;
+	text-align: center;
+	color: #38a66d;
+	font-family: ${(props) => props.theme.fonts.tittle}, serif;
+	font-weight: 700;
+	font-size: 20px;
+	@media (max-width: 1000px) {
+		display: flex;
+		padding: 0px 0.45em;
+	}
+`;
+
+const TitleHidric = styled.div`
+	text-transform: uppercase;
+	color: cornflowerblue;
+	font-family: ${(props) => props.theme.fonts.tittle}, serif;
+	font-weight: 700;
+	text-align: center;
+	font-size: 50px;
+	@media (max-width: 1000px) {
+		display: flex;
+		padding: 0px 0.45em;
 	}
 `;
 
 const ButtonBox = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
-	width: inherit;
-	Link {
-		text-decoration: none;
-	}
-
+	justify-content: space-between;
+	margin: auto;
+	margin-top: 2em;
 	@media only screen and (max-width: 850px) {
 		display: grid;
 		align-items: center;
@@ -47,16 +80,16 @@ const Button = styled.button`
 	background: transparent;
 	backdrop-filter: blur(2px);
 	padding: 8px;
-	color: ${(props) => props.theme.colors.dark};
-	font-size: 20px;
-	border: 2px solid ${(props) => props.theme.colors.dark};
+	font-size: 25px;
 	border-radius: 0.12em;
 	font-weight: 800;
 	text-transform: uppercase;
+	color: black;
+	border: 2px solid black;
 	&:hover {
 		cursor: pointer;
 		color: ${(props) => props.theme.colors.ligth};
-		background: ${(props) => props.theme.colors.dark};
+		background-color: #38a66dab;
 		font-weight: 500;
 	}
 	@media only screen and (max-width: 850px) {
@@ -65,54 +98,43 @@ const Button = styled.button`
 	}
 `;
 
-// const Button = styled.div`
-// 	width: 10em;
-// 	height: 10em;
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: center;
-// 	border: 2px solid black;
-// 	font-weight: 600;
-// 	font-size: 25px;
-// 	backdrop-filter: blur(2px);
-// 	color: white;
-// 	text-decoration: underline;
-// 	&:hover {
-// 		cursor: pointer;
-// 	}
-// 	@media only screen and (max-width: 850px) {
-// 		width: 10em;
-// 		margin: 0.8em;
-// 	}
-// `;
-
-const ArrowIcon = styled(ArrowBack)`
-	position: absolute;
+const PersonIcon = styled(Person)`
 	background-color: transparent;
-	border: 1px solid red;
-	color: white;
-	text-decoration: none;
-	left: 0;
-	top: 0;
 	font-size: 16px;
-	&:hover {
-		cursor: pointer;
-	}
-	color: red;
+	color: black;
 `;
 
-export const Hidric = () => {
+const FactoryIcon = styled(Factory)`
+	background-color: transparent;
+	font-size: 16px;
+	color: black;
+`;
+
+const TitleIcon = styled.img``;
+
+export const Hidric = ({ handleReturn }) => {
 	return (
 		<CarbonWrapper>
-			<Link to=''>
-				<ArrowIcon size='48' />
-			</Link>
+			<TitleWrapper>
+				<ArrowIcon size='48' onClick={handleReturn} />
+				<TitleHidric>Hidric Footprint</TitleHidric>
+				<TitleIcon></TitleIcon>
+				<TextHidric>This is the hidric footprint calculator.</TextHidric>
+				<TextHidric>
+					Choose what type of hidric footprint
+					<br /> do you want to calcualte?
+				</TextHidric>
+			</TitleWrapper>
 			<ButtonBox>
 				<Link to='/quiz/person'>
-					<Button>Person</Button>
+					<Button>
+						<PersonIcon size='30' /> Person
+					</Button>
 				</Link>
 				<Link to='/quiz/organization'>
-					<Button>Organization</Button>
+					<Button>
+						<FactoryIcon size='30' /> Organization
+					</Button>
 				</Link>
 			</ButtonBox>
 		</CarbonWrapper>
