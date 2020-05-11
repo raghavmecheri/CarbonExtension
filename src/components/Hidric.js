@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowBackOutline } from '@styled-icons/typicons';
 import { Person } from '@styled-icons/evaicons-solid';
 import { Factory } from '@styled-icons/boxicons-solid';
+import AquamanImg from '../assets/aquaman.png';
 
 const CarbonWrapper = styled.div`
 	color: black;
@@ -19,8 +20,8 @@ const ArrowIcon = styled(ArrowBackOutline)`
 	border: 2px solid #a67171;
 	border-radius: 50%;
 	padding-bottom: 5px;
-	left: -5em;
-	top: -2em;
+	left: -1em;
+	top: 0em;
 	font-size: 16px;
 	color: #a67171;
 	&:hover {
@@ -35,20 +36,6 @@ const TitleWrapper = styled.div`
 	position: relative;
 `;
 
-const TextHidric = styled.div`
-	padding: 10px;
-	text-transform: uppercase;
-	text-align: center;
-	color: #38a66d;
-	font-family: ${(props) => props.theme.fonts.tittle}, serif;
-	font-weight: 700;
-	font-size: 20px;
-	@media (max-width: 1000px) {
-		display: flex;
-		padding: 0px 0.45em;
-	}
-`;
-
 const TitleHidric = styled.div`
 	text-transform: uppercase;
 	color: cornflowerblue;
@@ -56,6 +43,40 @@ const TitleHidric = styled.div`
 	font-weight: 700;
 	text-align: center;
 	font-size: 50px;
+	@media (max-width: 1000px) {
+		display: flex;
+		padding: 0px 0.45em;
+	}
+`;
+
+const SubtitleHidric = styled.div`
+	text-transform: uppercase;
+	color: black;
+	font-family: ${(props) => props.theme.fonts.tittle}, serif;
+	text-align: center;
+	font-size: 25px;
+	@media (max-width: 1000px) {
+		display: flex;
+		padding: 0px 0.45em;
+	}
+`;
+
+const TitleIcon = styled.img``;
+
+const BodyHidric = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
+const TextHidric = styled.div`
+	padding: 10px;
+	text-transform: none;
+	text-align: center;
+	color: #38a66d;
+	font-family: ${(props) => props.theme.fonts.tittle}, serif;
+	font-weight: 700;
+	font-size: 20px;
 	@media (max-width: 1000px) {
 		display: flex;
 		padding: 0px 0.45em;
@@ -110,20 +131,29 @@ const FactoryIcon = styled(Factory)`
 	color: black;
 `;
 
-const TitleIcon = styled.img``;
+const HidricImage = styled.img`
+	width: 15em;
+`;
 
 export const Hidric = ({ handleReturn }) => {
 	return (
 		<CarbonWrapper>
 			<TitleWrapper>
 				<ArrowIcon size='48' onClick={handleReturn} />
-				<TitleHidric>Hidric Footprint</TitleHidric>
+				<TitleHidric>Water Footprint</TitleHidric>
+				<SubtitleHidric>Calculate your water footprint!</SubtitleHidric>
 				<TitleIcon></TitleIcon>
-				<TextHidric>This is the hidric footprint calculator.</TextHidric>
-				<TextHidric>
-					Choose what type of hidric footprint
-					<br /> do you want to calcualte?
-				</TextHidric>
+				<BodyHidric>
+					<HidricImage src={AquamanImg} alt='image-carbon' />
+					<TextHidric>
+						With this calculator you can see
+						<br /> whats impact do you or your company <br /> have in the world.
+						<br />
+						<br />
+						Choose what type of water footprint
+						<br /> do you want to calcualte?
+					</TextHidric>
+				</BodyHidric>
 			</TitleWrapper>
 			<ButtonBox>
 				<Link to='/quiz/person'>

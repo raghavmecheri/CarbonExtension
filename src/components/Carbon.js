@@ -143,17 +143,14 @@ export const Carbon = ({ handleReturn }) => {
 				<TitleIcon />
 				<BodyCarbon>
 					<CarbonImage src={CarImg} alt='image-carbon' />
-					<div>
-						<TextCarbon>
-							With this calculator you can see
-							<br /> whats impact do you or your company <br /> has in the
-							world.
-							<br />
-							<br />
-							Choose what type of carbon footprint
-							<br /> do you want to calcualte?
-						</TextCarbon>
-					</div>
+					<TextCarbon>
+						With this calculator you can see
+						<br /> whats impact do you or your company <br /> have in the world.
+						<br />
+						<br />
+						Choose what type of carbon footprint
+						<br /> do you want to calcualte?
+					</TextCarbon>
 				</BodyCarbon>
 			</TitleWrapper>
 			<ButtonBox>
