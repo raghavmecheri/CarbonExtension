@@ -17,13 +17,13 @@ const CarbonWrapper = styled.div`
 const ArrowIcon = styled(ArrowBackOutline)`
 	position: absolute;
 	background-color: transparent;
-	border: 2px solid #a67171;
+	border: 2px solid #d18226;
 	border-radius: 50%;
 	padding-bottom: 5px;
 	left: 0;
 	top: -2em;
 	font-size: 16px;
-	color: #a67171;
+	color: #d18226;
 	&:hover {
 		cursor: pointer;
 		background-color: #38a66dab;

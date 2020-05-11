@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-import bgPng from '../assets/bg_home.png';
+import bgTree from '../assets/bg_home.svg';
 
 import { HomeNavBar } from './HomeNavBar';
 import { BackgroundAnimation } from './BackgroundAnimation';
@@ -69,22 +68,12 @@ const TextHome = styled.div`
 	}
 `;
 
-const BackgroundImage = styled.img`
+const BackgroundTree = styled.img`
 	position: absolute;
-	bottom: -5em;
-	left: 0;
-	width: 30em;
+	bottom: 1em;
+	left: -1em;
+	width: 35em;
 	z-index: -9999;
-`;
-
-const BackgroundColorImage = styled.div`
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100vw;
-	height: 4.5em;
-	z-index: -999;
-	background-color: #38a66d;
 `;
 
 const ButtonBox = styled.div`
@@ -181,8 +170,7 @@ export const Home = () => {
 	const Background = () => {
 		return (
 			<>
-				<BackgroundImage src={bgPng} alt='HomeBackground' />
-				<BackgroundColorImage />
+				<BackgroundTree src={bgTree} alt='TreeBackground' />
 				<BackgroundAnimationWrapper>
 					<BackgroundAnimation />
 				</BackgroundAnimationWrapper>
