@@ -31,6 +31,7 @@ const ArrowIcon = styled(ArrowBackOutline)`
 		border-color: white;
 	}
 `;
+
 const TitleWrapper = styled.div`
 	position: relative;
 `;

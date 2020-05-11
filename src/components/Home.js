@@ -168,7 +168,7 @@ export const Home = () => {
 						Carbon
 					</Button>
 					<Button blue id='Hidric' onClick={handleClick}>
-						Hidric
+						Water
 					</Button>
 					<Button id='Ecological' onClick={handleClick}>
 						Ecological
