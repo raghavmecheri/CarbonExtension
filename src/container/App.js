@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Theme from '../style/Theme';
 
 import { Home } from '../components/Home';
-import { Quiz } from '../components/Quiz';
+import { Quiz } from '../components/quiz';
 import { Result } from '../components/Result';
 
 const AppContainer = styled.div`
