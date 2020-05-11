@@ -1,7 +1,7 @@
-import bgO1 from '../assets/bg_orga_1.jpeg';
-import bgO2 from '../assets/bg_orga_2.jpeg';
-import bgO3 from '../assets/bg_orga_3.jpeg';
-import bgO4 from '../assets/bg_orga_4.jpeg';
+// import bgO1 from '../assets/bg_orga_1.jpeg';
+// import bgO2 from '../assets/bg_orga_2.jpeg';
+// import bgO3 from '../assets/bg_orga_3.jpeg';
+// import bgO4 from '../assets/bg_orga_4.jpeg';
 
 export const OrganizationQuizData = {
 	0: {
@@ -27,7 +27,7 @@ export const OrganizationQuizData = {
 			'LPG',
 			'H2',
 		],
-		image: bgO1,
+		// image: bgO1,
 	},
 	1: {
 		title: 'Combustible Instalaciones Fijas',
@@ -47,7 +47,7 @@ export const OrganizationQuizData = {
 			'Carbon de importacion',
 			'Coque de petroleo',
 		],
-		image: bgO2,
+		// image: bgO2,
 	},
 	2: {
 		title: 'Refrigeracion y Climatizacion',
@@ -82,7 +82,7 @@ export const OrganizationQuizData = {
 			'HFC-365mfc',
 			'HFC-43-10mee',
 		],
-		image: bgO3,
+		// image: bgO3,
 	},
 	3: {
 		title: 'Electricity',
@@ -222,6 +222,6 @@ export const OrganizationQuizData = {
 			'WIND TO MARKET, S.A.',
 		],
 		gdp: ['Si', 'No'],
-		image: bgO4,
+		// image: bgO4,
 	},
 };

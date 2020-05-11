@@ -1,6 +1,6 @@
-import bgO1 from '../assets/bg_orga_1.jpeg';
-import bgO2 from '../assets/bg_orga_2.jpeg';
-import bgO3 from '../assets/bg_orga_3.jpeg';
+// import bgO1 from '../assets/bg_orga_1.jpeg';
+// import bgO2 from '../assets/bg_orga_2.jpeg';
+// import bgO3 from '../assets/bg_orga_3.jpeg';
 
 export const PersonQuizData = [
 	{
@@ -10,7 +10,7 @@ export const PersonQuizData = [
 		options: ['Never', 'Infrequently', 'Occasionally', 'Often', 'Very Often'],
 		type: [''],
 		quantity: [],
-		image: bgO1,
+		// image: bgO1,
 	},
 	{
 		ref: '2',
@@ -30,7 +30,7 @@ export const PersonQuizData = [
 			'Coque de petroleo',
 		],
 		quantity: [],
-		image: bgO2,
+		// image: bgO2,
 	},
 	{
 		ref: '3',
@@ -55,6 +55,6 @@ export const PersonQuizData = [
 			'HFC-236fa',
 		],
 		quantity: [],
-		image: bgO3,
+		// image: bgO3,
 	},
 ];

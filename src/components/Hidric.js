@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { ArrowBackOutline } from '@styled-icons/typicons';
 import { Person } from '@styled-icons/evaicons-solid';
 import { Factory } from '@styled-icons/boxicons-solid';
-import AquamanImg from '../assets/aquaman.png';
+import WaterImg from '../assets/water_img.png';
 
-const CarbonWrapper = styled.div`
+const HidricWrapper = styled.div`
 	color: black;
 	margin-right: 2vw;
 	@media (max-width: 650px) {
@@ -17,13 +17,13 @@ const CarbonWrapper = styled.div`
 const ArrowIcon = styled(ArrowBackOutline)`
 	position: absolute;
 	background-color: transparent;
-	border: 2px solid #a67171;
+	border: 2px solid #d18226;
 	border-radius: 50%;
 	padding-bottom: 5px;
 	left: -1em;
 	top: 0em;
 	font-size: 16px;
-	color: #a67171;
+	color: #d18226;
 	&:hover {
 		cursor: pointer;
 		background-color: #38a66dab;
@@ -132,19 +132,20 @@ const FactoryIcon = styled(Factory)`
 `;
 
 const HidricImage = styled.img`
-	width: 15em;
+	width: 20em;
+	padding: -10px;
 `;
 
 export const Hidric = ({ handleReturn }) => {
 	return (
-		<CarbonWrapper>
+		<HidricWrapper>
 			<TitleWrapper>
 				<ArrowIcon size='48' onClick={handleReturn} />
 				<TitleHidric>Water Footprint</TitleHidric>
 				<SubtitleHidric>Calculate your water footprint!</SubtitleHidric>
 				<TitleIcon></TitleIcon>
 				<BodyHidric>
-					<HidricImage src={AquamanImg} alt='image-carbon' />
+					<HidricImage src={WaterImg} alt='image-water' />
 					<TextHidric>
 						With this calculator you can see
 						<br /> whats impact do you or your company <br /> have in the world.
@@ -167,6 +168,6 @@ export const Hidric = ({ handleReturn }) => {
 					</Button>
 				</Link>
 			</ButtonBox>
-		</CarbonWrapper>
+		</HidricWrapper>
 	);
 };
