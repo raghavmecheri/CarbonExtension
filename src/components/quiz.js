@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import logo from '../assets/logo.png';
 
 import bg_error from '../assets/bg_error.jpeg';
-import { QuestionQuiz } from './quiz/QuestionQuiz';
-import { Buttons } from './quiz/ButtonsQuiz';
+import { QuestionQuiz } from './quizComponents/QuestionQuiz';
+import { Buttons } from './quizComponents/ButtonsQuiz';
 import { OrganizationQuizData } from '../data/organization-quiz-data';
 import { PersonQuizData } from '../data/person-quiz-data';
 
