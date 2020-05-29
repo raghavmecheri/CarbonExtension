@@ -16,8 +16,20 @@ const HomeWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	@media (max-width: 650px) {
-		color: black;
+	@media (max-width: 1198px) {
+		width: 500px;
+		margin-left: 46vw;
+	}
+	@media (max-width: 960px) {
+		width: 400px;
+		margin-left: 50vw;
+	}
+	@media (max-width: 800px) {
+		width: 100vw;
+		margin-left: 0;
+	}
+	@media (max-width: 300px) {
+		display: none;
 	}
 `;
 
@@ -48,10 +60,6 @@ const TitleHome = styled.div`
 	font-weight: 700;
 	text-align: center;
 	font-size: 50px;
-	@media (max-width: 1000px) {
-		display: flex;
-		padding: 0px 0.45em;
-	}
 `;
 
 const TextHome = styled.div`
@@ -62,10 +70,6 @@ const TextHome = styled.div`
 	font-family: ${(props) => props.theme.fonts.tittle}, serif;
 	font-weight: 700;
 	font-size: 20px;
-	@media (max-width: 1000px) {
-		display: flex;
-		padding: 0px 0.45em;
-	}
 `;
 
 const BackgroundTree = styled.img`
@@ -74,6 +78,15 @@ const BackgroundTree = styled.img`
 	left: -1em;
 	width: 35em;
 	z-index: -9999;
+	@media (max-width: 1200px) {
+		width: 30em;
+	}
+	@media (max-width: 800px) {
+		display: none;
+	}
+	@media (max-height: 600px) {
+		width: 25em;
+	}
 `;
 
 const ButtonBox = styled.div`
