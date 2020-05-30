@@ -33,7 +33,7 @@ const CarbonWrapper = styled.div`
 		padding-top: 13em;
 	}
 	@media (max-width: 330px) {
-		padding-top: 12em;
+		padding-top: 14em;
 	}
 `;
 
@@ -171,13 +171,17 @@ const Button = styled.button`
 		cursor: pointer;
 		color: ${(props) => props.theme.colors.ligth};
 		background-color: #38a66dab;
-		font-weight: 500;
 	}
 	@media only screen and (max-width: 1000px) {
 		margin: 0.5em;
 	}
 	@media only screen and (max-width: 850px) {
 		width: 10em;
+		margin: 0.8em;
+	}
+	@media only screen and (max-width: 450px) {
+		width: 12em;
+		font-size: 20px;
 		margin: 0.8em;
 	}
 `;
