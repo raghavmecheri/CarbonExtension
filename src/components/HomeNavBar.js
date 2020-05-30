@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../assets/logo.png';
+import { Menu } from '@styled-icons/heroicons-outline';
 import { Link } from 'react-router-dom';
 import './HomeNavBar.css';
 
-const CarbonWrapper = styled.div`
-	margin: 0 10em;
+const NavBarWrapper = styled.div`
+	padding: 0 10em;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -21,19 +22,45 @@ const CarbonWrapper = styled.div`
 		color: #000;
 		text-decoration: none;
 	}
+	@media (max-width: 450px) {
+		height: 3.2em;
+		border-bottom: 3px solid #38a66d;
+		background-color: black;
+		div {
+			display: none;
+		}
+	}
 `;
 
 const LogoStyle = styled.img`
 	position: absolute;
-	top: -3em;
+	top: 0;
 	left: 1em;
 	width: 9em;
+	@media (max-width: 450px) {
+		top: -0.9em;
+		left: 37%;
+		width: 5em;
+	}
+`;
+
+const MenuStyle = styled(Menu)`
+	display: none;
+	@media (max-width: 450px) {
+		display: block;
+		position: absolute;
+		top: 30%;
+		left: 4%;
+		font-size: 16px;
+		color: white;
+	}
 `;
 
 export const HomeNavBar = () => {
 	return (
-		<CarbonWrapper>
+		<NavBarWrapper>
 			<LogoStyle src={logo} alt='logo'></LogoStyle>
+			<MenuStyle size='40' />
 			<Link to='/'>
 				<div className='fill'>Home</div>
 			</Link>
@@ -50,6 +77,6 @@ export const HomeNavBar = () => {
 			<Link to='/'>
 				<div className='fill'>Contribute</div>
 			</Link>
-		</CarbonWrapper>
+		</NavBarWrapper>
 	);
 };

@@ -12,24 +12,24 @@ const HomeWrapper = styled.div`
 	height: 100vh;
 	width: 100vw;
 	color: black;
-	margin-left: 15vw;
+	padding-left: 32vw;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	@media (max-width: 1198px) {
-		width: 500px;
-		margin-left: 46vw;
+		width: 100vw;
+		padding-left: 35vw;
 	}
 	@media (max-width: 960px) {
-		width: 400px;
-		margin-left: 50vw;
+		width: 100vw;
+		padding-left: 50vw;
 	}
 	@media (max-width: 800px) {
 		width: 100vw;
-		margin-left: 0;
+		padding-left: 0;
 	}
-	@media (max-width: 300px) {
-		display: none;
+	@media (max-width: 450px) {
+		padding-top: 4em;
 	}
 `;
 
@@ -37,18 +37,33 @@ const HomeNavBarWrapper = styled.div`
 	position: absolute;
 	height: 2em;
 	width: 100vw;
-	top: 3em;
+	top: 0;
 	left: 0;
+	@media (max-width: 1198px) {
+		left: 20%;
+	}
+	@media (max-width: 960px) {
+		width: 400px;
+		padding-left: 50vw;
+	}
+	@media (max-width: 450px) {
+		width: 100vw;
+		padding-left: 0;
+		left: 0;
+	}
 `;
 
 const BackgroundAnimationWrapper = styled.div`
 	position: absolute;
-	height: 100vh;
+	height: 500px;
 	width: 100vw;
 	top: 5em;
 	left: 0;
-	margin-left: 16vw;
+	padding-left: 16vw;
 	z-index: -99999999;
+	@media (max-width: 450px) {
+		padding-left: 0;
+	}
 `;
 
 const HomeBox = styled.div``;
@@ -94,12 +109,12 @@ const ButtonBox = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	margin: auto;
-	margin-top: 2em;
+	padding-top: 2em;
 	@media only screen and (max-width: 850px) {
 		display: grid;
 		align-items: center;
 		justify-content: center;
-		margin-top: 0;
+		padding-top: 0;
 	}
 `;
 
