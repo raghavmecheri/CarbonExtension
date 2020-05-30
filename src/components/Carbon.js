@@ -24,6 +24,13 @@ const CarbonWrapper = styled.div`
 		color: black;
 		padding-top: 3em;
 	}
+	@media (max-width: 400px) {
+		color: black;
+		padding-top: 10em;
+	}
+	@media (max-width: 330px) {
+		padding-top: 11em;
+	}
 `;
 
 const ArrowIcon = styled(ArrowBackOutline)`
@@ -59,6 +66,10 @@ const ArrowIcon = styled(ArrowBackOutline)`
 	}
 	@media (max-width: 400px) {
 		left: 0.5em;
+		top: 0em;
+	}
+	@media (max-width: 330px) {
+		left: 0.2em;
 		top: 0em;
 	}
 `;
@@ -197,6 +208,7 @@ const CarbonImage = styled.img`
 	@media (max-width: 400px) {
 		display: block;
 		width: 12em;
+		padding-bottom: 1em;
 	}
 `;
 

@@ -48,6 +48,9 @@ const LogoStyle = styled.img`
 		left: 45%;
 		width: 5em;
 	}
+	@media (max-width: 330px) {
+		left: 35%;
+	}
 `;
 
 const MenuStyle = styled(Menu)`

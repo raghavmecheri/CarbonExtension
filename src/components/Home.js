@@ -33,6 +33,9 @@ const HomeWrapper = styled.div`
 	@media (max-width: 600px) {
 		padding: 0;
 	}
+	@media (max-width: 330px) {
+		padding-top: 6em;
+	}
 `;
 
 const HomeNavBarWrapper = styled.div`
