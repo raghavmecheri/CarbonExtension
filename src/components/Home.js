@@ -28,13 +28,10 @@ const HomeWrapper = styled.div`
 	}
 	@media (max-width: 800px) {
 		width: 100vw;
-		padding-left: 0;
+		padding: 0;
 	}
-	@media (max-width: 550px) {
-		padding-top: 4em;
-	}
-	@media (max-width: 350px) {
-		padding-top: 9em;
+	@media (max-width: 600px) {
+		padding: 0;
 	}
 `;
 
@@ -44,18 +41,6 @@ const HomeNavBarWrapper = styled.div`
 	width: 100vw;
 	top: 0;
 	left: 0;
-	@media (max-width: 1198px) {
-		left: 20%;
-	}
-	@media (max-width: 960px) {
-		width: 400px;
-		padding-left: 50vw;
-	}
-	@media (max-width: 550px) {
-		width: 100vw;
-		padding-left: 0;
-		left: 0;
-	}
 `;
 
 const BackgroundAnimationWrapper = styled.div`

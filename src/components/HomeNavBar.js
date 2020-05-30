@@ -23,7 +23,7 @@ const NavBarWrapper = styled.div`
 		color: #000;
 		text-decoration: none;
 	}
-	@media (max-width: 550px) {
+	@media (max-width: 700px) {
 		height: 3.2em;
 		border-bottom: 3px solid #38a66d;
 		background-color: black;
@@ -38,7 +38,7 @@ const LogoStyle = styled.img`
 	top: -1em;
 	left: 1em;
 	width: 9em;
-	@media (max-width: 550px) {
+	@media (max-width: 700px) {
 		top: -0.9em;
 		left: 37%;
 		width: 5em;
@@ -52,7 +52,7 @@ const LogoStyle = styled.img`
 
 const MenuStyle = styled(Menu)`
 	display: none;
-	@media (max-width: 550px) {
+	@media (max-width: 700px) {
 		display: block;
 		position: absolute;
 		top: 30%;
