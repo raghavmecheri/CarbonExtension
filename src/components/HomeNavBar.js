@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import './HomeNavBar.css';
 
 const NavBarWrapper = styled.div`
-	padding: 0 10em;
+	padding-top: 2em;
+	padding-left: 10em;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -22,7 +23,7 @@ const NavBarWrapper = styled.div`
 		color: #000;
 		text-decoration: none;
 	}
-	@media (max-width: 450px) {
+	@media (max-width: 550px) {
 		height: 3.2em;
 		border-bottom: 3px solid #38a66d;
 		background-color: black;
@@ -34,19 +35,24 @@ const NavBarWrapper = styled.div`
 
 const LogoStyle = styled.img`
 	position: absolute;
-	top: 0;
+	top: -1em;
 	left: 1em;
 	width: 9em;
-	@media (max-width: 450px) {
+	@media (max-width: 550px) {
 		top: -0.9em;
 		left: 37%;
+		width: 5em;
+	}
+	@media (max-width: 350px) {
+		top: -0.9em;
+		left: 45%;
 		width: 5em;
 	}
 `;
 
 const MenuStyle = styled(Menu)`
 	display: none;
-	@media (max-width: 450px) {
+	@media (max-width: 550px) {
 		display: block;
 		position: absolute;
 		top: 30%;

@@ -23,13 +23,18 @@ const HomeWrapper = styled.div`
 	@media (max-width: 960px) {
 		width: 100vw;
 		padding-left: 50vw;
+		padding-right: 5vw;
+		padding-top: 5em;
 	}
 	@media (max-width: 800px) {
 		width: 100vw;
 		padding-left: 0;
 	}
-	@media (max-width: 450px) {
+	@media (max-width: 550px) {
 		padding-top: 4em;
+	}
+	@media (max-width: 350px) {
+		padding-top: 9em;
 	}
 `;
 
@@ -46,7 +51,7 @@ const HomeNavBarWrapper = styled.div`
 		width: 400px;
 		padding-left: 50vw;
 	}
-	@media (max-width: 450px) {
+	@media (max-width: 550px) {
 		width: 100vw;
 		padding-left: 0;
 		left: 0;
@@ -61,7 +66,7 @@ const BackgroundAnimationWrapper = styled.div`
 	left: 0;
 	padding-left: 16vw;
 	z-index: -99999999;
-	@media (max-width: 450px) {
+	@media (max-width: 550px) {
 		padding-left: 0;
 	}
 `;
@@ -99,9 +104,6 @@ const BackgroundTree = styled.img`
 	@media (max-width: 800px) {
 		display: none;
 	}
-	@media (max-height: 600px) {
-		width: 25em;
-	}
 `;
 
 const ButtonBox = styled.div`
@@ -110,7 +112,10 @@ const ButtonBox = styled.div`
 	justify-content: space-between;
 	margin: auto;
 	padding-top: 2em;
-	@media only screen and (max-width: 850px) {
+	@media only screen and (max-width: 1180px) {
+		justify-content: space-around;
+	}
+	@media only screen and (max-width: 950px) {
 		display: grid;
 		align-items: center;
 		justify-content: center;
@@ -138,9 +143,9 @@ const Button = styled.button`
 		background-color: #38a66dab;
 		font-weight: 500;
 	}
-	@media only screen and (max-width: 850px) {
+	@media only screen and (max-width: 950px) {
 		width: 10em;
-		margin: 0.8em;
+		margin: 0.3em;
 	}
 `;
 
