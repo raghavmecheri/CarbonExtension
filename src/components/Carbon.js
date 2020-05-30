@@ -28,6 +28,10 @@ const CarbonWrapper = styled.div`
 		color: black;
 		padding-top: 11em;
 	}
+	@media (max-width: 400px) {
+		color: black;
+		padding-top: 13em;
+	}
 	@media (max-width: 330px) {
 		padding-top: 12em;
 	}
