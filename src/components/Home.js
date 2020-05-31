@@ -179,7 +179,7 @@ const HomeMenuBackground = styled.div`
 	bottom: 0;
 	left: 0;
 	width: 100vw;
-	height: 100vh;
+	height: 100%;
 	z-index: 999;
 	background-color: #0000006b;
 `;
@@ -189,7 +189,7 @@ const HomeMenuWraper = styled.div`
 	bottom: 0;
 	left: 0;
 	width: 70vw;
-	height: 100vh;
+	height: 100%;
 	z-index: 9999;
 	background-color: white;
 `;
