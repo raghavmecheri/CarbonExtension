@@ -171,8 +171,7 @@ const CrossStyle = styled(Cross)`
 const HomeCircleStyle = styled(HomeCircle)`
 	color: #38a66d;
 	position: absolute;
-	top: 0;
-	left: 2.9em;
+	left: 3.6em;
 `;
 
 const HomeMenuBackground = styled.div`
