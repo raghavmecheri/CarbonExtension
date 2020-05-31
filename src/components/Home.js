@@ -211,7 +211,7 @@ const MenuNavBar = styled.div`
 		width: fit-content;
 		justify-content: flex-start;
 		padding-top: 0.2em;
-		padding-left: 10%;
+		margin-left: 10%;
 		font-size: 36px;
 		border-bottom: 1px solid #38a66d;
 		&:hover {
