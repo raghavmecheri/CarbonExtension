@@ -9,8 +9,31 @@ import WaterImg from '../assets/water_img.png';
 const HidricWrapper = styled.div`
 	color: black;
 	margin-right: 2vw;
-	@media (max-width: 650px) {
+	@media (max-width: 1000px) {
 		color: black;
+		padding-top: 5em;
+	}
+	@media (max-width: 960px) {
+		padding-top: 0;
+	}
+	@media (max-width: 800px) {
+		color: black;
+		padding-top: 5em;
+	}
+	@media (max-width: 700px) {
+		color: black;
+		padding-top: 3em;
+	}
+	@media (max-width: 440px) {
+		color: black;
+		padding-top: 11em;
+	}
+	@media (max-width: 400px) {
+		color: black;
+		padding-top: 13em;
+	}
+	@media (max-width: 330px) {
+		padding-top: 14em;
 	}
 `;
 
@@ -30,6 +53,30 @@ const ArrowIcon = styled(ArrowBackOutline)`
 		color: white;
 		border-color: white;
 	}
+	@media (max-width: 1000px) {
+		left: 0;
+		top: 0;
+	}
+	@media (max-width: 800px) {
+		left: -1em;
+		top: -1em;
+	}
+	@media (max-width: 630px) {
+		left: 1em;
+		top: -1em;
+	}
+	@media (max-width: 500px) {
+		left: 1em;
+		top: 0em;
+	}
+	@media (max-width: 440px) {
+		left: 0.5em;
+		top: 0em;
+	}
+	@media (max-width: 330px) {
+		left: 0.2em;
+		top: 0em;
+	}
 `;
 
 const TitleWrapper = styled.div`
@@ -44,6 +91,7 @@ const TitleHidric = styled.div`
 	text-align: center;
 	font-size: 50px;
 	@media (max-width: 1000px) {
+		font-size: 45px;
 		display: flex;
 		padding: 0px 0.45em;
 	}
@@ -57,6 +105,9 @@ const SubtitleHidric = styled.div`
 	font-size: 25px;
 	@media (max-width: 1000px) {
 		display: flex;
+		text-align: center;
+		justify-content: center;
+		font-size: 20px;
 		padding: 0px 0.45em;
 	}
 `;
@@ -67,6 +118,10 @@ const BodyHidric = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	@media (max-width: 1000px) {
+		display: grid;
+		padding: 0px 0.45em;
+	}
 `;
 
 const TextHidric = styled.div`
@@ -89,11 +144,17 @@ const ButtonBox = styled.div`
 	justify-content: space-between;
 	margin: auto;
 	margin-top: 2em;
-	@media only screen and (max-width: 850px) {
+	@media only screen and (max-width: 1100px) {
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		margin-top: 0;
+	}
+	@media only screen and (max-width: 1000px) {
 		display: grid;
 		align-items: center;
 		justify-content: center;
-		margin-top: 0;
+		padding-top: 20px;
 	}
 `;
 
@@ -111,10 +172,17 @@ const Button = styled.button`
 		cursor: pointer;
 		color: ${(props) => props.theme.colors.ligth};
 		background-color: #38a66dab;
-		font-weight: 500;
+	}
+	@media only screen and (max-width: 1000px) {
+		margin: 0.5em;
 	}
 	@media only screen and (max-width: 850px) {
 		width: 10em;
+		margin: 0.8em;
+	}
+	@media only screen and (max-width: 450px) {
+		width: 12em;
+		font-size: 20px;
 		margin: 0.8em;
 	}
 `;
@@ -134,6 +202,24 @@ const FactoryIcon = styled(Factory)`
 const HidricImage = styled.img`
 	width: 20em;
 	padding: -10px;
+	@media only screen and (max-width: 1100px) {
+		width: 16em;
+	}
+	@media (max-width: 1000px) {
+		margin: auto;
+	}
+	@media (max-width: 900px) {
+		display: none;
+	}
+	@media (max-width: 800px) {
+		display: block;
+		width: 15em;
+	}
+	@media (max-width: 440px) {
+		display: block;
+		width: 12em;
+		padding-bottom: 1em;
+	}
 `;
 
 export const Hidric = ({ handleReturn }) => {

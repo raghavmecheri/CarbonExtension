@@ -1,23 +1,47 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 import bgTree from '../assets/bg_home.svg';
+import logo from '../assets/logo.png';
+import { Menu } from '@styled-icons/heroicons-outline';
+import { Cross } from '@styled-icons/entypo';
+import { HomeCircle } from '@styled-icons/boxicons-regular';
 
 import { HomeNavBar } from './HomeNavBar';
 import { BackgroundAnimation } from './BackgroundAnimation';
 import { Carbon } from './Carbon';
 import { Hidric } from './Hidric';
 
+import './HomeNavBar.css';
+
 const HomeWrapper = styled.div`
 	height: 100vh;
 	width: 100vw;
 	color: black;
-	margin-left: 15vw;
+	padding-left: 32vw;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	@media (max-width: 650px) {
-		color: black;
+	@media (max-width: 1198px) {
+		width: 100vw;
+		padding-left: 35vw;
+	}
+	@media (max-width: 960px) {
+		width: 100vw;
+		padding-left: 50vw;
+		padding-right: 5vw;
+		padding-top: 5em;
+	}
+	@media (max-width: 800px) {
+		width: 100vw;
+		padding: 0;
+	}
+	@media (max-width: 600px) {
+		padding: 0;
+	}
+	@media (max-width: 330px) {
+		padding-top: 6em;
 	}
 `;
 
@@ -25,18 +49,21 @@ const HomeNavBarWrapper = styled.div`
 	position: absolute;
 	height: 2em;
 	width: 100vw;
-	top: 3em;
+	top: 0;
 	left: 0;
 `;
 
 const BackgroundAnimationWrapper = styled.div`
 	position: absolute;
-	height: 100vh;
+	height: 500px;
 	width: 100vw;
 	top: 5em;
 	left: 0;
-	margin-left: 16vw;
+	padding-left: 16vw;
 	z-index: -99999999;
+	@media (max-width: 550px) {
+		padding-left: 0;
+	}
 `;
 
 const HomeBox = styled.div``;
@@ -48,10 +75,6 @@ const TitleHome = styled.div`
 	font-weight: 700;
 	text-align: center;
 	font-size: 50px;
-	@media (max-width: 1000px) {
-		display: flex;
-		padding: 0px 0.45em;
-	}
 `;
 
 const TextHome = styled.div`
@@ -62,10 +85,6 @@ const TextHome = styled.div`
 	font-family: ${(props) => props.theme.fonts.tittle}, serif;
 	font-weight: 700;
 	font-size: 20px;
-	@media (max-width: 1000px) {
-		display: flex;
-		padding: 0px 0.45em;
-	}
 `;
 
 const BackgroundTree = styled.img`
@@ -74,6 +93,12 @@ const BackgroundTree = styled.img`
 	left: -1em;
 	width: 35em;
 	z-index: -9999;
+	@media (max-width: 1200px) {
+		width: 30em;
+	}
+	@media (max-width: 800px) {
+		display: none;
+	}
 `;
 
 const ButtonBox = styled.div`
@@ -81,12 +106,15 @@ const ButtonBox = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	margin: auto;
-	margin-top: 2em;
-	@media only screen and (max-width: 850px) {
+	padding-top: 2em;
+	@media only screen and (max-width: 1180px) {
+		justify-content: space-around;
+	}
+	@media only screen and (max-width: 950px) {
 		display: grid;
 		align-items: center;
 		justify-content: center;
-		margin-top: 0;
+		padding-top: 0;
 	}
 `;
 
@@ -110,14 +138,91 @@ const Button = styled.button`
 		background-color: #38a66dab;
 		font-weight: 500;
 	}
-	@media only screen and (max-width: 850px) {
+	@media only screen and (max-width: 950px) {
 		width: 10em;
-		margin: 0.8em;
+		margin: 0.3em;
+	}
+`;
+
+const LogoStyle = styled.img`
+	position: absolute;
+	position: absolute;
+	top: -1.5em;
+	left: 27%;
+	width: 9em;
+`;
+
+const MenuStyle = styled(Menu)`
+	position: absolute;
+	top: 0.7em;
+	left: 1em;
+	font-size: 16px;
+	color: #38a66d;
+`;
+
+const CrossStyle = styled(Cross)`
+	position: absolute;
+	top: 0.3em;
+	left: 0.3em;
+	font-size: 16px;
+	color: #38a66d;
+`;
+
+const HomeCircleStyle = styled(HomeCircle)`
+	color: #38a66d;
+	position: absolute;
+	left: 2.8em;
+`;
+
+const HomeMenuBackground = styled.div`
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	height: 100%;
+	z-index: 999;
+	background-color: #0000006b;
+`;
+
+const HomeMenuWraper = styled.div`
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 70vw;
+	height: 100%;
+	z-index: 9999;
+	background-color: white;
+`;
+
+const MenuNavBar = styled.div`
+	padding-top: 7em;
+	display: flow-root;
+	justify-content: center;
+	text-align: center;
+	a {
+		color: #000;
+		text-decoration: none;
+		padding: 1em;
+	}
+
+	div {
+		position: relative;
+		font-weight: 500;
+		width: fit-content;
+		justify-content: flex-start;
+		padding-top: 0.2em;
+		margin-left: 10%;
+		font-size: 36px;
+		border-bottom: 1px solid #38a66d;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 `;
 
 export const Home = () => {
 	const [homeContent, setHomeContent] = useState(0);
+	const [homeMenuState, setHomeMenuState] = useState(false);
 
 	const handleClick = (e) => {
 		console.log(e.target.id);
@@ -133,6 +238,16 @@ export const Home = () => {
 
 	const handleReturn = () => {
 		setHomeContent(0);
+	};
+
+	const handleOpenMenu = () => {
+		console.log('open');
+		setHomeMenuState(true);
+	};
+
+	const handleCloseMenu = () => {
+		console.log('close');
+		setHomeMenuState(false);
 	};
 
 	const HomeContent = () => {
@@ -177,11 +292,73 @@ export const Home = () => {
 			</>
 		);
 	};
+
+	const HomeMenu = () => {
+		if (homeMenuState) {
+			return (
+				<>
+					<HomeMenuBackground onClick={handleCloseMenu} />
+					<HomeMenuWraper>
+						<LogoStyle src={logo} alt='logo'></LogoStyle>
+						{homeMenuState ? (
+							<CrossStyle onClick={handleCloseMenu} size='60' />
+						) : (
+							<MenuStyle onClick={handleCloseMenu} size='40' />
+						)}
+						<MenuNavBar>
+							<NavLink
+								to='/'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>
+									<HomeCircleStyle size='40' />
+									Home
+								</div>
+							</NavLink>
+							<NavLink
+								to='/a'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Information</div>
+							</NavLink>
+							<NavLink
+								to='/b'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Others</div>
+							</NavLink>
+							<NavLink
+								to='/c'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>About</div>
+							</NavLink>
+							<NavLink
+								to='/d'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Contribute</div>
+							</NavLink>
+						</MenuNavBar>
+					</HomeMenuWraper>
+				</>
+			);
+		} else {
+			return null;
+		}
+	};
+
 	return (
 		<HomeWrapper>
 			<HomeNavBarWrapper>
-				<HomeNavBar />
+				<HomeNavBar handleMenu={handleOpenMenu} />
 			</HomeNavBarWrapper>
+			<HomeMenu />
 			<HomeBox>
 				<HomeContent />
 			</HomeBox>

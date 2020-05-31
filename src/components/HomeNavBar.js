@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../assets/logo.png';
+import { Menu } from '@styled-icons/heroicons-outline';
 import { Link } from 'react-router-dom';
 import './HomeNavBar.css';
 
-const CarbonWrapper = styled.div`
-	margin: 0 10em;
+const NavBarWrapper = styled.div`
+	padding-top: 2em;
+	padding-left: 10em;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -21,28 +23,62 @@ const CarbonWrapper = styled.div`
 		color: #000;
 		text-decoration: none;
 	}
+	@media (max-width: 700px) {
+		height: 3.2em;
+		border-bottom: 3px solid #38a66d;
+		background-color: black;
+		div {
+			display: none;
+		}
+	}
 `;
 
 const LogoStyle = styled.img`
 	position: absolute;
-	top: -3em;
+	top: -1em;
 	left: 1em;
 	width: 9em;
+	@media (max-width: 700px) {
+		top: -0.9em;
+		left: 37%;
+		width: 5em;
+	}
+	@media (max-width: 350px) {
+		top: -0.9em;
+		left: 45%;
+		width: 5em;
+	}
+	@media (max-width: 330px) {
+		left: 35%;
+	}
 `;
 
-export const HomeNavBar = () => {
+const MenuStyle = styled(Menu)`
+	display: none;
+	z-index: 99;
+	@media (max-width: 700px) {
+		display: block;
+		position: absolute;
+		top: 30%;
+		left: 4%;
+		font-size: 16px;
+		color: white;
+	}
+`;
+
+export const HomeNavBar = ({ handleMenu }) => {
 	return (
-		<CarbonWrapper>
+		<NavBarWrapper>
 			<LogoStyle src={logo} alt='logo'></LogoStyle>
+			<MenuStyle onClick={handleMenu} size='40' />
 			<Link to='/'>
 				<div className='fill'>Home</div>
 			</Link>
 			<Link to='/'>
 				<div className='fill'>Information</div>
 			</Link>
-
 			<Link to='/'>
-				<div className='fill'>What Can You Do?</div>
+				<div className='fill'>Others</div>
 			</Link>
 			<Link to='/'>
 				<div className='fill'>About</div>
@@ -50,6 +86,6 @@ export const HomeNavBar = () => {
 			<Link to='/'>
 				<div className='fill'>Contribute</div>
 			</Link>
-		</CarbonWrapper>
+		</NavBarWrapper>
 	);
 };
