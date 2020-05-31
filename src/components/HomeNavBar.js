@@ -55,6 +55,7 @@ const LogoStyle = styled.img`
 
 const MenuStyle = styled(Menu)`
 	display: none;
+	z-index: 9999;
 	@media (max-width: 700px) {
 		display: block;
 		position: absolute;
@@ -65,20 +66,19 @@ const MenuStyle = styled(Menu)`
 	}
 `;
 
-export const HomeNavBar = () => {
+export const HomeNavBar = ({ handleMenu }) => {
 	return (
 		<NavBarWrapper>
 			<LogoStyle src={logo} alt='logo'></LogoStyle>
-			<MenuStyle size='40' />
+			<MenuStyle onClick={handleMenu} size='40' />
 			<Link to='/'>
 				<div className='fill'>Home</div>
 			</Link>
 			<Link to='/'>
 				<div className='fill'>Information</div>
 			</Link>
-
 			<Link to='/'>
-				<div className='fill'>What Can You Do?</div>
+				<div className='fill'>Others</div>
 			</Link>
 			<Link to='/'>
 				<div className='fill'>About</div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import bgTree from '../assets/bg_home.svg';
 
@@ -137,8 +138,40 @@ const Button = styled.button`
 	}
 `;
 
+const HomeMenuWraper = styled.div`
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 10em;
+	height: 100vh;
+	z-index: 999;
+	background-color: gray;
+`;
+
+const MenuNavBar = styled.div`
+	padding-top: 5em;
+	display: flow-root;
+	justify-content: center;
+	text-align: center;
+	a {
+		color: #000;
+		text-decoration: none;
+		padding: 1em;
+	}
+	div {
+		font-weight: 500;
+		font-size: 20px;
+		color: white;
+		border-bottom: 1px solid black;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+`;
+
 export const Home = () => {
 	const [homeContent, setHomeContent] = useState(0);
+	const [homeMenuState, setHomeMenuState] = useState(false);
 
 	const handleClick = (e) => {
 		console.log(e.target.id);
@@ -154,6 +187,11 @@ export const Home = () => {
 
 	const handleReturn = () => {
 		setHomeContent(0);
+	};
+
+	const handleMenu = () => {
+		console.log('click');
+		setHomeMenuState(!homeMenuState);
 	};
 
 	const HomeContent = () => {
@@ -198,11 +236,41 @@ export const Home = () => {
 			</>
 		);
 	};
+
+	const HomeMenu = () => {
+		if (homeMenuState) {
+			return (
+				<HomeMenuWraper>
+					<MenuNavBar>
+						<Link to='/'>
+							<div className='fill'>Home</div>
+						</Link>
+						<Link to='/'>
+							<div className='fill'>Information</div>
+						</Link>
+						<Link to='/'>
+							<div className='fill'>Others</div>
+						</Link>
+						<Link to='/'>
+							<div className='fill'>About</div>
+						</Link>
+						<Link to='/'>
+							<div className='fill'>Contribute</div>
+						</Link>
+					</MenuNavBar>
+				</HomeMenuWraper>
+			);
+		} else {
+			return null;
+		}
+	};
+
 	return (
 		<HomeWrapper>
 			<HomeNavBarWrapper>
-				<HomeNavBar />
+				<HomeNavBar handleMenu={handleMenu} />
 			</HomeNavBarWrapper>
+			<HomeMenu />
 			<HomeBox>
 				<HomeContent />
 			</HomeBox>
