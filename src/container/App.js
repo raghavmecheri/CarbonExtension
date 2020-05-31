@@ -3,9 +3,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Theme from '../style/Theme';
 
-import { Home } from '../components/Home';
-import { Quiz } from '../components/quiz';
-import { Result } from '../components/Result';
+import { Home } from '../components/Home/Home';
+import { Quiz } from '../components/Quiz/quiz';
+import { Result } from '../components/Result/Result';
 
 const AppContainer = styled.div`
 	color: ${(props) => props.theme.colors.ligth};

@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../assets/logo.png';
-import { Menu } from '@styled-icons/heroicons-outline';
 import { Link } from 'react-router-dom';
+
+import logo from '../../assets/logo.png';
+import { Menu } from '@styled-icons/heroicons-outline';
 import './HomeNavBar.css';
 
 const NavBarWrapper = styled.div`

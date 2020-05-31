@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { fuelData } from '../data/fuelData';
+import { fuelData } from '../../data/fuelData';
 
 const ResultWrapper = styled.div`
 	color: black;

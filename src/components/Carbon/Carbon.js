@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
 import { ArrowBackOutline } from '@styled-icons/typicons';
 import { Person } from '@styled-icons/evaicons-solid';
 import { Factory } from '@styled-icons/boxicons-solid';
-import CarImg from '../assets/carbon_img.png';
+
+import CarImg from '../../assets/carbon_img.png';
 
 const CarbonWrapper = styled.div`
 	color: black;

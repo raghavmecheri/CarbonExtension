@@ -1,13 +1,13 @@
 import React, { useState, useReducer, reducer, initialState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import logo from '../assets/logo.png';
+import logo from '../../assets/logo.png';
 
-import bg_error from '../assets/bg_error.jpeg';
-import { QuestionQuiz } from './quizComponents/QuestionQuiz';
-import { Buttons } from './quizComponents/ButtonsQuiz';
-import { OrganizationQuizData } from '../data/organization-quiz-data';
-import { PersonQuizData } from '../data/person-quiz-data';
+import bg_error from '../../assets/bg_error.jpeg';
+import { QuestionQuiz } from './QuizComponents/QuestionQuiz';
+import { Buttons } from './QuizComponents/ButtonsQuiz';
+import { OrganizationQuizData } from '../../data/organization-quiz-data';
+import { PersonQuizData } from '../../data/person-quiz-data';
 
 const QuizWrapper = styled.div`
 	/* background-image: ${(props) =>

@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import bgTree from '../assets/bg_home.svg';
-import logo from '../assets/logo.png';
+import bgTree from '../../assets/bg_home.svg';
+import logo from '../../assets/logo.png';
 import { Menu } from '@styled-icons/heroicons-outline';
 import { Cross } from '@styled-icons/entypo';
 import { HomeCircle } from '@styled-icons/boxicons-regular';
 
 import { HomeNavBar } from './HomeNavBar';
-import { BackgroundAnimation } from './BackgroundAnimation';
-import { Carbon } from './Carbon';
-import { Hidric } from './Hidric';
+import { HomeBackgroundAnimation } from './HomeBackgroundAnimation';
+import { Carbon } from '../Carbon/Carbon';
+import { Hidric } from '../Hidric/Hidric';
 
 import './HomeNavBar.css';
 
@@ -287,7 +287,7 @@ export const Home = () => {
 			<>
 				<BackgroundTree src={bgTree} alt='TreeBackground' />
 				<BackgroundAnimationWrapper>
-					<BackgroundAnimation />
+					<HomeBackgroundAnimation />
 				</BackgroundAnimationWrapper>
 			</>
 		);

@@ -1,7 +1,7 @@
 import React from 'react';
-import '../style/BackgroundAnimation.scss';
+import './BackgroundAnimation.scss';
 
-export const BackgroundAnimation = () => {
+export const HomeBackgroundAnimation = () => {
 	return (
 		<div className='container'>
 			<div className='bird-container bird-container--one'>
