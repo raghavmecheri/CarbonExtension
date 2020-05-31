@@ -195,7 +195,6 @@ const HomeMenuWraper = styled.div`
 `;
 
 const MenuNavBar = styled.div`
-	border-top: 1px solid black;
 	padding-top: 7em;
 	display: flow-root;
 	justify-content: center;
