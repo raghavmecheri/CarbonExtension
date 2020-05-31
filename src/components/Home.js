@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import bgTree from '../assets/bg_home.svg';
+import logo from '../assets/logo.png';
+import { Menu } from '@styled-icons/heroicons-outline';
+import { Cross } from '@styled-icons/entypo';
+import { HomeCircle } from '@styled-icons/boxicons-regular';
 
 import { HomeNavBar } from './HomeNavBar';
 import { BackgroundAnimation } from './BackgroundAnimation';
 import { Carbon } from './Carbon';
 import { Hidric } from './Hidric';
+
+import './HomeNavBar.css';
 
 const HomeWrapper = styled.div`
 	height: 100vh;
@@ -138,18 +144,60 @@ const Button = styled.button`
 	}
 `;
 
+const LogoStyle = styled.img`
+	position: absolute;
+	position: absolute;
+	top: -1.5em;
+	left: 27%;
+	width: 9em;
+`;
+
+const MenuStyle = styled(Menu)`
+	position: absolute;
+	top: 0.7em;
+	left: 1em;
+	font-size: 16px;
+	color: #38a66d;
+`;
+
+const CrossStyle = styled(Cross)`
+	position: absolute;
+	top: 0.3em;
+	left: 0.3em;
+	font-size: 16px;
+	color: #38a66d;
+`;
+
+const HomeCircleStyle = styled(HomeCircle)`
+	color: #38a66d;
+	position: absolute;
+	top: 0;
+	left: 2.9em;
+`;
+
+const HomeMenuBackground = styled.div`
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 999;
+	background-color: #0000006b;
+`;
+
 const HomeMenuWraper = styled.div`
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	width: 10em;
+	width: 70vw;
 	height: 100vh;
-	z-index: 999;
-	background-color: gray;
+	z-index: 9999;
+	background-color: white;
 `;
 
 const MenuNavBar = styled.div`
-	padding-top: 5em;
+	border-top: 1px solid black;
+	padding-top: 7em;
 	display: flow-root;
 	justify-content: center;
 	text-align: center;
@@ -158,11 +206,16 @@ const MenuNavBar = styled.div`
 		text-decoration: none;
 		padding: 1em;
 	}
+
 	div {
+		position: relative;
 		font-weight: 500;
-		font-size: 20px;
-		color: white;
-		border-bottom: 1px solid black;
+		width: fit-content;
+		justify-content: flex-start;
+		margin-top: 0.2em;
+		margin-left: 10%;
+		font-size: 36px;
+		border-bottom: 1px solid #38a66d;
 		&:hover {
 			cursor: pointer;
 		}
@@ -189,9 +242,14 @@ export const Home = () => {
 		setHomeContent(0);
 	};
 
-	const handleMenu = () => {
-		console.log('click');
-		setHomeMenuState(!homeMenuState);
+	const handleOpenMenu = () => {
+		console.log('open');
+		setHomeMenuState(true);
+	};
+
+	const handleCloseMenu = () => {
+		console.log('close');
+		setHomeMenuState(false);
 	};
 
 	const HomeContent = () => {
@@ -240,25 +298,57 @@ export const Home = () => {
 	const HomeMenu = () => {
 		if (homeMenuState) {
 			return (
-				<HomeMenuWraper>
-					<MenuNavBar>
-						<Link to='/'>
-							<div className='fill'>Home</div>
-						</Link>
-						<Link to='/'>
-							<div className='fill'>Information</div>
-						</Link>
-						<Link to='/'>
-							<div className='fill'>Others</div>
-						</Link>
-						<Link to='/'>
-							<div className='fill'>About</div>
-						</Link>
-						<Link to='/'>
-							<div className='fill'>Contribute</div>
-						</Link>
-					</MenuNavBar>
-				</HomeMenuWraper>
+				<>
+					<HomeMenuBackground onClick={handleCloseMenu} />
+					<HomeMenuWraper>
+						<LogoStyle src={logo} alt='logo'></LogoStyle>
+						{homeMenuState ? (
+							<CrossStyle onClick={handleCloseMenu} size='60' />
+						) : (
+							<MenuStyle onClick={handleCloseMenu} size='40' />
+						)}
+						<MenuNavBar>
+							<NavLink
+								to='/'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>
+									<HomeCircleStyle size='40' />
+									Home
+								</div>
+							</NavLink>
+							<NavLink
+								to='/a'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Information</div>
+							</NavLink>
+							<NavLink
+								to='/b'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Others</div>
+							</NavLink>
+							<NavLink
+								to='/c'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>About</div>
+							</NavLink>
+							<NavLink
+								to='/d'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Contribute</div>
+							</NavLink>
+						</MenuNavBar>
+					</HomeMenuWraper>
+				</>
 			);
 		} else {
 			return null;
@@ -268,7 +358,7 @@ export const Home = () => {
 	return (
 		<HomeWrapper>
 			<HomeNavBarWrapper>
-				<HomeNavBar handleMenu={handleMenu} />
+				<HomeNavBar handleMenu={handleOpenMenu} />
 			</HomeNavBarWrapper>
 			<HomeMenu />
 			<HomeBox>

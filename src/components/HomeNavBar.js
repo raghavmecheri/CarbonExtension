@@ -55,7 +55,7 @@ const LogoStyle = styled.img`
 
 const MenuStyle = styled(Menu)`
 	display: none;
-	z-index: 9999;
+	z-index: 99;
 	@media (max-width: 700px) {
 		display: block;
 		position: absolute;
