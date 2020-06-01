@@ -11,7 +11,7 @@ const Input = styled.input`
 	border-bottom: 2px solid lightgreen;
 	border-radius: 0 0.5em;
 	height: 3em;
-	width: 17em;
+	width: 16em;
 	color: white;
 	padding: 0;
 	margin: 0 30px;
@@ -24,7 +24,7 @@ const Input = styled.input`
 
 const Selector = styled.select`
 	font-size: medium;
-	width: 17em;
+	width: 14em;
 	text-align-last: center;
 	text-align: center;
 `;

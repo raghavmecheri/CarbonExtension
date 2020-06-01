@@ -1,5 +1,5 @@
-// import bgO1 from '../assets/bg_orga_1.jpeg';
-// import bgO2 from '../assets/bg_orga_2.jpeg';
+import bgO1 from '../assets/bg_carbon_b_1.svg';
+import bgO2 from '../assets/bg_carbon_b_2.jpg';
 // import bgO3 from '../assets/bg_orga_3.jpeg';
 // import bgO4 from '../assets/bg_orga_4.jpeg';
 
@@ -27,7 +27,7 @@ export const OrganizationQuizData = {
 			'LPG',
 			'H2',
 		],
-		// image: bgO1,
+		image: bgO1,
 	},
 	1: {
 		title: 'Combustible Instalaciones Fijas',
@@ -47,7 +47,7 @@ export const OrganizationQuizData = {
 			'Carbon de importacion',
 			'Coque de petroleo',
 		],
-		// image: bgO2,
+		image: bgO2,
 	},
 	2: {
 		title: 'Refrigeracion y Climatizacion',

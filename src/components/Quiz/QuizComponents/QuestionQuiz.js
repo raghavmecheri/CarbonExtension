@@ -27,7 +27,7 @@ const RowTitlesWrapper = styled.div`
 
 const InputRowWrapper = styled.div`
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	padding: 10px;
 `;

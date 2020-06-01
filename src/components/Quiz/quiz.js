@@ -1,6 +1,10 @@
 import React, { useState, useReducer, reducer, initialState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+
+import { StumbleuponCircle } from '@styled-icons/fa-brands';
+import { CheckmarkCircle } from '@styled-icons/evaicons-solid';
+
 import logo from '../../assets/logo.png';
 
 import bg_error from '../../assets/bg_error.jpeg';
@@ -10,20 +14,12 @@ import { OrganizationQuizData } from '../../data/organization-quiz-data';
 import { PersonQuizData } from '../../data/person-quiz-data';
 
 const QuizWrapper = styled.div`
-	/* background-image: ${(props) =>
-		props.formStateBackground
-			? `url(${props.formStateBackground.image})`
-			: `url(${bg_error})`};
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-color: #000000; */
 	height: 100vh;
 	width: 100vw;
+	background-color: #f1f1f1;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position: relative;
 	@media (max-width: 650px) {
 		display: flex;
 		justify-content: center;
@@ -34,15 +30,127 @@ const QuizWrapper = styled.div`
 
 const LogoStyle = styled.img`
 	position: absolute;
-	top: -2em;
-	left: 0.5em;
 	width: 12em;
+	top: -1.5em;
+	left: 3em;
 `;
 
-const Box = styled.div`
-	/* background: #656464ad; */
-	/* padding: 7px 35px; */
+const QuizBox = styled.div`
 	color: black;
+	width: inherit;
+`;
+
+const SideQuizMenu = styled.div`
+	width: 30vw;
+	height: 100%;
+	background-color: #ffffff;
+	color: black;
+	position: relative;
+	-webkit-box-shadow: 10px 0px 6px -6px #777;
+	-moz-box-shadow: 10px 0px 6px -6px #777;
+	box-shadow: 10px 0px 6px -6px #777;
+`;
+
+const StepsQuiz = styled.div`
+	height: 100%;
+	width: 110%;
+	position: absolute;
+	display: grid;
+	justify-content: end;
+	align-items: center;
+`;
+
+const InfoQuiz = styled.div`
+	height: 100%;
+	width: 100%;
+	padding-top: 45%;
+	display: flow-root;
+	justify-content: center;
+	align-items: center;
+`;
+
+const StepsIcon = styled.div`
+	width: 2.5em;
+	border: 4px solid
+		${(props) =>
+			Number(props.children.key) <= props.questionIndex
+				? `cornflowerblue`
+				: `#E0E0E0`};
+	border-radius: 50%;
+	background-color: ${(props) =>
+		Number(props.children.key) <= props.questionIndex ? `#d3f1d3` : `#E4E8ED`};
+	font-size: 25px;
+	font-weight: 900;
+	padding: 6px;
+`;
+
+const StepsCircle = styled.div`
+	width: 1.5em;
+	color: ${(props) =>
+		Number(props.children) <= props.questionIndex
+			? `cornflowerblue`
+			: `#E0E0E0`};
+	border: 3px solid;
+	background-color: ${(props) =>
+		Number(props.children) <= props.questionIndex ? `white` : `white`};
+	border-color: ${(props) =>
+		Number(props.children) <= props.questionIndex ? `white` : `white`};
+	border-radius: 50%;
+	font-weight: 900;
+	padding: 0px;
+	margin: auto;
+`;
+
+const InfoQuizTitle = styled.div`
+	border-top: 2px dashed gray;
+	padding-top: 1em;
+	font-size: 35px;
+	font-weight: 600;
+`;
+
+const InfoQuizSubTitle = styled.div`
+	font-size: 16px;
+	padding-bottom: 1em;
+	padding-top: 0.2em;
+	color: gray;
+	text-align: initial;
+	padding-left: 4em;
+	font-weight: 400;
+`;
+
+const InfoQuizBody = styled.div`
+	font-size: 20px;
+	color: gray;
+	padding: 1em 1.5em;
+	text-align: center;
+	font-weight: 400;
+`;
+
+const InfoQuizPlus = styled.div`
+	color: gray;
+	border-top: 2px dashed gray;
+	padding-top: 1em;
+	margin: 0em 1.5em;
+	margin-left: 2em;
+	text-align: start;
+`;
+
+const InfoQuizPlusTitle = styled.div`
+	font-size: 25px;
+	color: gray;
+	font-weight: 500;
+`;
+
+const InfoQuizPlusBody = styled.div`
+	padding-top: 0.5em;
+	font-size: 20px;
+	color: gray;
+`;
+
+const InfoQuizImage = styled.img`
+	width: 15em;
+	border-radius: 4%;
+	margin: auto;
 `;
 
 const ErrorContainer = styled.div`
@@ -84,6 +192,9 @@ export const Quiz = ({ stateScreen, setStateScreen }) => {
 	const [formState, setFormState] = useState(OrganizationQuizData);
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
+
+	console.log(formState);
+	console.log(questionIndex);
 
 	const back = () => {
 		if (questionIndex > 0) {
@@ -154,11 +265,50 @@ export const Quiz = ({ stateScreen, setStateScreen }) => {
 	};
 
 	return (
-		<QuizWrapper formStateBackground={formState[questionIndex]}>
-			<Link to='/'>
-				<LogoStyle src={logo} alt='logo'></LogoStyle>
-			</Link>
-			<Box>
+		<QuizWrapper>
+			<SideQuizMenu>
+				<Link to='/'>
+					<LogoStyle src={logo} alt='logo' />
+				</Link>
+				<StepsQuiz>
+					{formState
+						? Object.keys(formState).map((item, key) => {
+								return (
+									<StepsIcon questionIndex={questionIndex} key={key}>
+										<StepsCircle questionIndex={questionIndex} key={item}>
+											{item}
+										</StepsCircle>
+									</StepsIcon>
+								);
+						  })
+						: null}
+				</StepsQuiz>
+				<InfoQuiz>
+					<InfoQuizTitle>Transport</InfoQuizTitle>
+					<InfoQuizSubTitle>Step 1</InfoQuizSubTitle>
+					<InfoQuizImage
+						src={formState[questionIndex].image}
+						alt={formState[questionIndex]}
+					/>
+					<InfoQuizBody>
+						This is the footprint produced by the use of different uses of
+						trasnports.
+						<br />
+						<br />
+						And it would be included inside the First scope of the Carbon
+						Footprint.
+					</InfoQuizBody>
+					<InfoQuizPlus>
+						<InfoQuizPlusTitle>Did you know:</InfoQuizPlusTitle>
+						<InfoQuizPlusBody>
+							That the earth isn't round and it is in fact flat. All those
+							people laughing about it and they were rigth all along.
+						</InfoQuizPlusBody>
+					</InfoQuizPlus>
+				</InfoQuiz>
+			</SideQuizMenu>
+
+			<QuizBox>
 				<QuestionQuiz
 					rowsValues={formState[questionIndex]}
 					handleInput={handleInput}
@@ -171,7 +321,7 @@ export const Quiz = ({ stateScreen, setStateScreen }) => {
 					handleDeleteQuestion={handleDeleteQuestion}
 					handleAddRow={handleAddRow}
 				/>
-			</Box>
+			</QuizBox>
 		</QuizWrapper>
 	);
 };
