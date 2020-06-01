@@ -14,6 +14,7 @@ const Tittle = styled.div`
 	font-weight: 600;
 	display: flex;
 	padding-left: 3vw;
+	color: #38a66d;
 `;
 
 const Description = styled.div`
@@ -55,6 +56,7 @@ export const QuestionQuiz = ({ rowsValues, handleInput, value }) => {
 		rowTitles,
 		rowStructure,
 		dropdownTypes,
+		placeHolder,
 	} = rowsValues;
 
 	return (
@@ -73,6 +75,7 @@ export const QuestionQuiz = ({ rowsValues, handleInput, value }) => {
 							handleInput={handleInput}
 							value={value}
 							dropdownTypes={dropdownTypes}
+							placeHolder={placeHolder}
 						/>
 					</InputRowWrapper>
 				))}

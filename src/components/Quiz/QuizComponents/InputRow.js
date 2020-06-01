@@ -17,6 +17,8 @@ const Input = styled.input`
 	width: 100%;
 	margin: 0em 2em;
 	text-align: center;
+	font-weight: 600;
+	font-size: 15px;
 	&:focus {
 		background: white;
 	}
@@ -31,8 +33,15 @@ const Selector = styled.select`
 	text-align: center;
 `;
 
-export const InputRow = ({ rowData, handleInput, rowIndex, dropdownTypes }) => {
+export const InputRow = ({
+	rowData,
+	handleInput,
+	rowIndex,
+	dropdownTypes,
+	placeHolder,
+}) => {
 	const { title, energyType, quantity, gdp } = rowData;
+	console.log(placeHolder);
 	return (
 		<QuestionsOptionsWrapper>
 			<Input
@@ -40,7 +49,7 @@ export const InputRow = ({ rowData, handleInput, rowIndex, dropdownTypes }) => {
 				id={0}
 				onChange={(e) => handleInput(e, rowIndex, 'title')}
 				value={title}
-				placeholder='Put Something'
+				placeholder={placeHolder.first}
 			/>
 			<Selector onChange={(e) => handleInput(e, rowIndex, 'energyType')}>
 				{dropdownTypes.map((item, i) => {
@@ -52,7 +61,7 @@ export const InputRow = ({ rowData, handleInput, rowIndex, dropdownTypes }) => {
 				id={2}
 				value={quantity}
 				onChange={(e) => handleInput(e, rowIndex, 'quantity')}
-				placeholder='Put Something'
+				placeholder={placeHolder.second}
 			/>
 		</QuestionsOptionsWrapper>
 	);

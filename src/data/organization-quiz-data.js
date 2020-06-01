@@ -9,7 +9,12 @@ export const OrganizationQuizData = {
 		description: 'How much travel do you do?',
 		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
-		rowStructure: [{ title: '', energyType: '', quantity: '' }],
+		placeHolder: { first: 'Mercedes', energyType: '', second: '1000 litres' },
+		rowStructure: [
+			{ title: '', energyType: '', quantity: '' },
+			{ title: '', energyType: '', quantity: '' },
+			{ title: '', energyType: '', quantity: '' },
+		],
 		dropdownTypes: [
 			'--',
 			'Gasolina',
@@ -34,7 +39,12 @@ export const OrganizationQuizData = {
 		description: 'How much travel do you do?',
 		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
-		rowStructure: [{ title: '', energyType: '', quantity: '' }],
+		placeHolder: { first: 'Sotano', energyType: '', second: '5000 litres' },
+		rowStructure: [
+			{ title: '', energyType: '', quantity: '' },
+			{ title: '', energyType: '', quantity: '' },
+			{ title: '', energyType: '', quantity: '' },
+		],
 		dropdownTypes: [
 			'--',
 			'Gas Natural',
@@ -52,8 +62,13 @@ export const OrganizationQuizData = {
 	2: {
 		title: 'Refrigeracion y Climatizacion',
 		description: 'Fugas de gases fluorados',
-		rowStructure: [{ title: '', title2: '', energyType: '', quantity: '' }],
+		rowStructure: [
+			{ title: '', title2: '', energyType: '', quantity: '' },
+			{ title: '', title2: '', energyType: '', quantity: '' },
+			{ title: '', title2: '', energyType: '', quantity: '' },
+		],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
+		placeHolder: { first: 'Sotano', energyType: '', second: '100 litres' },
 		rowTitles: [
 			'Edificio/Sede',
 			'Nombre del Gas',
@@ -87,14 +102,18 @@ export const OrganizationQuizData = {
 	3: {
 		title: 'Electricity',
 		description: 'Fugas de gases fluorados',
-		rowStructure: [{ title: '', title2: '', energyType: '', quantity: '' }],
-		rowsType: [{ title: '', title2: '', energyType: '', quantity: '' }],
-		rowTitles: [
-			'Edificio',
-			'Nombre de la Comercializadora Suministradora de Energia',
-			'GdO',
-			'Datos de Consumo',
+		rowStructure: [
+			{ title: '', title2: '', energyType: '', quantity: '' },
+			{ title: '', title2: '', energyType: '', quantity: '' },
+			{ title: '', title2: '', energyType: '', quantity: '' },
 		],
+		rowsType: [{ title: '', title2: '', energyType: '', quantity: '' }],
+		placeHolder: {
+			first: 'Nave de Aragusa',
+			energyType: '',
+			second: '1000 kWh',
+		},
+		rowTitles: ['Edificio', 'Compañia Electrica', 'GdO', 'Datos de Consumo'],
 		dropdownTypes: [
 			'--',
 			'A-DOS ENERGíA, S.L.',

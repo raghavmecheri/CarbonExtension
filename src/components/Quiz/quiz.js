@@ -288,6 +288,8 @@ export const Quiz = ({ stateScreen, setStateScreen }) => {
 		});
 	};
 
+	console.log(formState);
+
 	const handleDeleteQuestion = () => {
 		const newScreenState = {
 			...formState[questionIndex],
