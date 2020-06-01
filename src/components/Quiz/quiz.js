@@ -37,7 +37,13 @@ const LogoStyle = styled.img`
 
 const QuizBox = styled.div`
 	color: black;
+	max-width: 70vw;
+	padding: 2em;
+	height: 100%;
 	width: inherit;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
 
 const SideQuizMenu = styled.div`
@@ -46,18 +52,53 @@ const SideQuizMenu = styled.div`
 	background-color: #ffffff;
 	color: black;
 	position: relative;
-	-webkit-box-shadow: 10px 0px 6px -6px #777;
-	-moz-box-shadow: 10px 0px 6px -6px #777;
-	box-shadow: 10px 0px 6px -6px #777;
 `;
 
 const StepsQuiz = styled.div`
 	height: 100%;
-	width: 110%;
+	width: 107%;
 	position: absolute;
 	display: grid;
 	justify-content: end;
 	align-items: center;
+`;
+const StepsQuizBorder = styled.div`
+	height: ${(props) =>
+		props.questionIndex === 0
+			? `15%`
+			: props.questionIndex === 1
+			? `40%`
+			: props.questionIndex === 2
+			? '60%'
+			: '90%'};
+	width: 100%;
+	position: absolute;
+	border-right: 3px solid cornflowerblue;
+`;
+
+const StepsQuizShadow = styled.div`
+	height: ${(props) =>
+		props.questionIndex === 0
+			? `85%`
+			: props.questionIndex === 1
+			? `60%`
+			: props.questionIndex === 2
+			? '40%'
+			: '10%'};
+
+	top: ${(props) =>
+		props.questionIndex === 0
+			? `15%`
+			: props.questionIndex === 1
+			? `40%`
+			: props.questionIndex === 2
+			? '60%'
+			: '90%'};
+	width: 100%;
+	position: absolute;
+	-webkit-box-shadow: 10px 0px 6px -6px #777;
+	-moz-box-shadow: 10px 0px 6px -6px #777;
+	box-shadow: 10px 0px 6px -6px #777;
 `;
 
 const InfoQuiz = styled.div`
@@ -70,15 +111,14 @@ const InfoQuiz = styled.div`
 `;
 
 const StepsIcon = styled.div`
-	width: 2.5em;
-	border: 4px solid
+	border: 3px solid
 		${(props) =>
 			Number(props.children.key) <= props.questionIndex
 				? `cornflowerblue`
 				: `#E0E0E0`};
 	border-radius: 50%;
 	background-color: ${(props) =>
-		Number(props.children.key) <= props.questionIndex ? `#d3f1d3` : `#E4E8ED`};
+		Number(props.children.key) <= props.questionIndex ? `#6FCE99` : `#E4E8ED`};
 	font-size: 25px;
 	font-weight: 900;
 	padding: 6px;
@@ -270,6 +310,8 @@ export const Quiz = ({ stateScreen, setStateScreen }) => {
 				<Link to='/'>
 					<LogoStyle src={logo} alt='logo' />
 				</Link>
+				<StepsQuizBorder questionIndex={questionIndex} />
+				<StepsQuizShadow questionIndex={questionIndex} />
 				<StepsQuiz>
 					{formState
 						? Object.keys(formState).map((item, key) => {

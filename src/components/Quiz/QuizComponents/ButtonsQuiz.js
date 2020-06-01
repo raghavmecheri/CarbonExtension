@@ -2,17 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { ArrowForwardOutline } from '@styled-icons/evaicons-outline';
-import { ArrowBackOutline } from '@styled-icons/evaicons-outline';
-import { AddBox } from '@styled-icons/material';
-import { DeleteSweep } from '@styled-icons/material/DeleteSweep';
+import { PlusCircle } from '@styled-icons/boxicons-solid';
+import { MinusCircle } from '@styled-icons/boxicons-solid';
 
 const ButtonBox = styled.div`
+	position: absolute;
+	bottom: 2em;
+	width: 70%;
+	padding: 1em 1em;
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
-	margin: 3em 15em;
-	padding: 0;
+	justify-content: space-around;
 	@media only screen and (max-width: 850px) {
 		display: grid;
 		align-items: center;
@@ -22,51 +22,53 @@ const ButtonBox = styled.div`
 `;
 
 const Button = styled.button`
-	background: transparent;
-	backdrop-filter: blur(2px);
-	padding: 8px;
-	/* color: ${(props) => props.theme.colors.dark}; */
-	color: lightgreen;
-	font-size: 20px;
-	border: 2px solid lightgreen;
-	border-radius: 0.12em;
-	font-weight: 500;
+	width: 12em;
+	height: 50px;
+	border-radius: 10px;
+	font-size: 15px;
+	padding: 0;
+	font-weight: 600;
+	color: white;
 	text-transform: uppercase;
-	&:hover {
-		cursor: pointer;
-		color: ${(props) => props.theme.colors.ligth};
-		background: ${(props) => props.theme.colors.dark};
-		font-weight: 500;
-	}
-	@media only screen and (max-width: 850px) {
-		width: 10em;
-		margin: 0.8em;
-	}
-`;
-
-const ForwardIcon = styled(ArrowForwardOutline)`
-	width: 50px;
-	height: 50px;
-	color: lightgreen;
+	background-color: lightgreen;
 	border: 2px solid lightgreen;
-	border-radius: 50%;
 	&:hover {
 		cursor: pointer;
-		background-color: ${(props) => props.theme.colors.dark};
-		font-weight: 500;
+		background-color: cornflowerblue;
+		border-color: cornflowerblue;
 	}
 `;
 
-const BackwardIcon = styled(ArrowBackOutline)`
-	width: 50px;
+const ForwardIcon = styled.button`
+	width: 12em;
 	height: 50px;
-	color: red;
-	border: 2px solid red;
-	border-radius: 50%;
+	border-radius: 10px;
+	font-size: 15px;
+	padding: 0;
+	font-weight: 600;
+	color: white;
+	background-color: lightgreen;
+	border: 2px solid lightgreen;
 	&:hover {
 		cursor: pointer;
-		background-color: ${(props) => props.theme.colors.dark};
-		font-weight: 500;
+		background-color: cornflowerblue;
+		border-color: cornflowerblue;
+	}
+`;
+
+const BackwardIcon = styled.button`
+	width: 12em;
+	height: 50px;
+	border-radius: 10px;
+	font-size: 15px;
+	padding: 0;
+	font-weight: 600;
+	color: #9b9b9b;
+	border: 2px solid #9b9b9b;
+	&:hover {
+		cursor: pointer;
+		background-color: #9b9b9b;
+		color: white;
 	}
 `;
 
@@ -77,21 +79,17 @@ const MiddleBox = styled.div`
 	width: 10em;
 `;
 
-const AddButton = styled(AddBox)`
+const AddButton = styled(PlusCircle)`
 	width: 50px;
-	color: lightgreen;
+	color: cornflowerblue;
 	&:hover {
 		cursor: pointer;
 		color: limegreen;
 	}
 `;
-const DeleteButton = styled(DeleteSweep)`
-	width: 43px;
-	margin-bottom: 3px;
-	margin-top: 7px;
-	color: red;
-	border: 2px solid red;
-	border-radius: 0.3em;
+const DeleteButton = styled(MinusCircle)`
+	width: 50px;
+	color: #9b9b9b;
 	&:hover {
 		cursor: pointer;
 		color: orangered;
@@ -111,7 +109,7 @@ export const Buttons = ({
 	if (!end) {
 		return (
 			<ButtonBox>
-				<BackwardIcon onClick={back} />
+				<BackwardIcon onClick={back}>{'< Last Question'}</BackwardIcon>
 				<MiddleBox>
 					<div>
 						<DeleteButton onClick={handleDeleteQuestion} />
@@ -123,13 +121,13 @@ export const Buttons = ({
 					</div>
 				</MiddleBox>
 
-				<ForwardIcon onClick={next} />
+				<ForwardIcon onClick={next}>{'Next Question >'}</ForwardIcon>
 			</ButtonBox>
 		);
 	} else {
 		return (
 			<ButtonBox>
-				<BackwardIcon onClick={back} />
+				<BackwardIcon onClick={back}>{'< Last Question'}</BackwardIcon>
 				<MiddleBox>
 					<DeleteButton onClick={handleDeleteQuestion} />
 					<p>Delete Row</p>

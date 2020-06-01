@@ -1,7 +1,7 @@
-import bgO1 from '../assets/bg_carbon_b_1.svg';
+import bgO1 from '../assets/bg_carbon_b_1.jpg';
 import bgO2 from '../assets/bg_carbon_b_2.jpg';
-// import bgO3 from '../assets/bg_orga_3.jpeg';
-// import bgO4 from '../assets/bg_orga_4.jpeg';
+import bgO3 from '../assets/bg_carbon_b_3.jpg';
+import bgO4 from '../assets/bg_carbon_b_4.jpg';
 
 export const OrganizationQuizData = {
 	0: {
@@ -82,7 +82,7 @@ export const OrganizationQuizData = {
 			'HFC-365mfc',
 			'HFC-43-10mee',
 		],
-		// image: bgO3,
+		image: bgO3,
 	},
 	3: {
 		title: 'Electricity',
@@ -222,6 +222,6 @@ export const OrganizationQuizData = {
 			'WIND TO MARKET, S.A.',
 		],
 		gdp: ['Si', 'No'],
-		// image: bgO4,
+		image: bgO4,
 	},
 };
