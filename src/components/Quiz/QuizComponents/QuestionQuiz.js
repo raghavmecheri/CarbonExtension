@@ -4,32 +4,48 @@ import styled from 'styled-components';
 import { RowTitles } from './RowTitles';
 import { InputRow } from './InputRow';
 
-const QuestionsWrapper = styled.div``;
+const QuestionsWrapper = styled.div`
+	height: 100%;
+	width: inherit;
+`;
 
 const Tittle = styled.div`
-	font-size: 60px;
+	font-size: 42px;
 	font-weight: 600;
-	padding-bottom: 0em;
+	display: flex;
+	padding-left: 3vw;
 `;
 
 const Description = styled.div`
 	font-size: 20px;
 	font-weight: 300;
+	display: flex;
+	padding-left: 3vw;
 `;
 
-const RowInputBox = styled.div``;
+const RowInputBox = styled.div`
+	background-color: white;
+	border-radius: 10px;
+	padding-bottom: 1em;
+	margin-left: 1vw;
+	-webkit-box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
+	-moz-box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
+	box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
+`;
 
 const RowTitlesWrapper = styled.div`
+	margin-top: 1em;
+	width: inherit;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
 `;
 
 const InputRowWrapper = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 10px;
+	margin-top: 1em;
+	width: inherit;
+	border-top: 1px solid #6fce99;
+	padding-top: 1em;
 `;
 
 export const QuestionQuiz = ({ rowsValues, handleInput, value }) => {

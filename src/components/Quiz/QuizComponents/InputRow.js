@@ -2,29 +2,31 @@ import React from 'react';
 import styled from 'styled-components';
 
 const QuestionsOptionsWrapper = styled.div`
-	font-size: 30px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: inherit;
 `;
 
 const Input = styled.input`
 	background: #90ee9052;
 	border: none;
 	border-bottom: 2px solid lightgreen;
-	border-radius: 0 0.5em;
+	border-radius: 0.5em;
 	height: 3em;
-	width: 16em;
-	color: white;
-	padding: 0;
-	margin: 0 30px;
-	font-size: medium;
+	width: 100%;
+	margin: 0em 2em;
 	text-align: center;
 	&:focus {
-		background: #00000080;
+		background: white;
 	}
 `;
 
 const Selector = styled.select`
+	width: 100%;
+	margin: 0em 2em;
 	font-size: medium;
-	width: 14em;
+	border-radius: 0.3em;
 	text-align-last: center;
 	text-align: center;
 `;
@@ -46,7 +48,7 @@ export const InputRow = ({ rowData, handleInput, rowIndex, dropdownTypes }) => {
 				})}
 			</Selector>
 			<Input
-				type='text'
+				type='number'
 				id={2}
 				value={quantity}
 				onChange={(e) => handleInput(e, rowIndex, 'quantity')}

@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeaderWrapper = styled.div`
-	font-size: 30px;
-	padding: 20px;
-	width: 9em;
+	font-size: 25px;
+	padding-top: 20px;
+	width: 100%;
 `;
 
 export const RowTitles = ({ rowTitles }) =>

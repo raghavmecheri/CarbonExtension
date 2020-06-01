@@ -28,11 +28,16 @@ const QuizWrapper = styled.div`
 	}
 `;
 
-const LogoStyle = styled.img`
+const LogoWrapper = styled.div`
 	position: absolute;
-	width: 12em;
+	width: inherit;
 	top: -1.5em;
-	left: 3em;
+	z-index: 9999;
+`;
+const LogoStyle = styled.img`
+	width: 12em;
+	margin: auto;
+	z-index: 9999;
 `;
 
 const QuizBox = styled.div`
@@ -49,6 +54,7 @@ const QuizBox = styled.div`
 const SideQuizMenu = styled.div`
 	width: 30vw;
 	height: 100%;
+	max-height: 100vh;
 	background-color: #ffffff;
 	color: black;
 	position: relative;
@@ -104,7 +110,7 @@ const StepsQuizShadow = styled.div`
 const InfoQuiz = styled.div`
 	height: 100%;
 	width: 100%;
-	padding-top: 45%;
+	padding-top: 35%;
 	display: flow-root;
 	justify-content: center;
 	align-items: center;
@@ -307,9 +313,11 @@ export const Quiz = ({ stateScreen, setStateScreen }) => {
 	return (
 		<QuizWrapper>
 			<SideQuizMenu>
-				<Link to='/'>
-					<LogoStyle src={logo} alt='logo' />
-				</Link>
+				<LogoWrapper>
+					<Link to='/'>
+						<LogoStyle src={logo} alt='logo' />
+					</Link>
+				</LogoWrapper>
 				<StepsQuizBorder questionIndex={questionIndex} />
 				<StepsQuizShadow questionIndex={questionIndex} />
 				<StepsQuiz>
