@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import Theme from '../style/Theme';
 
@@ -71,7 +71,8 @@ function App() {
 						path='/result'
 						component={() => <Result stateScreen={stateScreen} />}
 					/>
-					<Route component={ErrorPage} />
+					<Route path='/errorPage' component={ErrorPage} />
+					<Route render={() => <Redirect to='/errorPage' />} />
 				</AppContainer>
 			</Theme>
 		</BrowserRouter>
