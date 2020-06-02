@@ -1,11 +1,13 @@
 import bgO1 from '../assets/bg_carbon_b_1.jpg';
+import bgO11 from '../assets/carbon_img.png';
 import bgO2 from '../assets/bg_carbon_b_2.jpg';
 import bgO3 from '../assets/bg_carbon_b_3.jpg';
 import bgO4 from '../assets/bg_carbon_b_4.jpg';
 
 export const PersonCarbonQuizData = {
 	0: {
-		title: 'Person Carbon',
+		id: 0,
+		title: 'Transport',
 		type: 'simple',
 		description: 'How much travel do you do?',
 		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
@@ -34,6 +36,7 @@ export const PersonCarbonQuizData = {
 			'H2',
 		],
 		image: bgO1,
+		image2: bgO11,
 		sideTitle: 'Transport',
 		sideBody:
 			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
@@ -41,6 +44,7 @@ export const PersonCarbonQuizData = {
 			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 	1: {
+		id: 1,
 		title: 'Combustible Instalaciones Fijas',
 		description: 'How much travel do you do?',
 		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
@@ -71,6 +75,7 @@ export const PersonCarbonQuizData = {
 			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 	2: {
+		id: 2,
 		title: 'Refrigeracion y Climatizacion',
 		description: 'Fugas de gases fluorados',
 		rowStructure: [
@@ -121,6 +126,7 @@ export const PersonCarbonQuizData = {
 			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 	3: {
+		id: 3,
 		title: 'Electricity',
 		description: 'Fugas de gases fluorados',
 		rowStructure: [

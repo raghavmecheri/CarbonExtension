@@ -6,6 +6,7 @@ import bgO4 from '../assets/bg_carbon_b_4.jpg';
 export const PersonWaterQuizData = {
 	0: {
 		title: 'Person Water',
+		type: 'simple',
 		description: 'How much travel do you do?',
 		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],

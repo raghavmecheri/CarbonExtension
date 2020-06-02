@@ -165,7 +165,6 @@ const InfoQuizImage = styled.img`
 `;
 
 export const SideQuizMenu = ({ questionIndex, formState }) => {
-	console.log(formState[questionIndex]);
 	const { sideTitle, sideBody, infoPlusBody } = formState[questionIndex];
 	return (
 		<SideQuizMenuWrapper>

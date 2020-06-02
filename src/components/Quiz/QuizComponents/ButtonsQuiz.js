@@ -105,21 +105,25 @@ export const Buttons = ({
 	finish,
 	handleAddRow,
 	handleDeleteQuestion,
+	simpleQuiz,
 }) => {
 	if (!end) {
 		return (
 			<ButtonBox>
 				<BackwardIcon onClick={back}>{'< Last Question'}</BackwardIcon>
-				<MiddleBox>
-					<div>
-						<DeleteButton onClick={handleDeleteQuestion} />
-						<ButtonText>Delete Row</ButtonText>
-					</div>
-					<div>
-						<AddButton onClick={handleAddRow} />
-						<ButtonText>Add Row</ButtonText>
-					</div>
-				</MiddleBox>
+
+				{!simpleQuiz ? (
+					<MiddleBox>
+						<div>
+							<DeleteButton onClick={handleDeleteQuestion} />
+							<ButtonText>Delete Row</ButtonText>
+						</div>
+						<div>
+							<AddButton onClick={handleAddRow} />
+							<ButtonText>Add Row</ButtonText>
+						</div>
+					</MiddleBox>
+				) : null}
 				<ForwardIcon onClick={next}>{'Next Question >'}</ForwardIcon>
 			</ButtonBox>
 		);
@@ -127,16 +131,18 @@ export const Buttons = ({
 		return (
 			<ButtonBox>
 				<BackwardIcon onClick={back}>{'< Last Question'}</BackwardIcon>
-				<MiddleBox>
-					<div>
-						<DeleteButton onClick={handleDeleteQuestion} />
-						<ButtonText>Delete Row</ButtonText>
-					</div>
-					<div>
-						<AddButton onClick={handleAddRow} />
-						<ButtonText>Add Row</ButtonText>
-					</div>
-				</MiddleBox>
+				{!simpleQuiz ? (
+					<MiddleBox>
+						<div>
+							<DeleteButton onClick={handleDeleteQuestion} />
+							<ButtonText>Delete Row</ButtonText>
+						</div>
+						<div>
+							<AddButton onClick={handleAddRow} />
+							<ButtonText>Add Row</ButtonText>
+						</div>
+					</MiddleBox>
+				) : null}
 				<Link to='/result'>
 					<Button onClick={finish}>Calculate</Button>
 				</Link>

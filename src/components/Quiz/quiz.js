@@ -37,11 +37,10 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
 	const [simpleQuiz, setSimpleQuiz] = useState(formState[0].type === 'simple');
+	const [sliderValue, setSliderValue] = useState(4);
 
 	const handleQuizDesign = () => {
-		if (formState[0].type === 'simple') {
-			setSimpleQuiz(true);
-		}
+		setSimpleQuiz(false);
 	};
 
 	const back = () => {
@@ -107,6 +106,13 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 		updateInputValueForm({ value, rowIndex, columName });
 	};
 
+	const handleSliderInput = (e) => {
+		e.preventDefault();
+		const { value } = e.target;
+		setSliderValue(value);
+		console.log(value);
+	};
+
 	const finish = () => {
 		console.log('finsish');
 		setStateScreen({ ...stateScreen, formState });
@@ -116,13 +122,15 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 		<QuizWrapper>
 			<SideQuizMenu questionIndex={questionIndex} formState={formState} />
 			<QuizBox>
-				{!simpleQuiz ? (
-					<QuestionQuizComplex
+				{simpleQuiz ? (
+					<QuestionQuizSimple
 						rowsValues={formState[questionIndex]}
-						handleInput={handleInput}
+						handleSliderInput={handleSliderInput}
+						sliderValue={sliderValue}
+						handleQuizDesign={handleQuizDesign}
 					/>
 				) : (
-					<QuestionQuizSimple
+					<QuestionQuizComplex
 						rowsValues={formState[questionIndex]}
 						handleInput={handleInput}
 					/>
@@ -134,6 +142,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 					end={endQuestion}
 					handleDeleteQuestion={handleDeleteQuestion}
 					handleAddRow={handleAddRow}
+					simpleQuiz={simpleQuiz}
 				/>
 			</QuizBox>
 		</QuizWrapper>
