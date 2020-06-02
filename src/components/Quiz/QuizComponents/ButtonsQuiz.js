@@ -120,7 +120,6 @@ export const Buttons = ({
 						<ButtonText>Add Row</ButtonText>
 					</div>
 				</MiddleBox>
-
 				<ForwardIcon onClick={next}>{'Next Question >'}</ForwardIcon>
 			</ButtonBox>
 		);
@@ -129,10 +128,14 @@ export const Buttons = ({
 			<ButtonBox>
 				<BackwardIcon onClick={back}>{'< Last Question'}</BackwardIcon>
 				<MiddleBox>
-					<DeleteButton onClick={handleDeleteQuestion} />
-					<p>Delete Row</p>
-					<AddButton onClick={handleAddRow} />
-					<p>Add Row</p>
+					<div>
+						<DeleteButton onClick={handleDeleteQuestion} />
+						<ButtonText>Delete Row</ButtonText>
+					</div>
+					<div>
+						<AddButton onClick={handleAddRow} />
+						<ButtonText>Add Row</ButtonText>
+					</div>
 				</MiddleBox>
 				<Link to='/result'>
 					<Button onClick={finish}>Calculate</Button>

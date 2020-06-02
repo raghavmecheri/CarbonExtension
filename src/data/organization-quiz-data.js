@@ -33,6 +33,11 @@ export const OrganizationQuizData = {
 			'H2',
 		],
 		image: bgO1,
+		sideTitle: 'Transport',
+		sideBody:
+			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
+		infoPlusBody:
+			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 	1: {
 		title: 'Combustible Instalaciones Fijas',
@@ -58,6 +63,11 @@ export const OrganizationQuizData = {
 			'Coque de petroleo',
 		],
 		image: bgO2,
+		sideTitle: 'Instalaciones Fijas',
+		sideBody:
+			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
+		infoPlusBody:
+			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 	2: {
 		title: 'Refrigeracion y Climatizacion',
@@ -68,7 +78,12 @@ export const OrganizationQuizData = {
 			{ title: '', title2: '', energyType: '', quantity: '' },
 		],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
-		placeHolder: { first: 'Sotano', energyType: '', second: '100 litres' },
+		placeHolder: {
+			first: 'Sotano',
+			third: '',
+			energyType: '',
+			second: '100 litres',
+		},
 		rowTitles: [
 			'Edificio/Sede',
 			'Nombre del Gas',
@@ -98,6 +113,11 @@ export const OrganizationQuizData = {
 			'HFC-43-10mee',
 		],
 		image: bgO3,
+		sideTitle: 'Fugas',
+		sideBody:
+			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
+		infoPlusBody:
+			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 	3: {
 		title: 'Electricity',
@@ -110,6 +130,7 @@ export const OrganizationQuizData = {
 		rowsType: [{ title: '', title2: '', energyType: '', quantity: '' }],
 		placeHolder: {
 			first: 'Nave de Aragusa',
+			third: '',
 			energyType: '',
 			second: '1000 kWh',
 		},
@@ -242,5 +263,10 @@ export const OrganizationQuizData = {
 		],
 		gdp: ['Si', 'No'],
 		image: bgO4,
+		sideTitle: 'Electricidad',
+		sideBody:
+			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
+		infoPlusBody:
+			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 };

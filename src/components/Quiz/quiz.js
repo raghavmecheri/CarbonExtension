@@ -2,12 +2,9 @@ import React, { useState, useReducer, reducer, initialState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { StumbleuponCircle } from '@styled-icons/fa-brands';
-import { CheckmarkCircle } from '@styled-icons/evaicons-solid';
-
-import logo from '../../assets/logo.png';
-
 import bg_error from '../../assets/bg_error.jpeg';
+
+import { SideQuizMenu } from './QuizComponents/SideQuizMenu';
 import { QuestionQuiz } from './QuizComponents/QuestionQuiz';
 import { Buttons } from './QuizComponents/ButtonsQuiz';
 import { OrganizationQuizData } from '../../data/organization-quiz-data';
@@ -28,18 +25,6 @@ const QuizWrapper = styled.div`
 	}
 `;
 
-const LogoWrapper = styled.div`
-	position: absolute;
-	width: inherit;
-	top: -1.5em;
-	z-index: 9999;
-`;
-const LogoStyle = styled.img`
-	width: 12em;
-	margin: auto;
-	z-index: 9999;
-`;
-
 const QuizBox = styled.div`
 	color: black;
 	max-width: 70vw;
@@ -49,154 +34,6 @@ const QuizBox = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-`;
-
-const SideQuizMenu = styled.div`
-	width: 30vw;
-	height: 100%;
-	max-height: 100vh;
-	background-color: #ffffff;
-	color: black;
-	position: relative;
-`;
-
-const StepsQuiz = styled.div`
-	height: 100%;
-	width: 107%;
-	position: absolute;
-	display: grid;
-	justify-content: end;
-	align-items: center;
-`;
-const StepsQuizBorder = styled.div`
-	height: ${(props) =>
-		props.questionIndex === 0
-			? `15%`
-			: props.questionIndex === 1
-			? `40%`
-			: props.questionIndex === 2
-			? '60%'
-			: '90%'};
-	width: 100%;
-	position: absolute;
-	border-right: 3px solid cornflowerblue;
-`;
-
-const StepsQuizShadow = styled.div`
-	height: ${(props) =>
-		props.questionIndex === 0
-			? `85%`
-			: props.questionIndex === 1
-			? `60%`
-			: props.questionIndex === 2
-			? '40%'
-			: '10%'};
-
-	top: ${(props) =>
-		props.questionIndex === 0
-			? `15%`
-			: props.questionIndex === 1
-			? `40%`
-			: props.questionIndex === 2
-			? '60%'
-			: '90%'};
-	width: 100%;
-	position: absolute;
-	-webkit-box-shadow: 10px 0px 6px -6px #777;
-	-moz-box-shadow: 10px 0px 6px -6px #777;
-	box-shadow: 10px 0px 6px -6px #777;
-`;
-
-const InfoQuiz = styled.div`
-	height: 100%;
-	width: 100%;
-	padding-top: 35%;
-	display: flow-root;
-	justify-content: center;
-	align-items: center;
-`;
-
-const StepsIcon = styled.div`
-	border: 3px solid
-		${(props) =>
-			Number(props.children.key) <= props.questionIndex
-				? `cornflowerblue`
-				: `#E0E0E0`};
-	border-radius: 50%;
-	background-color: ${(props) =>
-		Number(props.children.key) <= props.questionIndex ? `#6FCE99` : `#E4E8ED`};
-	font-size: 25px;
-	font-weight: 900;
-	padding: 6px;
-`;
-
-const StepsCircle = styled.div`
-	width: 1.5em;
-	color: ${(props) =>
-		Number(props.children) <= props.questionIndex
-			? `cornflowerblue`
-			: `#E0E0E0`};
-	border: 3px solid;
-	background-color: ${(props) =>
-		Number(props.children) <= props.questionIndex ? `white` : `white`};
-	border-color: ${(props) =>
-		Number(props.children) <= props.questionIndex ? `white` : `white`};
-	border-radius: 50%;
-	font-weight: 900;
-	padding: 0px;
-	margin: auto;
-`;
-
-const InfoQuizTitle = styled.div`
-	border-top: 2px dashed gray;
-	padding-top: 1em;
-	font-size: 35px;
-	font-weight: 600;
-`;
-
-const InfoQuizSubTitle = styled.div`
-	font-size: 16px;
-	padding-bottom: 1em;
-	padding-top: 0.2em;
-	color: gray;
-	text-align: initial;
-	padding-left: 4em;
-	font-weight: 400;
-`;
-
-const InfoQuizBody = styled.div`
-	font-size: 20px;
-	color: gray;
-	padding: 1em 1.5em;
-	text-align: center;
-	font-weight: 400;
-`;
-
-const InfoQuizPlus = styled.div`
-	color: gray;
-	border-top: 2px dashed gray;
-	padding-top: 1em;
-	margin: 0em 1.5em;
-	margin-left: 2em;
-	text-align: start;
-`;
-
-const InfoQuizPlusTitle = styled.div`
-	font-size: 25px;
-	color: gray;
-	font-weight: 500;
-`;
-
-const InfoQuizPlusBody = styled.div`
-	padding-top: 0.5em;
-	font-size: 20px;
-	color: gray;
-`;
-
-const InfoQuizImage = styled.img`
-	width: 15em;
-	border-radius: 4%;
-	margin: auto;
 `;
 
 const ErrorContainer = styled.div`
@@ -238,9 +75,6 @@ export const Quiz = ({ stateScreen, setStateScreen }) => {
 	const [formState, setFormState] = useState(OrganizationQuizData);
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
-
-	console.log(formState);
-	console.log(questionIndex);
 
 	const back = () => {
 		if (questionIndex > 0) {
@@ -288,8 +122,6 @@ export const Quiz = ({ stateScreen, setStateScreen }) => {
 		});
 	};
 
-	console.log(formState);
-
 	const handleDeleteQuestion = () => {
 		const newScreenState = {
 			...formState[questionIndex],
@@ -314,52 +146,7 @@ export const Quiz = ({ stateScreen, setStateScreen }) => {
 
 	return (
 		<QuizWrapper>
-			<SideQuizMenu>
-				<LogoWrapper>
-					<Link to='/'>
-						<LogoStyle src={logo} alt='logo' />
-					</Link>
-				</LogoWrapper>
-				<StepsQuizBorder questionIndex={questionIndex} />
-				<StepsQuizShadow questionIndex={questionIndex} />
-				<StepsQuiz>
-					{formState
-						? Object.keys(formState).map((item, key) => {
-								return (
-									<StepsIcon questionIndex={questionIndex} key={key}>
-										<StepsCircle questionIndex={questionIndex} key={item}>
-											{item}
-										</StepsCircle>
-									</StepsIcon>
-								);
-						  })
-						: null}
-				</StepsQuiz>
-				<InfoQuiz>
-					<InfoQuizTitle>Transport</InfoQuizTitle>
-					<InfoQuizSubTitle>Step 1</InfoQuizSubTitle>
-					<InfoQuizImage
-						src={formState[questionIndex].image}
-						alt={formState[questionIndex]}
-					/>
-					<InfoQuizBody>
-						This is the footprint produced by the use of different uses of
-						trasnports.
-						<br />
-						<br />
-						And it would be included inside the First scope of the Carbon
-						Footprint.
-					</InfoQuizBody>
-					<InfoQuizPlus>
-						<InfoQuizPlusTitle>Did you know:</InfoQuizPlusTitle>
-						<InfoQuizPlusBody>
-							That the earth isn't round and it is in fact flat. All those
-							people laughing about it and they were rigth all along.
-						</InfoQuizPlusBody>
-					</InfoQuizPlus>
-				</InfoQuiz>
-			</SideQuizMenu>
-
+			<SideQuizMenu questionIndex={questionIndex} formState={formState} />
 			<QuizBox>
 				<QuestionQuiz
 					rowsValues={formState[questionIndex]}

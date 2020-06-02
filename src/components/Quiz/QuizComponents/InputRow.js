@@ -40,8 +40,9 @@ export const InputRow = ({
 	dropdownTypes,
 	placeHolder,
 }) => {
-	const { title, energyType, quantity, gdp } = rowData;
-	console.log(placeHolder);
+	const { title, title2, energyType, quantity, gdp } = rowData;
+	console.log(rowData);
+	console.log(Object.keys(rowData).length);
 	return (
 		<QuestionsOptionsWrapper>
 			<Input
@@ -51,6 +52,15 @@ export const InputRow = ({
 				value={title}
 				placeholder={placeHolder.first}
 			/>
+			{Object.keys(rowData).length > 3 ? (
+				<Input
+					type='text'
+					id={3}
+					onChange={(e) => handleInput(e, rowIndex, 'title2')}
+					value={title2}
+					placeholder={placeHolder.third}
+				/>
+			) : null}
 			<Selector onChange={(e) => handleInput(e, rowIndex, 'energyType')}>
 				{dropdownTypes.map((item, i) => {
 					return <option key={i}>{item}</option>;
@@ -66,39 +76,3 @@ export const InputRow = ({
 		</QuestionsOptionsWrapper>
 	);
 };
-
-// export const InputQuiz = ({ questionData, handleInput, keyRow }) => {
-// 	const { options, type, gdp } = questionData;
-
-// 	return options.map((option, key) => {
-// 		if (key === 1) {
-// 			return (
-// 				<Selector>
-// 					{type.map((item, i) => {
-// 						return <option key={i}>{item}</option>;
-// 					})}
-// 				</Selector>
-// 			);
-// 		} else if (key === 2 && gdp) {
-// 			return (
-// 				<Selector>
-// 					{gdp.map((item, i) => {
-// 						return <option key={i}>{item}</option>;
-// 					})}
-// 				</Selector>
-// 			);
-// 		}
-
-// 		return (
-// 			<QuestionsOptionsWrapper>
-// 				<Input
-// 					type='text'
-// 					id={keyRow}
-// 					name={option}
-// 					onChange={handleInput}
-// 					placeholder='Put Something'
-// 				/>
-// 			</QuestionsOptionsWrapper>
-// 		);
-// 	});
-// };
