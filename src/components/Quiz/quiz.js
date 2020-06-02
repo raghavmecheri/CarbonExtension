@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { SideQuizMenu } from './QuizComponents/SideQuizMenu';
-import { QuestionQuiz } from './QuizComponents/QuestionQuiz';
+import { QuestionQuizComplex } from './QuizComponents/QuestionQuizComplex';
+import { QuestionQuizSimple } from './QuizComponents/QuestionQuizSimple';
 import { Buttons } from './QuizComponents/ButtonsQuiz';
 
 const QuizWrapper = styled.div`
@@ -35,6 +36,13 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	const [formState, setFormState] = useState(QuizData);
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
+	const [simpleQuiz, setSimpleQuiz] = useState(formState[0].type === 'simple');
+
+	const handleQuizDesign = () => {
+		if (formState[0].type === 'simple') {
+			setSimpleQuiz(true);
+		}
+	};
 
 	const back = () => {
 		if (questionIndex > 0) {
@@ -108,10 +116,17 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 		<QuizWrapper>
 			<SideQuizMenu questionIndex={questionIndex} formState={formState} />
 			<QuizBox>
-				<QuestionQuiz
-					rowsValues={formState[questionIndex]}
-					handleInput={handleInput}
-				/>
+				{!simpleQuiz ? (
+					<QuestionQuizComplex
+						rowsValues={formState[questionIndex]}
+						handleInput={handleInput}
+					/>
+				) : (
+					<QuestionQuizSimple
+						rowsValues={formState[questionIndex]}
+						handleInput={handleInput}
+					/>
+				)}
 				<Buttons
 					back={back}
 					next={next}

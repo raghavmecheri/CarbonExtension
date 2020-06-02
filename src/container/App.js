@@ -71,8 +71,8 @@ function App() {
 						path='/result'
 						component={() => <Result stateScreen={stateScreen} />}
 					/>
-					<Route path='/errorPage' component={ErrorPage} />
-					<Route render={() => <Redirect to='/errorPage' />} />
+					{/* <Route path='/errorPage' component={ErrorPage} />
+					<Route render={() => <Redirect to='/' />} /> */}
 				</AppContainer>
 			</Theme>
 		</BrowserRouter>

@@ -49,7 +49,7 @@ const InputRowWrapper = styled.div`
 	padding-top: 1em;
 `;
 
-export const QuestionQuiz = ({ rowsValues, handleInput, value }) => {
+export const QuestionQuizSimple = ({ rowsValues, handleInput, value }) => {
 	const {
 		title,
 		description,
@@ -63,23 +63,6 @@ export const QuestionQuiz = ({ rowsValues, handleInput, value }) => {
 		<QuestionsWrapper>
 			<Tittle>{title}</Tittle>
 			<Description>{description}</Description>
-			<RowInputBox>
-				<RowTitlesWrapper>
-					<RowTitles rowTitles={rowTitles} />
-				</RowTitlesWrapper>
-				{rowStructure.map((row, key) => (
-					<InputRowWrapper>
-						<InputRow
-							rowIndex={key}
-							rowData={row}
-							handleInput={handleInput}
-							value={value}
-							dropdownTypes={dropdownTypes}
-							placeHolder={placeHolder}
-						/>
-					</InputRowWrapper>
-				))}
-			</RowInputBox>
 		</QuestionsWrapper>
 	);
 };
