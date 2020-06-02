@@ -3,7 +3,7 @@ import bgO2 from '../assets/bg_carbon_b_2.jpg';
 import bgO3 from '../assets/bg_carbon_b_3.jpg';
 import bgO4 from '../assets/bg_carbon_b_4.jpg';
 
-export const OrganizationQuizData = {
+export const OrganizationCarbonQuizData = {
 	0: {
 		title: 'Combustible Desplazamiento',
 		description: 'How much travel do you do?',

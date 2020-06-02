@@ -12,6 +12,7 @@ import { HomeNavBar } from './HomeNavBar';
 import { HomeBackgroundAnimation } from './HomeBackgroundAnimation';
 import { Carbon } from '../Carbon/Carbon';
 import { Hidric } from '../Hidric/Hidric';
+import { Ecological } from '../Ecological/Ecological';
 
 import './HomeNavBar.css';
 
@@ -258,7 +259,7 @@ export const Home = () => {
 		} else if (homeContent === 2) {
 			return <Hidric handleReturn={handleReturn} />;
 		} else if (homeContent === 3) {
-			return <Hidric handleReturn={handleReturn} />;
+			return <Ecological handleReturn={handleReturn} />;
 		}
 	};
 

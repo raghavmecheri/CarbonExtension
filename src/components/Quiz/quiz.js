@@ -1,14 +1,9 @@
-import React, { useState, useReducer, reducer, initialState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-
-import bg_error from '../../assets/bg_error.jpeg';
 
 import { SideQuizMenu } from './QuizComponents/SideQuizMenu';
 import { QuestionQuiz } from './QuizComponents/QuestionQuiz';
 import { Buttons } from './QuizComponents/ButtonsQuiz';
-import { OrganizationQuizData } from '../../data/organization-quiz-data';
-import { PersonQuizData } from '../../data/person-quiz-data';
 
 const QuizWrapper = styled.div`
 	height: 100vh;
@@ -36,43 +31,8 @@ const QuizBox = styled.div`
 	justify-content: center;
 `;
 
-const ErrorContainer = styled.div`
-	height: 100vh;
-	color: red;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 3rem;
-	background: black;
-`;
-
-const ErrorButton = styled.button`
-	background: transparent;
-	color: white;
-	font-size: 1.5rem;
-	padding: 1rem;
-	border: 1px solid red;
-	&:hover {
-		cursor: pointer;
-		background: white;
-		color: red;
-	}
-`;
-
-const ErrorPage = () => (
-	<ErrorContainer>
-		<div>
-			<h1>Error 404</h1>
-			<p>Page not found</p>
-			<Link to='/'>
-				<ErrorButton>Go Back!</ErrorButton>
-			</Link>
-		</div>
-	</ErrorContainer>
-);
-
-export const Quiz = ({ stateScreen, setStateScreen }) => {
-	const [formState, setFormState] = useState(OrganizationQuizData);
+export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
+	const [formState, setFormState] = useState(QuizData);
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
 
