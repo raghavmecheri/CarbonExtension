@@ -204,6 +204,9 @@ const FactoryIcon = styled(Factory)`
 const HidricImage = styled.img`
 	width: 20em;
 	padding: -10px;
+	@media (max-height: 740px) {
+		width: 14em;
+	}
 	@media only screen and (max-width: 1100px) {
 		width: 16em;
 	}

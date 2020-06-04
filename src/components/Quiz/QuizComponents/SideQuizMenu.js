@@ -144,6 +144,9 @@ const InfoQuizPlus = styled.div`
 	margin: 0em 1.5em;
 	margin-left: 2em;
 	text-align: start;
+	@media (max-height: 740px) {
+		display: none;
+	}
 `;
 
 const InfoQuizPlusTitle = styled.div`

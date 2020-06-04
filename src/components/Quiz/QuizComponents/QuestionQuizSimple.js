@@ -119,6 +119,9 @@ const QuestionsWrapper = styled.div`
 	height: 100%;
 	width: inherit;
 	padding-top: 10%;
+	@media (max-height: 740px) {
+		padding-top: 0;
+	}
 `;
 
 const Tittle = styled.div`
