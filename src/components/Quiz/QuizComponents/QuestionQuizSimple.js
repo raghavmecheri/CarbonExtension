@@ -118,7 +118,7 @@ const SliderInput = styled.input`
 const QuestionsWrapper = styled.div`
 	height: 100%;
 	width: inherit;
-	padding-top: 5vh;
+	padding-top: 10%;
 `;
 
 const Tittle = styled.div`
@@ -237,8 +237,15 @@ export const QuestionQuizSimple = ({
 		} else if (sliderValue < 3) {
 			return (
 				<>
-					<SliderTextStyle>Infrequently</SliderTextStyle>
+					<SliderTextStyle>Ocassionally</SliderTextStyle>
 					<SliderSubTextStyle>{'(Once a Month)'}</SliderSubTextStyle>
+				</>
+			);
+		} else if (sliderValue < 5) {
+			return (
+				<>
+					<SliderTextStyle>Normal</SliderTextStyle>
+					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
 				</>
 			);
 		} else if (sliderValue < 7) {
@@ -248,10 +255,17 @@ export const QuestionQuizSimple = ({
 					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
 				</>
 			);
-		} else if (sliderValue <= 10) {
+		} else if (sliderValue < 9) {
 			return (
 				<>
 					<SliderTextStyle>Very Often</SliderTextStyle>
+					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
+				</>
+			);
+		} else if (sliderValue <= 10) {
+			return (
+				<>
+					<SliderTextStyle>Always</SliderTextStyle>
 					<SliderSubTextStyle>{'(Once a Day)'}</SliderSubTextStyle>
 				</>
 			);
@@ -278,7 +292,7 @@ export const QuestionQuizSimple = ({
 						defaultValue='4'
 						onChange={(e) => handleSliderInput(e, id)}
 					/>
-					<RightText>Very Often</RightText>
+					<RightText>Always</RightText>
 				</SliderBox>
 				<SliderText />
 			</InputBox>

@@ -94,6 +94,18 @@ const BackgroundTree = styled.img`
 	left: -1em;
 	width: 35em;
 	z-index: -9999;
+	@media (max-height: 750px) {
+		width: 31em;
+	}
+	@media (max-height: 700px) {
+		width: 30em;
+	}
+	@media (max-height: 650px) {
+		width: 28em;
+	}
+	@media (max-height: 600px) {
+		width: 23em;
+	}
 	@media (max-width: 1200px) {
 		width: 30em;
 	}
