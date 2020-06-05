@@ -1,4 +1,4 @@
-import bgO1 from '../assets/bg_carbon_b_1.jpg';
+import bgO1 from '../assets/bg_carbon_side_i_1.png';
 import bgO11 from '../assets/bg_carbon_i_1.png';
 import bgO2 from '../assets/bg_carbon_b_2.jpg';
 import bgO3 from '../assets/bg_carbon_b_3.jpg';
@@ -44,7 +44,7 @@ export const PersonCarbonQuizData = {
 		dropdownTypes: [],
 		image: bgO1,
 		image2: bgO11,
-		sideTitle: 'Transport',
+		sideTitle: 'House',
 		sideBody:
 			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
 		infoPlusBody:

@@ -36,14 +36,8 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	const [formState, setFormState] = useState(QuizData);
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
-	const [simpleQuiz, setSimpleQuiz] = useState(true);
 	const [sliderValue, setSliderValue] = useState(4);
 	const businessQuiz = formState[0].type === 'complex';
-
-	const handleQuizDesign = () => {
-		setSimpleQuiz(false);
-		console.log('click');
-	};
 
 	const back = () => {
 		if (questionIndex > 0) {
@@ -134,8 +128,6 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 						rowsValues={formState[questionIndex]}
 						handleSliderInput={handleSliderInput}
 						sliderValue={sliderValue}
-						handleQuizDesign={handleQuizDesign}
-						simpleQuiz={simpleQuiz}
 					/>
 				)}
 				<Buttons
@@ -145,7 +137,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 					end={endQuestion}
 					handleDeleteQuestion={handleDeleteQuestion}
 					handleAddRow={handleAddRow}
-					simpleQuiz={simpleQuiz}
+					businessQuiz={businessQuiz}
 				/>
 			</QuizBox>
 		</QuizWrapper>

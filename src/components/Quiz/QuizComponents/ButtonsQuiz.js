@@ -105,14 +105,14 @@ export const Buttons = ({
 	finish,
 	handleAddRow,
 	handleDeleteQuestion,
-	simpleQuiz,
+	businessQuiz,
 }) => {
 	if (!end) {
 		return (
 			<ButtonBox>
 				<BackwardIcon onClick={back}>{'< Last Question'}</BackwardIcon>
 
-				{!simpleQuiz ? (
+				{businessQuiz ? (
 					<MiddleBox>
 						<div>
 							<DeleteButton onClick={handleDeleteQuestion} />
@@ -131,7 +131,7 @@ export const Buttons = ({
 		return (
 			<ButtonBox>
 				<BackwardIcon onClick={back}>{'< Last Question'}</BackwardIcon>
-				{!simpleQuiz ? (
+				{businessQuiz ? (
 					<MiddleBox>
 						<div>
 							<DeleteButton onClick={handleDeleteQuestion} />
