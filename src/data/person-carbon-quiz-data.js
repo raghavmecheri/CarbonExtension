@@ -1,5 +1,5 @@
 import bgO1 from '../assets/bg_carbon_b_1.jpg';
-import bgO11 from '../assets/carbon_img.png';
+import bgO11 from '../assets/bg_carbon_i_1.png';
 import bgO2 from '../assets/bg_carbon_b_2.jpg';
 import bgO3 from '../assets/bg_carbon_b_3.jpg';
 import bgO4 from '../assets/bg_carbon_b_4.jpg';
@@ -7,34 +7,41 @@ import bgO4 from '../assets/bg_carbon_b_4.jpg';
 export const PersonCarbonQuizData = {
 	0: {
 		id: 0,
-		title: 'Transport',
+		title: 'Living Place',
 		type: 'simple',
-		description: 'How much travel do you do?',
-		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
-		rowsType: [{ title: '', energyType: '', quantity: '' }],
-		placeHolder: { first: 'Mercedes', energyType: '', second: '1000 litres' },
-		rowStructure: [
-			{ title: '', energyType: '', quantity: '' },
-			{ title: '', energyType: '', quantity: '' },
-			{ title: '', energyType: '', quantity: '' },
+		description: 'How green are you?',
+		description2: 'How much electricity do you consume?',
+		rowTitles: [
+			'Electricity',
+			'Natural Gas',
+			'Gasoleo',
+			'Carbon',
+			'GLP',
+			'Propano',
+			'Pellets de Madera',
 		],
-		dropdownTypes: [
-			'--',
-			'Gasolina',
-			'Gasoleo A o B',
-			'E10',
-			'E86',
-			'B7',
-			'B10',
-			'B20',
-			'B30',
-			'B100',
-			'XTL',
-			'LNG',
-			'CNG',
-			'LPG',
-			'H2',
+		rowsType: [
+			{
+				Electricity: '',
+				'Natural Gas': '',
+				Gasoleo: '',
+				Carbon: '',
+				GLP: '',
+				Propano: '',
+				'Pellets de Madera': '',
+			},
 		],
+		placeHolder: {
+			Electricity: '1000 kWh',
+			'Natural Gas': '2000 kWh',
+			Gasoleo: '1000 L',
+			Carbon: '100 ton',
+			GLP: '1000 L',
+			Propano: '1000 L',
+			'Pellets de Madera': '100 ton',
+		},
+		rowStructure: [],
+		dropdownTypes: [],
 		image: bgO1,
 		image2: bgO11,
 		sideTitle: 'Transport',

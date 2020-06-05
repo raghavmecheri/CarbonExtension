@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { ArrowheadDownOutline } from '@styled-icons/evaicons-outline';
 
+import { QuestionQuizIndividualSimple } from './QuestionQuizIndividualSimple';
+
 // START SLIDER -------------------------------------------------------------------------------------------------------------------
 const height = '16px';
 const thumbHeight = 36;
@@ -118,7 +120,6 @@ const SliderInput = styled.input`
 const QuestionsWrapper = styled.div`
 	height: 100%;
 	width: inherit;
-	padding-top: 10%;
 	@media (max-height: 740px) {
 		padding-top: 0;
 	}
@@ -137,11 +138,10 @@ const Description = styled.div`
 	font-weight: 300;
 	display: flex;
 	justify-content: center;
-	padding-bottom: 2em;
 `;
 
 const SimpleQuizImage = styled.img`
-	width: 15em;
+	width: 13em;
 `;
 
 const InputBox = styled.div`
@@ -150,7 +150,7 @@ const InputBox = styled.div`
 	width: 80%;
 	margin: auto;
 	padding-bottom: 1em;
-	margin-top: 2em;
+	margin-top: 0.5em;
 	-webkit-box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
 	-moz-box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
 	box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
@@ -203,7 +203,7 @@ const RightText = styled.div`
 `;
 
 const DropdownIcon = styled(ArrowheadDownOutline)`
-	margin-top: 2em;
+	margin-top: 0.5em;
 	font-size: 16px;
 	color: black;
 	border: 2px solid black;
@@ -216,64 +216,63 @@ const DropdownIcon = styled(ArrowheadDownOutline)`
 `;
 
 const TextDropdown = styled.div`
-	padding-top: 0.4em;
 	font-size: 17px;
 	font-weight: 600;
 `;
 
-export const QuestionQuizSimple = ({
+const CheckBoxWrapper = styled.div`
+	position: relative;
+	margin-top: 1em;
+`;
+const CheckBoxLabel = styled.label`
+	position: absolute;
+	top: 0;
+	left: 46%;
+	width: 3em;
+	height: 26px;
+	border-radius: 15px;
+	background: #bebebe;
+	cursor: pointer;
+	&::after {
+		content: '';
+		display: block;
+		border-radius: 50%;
+		width: 18px;
+		height: 18px;
+		margin: 3px;
+		background: #ffffff;
+		box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
+		transition: 0.2s;
+	}
+`;
+const CheckBox = styled.input`
+	opacity: 0;
+	z-index: 1;
+	border-radius: 15px;
+	width: 42px;
+	height: 26px;
+	&:checked + ${CheckBoxLabel} {
+		background: #4fbe79;
+		&::after {
+			content: '';
+			display: block;
+			border-radius: 50%;
+			width: 18px;
+			height: 18px;
+			margin-left: 25px;
+			transition: 0.2s;
+		}
+	}
+`;
+
+export const QuestionQuizIndividual = ({
 	rowsValues,
 	handleSliderInput,
 	sliderValue,
 	handleQuizDesign,
+	simpleQuiz,
 }) => {
-	const { id, title, description, image2 } = rowsValues;
-
-	const SliderText = () => {
-		if (sliderValue < 1) {
-			return (
-				<>
-					<SliderTextStyle>Never</SliderTextStyle>
-					<SliderSubTextStyle>{'(never)'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (sliderValue < 3) {
-			return (
-				<>
-					<SliderTextStyle>Ocassionally</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Month)'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (sliderValue < 5) {
-			return (
-				<>
-					<SliderTextStyle>Normal</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (sliderValue < 7) {
-			return (
-				<>
-					<SliderTextStyle>Often</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (sliderValue < 9) {
-			return (
-				<>
-					<SliderTextStyle>Very Often</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (sliderValue <= 10) {
-			return (
-				<>
-					<SliderTextStyle>Always</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Day)'}</SliderSubTextStyle>
-				</>
-			);
-		}
-	};
+	const { id, title, description, description2, image2 } = rowsValues;
 
 	return (
 		<QuestionsWrapper>
@@ -281,30 +280,22 @@ export const QuestionQuizSimple = ({
 			<Description>{description}</Description>
 			<SimpleQuizImage src={image2} />
 			<InputBox>
-				<QuestionQuiz>How often do you use the car?</QuestionQuiz>
-				<SubQuestionQuiz>(Higher or Lower than average)</SubQuestionQuiz>
-				<SliderBox>
-					<LeftText>Never</LeftText>
-					<SliderInput
-						type='range'
-						id={id}
-						name='slider'
-						min='0'
-						max='10'
-						step='2'
-						defaultValue='4'
-						onChange={(e) => handleSliderInput(e, id)}
-					/>
-					<RightText>Always</RightText>
-				</SliderBox>
-				<SliderText />
+				<QuestionQuizIndividualSimple
+					rowsValues={rowsValues}
+					handleSliderInput={handleSliderInput}
+					sliderValue={sliderValue}
+				/>
+				{/* <DropdownIcon size='35' onClick={handleQuizDesign} /> */}
+				<CheckBoxWrapper onClick={handleQuizDesign}>
+					<CheckBox id='checkbox' type='checkbox' />
+					<CheckBoxLabel htmlFor='checkbox' />
+				</CheckBoxWrapper>
+				<TextDropdown>
+					Change to Detail Quiz
+					<br />
+					Improve Accuracy
+				</TextDropdown>
 			</InputBox>
-			{/* <DropdownIcon size='35' onClick={handleQuizDesign} />
-			<TextDropdown>
-				Add Detail Quiz
-				<br />
-				Improve Accuracy
-			</TextDropdown> */}
 		</QuestionsWrapper>
 	);
 };

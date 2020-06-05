@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { SideQuizMenu } from './QuizComponents/SideQuizMenu';
-import { QuestionQuizComplex } from './QuizComponents/QuestionQuizComplex';
-import { QuestionQuizSimple } from './QuizComponents/QuestionQuizSimple';
+import { QuestionQuizBusiness } from './QuizComponents/QuestionQuizBusiness';
+import { QuestionQuizIndividual } from './QuizComponents/QuestionQuizIndividual';
 import { Buttons } from './QuizComponents/ButtonsQuiz';
 
 const QuizWrapper = styled.div`
@@ -36,11 +36,13 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	const [formState, setFormState] = useState(QuizData);
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
-	const [simpleQuiz, setSimpleQuiz] = useState(formState[0].type === 'simple');
+	const [simpleQuiz, setSimpleQuiz] = useState(true);
 	const [sliderValue, setSliderValue] = useState(4);
+	const businessQuiz = formState[0].type === 'complex';
 
 	const handleQuizDesign = () => {
 		setSimpleQuiz(false);
+		console.log('click');
 	};
 
 	const back = () => {
@@ -122,17 +124,18 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 		<QuizWrapper>
 			<SideQuizMenu questionIndex={questionIndex} formState={formState} />
 			<QuizBox>
-				{simpleQuiz ? (
-					<QuestionQuizSimple
+				{businessQuiz ? (
+					<QuestionQuizBusiness
+						rowsValues={formState[questionIndex]}
+						handleInput={handleInput}
+					/>
+				) : (
+					<QuestionQuizIndividual
 						rowsValues={formState[questionIndex]}
 						handleSliderInput={handleSliderInput}
 						sliderValue={sliderValue}
 						handleQuizDesign={handleQuizDesign}
-					/>
-				) : (
-					<QuestionQuizComplex
-						rowsValues={formState[questionIndex]}
-						handleInput={handleInput}
+						simpleQuiz={simpleQuiz}
 					/>
 				)}
 				<Buttons

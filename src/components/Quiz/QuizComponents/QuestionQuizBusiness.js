@@ -49,7 +49,7 @@ const InputRowWrapper = styled.div`
 	padding-top: 1em;
 `;
 
-export const QuestionQuizComplex = ({ rowsValues, handleInput, value }) => {
+export const QuestionQuizBusiness = ({ rowsValues, handleInput, value }) => {
 	const {
 		title,
 		description,
