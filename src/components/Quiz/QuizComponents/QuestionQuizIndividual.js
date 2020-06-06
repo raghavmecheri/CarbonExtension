@@ -42,6 +42,9 @@ const InputBox = styled.div`
 	-webkit-box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
 	-moz-box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
 	box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
+	@media (max-width: 1100px) {
+		padding: 1em;
+	}
 `;
 
 export const QuestionQuizIndividual = ({
@@ -53,20 +56,20 @@ export const QuestionQuizIndividual = ({
 
 	const [simpleQuiz, setSimpleQuiz] = useState(true);
 
-	const handleQuizDesign = () => {
-		setSimpleQuiz(false);
-		console.log(simpleQuiz);
+	const handleQuizDesign = (e) => {
+		console.log(e.target.checked);
+		setSimpleQuiz((prevState) => {
+			// Object.assign would also work
+			const newState = !prevState;
+			return newState;
+		});
 	};
-	// const handleQuizDesign = useCallback(() => {
-	// 	setSimpleQuiz((simpleQuiz) => !simpleQuiz);
-	// }, [simpleQuiz]);
-	// console.log(simpleQuiz);
 
 	return (
 		<QuestionsWrapper>
 			<Tittle>{title}</Tittle>
-			<Description>{description}</Description>
-			<SimpleQuizImage src={image2} />
+			{simpleQuiz && <Description>{description}</Description>}
+			{simpleQuiz && <SimpleQuizImage src={image2} />}
 			<InputBox>
 				{simpleQuiz ? (
 					<QuestionQuizIndividualSimple

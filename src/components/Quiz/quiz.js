@@ -30,6 +30,9 @@ const QuizBox = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	@media (max-width: 810px) {
+		max-width: 100%;
+	}
 `;
 
 export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {

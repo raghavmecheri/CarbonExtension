@@ -23,6 +23,9 @@ const SideQuizMenuWrapper = styled.div`
 	background-color: #ffffff;
 	color: black;
 	position: relative;
+	@media (max-width: 810px) {
+		display: none;
+	}
 `;
 
 const StepsQuiz = styled.div`

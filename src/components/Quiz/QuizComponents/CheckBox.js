@@ -54,8 +54,12 @@ const CheckBoxStyle = styled.input`
 export const CheckBox = ({ handleQuizDesign }) => {
 	return (
 		<>
-			<CheckBoxWrapper onClick={handleQuizDesign}>
-				<CheckBoxStyle id='checkbox' type='checkbox' />
+			<CheckBoxWrapper>
+				<CheckBoxStyle
+					onChange={handleQuizDesign}
+					id='checkbox'
+					type='checkbox'
+				/>
 				<CheckBoxLabel htmlFor='checkbox' />
 			</CheckBoxWrapper>
 			<TextDropdown>
