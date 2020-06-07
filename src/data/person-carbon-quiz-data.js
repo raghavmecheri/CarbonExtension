@@ -3,9 +3,14 @@ import bgO11 from '../assets/bg_carbon_i_1.png';
 import bgO2 from '../assets/bg_carbon_side_i_2.jpg';
 import bgO22 from '../assets/bg_carbon_i_2.png';
 import bgO33 from '../assets/bg_carbon_i_3.png';
-import bgO3 from '../assets/bg_carbon_b_3.jpg';
+import bgO3 from '../assets/bg_carbon_side_i_3.jpg';
 import bgO44 from '../assets/bg_carbon_i_4.png';
 import bgO4 from '../assets/bg_carbon_side_i_4.png';
+import bgO55 from '../assets/bg_carbon_i_5.png';
+import bgO5 from '../assets/bg_carbon_side_i_5.png';
+import bgO66 from '../assets/bg_carbon_i_6.png';
+import bgO6 from '../assets/bg_carbon_side_i_6.png';
+import bgO7 from '../assets/bg_carbon_side_i_7.png';
 
 export const PersonCarbonQuizData = {
 	0: {
@@ -97,7 +102,7 @@ export const PersonCarbonQuizData = {
 		],
 		image: bgO2,
 		image2: bgO22,
-		sideTitle: 'Tranporte',
+		sideTitle: 'Tranport',
 		sideBody:
 			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
 		infoPlusBody:
@@ -118,7 +123,7 @@ export const PersonCarbonQuizData = {
 		dropdownTypes: ['--', '- 125cc', '125cc - 500cc', '500cc -'],
 		image: bgO3,
 		image2: bgO33,
-		sideTitle: 'Fugas',
+		sideTitle: 'Transport',
 		sideBody:
 			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
 		infoPlusBody:
@@ -143,7 +148,7 @@ export const PersonCarbonQuizData = {
 		dropdownTypes: [],
 		image: bgO4,
 		image2: bgO44,
-		sideTitle: 'Tranporte',
+		sideTitle: 'Tranport',
 		sideBody:
 			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
 		infoPlusBody:
@@ -166,9 +171,9 @@ export const PersonCarbonQuizData = {
 		},
 		rowStructure: [],
 		dropdownTypes: [],
-		image: bgO4,
-		image2: bgO44,
-		sideTitle: 'Tranporte',
+		image: bgO5,
+		image2: bgO55,
+		sideTitle: 'Tranport',
 		sideBody:
 			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
 		infoPlusBody:
@@ -191,9 +196,9 @@ export const PersonCarbonQuizData = {
 		},
 		rowStructure: [],
 		dropdownTypes: [],
-		image: bgO4,
-		image2: bgO44,
-		sideTitle: 'Tranporte',
+		image: bgO6,
+		image2: bgO66,
+		sideTitle: 'Tranport',
 		sideBody:
 			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
 		infoPlusBody:
@@ -244,9 +249,9 @@ export const PersonCarbonQuizData = {
 			'Vegan',
 		],
 		dropdownTypes: [],
-		image: '',
+		image: bgO7,
 		image2: '',
-		sideTitle: 'Tranporte',
+		sideTitle: 'Expenses',
 		sideBody:
 			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
 		infoPlusBody:
