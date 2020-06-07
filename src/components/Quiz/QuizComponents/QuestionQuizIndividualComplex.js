@@ -23,7 +23,7 @@ const ComplexQuestionBox = styled.div`
 	font-family: 'Heebo', sans-serif;
 	width: 100%;
 	font-size: 10px;
-	padding-left: '22%';
+	padding-left: 17%;
 	@media (max-width: 1200px) {
 		padding-left: 17%;
 	}

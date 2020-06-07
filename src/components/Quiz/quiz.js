@@ -19,10 +19,20 @@ const QuizWrapper = styled.div`
 		align-items: center;
 		color: black;
 	}
+	@media (max-width: 430px) and (max-height: 750px) {
+		height: 110vh;
+	}
+	@media (max-width: 400px) and (max-height: 700px) {
+		height: 110vh;
+	}
+	@media (max-width: 350px) and (max-height: 600px) {
+		height: 130vh;
+	}
 `;
 
 const QuizBox = styled.div`
 	color: black;
+	position: relative;
 	max-width: 70vw;
 	padding: 2em;
 	height: 100%;

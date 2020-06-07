@@ -8,6 +8,7 @@ import { CheckBox } from './CheckBox';
 const QuestionsWrapper = styled.div`
 	height: 100%;
 	width: inherit;
+	padding-top: ${(props) => (props.id === 6 ? '0%' : '6%')};
 	@media (max-height: 740px) {
 		padding-top: 0;
 	}
@@ -19,6 +20,8 @@ const Tittle = styled.div`
 	display: flex;
 	justify-content: center;
 	color: #38a66d;
+	padding-bottom: ${(props) =>
+		props.id === 0 && !props.simpleQuiz ? '2%' : '0%'};
 `;
 
 const Description = styled.div`
@@ -30,6 +33,8 @@ const Description = styled.div`
 
 const SimpleQuizImage = styled.img`
 	width: 13em;
+	display: ${(props) =>
+		props.id === 0 && !props.simpleQuiz ? 'none' : 'initial'};
 	@media (max-width: 510px) {
 		display: ${(props) =>
 			props.id === 0 && !props.simpleQuiz ? 'none' : 'initial'};
@@ -46,6 +51,8 @@ const InputBox = styled.div`
 	overflow-y: scroll;
 	padding-bottom: 1em;
 	margin-top: 0.5em;
+	max-height: ${(props) =>
+		props.id === 6 || props.id === 0 ? '72vh' : '50vh'};
 	-webkit-box-shadow: 9px 9px 14px -13px rgba(138, 138, 138, 1);
 	-moz-box-shadow: 9px 9px 14px -13px rgba(138, 138, 138, 1);
 	box-shadow: 9px 9px 14px -13px rgba(138, 138, 138, 1);
@@ -92,8 +99,10 @@ export const QuestionQuizIndividual = ({
 	};
 
 	return (
-		<QuestionsWrapper>
-			<Tittle>{title}</Tittle>
+		<QuestionsWrapper id={id}>
+			<Tittle id={id} simpleQuiz={simpleQuiz}>
+				{title}
+			</Tittle>
 			{simpleQuiz && <Description>{description}</Description>}
 			<SimpleQuizImage src={image2} id={id} simpleQuiz={simpleQuiz} />
 			<InputBox id={id}>
