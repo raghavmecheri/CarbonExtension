@@ -34,11 +34,9 @@ const Description = styled.div`
 const SimpleQuizImage = styled.img`
 	width: 13em;
 	display: ${(props) =>
-		props.id === 0 && !props.simpleQuiz ? 'none' : 'initial'};
-	@media (max-width: 510px) {
-		display: ${(props) =>
-			props.id === 0 && !props.simpleQuiz ? 'none' : 'initial'};
-	}
+		(props.id === 0 && !props.simpleQuiz) || props.id === 6
+			? 'none'
+			: 'initial'};
 `;
 
 const InputBox = styled.div`
