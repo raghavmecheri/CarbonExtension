@@ -21,7 +21,11 @@ const Description = styled.div`
 	font-size: 20px;
 	font-weight: 300;
 	display: flex;
+	justify-content: center;
 	padding-left: 3vw;
+	@media (max-width: 810px) {
+		padding: 1em;
+	}
 `;
 
 const RowInputBox = styled.div`
@@ -32,6 +36,9 @@ const RowInputBox = styled.div`
 	-webkit-box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
 	-moz-box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
 	box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
+	@media (max-width: 810px) {
+		padding: 1em;
+	}
 `;
 
 const RowTitlesWrapper = styled.div`
@@ -40,6 +47,9 @@ const RowTitlesWrapper = styled.div`
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+	@media (max-width: 810px) {
+		margin-top: 0em;
+	}
 `;
 
 const InputRowWrapper = styled.div`

@@ -19,6 +19,7 @@ const ButtonBox = styled.div`
 		justify-content: space-around;
 		margin-top: 0;
 		padding: 0;
+		width: 90%;
 	}
 `;
 

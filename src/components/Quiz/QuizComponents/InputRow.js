@@ -22,6 +22,9 @@ const Input = styled.input`
 	&:focus {
 		background: white;
 	}
+	@media (max-width: 810px) {
+		margin: 0em;
+	}
 `;
 
 const Selector = styled.select`
