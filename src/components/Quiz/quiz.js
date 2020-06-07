@@ -141,6 +141,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 					handleDeleteQuestion={handleDeleteQuestion}
 					handleAddRow={handleAddRow}
 					businessQuiz={businessQuiz}
+					rowsValues={formState[questionIndex]}
 				/>
 			</QuizBox>
 		</QuizWrapper>

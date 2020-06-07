@@ -37,21 +37,14 @@ const StepsQuiz = styled.div`
 	align-items: center;
 `;
 const StepsQuizBorder = styled.div`
-	height: ${(props) =>
-		props.questionIndex === 0
-			? `15%`
-			: props.questionIndex === 1
-			? `40%`
-			: props.questionIndex === 2
-			? '60%'
-			: '90%'};
+	/* height: ${(props) => props.sideNumberDivision}; */
 	width: 100%;
 	position: absolute;
 	border-right: 3px solid cornflowerblue;
 `;
 
 const StepsQuizShadow = styled.div`
-	height: ${(props) =>
+	/* height: ${(props) =>
 		props.questionIndex === 0
 			? `85%`
 			: props.questionIndex === 1
@@ -67,12 +60,14 @@ const StepsQuizShadow = styled.div`
 			? `40%`
 			: props.questionIndex === 2
 			? '60%'
-			: '90%'};
+			: '90%'}; */
+	top: 0;
+	height: 100%;
 	width: 100%;
 	position: absolute;
-	-webkit-box-shadow: 10px 0px 6px -6px #777;
-	-moz-box-shadow: 10px 0px 6px -6px #777;
-	box-shadow: 10px 0px 6px -6px #777;
+	-webkit-box-shadow: -9px 17px 118px -50px rgba(138, 138, 138, 1);
+	-moz-box-shadow: -9px 17px 118px -50px rgba(138, 138, 138, 1);
+	box-shadow: -9px 17px 118px -50px rgba(138, 138, 138, 1);
 `;
 
 const InfoQuiz = styled.div`

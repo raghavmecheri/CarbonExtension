@@ -3,10 +3,13 @@ import styled from 'styled-components';
 
 const QuestionQuiz = styled.div`
 	font-size: 25px;
-	padding-top: 1em;
+	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 	display: flex;
 	justify-content: center;
+	@media (max-width: 550px) {
+		padding-top: 0;
+	}
 `;
 
 const SubQuestionQuiz = styled.div`
@@ -15,42 +18,12 @@ const SubQuestionQuiz = styled.div`
 	display: flex;
 	justify-content: center;
 `;
-const SliderBox = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	margin: auto;
-`;
-
-const LeftText = styled.div`
-	padding-right: 0.5em;
-	width: 4em;
-	font-family: 'Heebo', sans-serif;
-`;
-
-const SliderTextStyle = styled.div`
-	font-family: 'Heebo', sans-serif;
-	font-size: 20px;
-	font-weight: 600;
-`;
-
-const SliderSubTextStyle = styled.div`
-	font-family: 'Heebo', sans-serif;
-	font-size: 15px;
-`;
-
-const RightText = styled.div`
-	font-family: 'Heebo', sans-serif;
-	padding-left: 0.5em;
-	width: 4em;
-`;
 
 const ComplexQuestionBox = styled.div`
 	font-family: 'Heebo', sans-serif;
 	width: 100%;
 	font-size: 10px;
-	padding-left: 22%;
+	padding-left: '22%';
 	@media (max-width: 1200px) {
 		padding-left: 17%;
 	}
@@ -76,6 +49,20 @@ const QuestionWrapper = styled.div`
 	justify-content: end;
 	align-items: center;
 	position: relative;
+	@media (max-width: 810px) {
+		height: 4.5em;
+	}
+`;
+
+const QuestionComplex = styled.div`
+	font-size: 20px;
+	margin: 0.3em 0;
+	max-width: null;
+	@media (max-width: 810px) {
+		max-width: 7em;
+		text-align: initial;
+		font-size: 15px;
+	}
 `;
 
 const QuestionInput = styled.input`
@@ -110,7 +97,7 @@ const QuestionInput = styled.input`
 		right: 8%;
 	}
 	@media (max-width: 810px) {
-		width: 8em;
+		width: 7em;
 		right: 5%;
 	}
 `;
@@ -171,10 +158,18 @@ export const QuestionQuizIndividualComplex = ({
 			<SubQuestionQuiz>(Higher or Lower than average)</SubQuestionQuiz>
 			<ComplexQuestionBox>
 				{rowTitles.map((question, key) => {
+					let dropdown = false;
+					if (
+						question === 'Tipo de Combustible' ||
+						question === 'Cilindarada Motocicleta'
+					) {
+						dropdown = true;
+					}
+
 					return (
 						<QuestionWrapper>
-							<h1>{question}</h1>
-							{question === 'Tipo de Combustible' ? (
+							<QuestionComplex>{question}</QuestionComplex>
+							{dropdown ? (
 								<Selector onChange={(e) => handleInput(e, 'energyType')}>
 									{dropdownTypes.map((item, i) => {
 										return <option key={i}>{item}</option>;

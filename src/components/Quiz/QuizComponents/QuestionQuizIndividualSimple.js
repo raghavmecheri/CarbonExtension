@@ -115,7 +115,7 @@ const SliderInput = styled.input`
 // END SLIDER -----------------------------------------------------------------------------------------------------------------
 const QuestionQuiz = styled.div`
 	font-size: 25px;
-	padding-top: 1em;
+	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 	display: flex;
 	justify-content: center;

@@ -14,10 +14,11 @@ const ButtonBox = styled.div`
 	align-items: center;
 	justify-content: space-around;
 	@media only screen and (max-width: 850px) {
-		display: grid;
+		display: flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: space-around;
 		margin-top: 0;
+		padding: 0;
 	}
 `;
 
@@ -54,6 +55,9 @@ const ForwardIcon = styled.button`
 		background-color: cornflowerblue;
 		border-color: cornflowerblue;
 	}
+	@media only screen and (max-width: 850px) {
+		margin-left: 1em;
+	}
 `;
 
 const BackwardIcon = styled.button`
@@ -69,6 +73,9 @@ const BackwardIcon = styled.button`
 		cursor: pointer;
 		background-color: #9b9b9b;
 		color: white;
+	}
+	@media only screen and (max-width: 850px) {
+		margin-right: 1em;
 	}
 `;
 
@@ -106,12 +113,12 @@ export const Buttons = ({
 	handleAddRow,
 	handleDeleteQuestion,
 	businessQuiz,
+	rowsValues,
 }) => {
 	if (!end) {
 		return (
-			<ButtonBox>
+			<ButtonBox rowsValues={rowsValues}>
 				<BackwardIcon onClick={back}>{'< Last Question'}</BackwardIcon>
-
 				{businessQuiz ? (
 					<MiddleBox>
 						<div>

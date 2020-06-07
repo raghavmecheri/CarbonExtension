@@ -51,15 +51,25 @@ const CheckBoxStyle = styled.input`
 	}
 `;
 
-export const CheckBox = ({ handleQuizDesign }) => {
+export const CheckBox = ({ handleQuizDesign, ComplexForm }) => {
 	return (
 		<>
 			<CheckBoxWrapper>
-				<CheckBoxStyle
-					onChange={handleQuizDesign}
-					id='checkbox'
-					type='checkbox'
-				/>
+				{ComplexForm ? (
+					<CheckBoxStyle
+						onChange={handleQuizDesign}
+						id='checkbox'
+						type='checkbox'
+					/>
+				) : (
+					<CheckBoxStyle
+						onChange={handleQuizDesign}
+						id='checkbox'
+						type='checkbox'
+						checked
+						disabled
+					/>
+				)}
 				<CheckBoxLabel htmlFor='checkbox' />
 			</CheckBoxWrapper>
 			<TextDropdown>

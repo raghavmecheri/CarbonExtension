@@ -30,6 +30,10 @@ const Description = styled.div`
 
 const SimpleQuizImage = styled.img`
 	width: 13em;
+	@media (max-width: 510px) {
+		display: ${(props) =>
+			props.id === 0 && !props.simpleQuiz ? 'none' : 'initial'};
+	}
 `;
 
 const InputBox = styled.div`
@@ -37,13 +41,28 @@ const InputBox = styled.div`
 	border-radius: 10px;
 	width: 80%;
 	margin: auto;
+	max-height: 47vh;
+	overflow-y: hidden;
+	overflow-y: scroll;
 	padding-bottom: 1em;
 	margin-top: 0.5em;
-	-webkit-box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
-	-moz-box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
-	box-shadow: 5px 3px 31px -10px rgba(0, 0, 0, 0.66);
+	-webkit-box-shadow: 9px 9px 14px -13px rgba(138, 138, 138, 1);
+	-moz-box-shadow: 9px 9px 14px -13px rgba(138, 138, 138, 1);
+	box-shadow: 9px 9px 14px -13px rgba(138, 138, 138, 1);
+	&::-webkit-scrollbar-thumb {
+		border-radius: 4px;
+		background-color: rgba(0, 0, 0, 0.5);
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+	}
 	@media (max-width: 1100px) {
 		padding: 1em;
+	}
+	@media (max-width: 510px) {
+		margin: auto;
+		max-height: ${(props) =>
+			props.id === 6 || props.id === 0 ? '72vh' : '50vh'};
+		width: ${(props) => (props.id === 6 ? '90%' : '85%')};
+		margin-top: ${(props) => (props.id === 0 ? '1em' : '0.5em')};
 	}
 `;
 
@@ -52,14 +71,21 @@ export const QuestionQuizIndividual = ({
 	handleSliderInput,
 	sliderValue,
 }) => {
-	const { id, title, description, description2, image2 } = rowsValues;
+	const {
+		id,
+		title,
+		description,
+		description2,
+		image2,
+		ComplexForm,
+		rowTitles,
+	} = rowsValues;
 
 	const [simpleQuiz, setSimpleQuiz] = useState(true);
 
 	const handleQuizDesign = (e) => {
 		console.log(e.target.checked);
 		setSimpleQuiz((prevState) => {
-			// Object.assign would also work
 			const newState = !prevState;
 			return newState;
 		});
@@ -69,9 +95,9 @@ export const QuestionQuizIndividual = ({
 		<QuestionsWrapper>
 			<Tittle>{title}</Tittle>
 			{simpleQuiz && <Description>{description}</Description>}
-			{simpleQuiz && <SimpleQuizImage src={image2} />}
-			<InputBox>
-				{simpleQuiz ? (
+			<SimpleQuizImage src={image2} id={id} simpleQuiz={simpleQuiz} />
+			<InputBox id={id}>
+				{simpleQuiz && ComplexForm ? (
 					<QuestionQuizIndividualSimple
 						rowsValues={rowsValues}
 						handleSliderInput={handleSliderInput}
@@ -84,7 +110,10 @@ export const QuestionQuizIndividual = ({
 						sliderValue={sliderValue}
 					/>
 				)}
-				<CheckBox handleQuizDesign={handleQuizDesign} />
+				<CheckBox
+					handleQuizDesign={handleQuizDesign}
+					ComplexForm={ComplexForm}
+				/>
 			</InputBox>
 		</QuestionsWrapper>
 	);
