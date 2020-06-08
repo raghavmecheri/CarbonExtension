@@ -16,7 +16,7 @@ export const PersonCarbonQuizData = {
 	0: {
 		id: 0,
 		title: 'Living Place',
-		type: 'simple',
+		type: 'individual',
 		ComplexForm: true,
 		ComplexFormState: false,
 		persons: 'Cuanity of persons?',

@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { fuelData } from '../../data/fuelData';
+import { fakeData } from '../../data/fakeData';
 
 import logo from '../../assets/logo.png';
 import earth from '../../assets/earth.png';
@@ -76,21 +77,30 @@ const AwarenessButton = styled.button`
 	}
 `;
 
-export function Result({ stateScreen }) {
+export function Result({}) {
 	let result = 0;
 
+	const stateScreen = fakeData;
 	console.log(stateScreen);
 
-	if (stateScreen.formState) {
+	if (stateScreen.formState && stateScreen.formState[0].type === 'business') {
 		Object.keys(stateScreen.formState).map((key) => {
 			Object.keys(stateScreen.formState[key].rowStructure).map((i) => {
 				let energy = stateScreen.formState[key].rowStructure[i].energyType;
 				let quantity = stateScreen.formState[key].rowStructure[i].quantity;
-				result = result + Number(quantity) * Number(fuelData[key][energy]);
+				console.log(energy);
+				console.log(quantity);
+				if (energy && quantity) {
+					result = result + Number(quantity) * Number(fuelData[key][energy]);
+				}
 			});
 		});
+	} else if (
+		stateScreen.formState &&
+		stateScreen.formState[0].type === 'individual'
+	) {
+		console.log('individual');
 	}
-
 	console.log(result);
 
 	const countEarths = 5;

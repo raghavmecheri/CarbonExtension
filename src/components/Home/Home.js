@@ -238,7 +238,6 @@ export const Home = () => {
 	const [homeMenuState, setHomeMenuState] = useState(false);
 
 	const handleClick = (e) => {
-		console.log(e.target.id);
 		if (e.target.id === 'Carbon') {
 			setHomeContent(1);
 		} else if (e.target.id === 'Hidric') {
@@ -254,12 +253,10 @@ export const Home = () => {
 	};
 
 	const handleOpenMenu = () => {
-		console.log('open');
 		setHomeMenuState(true);
 	};
 
 	const handleCloseMenu = () => {
-		console.log('close');
 		setHomeMenuState(false);
 	};
 

@@ -147,7 +147,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	const [endQuestion, setEndQuestion] = useState(false);
 	const [homeMenuState, setHomeMenuState] = useState(false);
 	const [simpleQuiz, setSimpleQuiz] = useState(true);
-	const businessQuiz = formState[0].type === 'complex';
+	const businessQuiz = formState[0].type === 'business';
 
 	const handleOpenMenu = () => {
 		setHomeMenuState(true);
@@ -221,9 +221,6 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 			},
 		});
 	};
-
-	console.log(formState);
-	console.log(simpleQuiz);
 
 	const handleAddRow = () => {
 		const newScreenState = {
