@@ -37,6 +37,9 @@ const SimpleQuizImage = styled.img`
 		(props.id === 0 && !props.simpleQuiz) || props.id === 6
 			? 'none'
 			: 'initial'};
+	@media (max-height: 650px) {
+		width: 10em;
+	}
 `;
 
 const InputBox = styled.div`

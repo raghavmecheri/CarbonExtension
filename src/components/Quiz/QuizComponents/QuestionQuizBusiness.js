@@ -13,6 +13,7 @@ const Tittle = styled.div`
 	font-size: 42px;
 	font-weight: 600;
 	display: flex;
+	justify-content: center;
 	padding-left: 3vw;
 	color: #38a66d;
 `;

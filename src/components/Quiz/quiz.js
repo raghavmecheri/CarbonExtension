@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { SideQuizMenu } from './QuizComponents/SideQuizMenu';
 import { QuestionQuizBusiness } from './QuizComponents/QuestionQuizBusiness';
 import { QuestionQuizIndividual } from './QuizComponents/QuestionQuizIndividual';
 import { Buttons } from './QuizComponents/ButtonsQuiz';
+import { HomeNavBar } from '../Home/HomeNavBar';
+import logo from '../../assets/logo.png';
+import { Menu } from '@styled-icons/heroicons-outline';
+import { Cross } from '@styled-icons/entypo';
+import { HomeCircle } from '@styled-icons/boxicons-regular';
+import '../Home/HomeNavBar.css';
 
 const QuizWrapper = styled.div`
 	height: 100vh;
@@ -30,6 +37,94 @@ const QuizWrapper = styled.div`
 	}
 `;
 
+const HomeNavBarWrapper = styled.div`
+	display: none;
+	@media (max-width: 610px) {
+		display: block;
+		position: absolute;
+		height: 2em;
+		width: 100vw;
+		top: 0;
+		left: 0;
+	}
+`;
+
+const LogoStyle = styled.img`
+	position: absolute;
+	position: absolute;
+	top: -1.5em;
+	left: 27%;
+	width: 9em;
+`;
+
+const MenuStyle = styled(Menu)`
+	position: absolute;
+	top: 0.7em;
+	left: 1em;
+	font-size: 16px;
+	color: #38a66d;
+`;
+
+const CrossStyle = styled(Cross)`
+	position: absolute;
+	top: 0.3em;
+	left: 0.3em;
+	font-size: 16px;
+	color: #38a66d;
+`;
+
+const HomeCircleStyle = styled(HomeCircle)`
+	color: #38a66d;
+	position: absolute;
+	left: 2.8em;
+`;
+
+const HomeMenuBackground = styled.div`
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	height: 100%;
+	z-index: 999;
+	background-color: #0000006b;
+`;
+
+const HomeMenuWraper = styled.div`
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 70vw;
+	height: 100%;
+	z-index: 9999;
+	background-color: white;
+`;
+
+const MenuNavBar = styled.div`
+	padding-top: 7em;
+	display: flow-root;
+	justify-content: center;
+	text-align: center;
+	a {
+		color: #000;
+		text-decoration: none;
+		padding: 1em;
+	}
+
+	div {
+		position: relative;
+		font-weight: 500;
+		width: fit-content;
+		justify-content: flex-start;
+		padding-top: 0.2em;
+		margin-left: 10%;
+		font-size: 36px;
+		border-bottom: 1px solid #38a66d;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+`;
+
 const QuizBox = styled.div`
 	color: black;
 	position: relative;
@@ -42,6 +137,7 @@ const QuizBox = styled.div`
 	justify-content: center;
 	@media (max-width: 810px) {
 		max-width: 100%;
+		padding-top: 5em;
 	}
 `;
 
@@ -50,7 +146,18 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
 	const [sliderValue, setSliderValue] = useState(4);
+	const [homeMenuState, setHomeMenuState] = useState(false);
 	const businessQuiz = formState[0].type === 'complex';
+
+	const handleOpenMenu = () => {
+		console.log('open');
+		setHomeMenuState(true);
+	};
+
+	const handleCloseMenu = () => {
+		console.log('close');
+		setHomeMenuState(false);
+	};
 
 	const back = () => {
 		if (questionIndex > 0) {
@@ -127,8 +234,72 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 		setStateScreen({ ...stateScreen, formState });
 	};
 
+	const HomeMenu = () => {
+		if (homeMenuState) {
+			return (
+				<>
+					<HomeMenuBackground onClick={handleCloseMenu} />
+					<HomeMenuWraper>
+						<LogoStyle src={logo} alt='logo'></LogoStyle>
+						{homeMenuState ? (
+							<CrossStyle onClick={handleCloseMenu} size='60' />
+						) : (
+							<MenuStyle onClick={handleCloseMenu} size='40' />
+						)}
+						<MenuNavBar>
+							<NavLink
+								to='/'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>
+									<HomeCircleStyle size='40' />
+									Home
+								</div>
+							</NavLink>
+							<NavLink
+								to='/a'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Information</div>
+							</NavLink>
+							<NavLink
+								to='/b'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Others</div>
+							</NavLink>
+							<NavLink
+								to='/c'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>About</div>
+							</NavLink>
+							<NavLink
+								to='/d'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Contribute</div>
+							</NavLink>
+						</MenuNavBar>
+					</HomeMenuWraper>
+				</>
+			);
+		} else {
+			return null;
+		}
+	};
+
 	return (
 		<QuizWrapper>
+			<HomeNavBarWrapper>
+				<HomeNavBar handleMenu={handleOpenMenu} />
+			</HomeNavBarWrapper>
+			<HomeMenu />
 			<SideQuizMenu questionIndex={questionIndex} formState={formState} />
 			<QuizBox>
 				{businessQuiz ? (

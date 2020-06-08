@@ -18,6 +18,7 @@ export const PersonCarbonQuizData = {
 		title: 'Living Place',
 		type: 'simple',
 		ComplexForm: true,
+		persons: 'Cuanity of persons?',
 		description: 'How green are you?',
 		description2: 'How much electricity do you consume?',
 		rowTitles: [
