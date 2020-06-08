@@ -245,12 +245,12 @@ export const Carbon = ({ handleReturn }) => {
 				</BodyCarbon>
 			</TitleWrapper>
 			<ButtonBox>
-				<Link to='/quiz/person'>
+				<Link to='/carbon/quiz/person'>
 					<Button>
 						<PersonIcon size='30' /> Person
 					</Button>
 				</Link>
-				<Link to='/quiz/organization'>
+				<Link to='/carbon/quiz/organization'>
 					<Button>
 						<FactoryIcon size='30' /> Organization
 					</Button>

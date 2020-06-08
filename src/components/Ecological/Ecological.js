@@ -6,7 +6,7 @@ import { ArrowBackOutline } from '@styled-icons/typicons';
 import { Person } from '@styled-icons/evaicons-solid';
 import { Factory } from '@styled-icons/boxicons-solid';
 
-import WaterImg from '../../assets/water_img.jpg';
+import EcologicalImg from '../../assets/ecological_img.jpg';
 
 const HidricWrapper = styled.div`
 	color: black;
@@ -45,8 +45,8 @@ const ArrowIcon = styled(ArrowBackOutline)`
 	border: 2px solid #d18226;
 	border-radius: 50%;
 	padding-bottom: 5px;
-	left: -1em;
-	top: 0em;
+	left: -4em;
+	top: -1em;
 	font-size: 16px;
 	color: #d18226;
 	&:hover {
@@ -87,7 +87,7 @@ const TitleWrapper = styled.div`
 
 const TitleHidric = styled.div`
 	text-transform: uppercase;
-	color: cornflowerblue;
+	color: #a67171;
 	font-family: ${(props) => props.theme.fonts.tittle}, serif;
 	font-weight: 700;
 	text-align: center;
@@ -202,10 +202,11 @@ const FactoryIcon = styled(Factory)`
 `;
 
 const HidricImage = styled.img`
-	width: 20em;
+	width: 25em;
 	padding: -10px;
-	@media (max-height: 740px) {
-		width: 14em;
+
+	@media (max-height: 750px) {
+		width: 21em;
 	}
 	@media only screen and (max-width: 1100px) {
 		width: 16em;
@@ -227,27 +228,32 @@ const HidricImage = styled.img`
 	}
 `;
 
-export const Hidric = ({ handleReturn }) => {
+export const Ecological = ({ handleReturn }) => {
 	return (
 		<HidricWrapper>
 			<TitleWrapper>
 				<ArrowIcon size='48' onClick={handleReturn} />
-				<TitleHidric>Water Footprint</TitleHidric>
-				<SubtitleHidric>Calculate your water footprint!</SubtitleHidric>
+				<TitleHidric>Ecological Footprint</TitleHidric>
+				<SubtitleHidric>Calculate your Ecological footprint!</SubtitleHidric>
 				<TitleIcon></TitleIcon>
 				<BodyHidric>
-					<HidricImage src={WaterImg} alt='image-water' />
-					<TextHidric>
+					<HidricImage src={EcologicalImg} alt='image-ecological' />
+					<div>
+						<h1>Under Contruction</h1>
+						<h3>It will be realese soon!</h3>
+						<h3>Sorry fo the inconvenients</h3>
+					</div>
+					{/* <TextHidric>
 						With this calculator you can see
 						<br /> whats impact do you or your company <br /> have in the world.
 						<br />
 						<br />
 						Choose what type of water footprint
 						<br /> do you want to calcualte?
-					</TextHidric>
+					</TextHidric> */}
 				</BodyHidric>
 			</TitleWrapper>
-			<ButtonBox>
+			{/* <ButtonBox>
 				<Link to='/water/quiz/person'>
 					<Button>
 						<PersonIcon size='30' /> Person
@@ -258,7 +264,7 @@ export const Hidric = ({ handleReturn }) => {
 						<FactoryIcon size='30' /> Organization
 					</Button>
 				</Link>
-			</ButtonBox>
+			</ButtonBox> */}
 		</HidricWrapper>
 	);
 };

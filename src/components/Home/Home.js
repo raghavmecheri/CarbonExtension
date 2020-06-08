@@ -12,6 +12,7 @@ import { HomeNavBar } from './HomeNavBar';
 import { HomeBackgroundAnimation } from './HomeBackgroundAnimation';
 import { Carbon } from '../Carbon/Carbon';
 import { Hidric } from '../Hidric/Hidric';
+import { Ecological } from '../Ecological/Ecological';
 
 import './HomeNavBar.css';
 
@@ -93,6 +94,18 @@ const BackgroundTree = styled.img`
 	left: -1em;
 	width: 35em;
 	z-index: -9999;
+	@media (max-height: 750px) {
+		width: 31em;
+	}
+	@media (max-height: 700px) {
+		width: 30em;
+	}
+	@media (max-height: 650px) {
+		width: 28em;
+	}
+	@media (max-height: 600px) {
+		width: 23em;
+	}
 	@media (max-width: 1200px) {
 		width: 30em;
 	}
@@ -258,7 +271,7 @@ export const Home = () => {
 		} else if (homeContent === 2) {
 			return <Hidric handleReturn={handleReturn} />;
 		} else if (homeContent === 3) {
-			return <Hidric handleReturn={handleReturn} />;
+			return <Ecological handleReturn={handleReturn} />;
 		}
 	};
 

@@ -1,15 +1,21 @@
-// import bgO1 from '../assets/bg_orga_1.jpeg';
-// import bgO2 from '../assets/bg_orga_2.jpeg';
-// import bgO3 from '../assets/bg_orga_3.jpeg';
-// import bgO4 from '../assets/bg_orga_4.jpeg';
+import bgO1 from '../assets/bg_carbon_b_1.jpg';
+import bgO2 from '../assets/bg_carbon_b_2.jpg';
+import bgO3 from '../assets/bg_carbon_b_3.jpg';
+import bgO4 from '../assets/bg_carbon_b_4.jpg';
 
-export const OrganizationQuizData = {
+export const OrganizationCarbonQuizData = {
 	0: {
 		title: 'Combustible Desplazamiento',
+		type: 'complex',
 		description: 'How much travel do you do?',
 		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
-		rowStructure: [{ title: '', energyType: '', quantity: '' }],
+		placeHolder: { first: 'Mercedes', energyType: '', second: '1000 litres' },
+		rowStructure: [
+			{ title: '', energyType: '', quantity: '' },
+			{ title: '', energyType: '', quantity: '' },
+			{ title: '', energyType: '', quantity: '' },
+		],
 		dropdownTypes: [
 			'--',
 			'Gasolina',
@@ -27,14 +33,24 @@ export const OrganizationQuizData = {
 			'LPG',
 			'H2',
 		],
-		// image: bgO1,
+		image: bgO1,
+		sideTitle: 'Transport',
+		sideBody:
+			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
+		infoPlusBody:
+			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 	1: {
 		title: 'Combustible Instalaciones Fijas',
 		description: 'How much travel do you do?',
 		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
-		rowStructure: [{ title: '', energyType: '', quantity: '' }],
+		placeHolder: { first: 'Sotano', energyType: '', second: '5000 litres' },
+		rowStructure: [
+			{ title: '', energyType: '', quantity: '' },
+			{ title: '', energyType: '', quantity: '' },
+			{ title: '', energyType: '', quantity: '' },
+		],
 		dropdownTypes: [
 			'--',
 			'Gas Natural',
@@ -47,13 +63,28 @@ export const OrganizationQuizData = {
 			'Carbon de importacion',
 			'Coque de petroleo',
 		],
-		// image: bgO2,
+		image: bgO2,
+		sideTitle: 'Instalaciones Fijas',
+		sideBody:
+			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
+		infoPlusBody:
+			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 	2: {
 		title: 'Refrigeracion y Climatizacion',
 		description: 'Fugas de gases fluorados',
-		rowStructure: [{ title: '', title2: '', energyType: '', quantity: '' }],
+		rowStructure: [
+			{ title: '', title2: '', energyType: '', quantity: '' },
+			{ title: '', title2: '', energyType: '', quantity: '' },
+			{ title: '', title2: '', energyType: '', quantity: '' },
+		],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
+		placeHolder: {
+			first: 'Sotano',
+			third: '',
+			energyType: '',
+			second: '100 litres',
+		},
 		rowTitles: [
 			'Edificio/Sede',
 			'Nombre del Gas',
@@ -82,19 +113,29 @@ export const OrganizationQuizData = {
 			'HFC-365mfc',
 			'HFC-43-10mee',
 		],
-		// image: bgO3,
+		image: bgO3,
+		sideTitle: 'Fugas',
+		sideBody:
+			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
+		infoPlusBody:
+			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 	3: {
 		title: 'Electricity',
 		description: 'Fugas de gases fluorados',
-		rowStructure: [{ title: '', title2: '', energyType: '', quantity: '' }],
-		rowsType: [{ title: '', title2: '', energyType: '', quantity: '' }],
-		rowTitles: [
-			'Edificio',
-			'Nombre de la Comercializadora Suministradora de Energia',
-			'GdO',
-			'Datos de Consumo',
+		rowStructure: [
+			{ title: '', title2: '', energyType: '', quantity: '' },
+			{ title: '', title2: '', energyType: '', quantity: '' },
+			{ title: '', title2: '', energyType: '', quantity: '' },
 		],
+		rowsType: [{ title: '', title2: '', energyType: '', quantity: '' }],
+		placeHolder: {
+			first: 'Nave de Aragusa',
+			third: '',
+			energyType: '',
+			second: '1000 kWh',
+		},
+		rowTitles: ['Edificio', 'Compañia Electrica', 'GdO', 'Datos de Consumo'],
 		dropdownTypes: [
 			'--',
 			'A-DOS ENERGíA, S.L.',
@@ -222,6 +263,11 @@ export const OrganizationQuizData = {
 			'WIND TO MARKET, S.A.',
 		],
 		gdp: ['Si', 'No'],
-		// image: bgO4,
+		image: bgO4,
+		sideTitle: 'Electricidad',
+		sideBody:
+			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
+		infoPlusBody:
+			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 };

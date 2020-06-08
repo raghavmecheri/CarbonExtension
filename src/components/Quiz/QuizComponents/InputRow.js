@@ -2,35 +2,50 @@ import React from 'react';
 import styled from 'styled-components';
 
 const QuestionsOptionsWrapper = styled.div`
-	font-size: 30px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: inherit;
 `;
 
 const Input = styled.input`
 	background: #90ee9052;
 	border: none;
 	border-bottom: 2px solid lightgreen;
-	border-radius: 0 0.5em;
+	border-radius: 0.5em;
 	height: 3em;
-	width: 17em;
-	color: white;
-	padding: 0;
-	margin: 0 30px;
-	font-size: medium;
+	width: 100%;
+	margin: 0em 2em;
 	text-align: center;
+	font-weight: 600;
+	font-size: 15px;
 	&:focus {
-		background: #00000080;
+		background: white;
+	}
+	@media (max-width: 810px) {
+		margin: 0em;
 	}
 `;
 
 const Selector = styled.select`
+	width: 100%;
+	margin: 0em 2em;
 	font-size: medium;
-	width: 17em;
+	border-radius: 0.3em;
 	text-align-last: center;
 	text-align: center;
 `;
 
-export const InputRow = ({ rowData, handleInput, rowIndex, dropdownTypes }) => {
-	const { title, energyType, quantity, gdp } = rowData;
+export const InputRow = ({
+	rowData,
+	handleInput,
+	rowIndex,
+	dropdownTypes,
+	placeHolder,
+}) => {
+	const { title, title2, energyType, quantity, gdp } = rowData;
+	console.log(rowData);
+	console.log(Object.keys(rowData).length);
 	return (
 		<QuestionsOptionsWrapper>
 			<Input
@@ -38,56 +53,29 @@ export const InputRow = ({ rowData, handleInput, rowIndex, dropdownTypes }) => {
 				id={0}
 				onChange={(e) => handleInput(e, rowIndex, 'title')}
 				value={title}
-				placeholder='Put Something'
+				placeholder={placeHolder.first}
 			/>
+			{Object.keys(rowData).length > 3 ? (
+				<Input
+					type='text'
+					id={3}
+					onChange={(e) => handleInput(e, rowIndex, 'title2')}
+					value={title2}
+					placeholder={placeHolder.third}
+				/>
+			) : null}
 			<Selector onChange={(e) => handleInput(e, rowIndex, 'energyType')}>
 				{dropdownTypes.map((item, i) => {
 					return <option key={i}>{item}</option>;
 				})}
 			</Selector>
 			<Input
-				type='text'
+				type='number'
 				id={2}
 				value={quantity}
 				onChange={(e) => handleInput(e, rowIndex, 'quantity')}
-				placeholder='Put Something'
+				placeholder={placeHolder.second}
 			/>
 		</QuestionsOptionsWrapper>
 	);
 };
-
-// export const InputQuiz = ({ questionData, handleInput, keyRow }) => {
-// 	const { options, type, gdp } = questionData;
-
-// 	return options.map((option, key) => {
-// 		if (key === 1) {
-// 			return (
-// 				<Selector>
-// 					{type.map((item, i) => {
-// 						return <option key={i}>{item}</option>;
-// 					})}
-// 				</Selector>
-// 			);
-// 		} else if (key === 2 && gdp) {
-// 			return (
-// 				<Selector>
-// 					{gdp.map((item, i) => {
-// 						return <option key={i}>{item}</option>;
-// 					})}
-// 				</Selector>
-// 			);
-// 		}
-
-// 		return (
-// 			<QuestionsOptionsWrapper>
-// 				<Input
-// 					type='text'
-// 					id={keyRow}
-// 					name={option}
-// 					onChange={handleInput}
-// 					placeholder='Put Something'
-// 				/>
-// 			</QuestionsOptionsWrapper>
-// 		);
-// 	});
-// };

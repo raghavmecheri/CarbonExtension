@@ -1,89 +1,163 @@
-import React, { useState, useReducer, reducer, initialState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import logo from '../../assets/logo.png';
 
-import bg_error from '../../assets/bg_error.jpeg';
-import { QuestionQuiz } from './QuizComponents/QuestionQuiz';
+import { SideQuizMenu } from './QuizComponents/SideQuizMenu';
+import { QuestionQuizBusiness } from './QuizComponents/QuestionQuizBusiness';
+import { QuestionQuizIndividual } from './QuizComponents/QuestionQuizIndividual';
 import { Buttons } from './QuizComponents/ButtonsQuiz';
-import { OrganizationQuizData } from '../../data/organization-quiz-data';
-import { PersonQuizData } from '../../data/person-quiz-data';
+import { HomeNavBar } from '../Home/HomeNavBar';
+import logo from '../../assets/logo.png';
+import { Menu } from '@styled-icons/heroicons-outline';
+import { Cross } from '@styled-icons/entypo';
+import { HomeCircle } from '@styled-icons/boxicons-regular';
+import '../Home/HomeNavBar.css';
 
 const QuizWrapper = styled.div`
-	/* background-image: ${(props) =>
-		props.formStateBackground
-			? `url(${props.formStateBackground.image})`
-			: `url(${bg_error})`};
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-color: #000000; */
 	height: 100vh;
 	width: 100vw;
+	background-color: #f1f1f1;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position: relative;
 	@media (max-width: 650px) {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		color: black;
 	}
+	@media (max-width: 430px) and (max-height: 750px) {
+		height: 110vh;
+	}
+	@media (max-width: 400px) and (max-height: 700px) {
+		height: 110vh;
+	}
+	@media (max-width: 350px) and (max-height: 600px) {
+		height: 130vh;
+	}
+`;
+
+const HomeNavBarWrapper = styled.div`
+	display: none;
+	@media (max-width: 610px) {
+		display: block;
+		position: absolute;
+		height: 2em;
+		width: 100vw;
+		top: 0;
+		left: 0;
+	}
 `;
 
 const LogoStyle = styled.img`
 	position: absolute;
-	top: -2em;
-	left: 0.5em;
-	width: 12em;
+	position: absolute;
+	top: -1.5em;
+	left: 27%;
+	width: 9em;
 `;
 
-const Box = styled.div`
-	/* background: #656464ad; */
-	/* padding: 7px 35px; */
-	color: black;
+const MenuStyle = styled(Menu)`
+	position: absolute;
+	top: 0.7em;
+	left: 1em;
+	font-size: 16px;
+	color: #38a66d;
 `;
 
-const ErrorContainer = styled.div`
-	height: 100vh;
-	color: red;
-	display: flex;
-	align-items: center;
+const CrossStyle = styled(Cross)`
+	position: absolute;
+	top: 0.3em;
+	left: 0.3em;
+	font-size: 16px;
+	color: #38a66d;
+`;
+
+const HomeCircleStyle = styled(HomeCircle)`
+	color: #38a66d;
+	position: absolute;
+	left: 2.8em;
+`;
+
+const HomeMenuBackground = styled.div`
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	height: 100%;
+	z-index: 999;
+	background-color: #0000006b;
+`;
+
+const HomeMenuWraper = styled.div`
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 70vw;
+	height: 100%;
+	z-index: 9999;
+	background-color: white;
+`;
+
+const MenuNavBar = styled.div`
+	padding-top: 7em;
+	display: flow-root;
 	justify-content: center;
-	font-size: 3rem;
-	background: black;
-`;
+	text-align: center;
+	a {
+		color: #000;
+		text-decoration: none;
+		padding: 1em;
+	}
 
-const ErrorButton = styled.button`
-	background: transparent;
-	color: white;
-	font-size: 1.5rem;
-	padding: 1rem;
-	border: 1px solid red;
-	&:hover {
-		cursor: pointer;
-		background: white;
-		color: red;
+	div {
+		position: relative;
+		font-weight: 500;
+		width: fit-content;
+		justify-content: flex-start;
+		padding-top: 0.2em;
+		margin-left: 10%;
+		font-size: 36px;
+		border-bottom: 1px solid #38a66d;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 `;
 
-const ErrorPage = () => (
-	<ErrorContainer>
-		<div>
-			<h1>Error 404</h1>
-			<p>Page not found</p>
-			<Link to='/'>
-				<ErrorButton>Go Back!</ErrorButton>
-			</Link>
-		</div>
-	</ErrorContainer>
-);
+const QuizBox = styled.div`
+	color: black;
+	position: relative;
+	max-width: 70vw;
+	padding: 2em;
+	height: 100%;
+	width: inherit;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	@media (max-width: 810px) {
+		max-width: 100%;
+		padding-top: 5em;
+	}
+`;
 
-export const Quiz = ({ stateScreen, setStateScreen }) => {
-	const [formState, setFormState] = useState(OrganizationQuizData);
+export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
+	const [formState, setFormState] = useState(QuizData);
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [endQuestion, setEndQuestion] = useState(false);
+	const [sliderValue, setSliderValue] = useState(4);
+	const [homeMenuState, setHomeMenuState] = useState(false);
+	const businessQuiz = formState[0].type === 'complex';
+
+	const handleOpenMenu = () => {
+		console.log('open');
+		setHomeMenuState(true);
+	};
+
+	const handleCloseMenu = () => {
+		console.log('close');
+		setHomeMenuState(false);
+	};
 
 	const back = () => {
 		if (questionIndex > 0) {
@@ -148,21 +222,98 @@ export const Quiz = ({ stateScreen, setStateScreen }) => {
 		updateInputValueForm({ value, rowIndex, columName });
 	};
 
+	const handleSliderInput = (e) => {
+		e.preventDefault();
+		const { value } = e.target;
+		setSliderValue(value);
+		console.log(value);
+	};
+
 	const finish = () => {
 		console.log('finsish');
 		setStateScreen({ ...stateScreen, formState });
 	};
 
+	const HomeMenu = () => {
+		if (homeMenuState) {
+			return (
+				<>
+					<HomeMenuBackground onClick={handleCloseMenu} />
+					<HomeMenuWraper>
+						<LogoStyle src={logo} alt='logo'></LogoStyle>
+						{homeMenuState ? (
+							<CrossStyle onClick={handleCloseMenu} size='60' />
+						) : (
+							<MenuStyle onClick={handleCloseMenu} size='40' />
+						)}
+						<MenuNavBar>
+							<NavLink
+								to='/'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>
+									<HomeCircleStyle size='40' />
+									Home
+								</div>
+							</NavLink>
+							<NavLink
+								to='/a'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Information</div>
+							</NavLink>
+							<NavLink
+								to='/b'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Others</div>
+							</NavLink>
+							<NavLink
+								to='/c'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>About</div>
+							</NavLink>
+							<NavLink
+								to='/d'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Contribute</div>
+							</NavLink>
+						</MenuNavBar>
+					</HomeMenuWraper>
+				</>
+			);
+		} else {
+			return null;
+		}
+	};
+
 	return (
-		<QuizWrapper formStateBackground={formState[questionIndex]}>
-			<Link to='/'>
-				<LogoStyle src={logo} alt='logo'></LogoStyle>
-			</Link>
-			<Box>
-				<QuestionQuiz
-					rowsValues={formState[questionIndex]}
-					handleInput={handleInput}
-				/>
+		<QuizWrapper>
+			<HomeNavBarWrapper>
+				<HomeNavBar handleMenu={handleOpenMenu} />
+			</HomeNavBarWrapper>
+			<HomeMenu />
+			<SideQuizMenu questionIndex={questionIndex} formState={formState} />
+			<QuizBox>
+				{businessQuiz ? (
+					<QuestionQuizBusiness
+						rowsValues={formState[questionIndex]}
+						handleInput={handleInput}
+					/>
+				) : (
+					<QuestionQuizIndividual
+						rowsValues={formState[questionIndex]}
+						handleSliderInput={handleSliderInput}
+						sliderValue={sliderValue}
+					/>
+				)}
 				<Buttons
 					back={back}
 					next={next}
@@ -170,8 +321,10 @@ export const Quiz = ({ stateScreen, setStateScreen }) => {
 					end={endQuestion}
 					handleDeleteQuestion={handleDeleteQuestion}
 					handleAddRow={handleAddRow}
+					businessQuiz={businessQuiz}
+					rowsValues={formState[questionIndex]}
 				/>
-			</Box>
+			</QuizBox>
 		</QuizWrapper>
 	);
 };

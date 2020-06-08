@@ -3,22 +3,73 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { fuelData } from '../../data/fuelData';
 
+import logo from '../../assets/logo.png';
+import earth from '../../assets/earth.png';
+
 const ResultWrapper = styled.div`
-	color: black;
-	font-size: 2em;
+	color: #000;
+	height: 100vh;
+`;
+const Box = styled.div`
+	margin: auto;
+`;
+
+const LogoWrapper = styled.div`
+	position: absolute;
+	width: inherit;
+	top: -3em;
+	left: 1em;
+`;
+const LogoStyle = styled.img`
+	width: 20vw;
+	margin: auto;
+`;
+
+const TitleResult = styled.div`
+	font-size: 30px;
+	text-transform: uppercase;
+	margin: auto;
+	padding-top: 2em;
+`;
+const SubTitleResult = styled.div`
+	font-size: 30px;
+	font-weight: 900;
+	margin: auto;
+	margin-top: 2em;
+	margin-bottom: 1.5em;
+`;
+const DataResult = styled.div`
+	font-size: 46px;
+	margin: auto;
+`;
+const AwarenessText = styled.div`
+	font-size: 30px;
+	margin: auto;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+`;
+const AwarenessResult = styled.div`
+	font-size: 40px;
+	margin: auto;
+	margin-bottom: 0.5em;
+`;
+const AwarenessWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
+	max-width: 80vw;
+	margin: auto;
 `;
-
-const Button = styled.button`
-	background: transparent;
-	color: red;
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 5px;
+const AwarenessImg = styled.img`
+	width: 15vw;
+	margin: auto;
+`;
+const AwarenessButton = styled.button`
+	width: 10vw;
+	margin: 1em;
+	background: none;
+	border-radius: 2px;
+	padding: 0.5em;
 	font-size: 20px;
 	&:hover {
 		cursor: pointer;
@@ -29,6 +80,7 @@ export function Result({ stateScreen }) {
 	let result = 0;
 
 	console.log(stateScreen);
+
 	if (stateScreen.formState) {
 		Object.keys(stateScreen.formState).map((key) => {
 			Object.keys(stateScreen.formState[key].rowStructure).map((i) => {
@@ -41,57 +93,33 @@ export function Result({ stateScreen }) {
 
 	console.log(result);
 
+	const countEarths = 5;
+
 	return (
 		<ResultWrapper>
-			<Link to='/'>
-				<Button>Home</Button>
-			</Link>
-			<div>Results: {result} t CO2</div>
+			<LogoWrapper>
+				<Link to='/'>
+					<LogoStyle src={logo} alt='logo' />
+				</Link>
+			</LogoWrapper>
+			<Box>
+				<TitleResult>Results</TitleResult>
+				<SubTitleResult>Your carbon footprint is :</SubTitleResult>
+				<DataResult>{result} ton CO2</DataResult>
+				<AwarenessText>
+					If everybody had your lifestyle, we would need
+				</AwarenessText>
+				<AwarenessResult>
+					{countEarths} Earths<AwarenessButton>See How</AwarenessButton>{' '}
+				</AwarenessResult>
+				<AwarenessWrapper>
+					<AwarenessImg src={earth}></AwarenessImg>
+					<AwarenessImg src={earth}></AwarenessImg>
+					<AwarenessImg src={earth}></AwarenessImg>
+					<AwarenessImg src={earth}></AwarenessImg>
+					<AwarenessImg src={earth}></AwarenessImg>
+				</AwarenessWrapper>
+			</Box>
 		</ResultWrapper>
 	);
 }
-
-// const initialState = {
-// 	firstName: '',
-// 	lastName: '',
-// };
-
-// function reducer(state, action) {
-// 	switch (action.type) {
-// 		case 'firstName':
-// 			return { firstName: action.payload };
-// 		case 'lastName':
-// 			return { lastName: action.payload };
-// 		default:
-// 			throw new Error();
-// 	}
-// }
-
-// function manageState({ stateScreen }) {
-// 	const [state, dispatch] = useReducer(reducer, initialState);
-// 	const handleInput = (e, name) => {
-// 		dispatch({
-// 			type: name,
-// 			payload: e.target.value,
-// 		});
-// 	};
-
-// 	return (
-// 		<ResultWrapper>
-// 			<input
-// 				type='text'
-// 				name='firstName'
-// 				placeholder='First Name'
-// 				onChange={(e) => handleInput(e, 'firstName')}
-// 				value={state.firstName}
-// 			/>
-// 			<input
-// 				type='text'
-// 				name='lastName'
-// 				placeholder='Last Name'
-// 				onChange={(e) => handleInput(e, 'lastName')}
-// 				value={state.lastName}
-// 			/>
-// 		</ResultWrapper>
-// 	);
-// }
