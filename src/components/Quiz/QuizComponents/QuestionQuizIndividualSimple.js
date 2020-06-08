@@ -161,47 +161,53 @@ const RightText = styled.div`
 export const QuestionQuizIndividualSimple = ({
 	rowsValues,
 	handleSliderInput,
-	sliderValue,
 }) => {
-	const { id, title, description, description2, image2 } = rowsValues;
-
+	const {
+		id,
+		title,
+		description,
+		description2,
+		image2,
+		rowStructureSimple,
+	} = rowsValues;
+	const { slider } = rowStructureSimple;
 	const SliderText = () => {
-		if (sliderValue < 1) {
+		if (slider < 1) {
 			return (
 				<>
 					<SliderTextStyle>Never</SliderTextStyle>
 					<SliderSubTextStyle>{'(never)'}</SliderSubTextStyle>
 				</>
 			);
-		} else if (sliderValue < 3) {
+		} else if (slider < 3) {
 			return (
 				<>
 					<SliderTextStyle>Ocassionally</SliderTextStyle>
 					<SliderSubTextStyle>{'(Once a Month)'}</SliderSubTextStyle>
 				</>
 			);
-		} else if (sliderValue < 5) {
+		} else if (slider < 5) {
 			return (
 				<>
 					<SliderTextStyle>Normal</SliderTextStyle>
 					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
 				</>
 			);
-		} else if (sliderValue < 7) {
+		} else if (slider < 7) {
 			return (
 				<>
 					<SliderTextStyle>Often</SliderTextStyle>
 					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
 				</>
 			);
-		} else if (sliderValue < 9) {
+		} else if (slider < 9) {
 			return (
 				<>
 					<SliderTextStyle>Very Often</SliderTextStyle>
 					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
 				</>
 			);
-		} else if (sliderValue <= 10) {
+		} else if (slider <= 10) {
 			return (
 				<>
 					<SliderTextStyle>Always</SliderTextStyle>
@@ -224,8 +230,8 @@ export const QuestionQuizIndividualSimple = ({
 					min='0'
 					max='10'
 					step='2'
-					defaultValue='4'
-					onChange={(e) => handleSliderInput(e, id)}
+					value={slider}
+					onChange={(e) => handleSliderInput(e, id, slider)}
 				/>
 				<RightText>Always</RightText>
 			</SliderBox>

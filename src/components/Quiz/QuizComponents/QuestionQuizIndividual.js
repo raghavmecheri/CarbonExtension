@@ -77,27 +77,11 @@ const InputBox = styled.div`
 export const QuestionQuizIndividual = ({
 	rowsValues,
 	handleSliderInput,
-	sliderValue,
+	handleInputIndividual,
+	handleQuizDesign,
+	simpleQuiz,
 }) => {
-	const {
-		id,
-		title,
-		description,
-		description2,
-		image2,
-		ComplexForm,
-		rowTitles,
-	} = rowsValues;
-
-	const [simpleQuiz, setSimpleQuiz] = useState(true);
-
-	const handleQuizDesign = (e) => {
-		console.log(e.target.checked);
-		setSimpleQuiz((prevState) => {
-			const newState = !prevState;
-			return newState;
-		});
-	};
+	const { id, title, description, image2, ComplexForm } = rowsValues;
 
 	return (
 		<QuestionsWrapper id={id}>
@@ -111,13 +95,12 @@ export const QuestionQuizIndividual = ({
 					<QuestionQuizIndividualSimple
 						rowsValues={rowsValues}
 						handleSliderInput={handleSliderInput}
-						sliderValue={sliderValue}
 					/>
 				) : (
 					<QuestionQuizIndividualComplex
 						rowsValues={rowsValues}
 						handleSliderInput={handleSliderInput}
-						sliderValue={sliderValue}
+						handleInputIndividual={handleInputIndividual}
 					/>
 				)}
 				<CheckBox

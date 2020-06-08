@@ -18,6 +18,7 @@ export const PersonCarbonQuizData = {
 		title: 'Living Place',
 		type: 'simple',
 		ComplexForm: true,
+		ComplexFormState: false,
 		persons: 'Cuanity of persons?',
 		description: 'How green are you?',
 		description2: 'How much electricity do you consume?',
@@ -50,8 +51,18 @@ export const PersonCarbonQuizData = {
 			Propano: '1000 L',
 			'Pellets de Madera': '100 ton',
 		},
-		rowStructureSimple: [{ Slider: '' }],
-		rowStructureComplex: [],
+		rowStructureSimple: { slider: '4' },
+		rowStructureComplex: [
+			{
+				Electricity: '',
+				'Natural Gas': '',
+				Gasoleo: '',
+				Carbon: '',
+				GLP: '',
+				Propano: '',
+				'Pellets de Madera': '',
+			},
+		],
 		dropdownTypes: [],
 		image: bgO1,
 		image2: bgO11,
@@ -65,6 +76,7 @@ export const PersonCarbonQuizData = {
 		id: 1,
 		title: 'Car',
 		ComplexForm: true,
+		ComplexFormState: false,
 		description: 'How much tdo you travel?',
 		description2: 'How much do you use your car?',
 		rowTitles: [
@@ -84,7 +96,14 @@ export const PersonCarbonQuizData = {
 			'Eficiencia Del Vehiculo': '5.5 L',
 			'Tipo de Combustible': '',
 		},
-		rowStructure: [],
+		rowStructureSimple: { slider: '4' },
+		rowStructureComplex: [
+			{
+				'Km recorridos al año': '',
+				'Eficiencia Del Vehiculo': '',
+				'Tipo de Combustible': '',
+			},
+		],
 		dropdownTypes: [
 			'--',
 			'Gasolina',
@@ -114,10 +133,16 @@ export const PersonCarbonQuizData = {
 		id: 2,
 		title: 'Motocicle',
 		ComplexForm: true,
+		ComplexFormState: false,
 		description: 'Are you a biker?',
 		description2: 'How often do you ride?',
-		rowStructure: [],
-		rowsType: [{ title: '', energyType: '', quantity: '' }],
+		rowStructureSimple: { slider: '4' },
+		rowStructureComplex: [
+			{
+				'Km Recorridos al año': '',
+			},
+		],
+		rowsType: '',
 		placeHolder: {
 			'Km Recorridos al año': '2900 km',
 		},
@@ -135,6 +160,7 @@ export const PersonCarbonQuizData = {
 		id: 3,
 		title: 'RENFE',
 		ComplexForm: false,
+		ComplexFormState: true,
 		description: 'How much do you travel?',
 		description2: 'How much do you use the train?',
 		rowTitles: ['Km recorridos al año'],
@@ -146,7 +172,12 @@ export const PersonCarbonQuizData = {
 		placeHolder: {
 			'Km recorridos al año': '12000 Km',
 		},
-		rowStructure: [],
+		rowStructureSimple: { slider: '4' },
+		rowStructureComplex: [
+			{
+				'Km Recorridos al año': '',
+			},
+		],
 		dropdownTypes: [],
 		image: bgO4,
 		image2: bgO44,
@@ -160,6 +191,7 @@ export const PersonCarbonQuizData = {
 		id: 4,
 		title: 'Public Transport',
 		ComplexForm: false,
+		ComplexFormState: true,
 		description: 'How much do you travel?',
 		description2: 'How much do you use the train?',
 		rowTitles: ['Km recorridos al año'],
@@ -171,7 +203,12 @@ export const PersonCarbonQuizData = {
 		placeHolder: {
 			'Km recorridos al año': '12000 Km',
 		},
-		rowStructure: [],
+		rowStructureSimple: { slider: '4' },
+		rowStructureComplex: [
+			{
+				'Km Recorridos al año': '',
+			},
+		],
 		dropdownTypes: [],
 		image: bgO5,
 		image2: bgO55,
@@ -185,6 +222,7 @@ export const PersonCarbonQuizData = {
 		id: 5,
 		title: 'Plane',
 		ComplexForm: false,
+		ComplexFormState: true,
 		description: 'How much do you travel?',
 		description2: 'How much do you use the train?',
 		rowTitles: ['Km recorridos al año'],
@@ -196,7 +234,12 @@ export const PersonCarbonQuizData = {
 		placeHolder: {
 			'Km recorridos al año': '12000 Km',
 		},
-		rowStructure: [],
+		rowStructureSimple: { slider: '4' },
+		rowStructureComplex: [
+			{
+				'Km Recorridos al año': '',
+			},
+		],
 		dropdownTypes: [],
 		image: bgO6,
 		image2: bgO66,
@@ -210,6 +253,7 @@ export const PersonCarbonQuizData = {
 		id: 6,
 		title: 'Other Expense',
 		ComplexForm: false,
+		ComplexFormState: true,
 		description: '',
 		description2: 'How much do you shop?',
 		rowTitles: [
@@ -241,7 +285,7 @@ export const PersonCarbonQuizData = {
 			'Ropa y Textile': '',
 			'Papel (Libros, periodicos, etc.)': '',
 		},
-		rowStructure: [
+		optionsFood: [
 			'--',
 			'Lot of Meat',
 			'Average Meat',
@@ -249,6 +293,15 @@ export const PersonCarbonQuizData = {
 			'Fish',
 			'Vegetarian',
 			'Vegan',
+		],
+		rowStructureSimple: { slider: '4' },
+		rowStructureComplex: [
+			{
+				'Comida y Bebida': '',
+				Farmaceuticos: '',
+				'Ropa y Textile': '',
+				'Papel (Libros, periodicos, etc.)': '',
+			},
 		],
 		dropdownTypes: [],
 		image: bgO7,
