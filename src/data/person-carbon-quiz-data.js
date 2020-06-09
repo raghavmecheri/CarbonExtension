@@ -152,7 +152,7 @@ export const PersonCarbonQuizData = {
 		ComplexFormState: true,
 		description: 'How much do you travel?',
 		description2: 'How much do you use the train?',
-		rowTitles: ['Km recorridos al año'],
+		rowTitles: ['Km Recorridos al año'],
 		rowsType: [
 			{
 				'Km recorridos al año': '',
@@ -183,7 +183,7 @@ export const PersonCarbonQuizData = {
 		ComplexFormState: true,
 		description: 'How much do you travel?',
 		description2: 'How much do you use the train?',
-		rowTitles: ['Km recorridos al año'],
+		rowTitles: ['Km Recorridos al año'],
 		rowsType: [
 			{
 				'Km recorridos al año': '',
@@ -214,7 +214,7 @@ export const PersonCarbonQuizData = {
 		ComplexFormState: true,
 		description: 'How much do you travel?',
 		description2: 'How much do you use the train?',
-		rowTitles: ['Km recorridos al año'],
+		rowTitles: ['Km Recorridos al año'],
 		rowsType: [
 			{
 				'Km recorridos al año': '',

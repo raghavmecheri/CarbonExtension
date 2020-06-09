@@ -5,6 +5,7 @@ import bgO4 from '../assets/bg_carbon_b_4.jpg';
 
 export const OrganizationCarbonQuizData = {
 	0: {
+		id: 0,
 		title: 'Combustible Desplazamiento',
 		type: 'business',
 		description: 'How much travel do you do?',
@@ -41,6 +42,7 @@ export const OrganizationCarbonQuizData = {
 			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 	1: {
+		id: 1,
 		title: 'Combustible Instalaciones Fijas',
 		description: 'How much travel do you do?',
 		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
@@ -71,6 +73,7 @@ export const OrganizationCarbonQuizData = {
 			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 	2: {
+		id: 2,
 		title: 'Refrigeracion y Climatizacion',
 		description: 'Fugas de gases fluorados',
 		rowStructure: [
@@ -81,15 +84,15 @@ export const OrganizationCarbonQuizData = {
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
 		placeHolder: {
 			first: 'Sotano',
-			third: '',
+			third: '100 litres',
 			energyType: '',
 			second: '100 litres',
 		},
 		rowTitles: [
 			'Edificio/Sede',
-			'Nombre del Gas',
 			'Tipo de Equipo',
-			'Emisiones Parciales',
+			'Carga Inicial Equipo',
+			'ReCarga Anual Equipo',
 		],
 		dropdownTypes: [
 			'--',
@@ -121,6 +124,7 @@ export const OrganizationCarbonQuizData = {
 			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 	3: {
+		id: 3,
 		title: 'Electricity',
 		description: 'Fugas de gases fluorados',
 		rowStructure: [
@@ -135,7 +139,7 @@ export const OrganizationCarbonQuizData = {
 			energyType: '',
 			second: '1000 kWh',
 		},
-		rowTitles: ['Edificio', 'Compañia Electrica', 'GdO', 'Datos de Consumo'],
+		rowTitles: ['Edificio', 'Compañia Electrica', 'Gdp', 'Datos de Consumo'],
 		dropdownTypes: [
 			'--',
 			'A-DOS ENERGíA, S.L.',
@@ -262,7 +266,7 @@ export const OrganizationCarbonQuizData = {
 			'WATIUM, S.L.',
 			'WIND TO MARKET, S.A.',
 		],
-		gdp: ['Si', 'No'],
+		gdp: ['No', 'Si'],
 		image: bgO4,
 		sideTitle: 'Electricidad',
 		sideBody:

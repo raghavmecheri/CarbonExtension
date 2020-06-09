@@ -23,7 +23,7 @@ const Input = styled.input`
 		background: white;
 	}
 	@media (max-width: 810px) {
-		margin: 0em;
+		margin: 5px;
 	}
 `;
 
@@ -34,6 +34,11 @@ const Selector = styled.select`
 	border-radius: 0.3em;
 	text-align-last: center;
 	text-align: center;
+	@media (max-width: 710px) {
+		width: ${(props) => (props.id === 2 ? '74%' : '36%')};
+		margin: ${(props) => (props.id === 2 ? '0' : '0em 1em')};
+		margin-left: ${(props) => (props.id === 2 ? '3em' : '')};
+	}
 `;
 
 export const InputRow = ({
@@ -42,10 +47,10 @@ export const InputRow = ({
 	rowIndex,
 	dropdownTypes,
 	placeHolder,
+	gdp,
+	id,
 }) => {
-	const { title, title2, energyType, quantity, gdp } = rowData;
-
-	console.log(title2);
+	const { title, title2, energyType, quantity } = rowData;
 
 	return (
 		<QuestionsOptionsWrapper>
@@ -56,20 +61,31 @@ export const InputRow = ({
 				value={title}
 				placeholder={placeHolder.first}
 			/>
-			{Object.keys(rowData).length > 3 ? (
+			<Selector
+				value={energyType}
+				id={id}
+				onChange={(e) => handleInput(e, rowIndex, 'energyType')}>
+				{dropdownTypes.map((item, i) => {
+					return <option key={i}>{item}</option>;
+				})}
+			</Selector>
+			{Object.keys(rowData).length > 3 && !gdp ? (
 				<Input
-					type='text'
+					type='number'
 					id={3}
 					onChange={(e) => handleInput(e, rowIndex, 'title2')}
 					value={title2}
 					placeholder={placeHolder.third}
 				/>
+			) : gdp ? (
+				<Selector
+					value={energyType}
+					onChange={(e) => handleInput(e, rowIndex, 'energyType')}>
+					{gdp.map((item, i) => {
+						return <option key={i}>{item}</option>;
+					})}
+				</Selector>
 			) : null}
-			<Selector onChange={(e) => handleInput(e, rowIndex, 'energyType')}>
-				{dropdownTypes.map((item, i) => {
-					return <option key={i}>{item}</option>;
-				})}
-			</Selector>
 			<Input
 				type='number'
 				id={2}
