@@ -83,6 +83,7 @@ export const QuestionQuizBusiness = ({ rowsValues, handleInput, value }) => {
 						<InputRow
 							rowIndex={key}
 							rowData={row}
+							key={key}
 							handleInput={handleInput}
 							value={value}
 							dropdownTypes={dropdownTypes}

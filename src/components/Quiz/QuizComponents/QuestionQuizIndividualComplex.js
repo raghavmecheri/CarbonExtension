@@ -134,6 +134,7 @@ export const QuestionQuizIndividualComplex = ({
 	rowsValues,
 	handleSliderInput,
 	sliderValue,
+	handleInputIndividual,
 }) => {
 	const {
 		id,
@@ -144,13 +145,9 @@ export const QuestionQuizIndividualComplex = ({
 		rowTitles,
 		placeHolder,
 		dropdownTypes,
+		rowStructureSimple,
+		rowStructureComplex,
 	} = rowsValues;
-
-	const handleInput = (e) => {
-		e.preventDefault();
-		const { value } = e.target;
-		console.log(e);
-	};
 
 	return (
 		<>
@@ -166,11 +163,13 @@ export const QuestionQuizIndividualComplex = ({
 						dropdown = true;
 					}
 
+					console.log(rowStructureComplex[0][question]);
+
 					return (
 						<QuestionWrapper>
 							<QuestionComplex>{question}</QuestionComplex>
 							{dropdown ? (
-								<Selector onChange={(e) => handleInput(e, 'energyType')}>
+								<Selector onChange={(e) => handleInputIndividual(e, question)}>
 									{dropdownTypes.map((item, i) => {
 										return <option key={i}>{item}</option>;
 									})}
@@ -178,9 +177,9 @@ export const QuestionQuizIndividualComplex = ({
 							) : (
 								<QuestionInput
 									type='number'
-									id={key}
-									onChange={(e) => handleInput(e, 'title2')}
-									value={rowTitles.question}
+									id={0}
+									onChange={(e) => handleInputIndividual(e, question)}
+									value={rowStructureComplex[0][question] || ''}
 									placeholder={placeHolder[question]}
 								/>
 							)}

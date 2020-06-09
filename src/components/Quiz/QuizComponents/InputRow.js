@@ -44,8 +44,9 @@ export const InputRow = ({
 	placeHolder,
 }) => {
 	const { title, title2, energyType, quantity, gdp } = rowData;
-	console.log(rowData);
-	console.log(Object.keys(rowData).length);
+
+	console.log(title2);
+
 	return (
 		<QuestionsOptionsWrapper>
 			<Input
