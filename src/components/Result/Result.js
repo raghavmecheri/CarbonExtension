@@ -79,10 +79,10 @@ const AwarenessButton = styled.button`
 	}
 `;
 
-export function Result({}) {
+export function Result({ stateScreen }) {
 	let result = 0;
 
-	const stateScreen = fakeData;
+	// const stateScreen = fakeData;
 	console.log(stateScreen);
 
 	if (stateScreen.formState && stateScreen.formState[0].type === 'business') {
@@ -133,10 +133,6 @@ export function Result({}) {
 						Number(averageConsume) *
 							Number(frecuencyMultiplier) *
 							Number(footprintFactor);
-					console.log(averageConsume);
-					console.log(footprintFactor);
-					console.log(frecuencyMultiplier);
-					console.log(result);
 				}
 				if (footprintFactorCar) {
 					result =
@@ -145,10 +141,6 @@ export function Result({}) {
 							Number(frecuencyMultiplier) *
 							Number(footprintFactorCar) *
 							(Number(eficiencyCar) / 100);
-					console.log(averageConsume);
-					console.log(eficiencyCar);
-					console.log(footprintFactorCar);
-					console.log(result);
 				}
 				if (moto) {
 					result =
@@ -156,21 +148,60 @@ export function Result({}) {
 						Number(averageConsume) *
 							Number(frecuencyMultiplier) *
 							Number(footprintFactorMoto);
-					console.log(averageConsume);
-					console.log(footprintFactorMoto);
-					console.log(result);
 				}
 			}
 			if (stateScreen.formState[key].ComplexFormState === true) {
+				if (key === '1') {
+					let quantity =
+						stateScreen.formState[key].rowStructureComplex[0][
+							'Km recorridos al año'
+						];
+					let eficiency =
+						stateScreen.formState[key].rowStructureComplex[0][
+							'Eficiencia Del Vehiculo'
+						];
+					let combustible =
+						stateScreen.formState[key].rowStructureComplex[0][
+							'Tipo de Combustible'
+						];
+					let carFactor = individualCarbonData[key][combustible];
+					if (carFactor) {
+						result =
+							Number(result) +
+							Number(quantity) * Number(carFactor) * Number(eficiency);
+					}
+				} else if (key === '2') {
+					let quantity =
+						stateScreen.formState[key].rowStructureComplex[0][
+							'Km Recorridos al año'
+						];
+					let cilindrada =
+						stateScreen.formState[key].rowStructureComplex[0][
+							'Cilindarada Motocicleta'
+						];
+					let motoFactor = individualCarbonData[key][cilindrada];
+					if (motoFactor) {
+						result = Number(result) + Number(quantity) * Number(motoFactor);
+					}
+				}
 				Object.keys(stateScreen.formState[key].rowStructureComplex[0]).map(
 					(i) => {
 						let quantity = stateScreen.formState[key].rowStructureComplex[0][i];
-						if (quantity) {
-							let footprintFactor = individualCarbonData[key][i];
-							console.log(quantity);
-							console.log(footprintFactor);
-							result =
-								Number(result) + Number(quantity) * Number(footprintFactor);
+						let footprintFactor = individualCarbonData[key][i];
+						if (quantity && key !== '1' && key !== '2') {
+							console.log(i);
+							console.log('Normal Quantity', quantity);
+							console.log('Normal factor', footprintFactor);
+							if (key === '6') {
+								console.log(result);
+								result =
+									Number(result) +
+									Number(quantity) * Number(footprintFactor) * 12;
+								console.log(result);
+							} else {
+								result =
+									Number(result) + Number(quantity) * Number(footprintFactor);
+							}
 						}
 					}
 				);

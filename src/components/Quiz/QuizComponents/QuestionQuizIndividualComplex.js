@@ -145,6 +145,8 @@ export const QuestionQuizIndividualComplex = ({
 		rowTitles,
 		placeHolder,
 		dropdownTypes,
+		rowStructureSimple,
+		rowStructureComplex,
 	} = rowsValues;
 
 	return (
@@ -161,6 +163,8 @@ export const QuestionQuizIndividualComplex = ({
 						dropdown = true;
 					}
 
+					console.log(rowStructureComplex[0][question]);
+
 					return (
 						<QuestionWrapper>
 							<QuestionComplex>{question}</QuestionComplex>
@@ -173,9 +177,9 @@ export const QuestionQuizIndividualComplex = ({
 							) : (
 								<QuestionInput
 									type='number'
-									id={key}
+									id={0}
 									onChange={(e) => handleInputIndividual(e, question)}
-									value={rowTitles.question}
+									value={rowStructureComplex[0][question] || ''}
 									placeholder={placeHolder[question]}
 								/>
 							)}

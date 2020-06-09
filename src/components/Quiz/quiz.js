@@ -202,11 +202,9 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 		});
 	};
 
-	console.log(formState);
-
 	const updateImputValueIndividualComplexForm = ({ value, question }) => {
 		const screenRows = formState[questionIndex].rowStructureComplex;
-		screenRows[question] = value;
+		screenRows[0][question] = value;
 		setFormState({
 			...formState,
 			[questionIndex]: {
@@ -215,6 +213,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 			},
 		});
 	};
+	console.log(formState);
 
 	const updateComplexFormState = ({ newState }) => {
 		setFormState({
