@@ -315,7 +315,9 @@ export const QuestionQuizIndividualSimple = ({
 					</StyleComplexSimple>
 					<StyleComplexSimple>
 						<TitleSlider2>Combustible</TitleSlider2>
-						<Selector onChange={(e) => handleSliderInput(e, id, 'car')}>
+						<Selector
+							value={rowStructureSimple.car}
+							onChange={(e) => handleSliderInput(e, id, 'car')}>
 							{dropdownTypes.map((item, i) => {
 								return <option key={i}>{item}</option>;
 							})}
@@ -326,6 +328,7 @@ export const QuestionQuizIndividualSimple = ({
 						<QuestionInput
 							type='number'
 							placeholder='5L / 100km'
+							value={rowStructureSimple.eficiency}
 							onChange={(e) => handleSliderInput(e, id, 'eficiency')}
 						/>
 					</StyleComplexSimple>
@@ -351,7 +354,9 @@ export const QuestionQuizIndividualSimple = ({
 					</StyleComplexSimple>
 					<StyleComplexSimple>
 						<TitleSlider2>Cilindrada</TitleSlider2>
-						<Selector onChange={(e) => handleSliderInput(e, id, 'moto')}>
+						<Selector
+							value={rowStructureSimple.moto}
+							onChange={(e) => handleSliderInput(e, id, 'moto')}>
 							{dropdownTypes.map((item, i) => {
 								return <option key={i}>{item}</option>;
 							})}

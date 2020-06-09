@@ -191,8 +191,6 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	const updateSliderValueIndividualSimpleForm = ({ value, id, input }) => {
 		const screenRows = formState[questionIndex].rowStructureSimple;
 		screenRows[input] = value;
-		console.log(input);
-		console.log(value);
 		setFormState({
 			...formState,
 			[questionIndex]: {

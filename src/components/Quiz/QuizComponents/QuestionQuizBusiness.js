@@ -25,6 +25,7 @@ const Description = styled.div`
 	justify-content: center;
 	padding-left: 3vw;
 	@media (max-width: 810px) {
+		padding-left: 0;
 		padding: 1em;
 	}
 `;
@@ -62,13 +63,17 @@ const InputRowWrapper = styled.div`
 
 export const QuestionQuizBusiness = ({ rowsValues, handleInput, value }) => {
 	const {
+		id,
 		title,
 		description,
 		rowTitles,
 		rowStructure,
 		dropdownTypes,
 		placeHolder,
+		gdp,
 	} = rowsValues;
+
+	console.log(rowsValues);
 
 	return (
 		<QuestionsWrapper>
@@ -84,6 +89,8 @@ export const QuestionQuizBusiness = ({ rowsValues, handleInput, value }) => {
 							rowIndex={key}
 							rowData={row}
 							key={key}
+							gdp={gdp}
+							id={id}
 							handleInput={handleInput}
 							value={value}
 							dropdownTypes={dropdownTypes}

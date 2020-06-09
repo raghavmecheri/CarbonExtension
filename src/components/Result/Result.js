@@ -128,6 +128,7 @@ export function Result({ stateScreen }) {
 				let footprintFactorMoto = individualCarbonData[key][moto];
 				let averageConsume = simpleIndividualCarbonData[key][title];
 				if (footprintFactor) {
+					console.log('SimpleElectricity', footprintFactor);
 					result =
 						result +
 						Number(averageConsume) *
@@ -135,6 +136,7 @@ export function Result({ stateScreen }) {
 							Number(footprintFactor);
 				}
 				if (footprintFactorCar) {
+					console.log('SimpleCar', footprintFactorCar);
 					result =
 						Number(result) +
 						Number(averageConsume) *
@@ -143,6 +145,7 @@ export function Result({ stateScreen }) {
 							(Number(eficiencyCar) / 100);
 				}
 				if (moto) {
+					console.log('SimpleMoto', moto);
 					result =
 						Number(result) +
 						Number(averageConsume) *
@@ -166,6 +169,7 @@ export function Result({ stateScreen }) {
 						];
 					let carFactor = individualCarbonData[key][combustible];
 					if (carFactor) {
+						console.log('car', carFactor);
 						result =
 							Number(result) +
 							Number(quantity) * Number(carFactor) * Number(eficiency);
@@ -181,6 +185,7 @@ export function Result({ stateScreen }) {
 						];
 					let motoFactor = individualCarbonData[key][cilindrada];
 					if (motoFactor) {
+						console.log('moto', motoFactor);
 						result = Number(result) + Number(quantity) * Number(motoFactor);
 					}
 				}
@@ -188,16 +193,12 @@ export function Result({ stateScreen }) {
 					(i) => {
 						let quantity = stateScreen.formState[key].rowStructureComplex[0][i];
 						let footprintFactor = individualCarbonData[key][i];
-						if (quantity && key !== '1' && key !== '2') {
+						if (quantity && footprintFactor && key !== '1' && key !== '2') {
 							console.log(i);
-							console.log('Normal Quantity', quantity);
-							console.log('Normal factor', footprintFactor);
 							if (key === '6') {
-								console.log(result);
 								result =
 									Number(result) +
 									Number(quantity) * Number(footprintFactor) * 12;
-								console.log(result);
 							} else {
 								result =
 									Number(result) + Number(quantity) * Number(footprintFactor);

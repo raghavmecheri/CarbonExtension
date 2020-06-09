@@ -163,8 +163,6 @@ export const QuestionQuizIndividualComplex = ({
 						dropdown = true;
 					}
 
-					console.log(rowStructureComplex[0][question]);
-
 					return (
 						<QuestionWrapper>
 							<QuestionComplex>{question}</QuestionComplex>
