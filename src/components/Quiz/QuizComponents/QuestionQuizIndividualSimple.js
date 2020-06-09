@@ -134,6 +134,12 @@ const SliderBox = styled.div`
 	width: 100%;
 	margin: auto;
 `;
+const SliderBox2 = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 47%;
+`;
 
 const LeftText = styled.div`
 	padding-right: 0.5em;
@@ -157,6 +163,69 @@ const RightText = styled.div`
 	padding-left: 0.5em;
 	width: 4em;
 `;
+const WrapperComplexSimple = styled.div`
+	padding-left: 10%;
+	padding-right: 5%;
+`;
+const StyleComplexSimple = styled.div`
+	display: flex;
+	justify-content: space-between;
+	padding: 0.5em;
+`;
+const TitleSlider2 = styled.div`
+	font-family: 'Heebo', sans-serif;
+	font-size: 20px;
+`;
+const QuestionInput = styled.input`
+	background: #90ee9052;
+	border: none;
+	border-bottom: 2px solid lightgreen;
+	border-radius: 0.5em;
+	height: 2em;
+	width: 47%;
+	text-align: center;
+	font-weight: 600;
+	font-size: 15px;
+	&:focus {
+		background: white;
+	}
+	@media (max-width: 1200px) {
+		width: 47%;
+	}
+	@media (max-width: 1150px) {
+		width: 47%;
+	}
+	@media (max-width: 1000px) {
+		width: 47%;
+	}
+	@media (max-width: 900px) {
+		width: 47%;
+	}
+	@media (max-width: 810px) {
+		width: 47%;
+	}
+`;
+
+const Selector = styled.select`
+	width: 47%;
+	font-size: medium;
+	border-radius: 0.3em;
+	@media (max-width: 1200px) {
+		width: 47%;
+	}
+	@media (max-width: 1150px) {
+		width: 47%;
+	}
+	@media (max-width: 1000px) {
+		width: 47%;
+	}
+	@media (max-width: 900px) {
+		width: 47%;
+	}
+	@media (max-width: 810px) {
+		width: 47%;
+	}
+`;
 
 export const QuestionQuizIndividualSimple = ({
 	rowsValues,
@@ -169,8 +238,12 @@ export const QuestionQuizIndividualSimple = ({
 		description2,
 		image2,
 		rowStructureSimple,
+		dropdownTypes,
+		placeHolder,
 	} = rowsValues;
+
 	const { slider } = rowStructureSimple;
+
 	const SliderText = () => {
 		if (slider < 1) {
 			return (
@@ -221,21 +294,89 @@ export const QuestionQuizIndividualSimple = ({
 		<>
 			<QuestionQuiz>{description2}</QuestionQuiz>
 			<SubQuestionQuiz>(Higher or Lower than average)</SubQuestionQuiz>
-			<SliderBox>
-				<LeftText>Never</LeftText>
-				<SliderInput
-					type='range'
-					id={id}
-					name='slider'
-					min='0'
-					max='10'
-					step='2'
-					value={slider}
-					onChange={(e) => handleSliderInput(e, id, slider)}
-				/>
-				<RightText>Always</RightText>
-			</SliderBox>
-			<SliderText />
+			{id === 1 ? (
+				<WrapperComplexSimple>
+					<StyleComplexSimple>
+						<TitleSlider2>Km recorridos</TitleSlider2>
+						<SliderBox2>
+							<LeftText>Never</LeftText>
+							<SliderInput
+								type='range'
+								id={id}
+								name='slider'
+								min='0'
+								max='10'
+								step='2'
+								value={slider}
+								onChange={(e) => handleSliderInput(e, id, 'slider')}
+							/>
+							<RightText>Always</RightText>
+						</SliderBox2>
+					</StyleComplexSimple>
+					<StyleComplexSimple>
+						<TitleSlider2>Combustible</TitleSlider2>
+						<Selector onChange={(e) => handleSliderInput(e, id, 'car')}>
+							{dropdownTypes.map((item, i) => {
+								return <option key={i}>{item}</option>;
+							})}
+						</Selector>
+					</StyleComplexSimple>
+					<StyleComplexSimple>
+						<TitleSlider2>Eficiecia</TitleSlider2>
+						<QuestionInput
+							type='number'
+							placeholder='5L / 100km'
+							onChange={(e) => handleSliderInput(e, id, 'eficiency')}
+						/>
+					</StyleComplexSimple>
+				</WrapperComplexSimple>
+			) : id === 2 ? (
+				<WrapperComplexSimple>
+					<StyleComplexSimple>
+						<TitleSlider2>Km recorridos</TitleSlider2>
+						<SliderBox2>
+							<LeftText>Never</LeftText>
+							<SliderInput
+								type='range'
+								id={id}
+								name='slider'
+								min='0'
+								max='10'
+								step='2'
+								value={slider}
+								onChange={(e) => handleSliderInput(e, id, 'slider')}
+							/>
+							<RightText>Always</RightText>
+						</SliderBox2>
+					</StyleComplexSimple>
+					<StyleComplexSimple>
+						<TitleSlider2>Cilindrada</TitleSlider2>
+						<Selector onChange={(e) => handleSliderInput(e, id, 'moto')}>
+							{dropdownTypes.map((item, i) => {
+								return <option key={i}>{item}</option>;
+							})}
+						</Selector>
+					</StyleComplexSimple>
+				</WrapperComplexSimple>
+			) : (
+				<>
+					<SliderBox>
+						<LeftText>Never</LeftText>
+						<SliderInput
+							type='range'
+							id={id}
+							name='slider'
+							min='0'
+							max='10'
+							step='2'
+							value={slider}
+							onChange={(e) => handleSliderInput(e, id, 'slider')}
+						/>
+						<RightText>Always</RightText>
+					</SliderBox>
+					<SliderText />
+				</>
+			)}
 		</>
 	);
 };

@@ -188,9 +188,11 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 			},
 		});
 	};
-	const updateSliderValueIndividualSimpleForm = ({ value, id }) => {
+	const updateSliderValueIndividualSimpleForm = ({ value, id, input }) => {
 		const screenRows = formState[questionIndex].rowStructureSimple;
-		screenRows['slider'] = value;
+		screenRows[input] = value;
+		console.log(input);
+		console.log(value);
 		setFormState({
 			...formState,
 			[questionIndex]: {
@@ -199,6 +201,8 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 			},
 		});
 	};
+
+	console.log(formState);
 
 	const updateImputValueIndividualComplexForm = ({ value, question }) => {
 		const screenRows = formState[questionIndex].rowStructureComplex;
@@ -259,10 +263,10 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 		updateImputValueIndividualComplexForm({ value, question });
 	};
 
-	const handleSliderInput = (e, id) => {
+	const handleSliderInput = (e, id, input) => {
 		e.preventDefault();
 		const { value } = e.target;
-		updateSliderValueIndividualSimpleForm({ value, id });
+		updateSliderValueIndividualSimpleForm({ value, id, input });
 	};
 
 	const handleQuizDesign = (e) => {

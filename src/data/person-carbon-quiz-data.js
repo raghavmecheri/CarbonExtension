@@ -17,6 +17,7 @@ export const PersonCarbonQuizData = {
 		id: 0,
 		title: 'Living Place',
 		type: 'individual',
+		footprint: 'carbon',
 		ComplexForm: true,
 		ComplexFormState: false,
 		persons: 'Cuanity of persons?',
@@ -52,6 +53,7 @@ export const PersonCarbonQuizData = {
 			'Pellets de Madera': '100 ton',
 		},
 		rowStructureSimple: { slider: '4' },
+		simpleName: 'Electricity',
 		rowStructureComplex: [
 			{
 				Electricity: '',
@@ -96,7 +98,8 @@ export const PersonCarbonQuizData = {
 			'Eficiencia Del Vehiculo': '5.5 L',
 			'Tipo de Combustible': '',
 		},
-		rowStructureSimple: { slider: '4' },
+		rowStructureSimple: { slider: '4', car: '', eficiency: '' },
+		simpleName: 'Car',
 		rowStructureComplex: [
 			{
 				'Km recorridos al año': '',
@@ -104,23 +107,7 @@ export const PersonCarbonQuizData = {
 				'Tipo de Combustible': '',
 			},
 		],
-		dropdownTypes: [
-			'--',
-			'Gasolina',
-			'Gasoleo A o B',
-			'E10',
-			'E86',
-			'B7',
-			'B10',
-			'B20',
-			'B30',
-			'B100',
-			'XTL',
-			'LNG',
-			'CNG',
-			'LPG',
-			'H2',
-		],
+		dropdownTypes: ['--', 'Gasolina', 'Gasoleo A o B'],
 		image: bgO2,
 		image2: bgO22,
 		sideTitle: 'Tranport',
@@ -136,7 +123,8 @@ export const PersonCarbonQuizData = {
 		ComplexFormState: false,
 		description: 'Are you a biker?',
 		description2: 'How often do you ride?',
-		rowStructureSimple: { slider: '4' },
+		rowStructureSimple: { slider: '4', moto: '' },
+		simpleName: 'Moto',
 		rowStructureComplex: [
 			{
 				'Km Recorridos al año': '',
@@ -269,7 +257,7 @@ export const PersonCarbonQuizData = {
 			'Phone Costs',
 			'Morgage & Bank',
 			'Insurance',
-			'Recreational, Sport Activities',
+			'Other Activities',
 		],
 		rowsType: [
 			{

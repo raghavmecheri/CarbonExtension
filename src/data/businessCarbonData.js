@@ -1,4 +1,4 @@
-export const fuelData = {
+export const businessCarbonData = {
 	0: {
 		Gasolina: '2.180',
 		'Gasoleo A o B': '2.520',

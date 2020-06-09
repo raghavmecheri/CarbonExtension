@@ -1,7 +1,9 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { fuelData } from '../../data/fuelData';
+import { businessCarbonData } from '../../data/businessCarbonData';
+import { individualCarbonData } from '../../data/individualCarbonData';
+import { simpleIndividualCarbonData } from '../../data/simpleIndividualCarbonData';
 import { fakeData } from '../../data/fakeData';
 
 import logo from '../../assets/logo.png';
@@ -88,19 +90,96 @@ export function Result({}) {
 			Object.keys(stateScreen.formState[key].rowStructure).map((i) => {
 				let energy = stateScreen.formState[key].rowStructure[i].energyType;
 				let quantity = stateScreen.formState[key].rowStructure[i].quantity;
-				console.log(energy);
-				console.log(quantity);
 				if (energy && quantity) {
-					result = result + Number(quantity) * Number(fuelData[key][energy]);
+					result =
+						result + Number(quantity) * Number(businessCarbonData[key][energy]);
 				}
 			});
 		});
 	} else if (
 		stateScreen.formState &&
-		stateScreen.formState[0].type === 'individual'
+		stateScreen.formState[0].type === 'individual' &&
+		stateScreen.formState[0].footprint === 'carbon'
 	) {
-		console.log('individual');
+		Object.keys(stateScreen.formState).map((key) => {
+			let frecuency = stateScreen.formState[key].rowStructureSimple['slider'];
+			let combustion = stateScreen.formState[key].rowStructureSimple['car'];
+			let eficiencyCar =
+				stateScreen.formState[key].rowStructureSimple['eficiency'];
+			let moto = stateScreen.formState[key].rowStructureSimple['moto'];
+			let title = stateScreen.formState[key].simpleName;
+			let frecuencyMultiplier;
+			if (frecuency < 1) {
+				frecuencyMultiplier = 0;
+			} else if (frecuency < 3) {
+				frecuencyMultiplier = 1 / 3;
+			} else if (frecuency < 5) {
+				frecuencyMultiplier = 1;
+			} else if (frecuency < 7) {
+				frecuencyMultiplier = 1.5;
+			} else if (frecuency < 9) {
+				frecuencyMultiplier = 3;
+			} else if (frecuency <= 10) {
+				frecuencyMultiplier = 5;
+			}
+			if (stateScreen.formState[key].ComplexFormState === false) {
+				let footprintFactor = individualCarbonData[key][title];
+				let footprintFactorCar = individualCarbonData[key][combustion];
+				let footprintFactorMoto = individualCarbonData[key][moto];
+				let averageConsume = simpleIndividualCarbonData[key][title];
+				if (footprintFactor) {
+					result =
+						result +
+						Number(averageConsume) *
+							Number(frecuencyMultiplier) *
+							Number(footprintFactor);
+					console.log(averageConsume);
+					console.log(footprintFactor);
+					console.log(frecuencyMultiplier);
+					console.log(result);
+				}
+				if (footprintFactorCar) {
+					result =
+						Number(result) +
+						Number(averageConsume) *
+							Number(frecuencyMultiplier) *
+							Number(footprintFactorCar) *
+							(Number(eficiencyCar) / 100);
+					console.log(averageConsume);
+					console.log(eficiencyCar);
+					console.log(footprintFactorCar);
+					console.log(result);
+				}
+				if (moto) {
+					result =
+						Number(result) +
+						Number(averageConsume) *
+							Number(frecuencyMultiplier) *
+							Number(footprintFactorMoto);
+					console.log(averageConsume);
+					console.log(footprintFactorMoto);
+					console.log(result);
+				}
+			}
+			if (stateScreen.formState[key].ComplexFormState === true) {
+				Object.keys(stateScreen.formState[key].rowStructureComplex[0]).map(
+					(i) => {
+						let quantity = stateScreen.formState[key].rowStructureComplex[0][i];
+						if (quantity) {
+							let footprintFactor = individualCarbonData[key][i];
+							console.log(quantity);
+							console.log(footprintFactor);
+							result =
+								Number(result) + Number(quantity) * Number(footprintFactor);
+						}
+					}
+				);
+			}
+		});
 	}
+
+	result = result / 1000;
+	result = result.toFixed(2);
 	console.log(result);
 
 	const countEarths = 5;
