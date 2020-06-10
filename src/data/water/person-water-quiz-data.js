@@ -1,18 +1,18 @@
-import bgO1 from '../assets/bg_carbon_side_i_1.png';
-import bgO11 from '../assets/bg_carbon_i_1.png';
-import bgO2 from '../assets/bg_carbon_side_i_2.jpg';
-import bgO22 from '../assets/bg_carbon_i_2.png';
-import bgO33 from '../assets/bg_carbon_i_3.png';
-import bgO3 from '../assets/bg_carbon_side_i_3.jpg';
-import bgO44 from '../assets/bg_carbon_i_4.png';
-import bgO4 from '../assets/bg_carbon_side_i_4.png';
-import bgO55 from '../assets/bg_carbon_i_5.png';
-import bgO5 from '../assets/bg_carbon_side_i_5.png';
-import bgO66 from '../assets/bg_carbon_i_6.png';
-import bgO6 from '../assets/bg_carbon_side_i_6.png';
-import bgO7 from '../assets/bg_carbon_side_i_7.png';
+import bgO1 from '../../assets/bg_carbon_side_i_1.png';
+import bgO11 from '../../assets/bg_carbon_i_1.png';
+import bgO2 from '../../assets/bg_carbon_side_i_2.jpg';
+import bgO22 from '../../assets/bg_carbon_i_2.png';
+import bgO33 from '../../assets/bg_carbon_i_3.png';
+import bgO3 from '../../assets/bg_carbon_side_i_3.jpg';
+import bgO44 from '../../assets/bg_carbon_i_4.png';
+import bgO4 from '../../assets/bg_carbon_side_i_4.png';
+import bgO55 from '../../assets/bg_carbon_i_5.png';
+import bgO5 from '../../assets/bg_carbon_side_i_5.png';
+import bgO66 from '../../assets/bg_carbon_i_6.png';
+import bgO6 from '../../assets/bg_carbon_side_i_6.png';
+import bgO7 from '../../assets/bg_carbon_side_i_7.png';
 
-export const PersonCarbonQuizData = {
+export const PersonWaterQuizData = {
 	0: {
 		id: 0,
 		title: 'Living Place',

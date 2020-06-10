@@ -1,9 +1,9 @@
-import bgO1 from '../assets/bg_carbon_b_1.jpg';
-import bgO2 from '../assets/bg_carbon_b_2.jpg';
-import bgO3 from '../assets/bg_carbon_b_3.jpg';
-import bgO4 from '../assets/bg_carbon_b_4.jpg';
+import bgO1 from '../../assets/bg_carbon_b_1.jpg';
+import bgO2 from '../../assets/bg_carbon_b_2.jpg';
+import bgO3 from '../../assets/bg_carbon_b_3.jpg';
+import bgO4 from '../../assets/bg_carbon_b_4.jpg';
 
-export const OrganizationCarbonQuizData = {
+export const BusinessCarbonQuizData = {
 	0: {
 		id: 0,
 		title: 'Combustible Desplazamiento',

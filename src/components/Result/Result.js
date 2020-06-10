@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { businessCarbonData } from '../../data/businessCarbonData';
-import { individualCarbonData } from '../../data/individualCarbonData';
-import { simpleIndividualCarbonData } from '../../data/simpleIndividualCarbonData';
+import { businessCarbonData } from '../../data/carbon/businessCarbonData';
+import { ResultIndividualCarbonData } from '../../data/carbon/ResultIndividualCarbonData';
+import { mediaIndividualCarbonData } from '../../data/carbon/mediaIndividualCarbonData';
 import { fakeData } from '../../data/fakeData';
 import ResultsBackground from './Background';
 import logo from '../../assets/logo.png';
@@ -146,10 +146,10 @@ export function Result({ stateScreen }) {
 				frecuencyMultiplier = 5;
 			}
 			if (stateScreen.formState[key].ComplexFormState === false) {
-				let footprintFactor = individualCarbonData[key][title];
-				let footprintFactorCar = individualCarbonData[key][combustion];
-				let footprintFactorMoto = individualCarbonData[key][moto];
-				let averageConsume = simpleIndividualCarbonData[key][title];
+				let footprintFactor = ResultIndividualCarbonData[key][title];
+				let footprintFactorCar = ResultIndividualCarbonData[key][combustion];
+				let footprintFactorMoto = ResultIndividualCarbonData[key][moto];
+				let averageConsume = mediaIndividualCarbonData[key][title];
 				if (footprintFactor) {
 					console.log('SimpleElectricity', footprintFactor);
 					result =
@@ -190,7 +190,7 @@ export function Result({ stateScreen }) {
 						stateScreen.formState[key].rowStructureComplex[0][
 							'Tipo de Combustible'
 						];
-					let carFactor = individualCarbonData[key][combustible];
+					let carFactor = ResultIndividualCarbonData[key][combustible];
 					if (carFactor) {
 						console.log('car', carFactor);
 						result =
@@ -206,7 +206,7 @@ export function Result({ stateScreen }) {
 						stateScreen.formState[key].rowStructureComplex[0][
 							'Cilindarada Motocicleta'
 						];
-					let motoFactor = individualCarbonData[key][cilindrada];
+					let motoFactor = ResultIndividualCarbonData[key][cilindrada];
 					if (motoFactor) {
 						console.log('moto', motoFactor);
 						result = Number(result) + Number(quantity) * Number(motoFactor);
@@ -215,7 +215,7 @@ export function Result({ stateScreen }) {
 				Object.keys(stateScreen.formState[key].rowStructureComplex[0]).map(
 					(i) => {
 						let quantity = stateScreen.formState[key].rowStructureComplex[0][i];
-						let footprintFactor = individualCarbonData[key][i];
+						let footprintFactor = ResultIndividualCarbonData[key][i];
 						if (quantity && footprintFactor && key !== '1' && key !== '2') {
 							console.log(i);
 							if (key === '6') {
