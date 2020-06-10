@@ -52,7 +52,8 @@ const InputBox = styled.div`
 	max-height: 47vh;
 	overflow-y: hidden;
 	overflow-y: scroll;
-	padding-bottom: 1em;
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
 	/* max-height: ${(props) => (props.simpleQuiz ? '50vh' : '72vh')}; */
 	max-height: 60vh;
 	-webkit-box-shadow: 9px 9px 14px -13px rgba(138, 138, 138, 1);

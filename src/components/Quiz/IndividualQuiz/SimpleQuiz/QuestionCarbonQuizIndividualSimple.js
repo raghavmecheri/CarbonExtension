@@ -145,6 +145,9 @@ const LeftText = styled.div`
 	padding-right: 0.5em;
 	width: 4em;
 	font-family: 'Heebo', sans-serif;
+	@media (max-width: 640px) {
+		display: none;
+	}
 `;
 
 const SliderTextStyle = styled.div`
@@ -162,6 +165,9 @@ const RightText = styled.div`
 	font-family: 'Heebo', sans-serif;
 	padding-left: 0.5em;
 	width: 4em;
+	@media (max-width: 640px) {
+		display: none;
+	}
 `;
 const WrapperComplexSimple = styled.div`
 	padding-left: 10%;
@@ -314,7 +320,7 @@ export const QuestionQuizIndividualSimple = ({
 						</SliderBox2>
 					</StyleComplexSimple>
 					<StyleComplexSimple>
-						<TitleSlider2>Combustible</TitleSlider2>
+						<TitleSlider2>Fuel Type</TitleSlider2>
 						<Selector
 							value={rowStructureSimple.car}
 							onChange={(e) => handleSliderInput(e, id, 'car')}>
@@ -324,7 +330,7 @@ export const QuestionQuizIndividualSimple = ({
 						</Selector>
 					</StyleComplexSimple>
 					<StyleComplexSimple>
-						<TitleSlider2>Eficiecia</TitleSlider2>
+						<TitleSlider2>Eficiency</TitleSlider2>
 						<QuestionInput
 							type='number'
 							placeholder='5L / 100km'

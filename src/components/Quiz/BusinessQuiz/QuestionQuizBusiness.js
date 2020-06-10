@@ -73,8 +73,6 @@ export const QuestionQuizBusiness = ({ rowsValues, handleInput, value }) => {
 		gdp,
 	} = rowsValues;
 
-	console.log(rowsValues);
-
 	return (
 		<QuestionsWrapper>
 			<Tittle>{title}</Tittle>

@@ -32,17 +32,6 @@ export const IndividualCarbonQuizData = {
 			'Propano',
 			'Pellets de Madera',
 		],
-		rowsType: [
-			{
-				Electricity: '',
-				'Natural Gas': '',
-				Gasoleo: '',
-				Carbon: '',
-				GLP: '',
-				Propano: '',
-				'Pellets de Madera': '',
-			},
-		],
 		placeHolder: {
 			Electricity: '1000 kWh',
 			'Natural Gas': '2000 kWh',
@@ -81,30 +70,19 @@ export const IndividualCarbonQuizData = {
 		ComplexFormState: false,
 		description: 'How much tdo you travel?',
 		description2: 'How much do you use your car?',
-		rowTitles: [
-			'Km recorridos al año',
-			'Eficiencia Del Vehiculo',
-			'Tipo de Combustible',
-		],
-		rowsType: [
-			{
-				'Km recorridos al año': '',
-				'Eficiencia Del Vehiculo': '',
-				'Tipo de Combustible': '',
-			},
-		],
+		rowTitles: ['Km. traveled per year', 'Fuel type', 'Vehicle Efficiency'],
 		placeHolder: {
-			'Km recorridos al año': '12000 Km',
-			'Eficiencia Del Vehiculo': '5.5 L',
-			'Tipo de Combustible': '',
+			'Km. traveled per year': '12000 Km',
+			'Fuel type': '',
+			'Vehicle Efficiency': '5.5 L',
 		},
 		rowStructureSimple: { slider: '4', car: '', eficiency: '' },
 		simpleName: 'Car',
 		rowStructureComplex: [
 			{
-				'Km recorridos al año': '',
-				'Eficiencia Del Vehiculo': '',
-				'Tipo de Combustible': '',
+				'Km. traveled per year': '',
+				'Fuel type': '',
+				'Vehicle Efficiency': '',
 			},
 		],
 		dropdownTypes: ['--', 'Gasolina', 'Gasoleo A o B'],
@@ -127,15 +105,14 @@ export const IndividualCarbonQuizData = {
 		simpleName: 'Moto',
 		rowStructureComplex: [
 			{
-				'Km Recorridos al año': '',
-				'Cilindarada Motocicleta': '',
+				'Km. traveled per year': '',
+				"Motorbike's cc.": '',
 			},
 		],
-		rowsType: '',
 		placeHolder: {
-			'Km Recorridos al año': '2900 km',
+			'Km. traveled per year': '2900 km',
 		},
-		rowTitles: ['Km Recorridos al año', 'Cilindarada Motocicleta'],
+		rowTitles: ['Km. traveled per year', "Motorbike's cc."],
 		dropdownTypes: ['--', '- 125cc', '125cc - 500cc', '500cc -'],
 		image: bgO3,
 		image2: bgO33,
@@ -152,19 +129,14 @@ export const IndividualCarbonQuizData = {
 		ComplexFormState: true,
 		description: 'How much do you travel?',
 		description2: 'How much do you use the train?',
-		rowTitles: ['Km Recorridos al año'],
-		rowsType: [
-			{
-				'Km recorridos al año': '',
-			},
-		],
+		rowTitles: ['Km. traveled per year'],
 		placeHolder: {
-			'Km recorridos al año': '12000 Km',
+			'Km. traveled per year': '12000 Km',
 		},
 		rowStructureSimple: { slider: '4' },
 		rowStructureComplex: [
 			{
-				'Km Recorridos al año': '',
+				'Km. traveled per year': '',
 			},
 		],
 		dropdownTypes: [],
@@ -183,19 +155,14 @@ export const IndividualCarbonQuizData = {
 		ComplexFormState: true,
 		description: 'How much do you travel?',
 		description2: 'How much do you use the train?',
-		rowTitles: ['Km Recorridos al año'],
-		rowsType: [
-			{
-				'Km recorridos al año': '',
-			},
-		],
+		rowTitles: ['Km. traveled per year'],
 		placeHolder: {
-			'Km recorridos al año': '12000 Km',
+			'Km. traveled per year': '12000 Km',
 		},
 		rowStructureSimple: { slider: '4' },
 		rowStructureComplex: [
 			{
-				'Km Recorridos al año': '',
+				'Km. traveled per year': '',
 			},
 		],
 		dropdownTypes: [],
@@ -214,19 +181,14 @@ export const IndividualCarbonQuizData = {
 		ComplexFormState: true,
 		description: 'How much do you travel?',
 		description2: 'How much do you use the plane?',
-		rowTitles: ['Km Recorridos al año'],
-		rowsType: [
-			{
-				'Km recorridos al año': '',
-			},
-		],
+		rowTitles: ['Km. traveled per year'],
 		placeHolder: {
-			'Km recorridos al año': '12000 Km',
+			'Km. traveled per year': '12000 Km',
 		},
 		rowStructureSimple: { slider: '4' },
 		rowStructureComplex: [
 			{
-				'Km Recorridos al año': '',
+				'Km. traveled per year': '',
 			},
 		],
 		dropdownTypes: [],
@@ -259,14 +221,6 @@ export const IndividualCarbonQuizData = {
 			'Morgage & Bank',
 			'Insurance',
 			'Other Activities',
-		],
-		rowsType: [
-			{
-				'Comida y Bebida': '',
-				Farmaceuticos: '',
-				'Ropa y Textile': '',
-				'Papel (Libros, periodicos, etc.)': '',
-			},
 		],
 		placeHolder: {
 			'Comida y Bebida': '',

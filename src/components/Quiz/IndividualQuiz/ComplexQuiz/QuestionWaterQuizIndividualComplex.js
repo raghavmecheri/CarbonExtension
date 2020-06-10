@@ -1,24 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const QuestionQuiz = styled.div`
-	font-size: 25px;
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-	display: flex;
-	justify-content: center;
-	@media (max-width: 550px) {
-		padding-top: 0;
-	}
-`;
-
-const SubQuestionQuiz = styled.div`
-	font-size: 15px;
-	padding-bottom: 1.5em;
-	display: flex;
-	justify-content: center;
-`;
-
 const ComplexQuestionBox = styled.div`
 	font-family: 'Heebo', sans-serif;
 	width: 100%;
@@ -28,6 +10,7 @@ const ComplexQuestionBox = styled.div`
 const QuestionWrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	border-bottom: 1px solid black;
 	padding: 0.7em;
 	@media (max-width: 810px) {
@@ -60,28 +43,28 @@ const QuestionInput = styled.input`
 		width: 30%;
 	}
 	@media (max-width: 1150px) {
-		width: 47%;
+		width: 30%;
 	}
 	@media (max-width: 1000px) {
-		width: 47%;
+		width: 30%;
 	}
 	@media (max-width: 900px) {
-		width: 47%;
+		width: 30%;
 	}
 	@media (max-width: 810px) {
-		width: 47%;
+		width: 30%;
 	}
 `;
 
 const Selector = styled.select`
-	position: absolute;
-	right: 20%;
-	width: 11em;
-	font-size: medium;
+	width: 25%;
+	margin-right: 8.5%;
+	height: 2em;
 	border-radius: 0.3em;
 	@media (max-width: 1200px) {
-		width: 11em;
-		right: 16%;
+		width: 25%;
+		margin-right: 8.5%;
+		height: 2em;
 	}
 	@media (max-width: 1150px) {
 		width: 8em;
@@ -106,19 +89,12 @@ export const QuestionWaterQuizIndividualComplex = ({
 	handleWaterInput,
 }) => {
 	const {
-		id,
-		title,
-		description,
-		description2,
-		image2,
+		dropdownKey,
+		dropdown,
 		rowTitles,
 		placeHolder,
-		dropdownTypes,
-		rowStructureSimple,
 		rowStructureComplex,
 	} = rowsValues;
-
-	const dropdown = false;
 
 	return (
 		<>
@@ -127,7 +103,15 @@ export const QuestionWaterQuizIndividualComplex = ({
 					return (
 						<QuestionWrapper>
 							<QuestionComplex>{question}</QuestionComplex>
-							{!dropdown ? (
+							{key === dropdownKey[0] || key === dropdownKey[1] ? (
+								<Selector
+									value={rowStructureComplex[question]}
+									onChange={(e) => handleWaterInput(e, question)}>
+									{dropdown[key].map((item, i) => {
+										return <option key={i}>{item}</option>;
+									})}
+								</Selector>
+							) : (
 								<QuestionInput
 									type='number'
 									id={0}
@@ -135,14 +119,6 @@ export const QuestionWaterQuizIndividualComplex = ({
 									value={rowStructureComplex[question] || ''}
 									placeholder={placeHolder[question]}
 								/>
-							) : (
-								<Selector
-									value={rowStructureComplex[0][question]}
-									onChange={(e) => handleWaterInput(e, question)}>
-									{dropdownTypes.map((item, i) => {
-										return <option key={i}>{item}</option>;
-									})}
-								</Selector>
 							)}
 						</QuestionWrapper>
 					);

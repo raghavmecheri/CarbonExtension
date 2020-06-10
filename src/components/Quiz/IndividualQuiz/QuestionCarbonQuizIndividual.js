@@ -81,7 +81,18 @@ export const QuestionCarbonQuizIndividual = ({
 	handleQuizDesign,
 	simpleQuiz,
 }) => {
-	const { id, title, description, image2, ComplexForm } = rowsValues;
+	const {
+		id,
+		title,
+		description,
+		image2,
+		ComplexForm,
+		ComplexFormState,
+	} = rowsValues;
+
+	console.log('ComplexForm', ComplexForm);
+	console.log('simpleQuiz', simpleQuiz);
+	console.log('ComplexFormState', ComplexFormState);
 
 	return (
 		<QuestionsWrapper id={id}>

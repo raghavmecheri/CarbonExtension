@@ -1,4 +1,7 @@
-import bgO1 from '../../assets/bg_water_i_1.png';
+import bg0 from '../../assets/bg_water_i_1.png';
+import bg1 from '../../assets/bg_water_i_1.png';
+import bg2 from '../../assets/bg_water_i_1.png';
+import bg3 from '../../assets/bg_water_i_1.png';
 
 export const PersonWaterQuizData = {
 	0: {
@@ -62,9 +65,9 @@ export const PersonWaterQuizData = {
 			'Cups of Coffe per day': '',
 			'Cups of Tea per day': '',
 		},
-
-		dropdownTypes: [],
-		image: bgO1,
+		dropdownKey: [],
+		dropdown: {},
+		image: bg0,
 		sideTitle: 'Weekly Food',
 		sideBody:
 			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
@@ -74,53 +77,110 @@ export const PersonWaterQuizData = {
 	1: {
 		id: 1,
 		title: 'Domestic Water Use',
-		footprint: 'water',
 		ComplexForm: false,
 		ComplexFormState: true,
-		description: 'Inside The House',
+		description: 'Indoors',
 		description2: 'How much water do you use in your alientation?',
 		rowTitles: [
 			'Nº Showers per day',
 			'Minutes of Shower',
 			'Nº Baths per week',
-			'Brush your teeth with water running',
-			'Brush your teeth without water running',
-			'Loads of Laundry per week',
-			'Dual Flush Toilet',
-			'No Dual Flush Toilet',
-			'Eco-Toilet',
-			'Min',
-			'Starchy roots',
-			'Cups of Coffe per day',
-			'Cups of Tea per day',
+			'Does the water run while brushing your teeth:',
+			'Do you have dual flush toilet?',
+			'Nº Times Dishes Wahsed each day',
+			'Minutes the water run each wash',
+			'Times Dish Washer is used per week',
 		],
 		placeHolder: {
-			Cereals: '',
-			Meat: '',
-			'Diary Products': '',
-			Eggs: '',
-			Vegetables: '',
-			Fruit: '',
-			'Starchy roots': '',
-			'Cups of Coffe per day': '',
-			'Cups of Tea per day': '',
+			'Nº Showers per day': '1',
+			'Minutes of Shower': '5min',
+			'Nº Baths per week': '0',
+			'Does the water run while brushing your teeth:': 'Yes',
+			'Do you have dual flush toilet?': 'No',
+			'Nº Times Dishes Wahsed each day': '2',
+			'Minutes the water run each wash': '7',
+			'Times Dish Washer is used per week': '0',
 		},
-		simpleName: 'Alimentation',
-		rowStructureSimple: { slider: '4' },
 		rowStructureComplex: {
-			Cereals: '',
-			Meat: '',
-			'Diary Products': '',
-			Eggs: '',
-			Vegetables: '',
-			Fruit: '',
-			'Starchy roots': '',
-			'Cups of Coffe per day': '',
-			'Cups of Tea per day': '',
+			'Nº Showers per day': '',
+			'Minutes of Shower': '',
+			'Nº Baths per week': '',
+			'Does the water run while brushing your teeth:': 'Yes',
+			'Do you have dual flush toilet?': 'No',
+			'Nº Times Dishes Wahsed each day': '',
+			'Minutes the water run each wash': '',
+			'Times Dish Washer is used per week': '',
 		},
-
-		dropdownTypes: [],
-		image: bgO1,
+		dropdownKey: [3, 4],
+		dropdown: { 3: ['Yes', 'No'], 4: ['Yes', 'No', 'No flushing. Eco-toilet'] },
+		image: bg1,
+		sideTitle: 'Weekly Food',
+		sideBody:
+			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
+		infoPlusBody:
+			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+	},
+	2: {
+		id: 2,
+		title: 'Domestic Water Use',
+		ComplexForm: false,
+		ComplexFormState: true,
+		description: 'Outdoors',
+		description2: 'How much water do you use in your alientation?',
+		rowTitles: [
+			'Times you wash your car per week',
+			'Times you water your garden per week',
+			'Minutes you water your garden each time',
+			'Minutes per week you spend rising equipment, sidewalks or driveways',
+			'Capacity of your swimming pool',
+			'Time per year you empty your swimming pool',
+		],
+		placeHolder: {
+			'Times you wash your car per week': '',
+			'Times you water your garden per week': '',
+			'Minutes you water your garden each time': '',
+			'Minutes per week you spend rising equipment, sidewalks or driveways': '',
+			'Capacity of your swimming pool': '',
+			'Time per year you empty your swimming pool': '',
+		},
+		rowStructureComplex: {
+			'Times you wash your car per week': '',
+			'Times you water your garden per week': '',
+			'Minutes you water your garden each time': '',
+			'Minutes per week you spend rising equipment, sidewalks or driveways': '',
+			'Capacity of your swimming pool': '',
+			'Time per year you empty your swimming pool': '',
+		},
+		dropdownKey: [],
+		dropdown: {},
+		image: bg2,
+		sideTitle: 'Weekly Food',
+		sideBody:
+			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
+		infoPlusBody:
+			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+	},
+	3: {
+		id: 3,
+		title: 'Industrial Goods Consumption',
+		ComplexForm: false,
+		ComplexFormState: true,
+		description: '',
+		description2: 'How much water do you use in your alientation?',
+		rowTitles: [
+			'What is your gross yearly income?(Only that part of income which is consumed by you)',
+		],
+		placeHolder: {
+			'What is your gross yearly income?(Only that part of income which is consumed by you)':
+				'20000€',
+		},
+		rowStructureComplex: {
+			'What is your gross yearly income?(Only that part of income which is consumed by you)':
+				'',
+		},
+		dropdownKey: [],
+		dropdown: {},
+		image: bg3,
 		sideTitle: 'Weekly Food',
 		sideBody:
 			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
