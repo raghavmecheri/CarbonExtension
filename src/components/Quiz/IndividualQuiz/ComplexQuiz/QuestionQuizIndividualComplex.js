@@ -167,7 +167,9 @@ export const QuestionQuizIndividualComplex = ({
 						<QuestionWrapper>
 							<QuestionComplex>{question}</QuestionComplex>
 							{dropdown ? (
-								<Selector onChange={(e) => handleInputIndividual(e, question)}>
+								<Selector
+									value={rowStructureComplex[0][question]}
+									onChange={(e) => handleInputIndividual(e, question)}>
 									{dropdownTypes.map((item, i) => {
 										return <option key={i}>{item}</option>;
 									})}

@@ -3,8 +3,9 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { SideQuizMenu } from './QuizComponents/SideQuizMenu';
-import { QuestionQuizBusiness } from './QuizComponents/QuestionQuizBusiness';
-import { QuestionQuizIndividual } from './QuizComponents/QuestionQuizIndividual';
+import { QuestionQuizBusiness } from './BusinessQuiz/QuestionQuizBusiness';
+import { QuestionCarbonQuizIndividual } from './IndividualQuiz/QuestionCarbonQuizIndividual';
+import { QuestionWaterQuizIndividual } from './IndividualQuiz/QuestionWaterQuizIndividual';
 import { Buttons } from './QuizComponents/ButtonsQuiz';
 import { HomeNavBar } from '../Home/HomeNavBar';
 import logo from '../../assets/logo.png';
@@ -148,6 +149,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	const [homeMenuState, setHomeMenuState] = useState(false);
 	const [simpleQuiz, setSimpleQuiz] = useState(true);
 	const businessQuiz = formState[0].type === 'business';
+	const carbonQuiz = formState[0].footprint === 'carbon';
 
 	const handleOpenMenu = () => {
 		setHomeMenuState(true);
@@ -351,8 +353,16 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 						rowsValues={formState[questionIndex]}
 						handleInput={handleInput}
 					/>
+				) : carbonQuiz ? (
+					<QuestionCarbonQuizIndividual
+						rowsValues={formState[questionIndex]}
+						handleSliderInput={handleSliderInput}
+						handleInputIndividual={handleInputIndividual}
+						handleQuizDesign={handleQuizDesign}
+						simpleQuiz={simpleQuiz}
+					/>
 				) : (
-					<QuestionQuizIndividual
+					<QuestionWaterQuizIndividual
 						rowsValues={formState[questionIndex]}
 						handleSliderInput={handleSliderInput}
 						handleInputIndividual={handleInputIndividual}

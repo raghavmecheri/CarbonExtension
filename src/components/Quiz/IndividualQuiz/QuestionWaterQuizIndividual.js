@@ -1,9 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-import { QuestionQuizIndividualSimple } from './QuestionQuizIndividualSimple';
-import { QuestionQuizIndividualComplex } from './QuestionQuizIndividualComplex';
-import { CheckBox } from './CheckBox';
+import { QuestionQuizIndividualSimple } from './SimpleQuiz/QuestionQuizIndividualSimple';
+import { QuestionQuizIndividualComplex } from './ComplexQuiz/QuestionQuizIndividualComplex';
+import { CheckBox } from '../QuizComponents/CheckBox';
 
 const QuestionsWrapper = styled.div`
 	height: 100%;
@@ -74,7 +74,7 @@ const InputBox = styled.div`
 	}
 `;
 
-export const QuestionQuizIndividual = ({
+export const QuestionWaterQuizIndividual = ({
 	rowsValues,
 	handleSliderInput,
 	handleInputIndividual,

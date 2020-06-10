@@ -11,7 +11,6 @@ import { ErrorPage } from '../components/Error/ErrorPage';
 import { OrganizationCarbonQuizData } from '../data/organization-carbon-quiz-data';
 import { PersonCarbonQuizData } from '../data/person-carbon-quiz-data';
 
-import { OrganizationWaterQuizData } from '../data/organization-water-quiz-data';
 import { PersonWaterQuizData } from '../data/person-water-quiz-data';
 
 const AppContainer = styled.div`
@@ -54,16 +53,6 @@ function App() {
 								stateScreen={stateScreen}
 								setStateScreen={setStateScreen}
 								QuizData={PersonWaterQuizData}
-							/>
-						)}
-					/>
-					<Route
-						path='/water/quiz/organization'
-						component={() => (
-							<Quiz
-								stateScreen={stateScreen}
-								setStateScreen={setStateScreen}
-								QuizData={OrganizationWaterQuizData}
 							/>
 						)}
 					/>

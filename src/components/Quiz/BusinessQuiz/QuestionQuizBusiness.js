@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { RowTitles } from './RowTitles';
-import { InputRow } from './InputRow';
+import { RowTitles } from '../QuizComponents/RowTitles';
+import { InputRow } from '../QuizComponents/InputRow';
 
 const QuestionsWrapper = styled.div`
 	height: 100%;
