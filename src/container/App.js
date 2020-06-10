@@ -8,11 +8,10 @@ import { Quiz } from '../components/Quiz/quiz';
 import { Result } from '../components/Result/Result';
 import { ErrorPage } from '../components/Error/ErrorPage';
 
-import { OrganizationCarbonQuizData } from '../data/organization-carbon-quiz-data';
-import { PersonCarbonQuizData } from '../data/person-carbon-quiz-data';
+import { BusinessCarbonQuizData } from '../data/carbon/business-carbon-quiz-data';
+import { IndividualCarbonQuizData } from '../data/carbon/individual-carbon-quiz-data';
 
-import { OrganizationWaterQuizData } from '../data/organization-water-quiz-data';
-import { PersonWaterQuizData } from '../data/person-water-quiz-data';
+import { PersonWaterQuizData } from '../data/water/individual-water-quiz-data';
 
 const AppContainer = styled.div`
 	color: ${(props) => props.theme.colors.ligth};
@@ -33,7 +32,7 @@ function App() {
 							<Quiz
 								stateScreen={stateScreen}
 								setStateScreen={setStateScreen}
-								QuizData={PersonCarbonQuizData}
+								QuizData={IndividualCarbonQuizData}
 							/>
 						)}
 					/>
@@ -43,7 +42,7 @@ function App() {
 							<Quiz
 								stateScreen={stateScreen}
 								setStateScreen={setStateScreen}
-								QuizData={OrganizationCarbonQuizData}
+								QuizData={BusinessCarbonQuizData}
 							/>
 						)}
 					/>
@@ -54,16 +53,6 @@ function App() {
 								stateScreen={stateScreen}
 								setStateScreen={setStateScreen}
 								QuizData={PersonWaterQuizData}
-							/>
-						)}
-					/>
-					<Route
-						path='/water/quiz/organization'
-						component={() => (
-							<Quiz
-								stateScreen={stateScreen}
-								setStateScreen={setStateScreen}
-								QuizData={OrganizationWaterQuizData}
 							/>
 						)}
 					/>

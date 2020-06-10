@@ -1,4 +1,4 @@
-export const simpleIndividualCarbonData = {
+export const mediaIndividualCarbonData = {
 	0: {
 		Electricity: 3487,
 	},

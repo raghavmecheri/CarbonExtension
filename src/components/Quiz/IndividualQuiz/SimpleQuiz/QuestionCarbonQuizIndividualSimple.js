@@ -145,6 +145,9 @@ const LeftText = styled.div`
 	padding-right: 0.5em;
 	width: 4em;
 	font-family: 'Heebo', sans-serif;
+	@media (max-width: 640px) {
+		display: none;
+	}
 `;
 
 const SliderTextStyle = styled.div`
@@ -162,6 +165,9 @@ const RightText = styled.div`
 	font-family: 'Heebo', sans-serif;
 	padding-left: 0.5em;
 	width: 4em;
+	@media (max-width: 640px) {
+		display: none;
+	}
 `;
 const WrapperComplexSimple = styled.div`
 	padding-left: 10%;
@@ -249,42 +255,42 @@ export const QuestionQuizIndividualSimple = ({
 			return (
 				<>
 					<SliderTextStyle>Never</SliderTextStyle>
-					<SliderSubTextStyle>{'(never)'}</SliderSubTextStyle>
+					<SliderSubTextStyle>{'( x0 )'}</SliderSubTextStyle>
 				</>
 			);
 		} else if (slider < 3) {
 			return (
 				<>
 					<SliderTextStyle>Ocassionally</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Month)'}</SliderSubTextStyle>
+					<SliderSubTextStyle>{'( x1/3 )'}</SliderSubTextStyle>
 				</>
 			);
 		} else if (slider < 5) {
 			return (
 				<>
 					<SliderTextStyle>Normal</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
+					<SliderSubTextStyle>{'( x1 )'}</SliderSubTextStyle>
 				</>
 			);
 		} else if (slider < 7) {
 			return (
 				<>
 					<SliderTextStyle>Often</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
+					<SliderSubTextStyle>{'( x1,5 )'}</SliderSubTextStyle>
 				</>
 			);
 		} else if (slider < 9) {
 			return (
 				<>
 					<SliderTextStyle>Very Often</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
+					<SliderSubTextStyle>{'( x3 )'}</SliderSubTextStyle>
 				</>
 			);
 		} else if (slider <= 10) {
 			return (
 				<>
 					<SliderTextStyle>Always</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Day)'}</SliderSubTextStyle>
+					<SliderSubTextStyle>{'( x5 )'}</SliderSubTextStyle>
 				</>
 			);
 		}
@@ -314,7 +320,7 @@ export const QuestionQuizIndividualSimple = ({
 						</SliderBox2>
 					</StyleComplexSimple>
 					<StyleComplexSimple>
-						<TitleSlider2>Combustible</TitleSlider2>
+						<TitleSlider2>Fuel Type</TitleSlider2>
 						<Selector
 							value={rowStructureSimple.car}
 							onChange={(e) => handleSliderInput(e, id, 'car')}>
@@ -324,7 +330,7 @@ export const QuestionQuizIndividualSimple = ({
 						</Selector>
 					</StyleComplexSimple>
 					<StyleComplexSimple>
-						<TitleSlider2>Eficiecia</TitleSlider2>
+						<TitleSlider2>Eficiency</TitleSlider2>
 						<QuestionInput
 							type='number'
 							placeholder='5L / 100km'

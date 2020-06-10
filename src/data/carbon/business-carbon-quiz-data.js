@@ -1,17 +1,17 @@
-import bgO1 from '../assets/bg_carbon_b_1.jpg';
-import bgO2 from '../assets/bg_carbon_b_2.jpg';
-import bgO3 from '../assets/bg_carbon_b_3.jpg';
-import bgO4 from '../assets/bg_carbon_b_4.jpg';
+import bgO1 from '../../assets/bg_carbon_b_1.jpg';
+import bgO2 from '../../assets/bg_carbon_b_2.jpg';
+import bgO3 from '../../assets/bg_carbon_b_3.jpg';
+import bgO4 from '../../assets/bg_carbon_b_4.jpg';
 
-export const OrganizationCarbonQuizData = {
+export const BusinessCarbonQuizData = {
 	0: {
 		id: 0,
-		title: 'Combustible Desplazamiento',
+		title: 'Transportation Fuel',
 		type: 'business',
 		description: 'How much travel do you do?',
-		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
+		rowTitles: ['Vehicle', 'Type of Fuel', "Fuel's Quantity"],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
-		placeHolder: { first: 'Mercedes', energyType: '', second: '1000 litres' },
+		placeHolder: { first: 'Audi A4', energyType: '', second: '1000 litres' },
 		rowStructure: [
 			{ title: '', energyType: '', quantity: '' },
 			{ title: '', energyType: '', quantity: '' },
@@ -43,11 +43,11 @@ export const OrganizationCarbonQuizData = {
 	},
 	1: {
 		id: 1,
-		title: 'Combustible Instalaciones Fijas',
-		description: 'How much travel do you do?',
-		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
+		title: 'Fixed Installations Fuel',
+		description: '',
+		rowTitles: ['Building', 'Type of Fuel', "Fuel's Quantity"],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
-		placeHolder: { first: 'Sotano', energyType: '', second: '5000 litres' },
+		placeHolder: { first: 'Building A', energyType: '', second: '5000 litres' },
 		rowStructure: [
 			{ title: '', energyType: '', quantity: '' },
 			{ title: '', energyType: '', quantity: '' },
@@ -74,8 +74,8 @@ export const OrganizationCarbonQuizData = {
 	},
 	2: {
 		id: 2,
-		title: 'Refrigeracion y Climatizacion',
-		description: 'Fugas de gases fluorados',
+		title: 'Refrigeration and Air conditioning',
+		description: 'Fluorinated Gas Leaks',
 		rowStructure: [
 			{ title: '', title2: '', energyType: '', quantity: '' },
 			{ title: '', title2: '', energyType: '', quantity: '' },
@@ -83,17 +83,12 @@ export const OrganizationCarbonQuizData = {
 		],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
 		placeHolder: {
-			first: 'Sotano',
+			first: 'Building A',
 			third: '100 litres',
 			energyType: '',
 			second: '100 litres',
 		},
-		rowTitles: [
-			'Edificio/Sede',
-			'Tipo de Equipo',
-			'Carga Inicial Equipo',
-			'ReCarga Anual Equipo',
-		],
+		rowTitles: ['Building', 'Type of Fuel', 'Initial Load', 'Annual Reload'],
 		dropdownTypes: [
 			'--',
 			'HFC-23',
@@ -126,7 +121,7 @@ export const OrganizationCarbonQuizData = {
 	3: {
 		id: 3,
 		title: 'Electricity',
-		description: 'Fugas de gases fluorados',
+		description: '',
 		rowStructure: [
 			{ title: '', title2: '', energyType: '', quantity: '' },
 			{ title: '', title2: '', energyType: '', quantity: '' },
@@ -134,12 +129,12 @@ export const OrganizationCarbonQuizData = {
 		],
 		rowsType: [{ title: '', title2: '', energyType: '', quantity: '' }],
 		placeHolder: {
-			first: 'Nave de Aragusa',
+			first: 'Building C',
 			third: '',
 			energyType: '',
 			second: '1000 kWh',
 		},
-		rowTitles: ['Edificio', 'Compañia Electrica', 'Gdp', 'Datos de Consumo'],
+		rowTitles: ['Building', 'Electric Company', 'Gdp', 'kWh Consumed'],
 		dropdownTypes: [
 			'--',
 			'A-DOS ENERGíA, S.L.',

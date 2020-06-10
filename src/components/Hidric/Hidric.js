@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import { ArrowBackOutline } from '@styled-icons/typicons';
 import { Person } from '@styled-icons/evaicons-solid';
-import { Factory } from '@styled-icons/boxicons-solid';
 
 import WaterImg from '../../assets/water_img.jpg';
 
@@ -143,19 +142,13 @@ const TextHidric = styled.div`
 const ButtonBox = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 	margin: auto;
 	margin-top: 2em;
 	@media only screen and (max-width: 1100px) {
-		display: flex;
-		align-items: center;
-		justify-content: space-evenly;
 		margin-top: 0;
 	}
 	@media only screen and (max-width: 1000px) {
-		display: grid;
-		align-items: center;
-		justify-content: center;
 		padding-top: 20px;
 	}
 `;
@@ -195,15 +188,8 @@ const PersonIcon = styled(Person)`
 	color: black;
 `;
 
-const FactoryIcon = styled(Factory)`
-	background-color: transparent;
-	font-size: 16px;
-	color: black;
-`;
-
 const HidricImage = styled.img`
-	width: 20em;
-	padding: -10px;
+	width: 17em;
 	@media (max-height: 740px) {
 		width: 14em;
 	}
@@ -251,11 +237,6 @@ export const Hidric = ({ handleReturn }) => {
 				<Link to='/water/quiz/person'>
 					<Button>
 						<PersonIcon size='30' /> Person
-					</Button>
-				</Link>
-				<Link to='/water/quiz/organization'>
-					<Button>
-						<FactoryIcon size='30' /> Organization
 					</Button>
 				</Link>
 			</ButtonBox>

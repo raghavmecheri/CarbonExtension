@@ -192,9 +192,18 @@ const HomeMenuBackground = styled.div`
 	bottom: 0;
 	left: 0;
 	width: 100vw;
-	height: 100%;
-	z-index: 999;
+	height: 100vh;
+	z-index: 99999;
 	background-color: #0000006b;
+	@media (max-width: 430px) and (max-height: 750px) {
+		height: 110vh;
+	}
+	@media (max-width: 400px) and (max-height: 700px) {
+		height: 110vh;
+	}
+	@media (max-width: 350px) and (max-height: 600px) {
+		height: 130vh;
+	}
 `;
 
 const HomeMenuWraper = styled.div`
@@ -203,8 +212,17 @@ const HomeMenuWraper = styled.div`
 	left: 0;
 	width: 70vw;
 	height: 100%;
-	z-index: 9999;
+	z-index: 99999;
 	background-color: white;
+	@media (max-width: 430px) and (max-height: 750px) {
+		height: 110vh;
+	}
+	@media (max-width: 400px) and (max-height: 700px) {
+		height: 110vh;
+	}
+	@media (max-width: 350px) and (max-height: 600px) {
+		height: 130vh;
+	}
 `;
 
 const MenuNavBar = styled.div`

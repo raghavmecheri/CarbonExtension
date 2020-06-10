@@ -8,12 +8,15 @@ const TextDropdown = styled.div`
 
 const CheckBoxWrapper = styled.div`
 	position: relative;
+	z-index: 9999;
+	margin: auto;
 	margin-top: 1em;
+	width: 6em;
 `;
 const CheckBoxLabel = styled.label`
 	position: absolute;
 	top: 0;
-	left: 46%;
+	left: 25%;
 	width: 3em;
 	height: 26px;
 	border-radius: 15px;

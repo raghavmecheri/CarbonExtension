@@ -104,7 +104,7 @@ const QuestionInput = styled.input`
 
 const Selector = styled.select`
 	position: absolute;
-	right: 20%;
+	right: 24%;
 	width: 11em;
 	font-size: medium;
 	border-radius: 0.3em;
@@ -114,7 +114,7 @@ const Selector = styled.select`
 	}
 	@media (max-width: 1150px) {
 		width: 8em;
-		right: 12%;
+		right: 18%;
 	}
 	@media (max-width: 1000px) {
 		width: 8em;
@@ -156,10 +156,7 @@ export const QuestionQuizIndividualComplex = ({
 			<ComplexQuestionBox>
 				{rowTitles.map((question, key) => {
 					let dropdown = false;
-					if (
-						question === 'Tipo de Combustible' ||
-						question === 'Cilindarada Motocicleta'
-					) {
+					if (question === 'Fuel type' || question === "Motorbike's cc.") {
 						dropdown = true;
 					}
 
@@ -167,7 +164,9 @@ export const QuestionQuizIndividualComplex = ({
 						<QuestionWrapper>
 							<QuestionComplex>{question}</QuestionComplex>
 							{dropdown ? (
-								<Selector onChange={(e) => handleInputIndividual(e, question)}>
+								<Selector
+									value={rowStructureComplex[0][question]}
+									onChange={(e) => handleInputIndividual(e, question)}>
 									{dropdownTypes.map((item, i) => {
 										return <option key={i}>{item}</option>;
 									})}

@@ -1,14 +1,15 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-import { QuestionQuizIndividualSimple } from './QuestionQuizIndividualSimple';
-import { QuestionQuizIndividualComplex } from './QuestionQuizIndividualComplex';
-import { CheckBox } from './CheckBox';
+import { QuestionWaterQuizIndividualSimple } from './SimpleQuiz/QuestionWaterQuizIndividualSimple';
+import { QuestionWaterQuizIndividualComplex } from './ComplexQuiz/QuestionWaterQuizIndividualComplex';
+import { CheckBox } from '../QuizComponents/CheckBox';
 
 const QuestionsWrapper = styled.div`
 	height: 100%;
 	width: inherit;
-	padding-top: ${(props) => (props.id === 6 ? '0%' : '6%')};
+	padding-top: 0;
+	/* padding-top: ${(props) => (props.id === 0 ? '0%' : '4%')}; */
 	@media (max-height: 740px) {
 		padding-top: 0;
 	}
@@ -19,9 +20,10 @@ const Tittle = styled.div`
 	font-weight: 600;
 	display: flex;
 	justify-content: center;
-	color: #38a66d;
+	color: cornflowerblue;
 	padding-bottom: ${(props) =>
 		props.id === 0 && !props.simpleQuiz ? '2%' : '0%'};
+	padding-bottom: 0;
 `;
 
 const Description = styled.div`
@@ -32,11 +34,11 @@ const Description = styled.div`
 `;
 
 const SimpleQuizImage = styled.img`
-	width: 13em;
-	display: ${(props) =>
+	width: 18em;
+	/* display: ${(props) =>
 		(props.id === 0 && !props.simpleQuiz) || props.id === 6
 			? 'none'
-			: 'initial'};
+			: 'initial'}; */
 	@media (max-height: 650px) {
 		width: 10em;
 	}
@@ -50,10 +52,10 @@ const InputBox = styled.div`
 	max-height: 47vh;
 	overflow-y: hidden;
 	overflow-y: scroll;
-	padding-bottom: 1em;
-	margin-top: 0.5em;
-	max-height: ${(props) =>
-		props.id === 6 || props.id === 0 ? '72vh' : '50vh'};
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
+	/* max-height: ${(props) => (props.simpleQuiz ? '50vh' : '72vh')}; */
+	max-height: 60vh;
 	-webkit-box-shadow: 9px 9px 14px -13px rgba(138, 138, 138, 1);
 	-moz-box-shadow: 9px 9px 14px -13px rgba(138, 138, 138, 1);
 	box-shadow: 9px 9px 14px -13px rgba(138, 138, 138, 1);
@@ -67,47 +69,63 @@ const InputBox = styled.div`
 	}
 	@media (max-width: 510px) {
 		margin: auto;
-		max-height: ${(props) =>
-			props.id === 6 || props.id === 0 ? '72vh' : '50vh'};
-		width: ${(props) => (props.id === 6 ? '90%' : '85%')};
-		margin-top: ${(props) => (props.id === 0 ? '1em' : '0.5em')};
 	}
 `;
 
-export const QuestionQuizIndividual = ({
+const QuestionQuiz = styled.div`
+	font-size: 25px;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	display: flex;
+	justify-content: center;
+`;
+
+const SubQuestionQuiz = styled.div`
+	font-size: 15px;
+	padding-bottom: 1.5em;
+	display: flex;
+	justify-content: center;
+`;
+
+export const QuestionWaterQuizIndividual = ({
 	rowsValues,
-	handleSliderInput,
-	handleInputIndividual,
+	handleWaterSlider,
+	handleWaterInput,
 	handleQuizDesign,
 	simpleQuiz,
 }) => {
-	const { id, title, description, image2, ComplexForm } = rowsValues;
+	const {
+		id,
+		title,
+		description,
+		description2,
+		image2,
+		ComplexForm,
+	} = rowsValues;
 
 	return (
 		<QuestionsWrapper id={id}>
 			<Tittle id={id} simpleQuiz={simpleQuiz}>
 				{title}
 			</Tittle>
-			{simpleQuiz && <Description>{description}</Description>}
-			<SimpleQuizImage src={image2} id={id} simpleQuiz={simpleQuiz} />
-			<InputBox id={id}>
+			<Description>{description}</Description>
+			<QuestionQuiz>{description2}</QuestionQuiz>
+			<SubQuestionQuiz>(Higher or Lower than average)</SubQuestionQuiz>
+			<InputBox ComplexForm={ComplexForm}>
 				{simpleQuiz && ComplexForm ? (
-					<QuestionQuizIndividualSimple
+					<QuestionWaterQuizIndividualSimple
 						rowsValues={rowsValues}
-						handleSliderInput={handleSliderInput}
+						handleWaterSlider={handleWaterSlider}
+						handleWaterInput={handleWaterInput}
 					/>
 				) : (
-					<QuestionQuizIndividualComplex
+					<QuestionWaterQuizIndividualComplex
 						rowsValues={rowsValues}
-						handleSliderInput={handleSliderInput}
-						handleInputIndividual={handleInputIndividual}
+						handleWaterInput={handleWaterInput}
 					/>
 				)}
-				<CheckBox
-					handleQuizDesign={handleQuizDesign}
-					ComplexForm={ComplexForm}
-				/>
 			</InputBox>
+			<CheckBox handleQuizDesign={handleQuizDesign} ComplexForm={ComplexForm} />
 		</QuestionsWrapper>
 	);
 };

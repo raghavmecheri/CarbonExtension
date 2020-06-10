@@ -1,4 +1,4 @@
-export const individualCarbonData = {
+export const ResultIndividualCarbonData = {
 	0: {
 		Electricity: '0.288',
 		'Natural Gas': '0.185',

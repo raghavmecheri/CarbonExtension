@@ -3,8 +3,9 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { SideQuizMenu } from './QuizComponents/SideQuizMenu';
-import { QuestionQuizBusiness } from './QuizComponents/QuestionQuizBusiness';
-import { QuestionQuizIndividual } from './QuizComponents/QuestionQuizIndividual';
+import { QuestionQuizBusiness } from './BusinessQuiz/QuestionQuizBusiness';
+import { QuestionCarbonQuizIndividual } from './IndividualQuiz/QuestionCarbonQuizIndividual';
+import { QuestionWaterQuizIndividual } from './IndividualQuiz/QuestionWaterQuizIndividual';
 import { Buttons } from './QuizComponents/ButtonsQuiz';
 import { HomeNavBar } from '../Home/HomeNavBar';
 import logo from '../../assets/logo.png';
@@ -81,22 +82,40 @@ const HomeCircleStyle = styled(HomeCircle)`
 
 const HomeMenuBackground = styled.div`
 	position: absolute;
-	bottom: 0;
+	top: 0;
 	left: 0;
 	width: 100vw;
 	height: 100%;
-	z-index: 999;
+	z-index: 99999;
 	background-color: #0000006b;
+	@media (max-width: 430px) and (max-height: 750px) {
+		height: 110vh;
+	}
+	@media (max-width: 400px) and (max-height: 700px) {
+		height: 110vh;
+	}
+	@media (max-width: 350px) and (max-height: 600px) {
+		height: 130vh;
+	}
 `;
 
 const HomeMenuWraper = styled.div`
 	position: absolute;
-	bottom: 0;
+	top: 0;
 	left: 0;
 	width: 70vw;
 	height: 100%;
-	z-index: 9999;
+	z-index: 99999;
 	background-color: white;
+	@media (max-width: 430px) and (max-height: 750px) {
+		height: 110vh;
+	}
+	@media (max-width: 400px) and (max-height: 700px) {
+		height: 110vh;
+	}
+	@media (max-width: 350px) and (max-height: 600px) {
+		height: 130vh;
+	}
 `;
 
 const MenuNavBar = styled.div`
@@ -148,6 +167,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	const [homeMenuState, setHomeMenuState] = useState(false);
 	const [simpleQuiz, setSimpleQuiz] = useState(true);
 	const businessQuiz = formState[0].type === 'business';
+	const carbonQuiz = formState[0].footprint === 'carbon';
 
 	const handleOpenMenu = () => {
 		setHomeMenuState(true);
@@ -188,7 +208,12 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 			},
 		});
 	};
-	const updateSliderValueIndividualSimpleForm = ({ value, id, input }) => {
+
+	const updateSliderValueCarbonIndividualSimpleForm = ({
+		value,
+		id,
+		input,
+	}) => {
 		const screenRows = formState[questionIndex].rowStructureSimple;
 		screenRows[input] = value;
 		setFormState({
@@ -196,6 +221,30 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 			[questionIndex]: {
 				...formState[questionIndex],
 				rowStructureSimple: screenRows,
+			},
+		});
+	};
+
+	const updateSliderValueWaterIndividualSimpleForm = ({ value, id, input }) => {
+		const screenRows = formState[questionIndex].rowStructureSimple;
+		screenRows[input] = value;
+		setFormState({
+			...formState,
+			[questionIndex]: {
+				...formState[questionIndex],
+				rowStructureSimple: screenRows,
+			},
+		});
+	};
+
+	const updateInputValueWaterIndividualSimpleForm = ({ value, question }) => {
+		const screenRows = formState[questionIndex].rowStructureComplex;
+		screenRows[question] = value;
+		setFormState({
+			...formState,
+			[questionIndex]: {
+				...formState[questionIndex],
+				rowStructureComplex: screenRows,
 			},
 		});
 	};
@@ -260,10 +309,22 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 		updateImputValueIndividualComplexForm({ value, question });
 	};
 
+	const handleWaterInput = (e, question) => {
+		e.preventDefault();
+		const { value } = e.target;
+		updateInputValueWaterIndividualSimpleForm({ value, question });
+	};
+
 	const handleSliderInput = (e, id, input) => {
 		e.preventDefault();
 		const { value } = e.target;
-		updateSliderValueIndividualSimpleForm({ value, id, input });
+		updateSliderValueCarbonIndividualSimpleForm({ value, id, input });
+	};
+
+	const handleWaterSlider = (e, id, input) => {
+		e.preventDefault();
+		const { value } = e.target;
+		updateSliderValueWaterIndividualSimpleForm({ value, id, input });
 	};
 
 	const handleQuizDesign = (e) => {
@@ -351,10 +412,19 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 						rowsValues={formState[questionIndex]}
 						handleInput={handleInput}
 					/>
-				) : (
-					<QuestionQuizIndividual
+				) : carbonQuiz ? (
+					<QuestionCarbonQuizIndividual
 						rowsValues={formState[questionIndex]}
 						handleSliderInput={handleSliderInput}
+						handleInputIndividual={handleInputIndividual}
+						handleQuizDesign={handleQuizDesign}
+						simpleQuiz={simpleQuiz}
+					/>
+				) : (
+					<QuestionWaterQuizIndividual
+						rowsValues={formState[questionIndex]}
+						handleWaterSlider={handleWaterSlider}
+						handleWaterInput={handleWaterInput}
 						handleInputIndividual={handleInputIndividual}
 						handleQuizDesign={handleQuizDesign}
 						simpleQuiz={simpleQuiz}
@@ -368,6 +438,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 					handleDeleteQuestion={handleDeleteQuestion}
 					handleAddRow={handleAddRow}
 					businessQuiz={businessQuiz}
+					carbonQuiz={carbonQuiz}
 					rowsValues={formState[questionIndex]}
 				/>
 			</QuizBox>

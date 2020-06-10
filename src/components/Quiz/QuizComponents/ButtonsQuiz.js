@@ -8,11 +8,12 @@ import { MinusCircle } from '@styled-icons/boxicons-solid';
 const ButtonBox = styled.div`
 	position: absolute;
 	bottom: 2em;
-	width: 70%;
+	width: ${(props) => (props.carbonQuiz ? '70%' : '90%')};
 	padding: 1em 1em;
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: ${(props) =>
+		props.carbonQuiz ? 'space-around' : 'space-between'};
 	@media only screen and (max-width: 850px) {
 		display: flex;
 		align-items: center;
@@ -114,11 +115,12 @@ export const Buttons = ({
 	handleAddRow,
 	handleDeleteQuestion,
 	businessQuiz,
+	carbonQuiz,
 	rowsValues,
 }) => {
 	if (!end) {
 		return (
-			<ButtonBox rowsValues={rowsValues}>
+			<ButtonBox carbonQuiz={carbonQuiz} rowsValues={rowsValues}>
 				<BackwardIcon onClick={back}>{'< Last Question'}</BackwardIcon>
 				{businessQuiz ? (
 					<MiddleBox>

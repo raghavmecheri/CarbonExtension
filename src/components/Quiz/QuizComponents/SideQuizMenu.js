@@ -8,12 +8,12 @@ const LogoWrapper = styled.div`
 	position: absolute;
 	width: inherit;
 	top: -1.5em;
-	z-index: 9999;
+	z-index: 99999;
 `;
 const LogoStyle = styled.img`
 	width: 12em;
 	margin: auto;
-	z-index: 9999;
+	z-index: 99999;
 `;
 
 const SideQuizMenuWrapper = styled.div`
