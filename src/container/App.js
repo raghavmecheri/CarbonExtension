@@ -11,7 +11,7 @@ import { ErrorPage } from '../components/Error/ErrorPage';
 import { BusinessCarbonQuizData } from '../data/carbon/business-carbon-quiz-data';
 import { IndividualCarbonQuizData } from '../data/carbon/individual-carbon-quiz-data';
 
-import { PersonWaterQuizData } from '../data/water/person-water-quiz-data';
+import { PersonWaterQuizData } from '../data/water/individual-water-quiz-data';
 
 const AppContainer = styled.div`
 	color: ${(props) => props.theme.colors.ligth};

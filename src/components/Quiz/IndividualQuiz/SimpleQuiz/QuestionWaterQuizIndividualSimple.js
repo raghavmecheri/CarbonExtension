@@ -10,7 +10,7 @@ const upperColor = '#888E92';
 const thumbColor = 'white';
 const thumbHoverColor = 'white';
 const upperBackground = `linear-gradient(to bottom, ${upperColor}, ${upperColor}) 100% 50% / 100% ${trackHeight} no-repeat transparent`;
-const lowerBackground = `linear-gradient(to right, #00f260, #0575e6)`;
+const lowerBackground = `linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb);`;
 // Webkit cannot style progress so we fake it with a long shadow on the thumb element
 const makeLongShadow = (color, size) => {
 	let i = 18;
@@ -113,20 +113,7 @@ const SliderInput = styled.input`
 	}
 `;
 // END SLIDER -----------------------------------------------------------------------------------------------------------------
-const QuestionQuiz = styled.div`
-	font-size: 25px;
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-	display: flex;
-	justify-content: center;
-`;
 
-const SubQuestionQuiz = styled.div`
-	font-size: 15px;
-	padding-bottom: 1.5em;
-	display: flex;
-	justify-content: center;
-`;
 const SliderBox = styled.div`
 	display: flex;
 	justify-content: center;
@@ -151,6 +138,7 @@ const SliderTextStyle = styled.div`
 	font-family: 'Heebo', sans-serif;
 	font-size: 20px;
 	font-weight: 600;
+	padding: 5px;
 `;
 
 const SliderSubTextStyle = styled.div`
@@ -164,22 +152,25 @@ const RightText = styled.div`
 	width: 4em;
 `;
 const WrapperComplexSimple = styled.div`
-	padding-left: 10%;
+	padding-left: 5%;
 	padding-right: 5%;
 `;
 const StyleComplexSimple = styled.div`
 	display: flex;
 	justify-content: space-between;
-	padding: 0.5em;
+	border-bottom: 1px solid black;
+	padding: 0.7em;
 `;
 const TitleSlider2 = styled.div`
 	font-family: 'Heebo', sans-serif;
-	font-size: 20px;
+	font-size: 18px;
+	text-align: initial;
+	max-width: 49%;
 `;
 const QuestionInput = styled.input`
-	background: #90ee9052;
+	background: #1acefb59;
 	border: none;
-	border-bottom: 2px solid lightgreen;
+	border-bottom: 2px solid #1bccfc;
 	border-radius: 0.5em;
 	height: 2em;
 	width: 47%;
@@ -227,161 +218,60 @@ const Selector = styled.select`
 	}
 `;
 
-export const QuestionQuizIndividualSimple = ({
+export const QuestionWaterQuizIndividualSimple = ({
 	rowsValues,
-	handleSliderInput,
+	handleWaterSlider,
+	handleWaterInput,
 }) => {
 	const {
 		id,
-		title,
-		description,
 		description2,
-		image2,
+		rowTitlesSlider,
+		rowTitlesInput,
 		rowStructureSimple,
-		dropdownTypes,
-		placeHolder,
+		rowStructureComplex,
 	} = rowsValues;
-
-	const { slider } = rowStructureSimple;
-
-	const SliderText = () => {
-		if (slider < 1) {
-			return (
-				<>
-					<SliderTextStyle>Never</SliderTextStyle>
-					<SliderSubTextStyle>{'(never)'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (slider < 3) {
-			return (
-				<>
-					<SliderTextStyle>Ocassionally</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Month)'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (slider < 5) {
-			return (
-				<>
-					<SliderTextStyle>Normal</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (slider < 7) {
-			return (
-				<>
-					<SliderTextStyle>Often</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (slider < 9) {
-			return (
-				<>
-					<SliderTextStyle>Very Often</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Week)'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (slider <= 10) {
-			return (
-				<>
-					<SliderTextStyle>Always</SliderTextStyle>
-					<SliderSubTextStyle>{'(Once a Day)'}</SliderSubTextStyle>
-				</>
-			);
-		}
-	};
 
 	return (
 		<>
-			<QuestionQuiz>{description2}</QuestionQuiz>
-			<SubQuestionQuiz>(Higher or Lower than average)</SubQuestionQuiz>
-			{id === 1 ? (
-				<WrapperComplexSimple>
-					<StyleComplexSimple>
-						<TitleSlider2>Km recorridos</TitleSlider2>
-						<SliderBox2>
-							<LeftText>Never</LeftText>
-							<SliderInput
-								type='range'
-								id={id}
-								name='slider'
-								min='0'
-								max='10'
-								step='2'
-								value={slider}
-								onChange={(e) => handleSliderInput(e, id, 'slider')}
+			<WrapperComplexSimple>
+				{rowTitlesSlider.map((question, key) => {
+					return (
+						<StyleComplexSimple>
+							<TitleSlider2>{question}</TitleSlider2>
+							<SliderBox2>
+								<LeftText>Never</LeftText>
+								<SliderInput
+									type='range'
+									id={id}
+									key={'WaterSlider' + key}
+									name='slider'
+									min='0'
+									max='10'
+									step='2'
+									value={rowStructureSimple.question}
+									onChange={(e) => handleWaterSlider(e, id, question)}
+								/>
+								<RightText>Always</RightText>
+							</SliderBox2>
+						</StyleComplexSimple>
+					);
+				})}
+				{rowTitlesInput.map((question, key) => {
+					return (
+						<StyleComplexSimple>
+							<TitleSlider2>{question}</TitleSlider2>
+							<QuestionInput
+								key={'waterSimpleInput' + key}
+								type='number'
+								placeholder='5L / 100km'
+								value={rowStructureComplex[question]}
+								onChange={(e) => handleWaterInput(e, question)}
 							/>
-							<RightText>Always</RightText>
-						</SliderBox2>
-					</StyleComplexSimple>
-					<StyleComplexSimple>
-						<TitleSlider2>Combustible</TitleSlider2>
-						<Selector
-							value={rowStructureSimple.car}
-							onChange={(e) => handleSliderInput(e, id, 'car')}>
-							{dropdownTypes.map((item, i) => {
-								return <option key={i}>{item}</option>;
-							})}
-						</Selector>
-					</StyleComplexSimple>
-					<StyleComplexSimple>
-						<TitleSlider2>Eficiecia</TitleSlider2>
-						<QuestionInput
-							type='number'
-							placeholder='5L / 100km'
-							value={rowStructureSimple.eficiency}
-							onChange={(e) => handleSliderInput(e, id, 'eficiency')}
-						/>
-					</StyleComplexSimple>
-				</WrapperComplexSimple>
-			) : id === 2 ? (
-				<WrapperComplexSimple>
-					<StyleComplexSimple>
-						<TitleSlider2>Km recorridos</TitleSlider2>
-						<SliderBox2>
-							<LeftText>Never</LeftText>
-							<SliderInput
-								type='range'
-								id={id}
-								name='slider'
-								min='0'
-								max='10'
-								step='2'
-								value={slider}
-								onChange={(e) => handleSliderInput(e, id, 'slider')}
-							/>
-							<RightText>Always</RightText>
-						</SliderBox2>
-					</StyleComplexSimple>
-					<StyleComplexSimple>
-						<TitleSlider2>Cilindrada</TitleSlider2>
-						<Selector
-							value={rowStructureSimple.moto}
-							onChange={(e) => handleSliderInput(e, id, 'moto')}>
-							{dropdownTypes.map((item, i) => {
-								return <option key={i}>{item}</option>;
-							})}
-						</Selector>
-					</StyleComplexSimple>
-				</WrapperComplexSimple>
-			) : (
-				<>
-					<SliderBox>
-						<LeftText>Never</LeftText>
-						<SliderInput
-							type='range'
-							id={id}
-							name='slider'
-							min='0'
-							max='10'
-							step='2'
-							value={slider}
-							onChange={(e) => handleSliderInput(e, id, 'slider')}
-						/>
-						<RightText>Always</RightText>
-					</SliderBox>
-					<SliderText />
-				</>
-			)}
+						</StyleComplexSimple>
+					);
+				})}
+			</WrapperComplexSimple>
 		</>
 	);
 };

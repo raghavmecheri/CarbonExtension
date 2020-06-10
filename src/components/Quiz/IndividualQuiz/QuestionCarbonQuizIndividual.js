@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { QuestionQuizIndividualSimple } from './SimpleQuiz/QuestionQuizIndividualSimple';
-import { QuestionQuizIndividualComplex } from './ComplexQuiz/QuestionQuizIndividualComplex';
+import { QuestionQuizIndividualSimple } from './SimpleQuiz/QuestionCarbonQuizIndividualSimple';
+import { QuestionQuizIndividualComplex } from './ComplexQuiz/QuestionCarbonQuizIndividualComplex';
 import { CheckBox } from '../QuizComponents/CheckBox';
 
 const QuestionsWrapper = styled.div`

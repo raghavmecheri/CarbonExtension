@@ -9,7 +9,7 @@ export const BusinessCarbonQuizData = {
 		title: 'Combustible Desplazamiento',
 		type: 'business',
 		description: 'How much travel do you do?',
-		rowTitles: ['Edificio', 'Tipo de Combustible', 'Cantidad Consumida'],
+		rowTitles: ['Vehicle', 'Tipo de Combustible', 'Cantidad Consumida'],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
 		placeHolder: { first: 'Mercedes', energyType: '', second: '1000 litres' },
 		rowStructure: [

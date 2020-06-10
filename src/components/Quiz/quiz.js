@@ -190,7 +190,12 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 			},
 		});
 	};
-	const updateSliderValueIndividualSimpleForm = ({ value, id, input }) => {
+
+	const updateSliderValueCarbonIndividualSimpleForm = ({
+		value,
+		id,
+		input,
+	}) => {
 		const screenRows = formState[questionIndex].rowStructureSimple;
 		screenRows[input] = value;
 		setFormState({
@@ -198,6 +203,30 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 			[questionIndex]: {
 				...formState[questionIndex],
 				rowStructureSimple: screenRows,
+			},
+		});
+	};
+
+	const updateSliderValueWaterIndividualSimpleForm = ({ value, id, input }) => {
+		const screenRows = formState[questionIndex].rowStructureSimple;
+		screenRows[input] = value;
+		setFormState({
+			...formState,
+			[questionIndex]: {
+				...formState[questionIndex],
+				rowStructureSimple: screenRows,
+			},
+		});
+	};
+
+	const updateInputValueWaterIndividualSimpleForm = ({ value, question }) => {
+		const screenRows = formState[questionIndex].rowStructureComplex;
+		screenRows[question] = value;
+		setFormState({
+			...formState,
+			[questionIndex]: {
+				...formState[questionIndex],
+				rowStructureComplex: screenRows,
 			},
 		});
 	};
@@ -262,10 +291,22 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 		updateImputValueIndividualComplexForm({ value, question });
 	};
 
+	const handleWaterInput = (e, question) => {
+		e.preventDefault();
+		const { value } = e.target;
+		updateInputValueWaterIndividualSimpleForm({ value, question });
+	};
+
 	const handleSliderInput = (e, id, input) => {
 		e.preventDefault();
 		const { value } = e.target;
-		updateSliderValueIndividualSimpleForm({ value, id, input });
+		updateSliderValueCarbonIndividualSimpleForm({ value, id, input });
+	};
+
+	const handleWaterSlider = (e, id, input) => {
+		e.preventDefault();
+		const { value } = e.target;
+		updateSliderValueWaterIndividualSimpleForm({ value, id, input });
 	};
 
 	const handleQuizDesign = (e) => {
@@ -364,7 +405,8 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 				) : (
 					<QuestionWaterQuizIndividual
 						rowsValues={formState[questionIndex]}
-						handleSliderInput={handleSliderInput}
+						handleWaterSlider={handleWaterSlider}
+						handleWaterInput={handleWaterInput}
 						handleInputIndividual={handleInputIndividual}
 						handleQuizDesign={handleQuizDesign}
 						simpleQuiz={simpleQuiz}
@@ -378,6 +420,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 					handleDeleteQuestion={handleDeleteQuestion}
 					handleAddRow={handleAddRow}
 					businessQuiz={businessQuiz}
+					carbonQuiz={carbonQuiz}
 					rowsValues={formState[questionIndex]}
 				/>
 			</QuizBox>

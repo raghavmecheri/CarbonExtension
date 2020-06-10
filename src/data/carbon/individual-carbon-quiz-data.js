@@ -213,7 +213,7 @@ export const IndividualCarbonQuizData = {
 		ComplexForm: false,
 		ComplexFormState: true,
 		description: 'How much do you travel?',
-		description2: 'How much do you use the train?',
+		description2: 'How much do you use the plane?',
 		rowTitles: ['Km Recorridos al año'],
 		rowsType: [
 			{
