@@ -33,6 +33,9 @@ const LogoWrapper = styled.div`
 const LogoStyle = styled.img`
 	width: 12vw;
 	margin: auto;
+	@media (max-width: 640px) {
+		width: 25vw;
+	}
 `;
 
 const TitleResult = styled.h1`
