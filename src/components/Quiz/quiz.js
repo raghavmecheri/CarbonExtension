@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { SideQuizMenu } from './QuizComponents/SideQuizMenu';
@@ -28,13 +28,15 @@ const QuizWrapper = styled.div`
 		color: black;
 	}
 	@media (max-width: 430px) and (max-height: 750px) {
-		height: 110vh;
+		height: ${(props) => (props.carbonQuiz ? '110vh' : '120vh')};
 	}
 	@media (max-width: 400px) and (max-height: 700px) {
 		height: 110vh;
+		height: ${(props) => (props.carbonQuiz ? '110vh' : '125vh')};
 	}
 	@media (max-width: 350px) and (max-height: 600px) {
 		height: 130vh;
+		height: ${(props) => (props.carbonQuiz ? '130vh' : '135vh')};
 	}
 `;
 
@@ -89,13 +91,15 @@ const HomeMenuBackground = styled.div`
 	z-index: 99999;
 	background-color: #0000006b;
 	@media (max-width: 430px) and (max-height: 750px) {
-		height: 110vh;
+		height: ${(props) => (props.carbonQuiz ? '110vh' : '130vh')};
 	}
 	@media (max-width: 400px) and (max-height: 700px) {
 		height: 110vh;
+		height: ${(props) => (props.carbonQuiz ? '110vh' : '135vh')};
 	}
 	@media (max-width: 350px) and (max-height: 600px) {
 		height: 130vh;
+		height: ${(props) => (props.carbonQuiz ? '130vh' : '135vh')};
 	}
 `;
 
@@ -108,13 +112,15 @@ const HomeMenuWraper = styled.div`
 	z-index: 99999;
 	background-color: white;
 	@media (max-width: 430px) and (max-height: 750px) {
-		height: 110vh;
+		height: ${(props) => (props.carbonQuiz ? '110vh' : '120vh')};
 	}
 	@media (max-width: 400px) and (max-height: 700px) {
 		height: 110vh;
+		height: ${(props) => (props.carbonQuiz ? '110vh' : '125vh')};
 	}
 	@media (max-width: 350px) and (max-height: 600px) {
 		height: 130vh;
+		height: ${(props) => (props.carbonQuiz ? '130vh' : '135vh')};
 	}
 `;
 
@@ -400,7 +406,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	};
 
 	return (
-		<QuizWrapper>
+		<QuizWrapper carbonQuiz={carbonQuiz}>
 			<HomeNavBarWrapper>
 				<HomeNavBar handleMenu={handleOpenMenu} />
 			</HomeNavBarWrapper>

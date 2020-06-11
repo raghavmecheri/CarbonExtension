@@ -132,6 +132,9 @@ const LeftText = styled.div`
 	padding-right: 0.5em;
 	width: 4em;
 	font-family: 'Heebo', sans-serif;
+	@media (max-width: 640px) {
+		display: none;
+	}
 `;
 
 const SliderTextStyle = styled.div`
@@ -150,6 +153,9 @@ const RightText = styled.div`
 	font-family: 'Heebo', sans-serif;
 	padding-left: 0.5em;
 	width: 4em;
+	@media (max-width: 640px) {
+		display: none;
+	}
 `;
 const WrapperComplexSimple = styled.div`
 	padding-left: 5%;

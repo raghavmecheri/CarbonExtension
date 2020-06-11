@@ -24,6 +24,9 @@ const Tittle = styled.div`
 	padding-bottom: ${(props) =>
 		props.id === 0 && !props.simpleQuiz ? '2%' : '0%'};
 	padding-bottom: 0;
+	@media (max-width: 530px) {
+		font-size: 38px;
+	}
 `;
 
 const Description = styled.div`
@@ -31,17 +34,6 @@ const Description = styled.div`
 	font-weight: 300;
 	display: flex;
 	justify-content: center;
-`;
-
-const SimpleQuizImage = styled.img`
-	width: 18em;
-	/* display: ${(props) =>
-		(props.id === 0 && !props.simpleQuiz) || props.id === 6
-			? 'none'
-			: 'initial'}; */
-	@media (max-height: 650px) {
-		width: 10em;
-	}
 `;
 
 const InputBox = styled.div`
@@ -68,7 +60,9 @@ const InputBox = styled.div`
 		padding: 1em;
 	}
 	@media (max-width: 510px) {
-		margin: auto;
+		width: auto;
+		margin: 1em;
+		padding: 0em;
 	}
 `;
 
@@ -78,6 +72,9 @@ const QuestionQuiz = styled.div`
 	padding-bottom: 0.5em;
 	display: flex;
 	justify-content: center;
+	@media (max-width: 530px) {
+		font-size: 20px;
+	}
 `;
 
 const SubQuestionQuiz = styled.div`

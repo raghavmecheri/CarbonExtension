@@ -39,6 +39,7 @@ const LogoStyle = styled.img`
 	top: -1em;
 	left: 1em;
 	width: 9em;
+	z-index: 99;
 	@media (max-width: 700px) {
 		top: -0.9em;
 		left: 37%;
@@ -70,7 +71,9 @@ const MenuStyle = styled(Menu)`
 export const HomeNavBar = ({ handleMenu }) => {
 	return (
 		<NavBarWrapper>
-			<LogoStyle src={logo} alt='logo'></LogoStyle>
+			<Link to='/'>
+				<LogoStyle src={logo} alt='logo'></LogoStyle>
+			</Link>
 			<MenuStyle onClick={handleMenu} size='40' />
 			<Link to='/'>
 				<div className='fill'>Home</div>
