@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { businessCarbonData } from '../../data/carbon/businessCarbonData';
 import { ResultIndividualCarbonData } from '../../data/carbon/ResultIndividualCarbonData';
+import { ResultIndividualWaterData } from '../../data/water/ResultIndividualWaterData';
 import { mediaIndividualCarbonData } from '../../data/carbon/mediaIndividualCarbonData';
 import { fakeData } from '../../data/fakeData';
 import ResultsBackground from './Background';
@@ -105,10 +106,10 @@ const AwarenessButton = styled.button`
 	}
 `;
 
-export function Result({ stateScreen }) {
+export function Result({}) {
 	let result = 0;
 
-	// const stateScreen = fakeData;
+	const stateScreen = fakeData;
 	console.log(stateScreen);
 
 	if (stateScreen.formState && stateScreen.formState[0].type === 'business') {
@@ -233,6 +234,19 @@ export function Result({ stateScreen }) {
 					}
 				);
 			}
+		});
+	} else if (
+		stateScreen.formState &&
+		stateScreen.formState[0].footprint === 'water'
+	) {
+		Object.keys(stateScreen.formState).map((key) => {
+			Object.keys(stateScreen.formState[key].rowStructureComplex).map((i) => {
+				const quantity = stateScreen.formState[0].rowStructureComplex[i];
+				const waterFactor = ResultIndividualWaterData[0][i];
+				if (quantity && waterFactor) {
+					result = Number(result) + Number(quantity) * Number(waterFactor);
+				}
+			});
 		});
 	}
 

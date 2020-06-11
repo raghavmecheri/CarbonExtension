@@ -72,7 +72,7 @@ const QuestionQuiz = styled.div`
 	padding-bottom: 0.5em;
 	display: flex;
 	justify-content: center;
-	@media (max-width: 530px) {
+	@media (max-width: 630px) {
 		font-size: 20px;
 	}
 `;
@@ -82,6 +82,9 @@ const SubQuestionQuiz = styled.div`
 	padding-bottom: 1.5em;
 	display: flex;
 	justify-content: center;
+	@media (max-width: 510px) {
+		padding-bottom: 0;
+	}
 `;
 
 export const QuestionWaterQuizIndividual = ({

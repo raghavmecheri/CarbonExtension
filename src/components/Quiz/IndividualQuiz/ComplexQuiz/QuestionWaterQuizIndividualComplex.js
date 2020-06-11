@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 const ComplexQuestionBox = styled.div`
 	font-family: 'Heebo', sans-serif;
-	width: 90vw;
 	padding: 0 2em;
 	@media (max-width: 530px) {
+		width: 90vw;
 	}
 `;
 
