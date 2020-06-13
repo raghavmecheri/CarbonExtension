@@ -1,7 +1,7 @@
 import bg0 from '../../assets/bg_water_i_1.png';
-import bg1 from '../../assets/bg_water_i_1.png';
-import bg2 from '../../assets/bg_water_i_1.png';
-import bg3 from '../../assets/bg_water_i_1.png';
+import bg1 from '../../assets/bg_water_i_2.jpg';
+import bg2 from '../../assets/bg_water_i_3.png';
+import bg3 from '../../assets/bg_water_i_4.jpg';
 
 export const PersonWaterQuizData = {
 	0: {
@@ -46,13 +46,13 @@ export const PersonWaterQuizData = {
 		},
 		simpleName: 'Alimentation',
 		rowStructureSimple: {
-			'Kg of Cereals per Week': '4',
-			'Kg of Meat per Week': '4',
-			'Kg of Diary Products per Week': '4',
-			'Nº Eggs per Week': '4',
-			'Kg of Vegetables per Week': '4',
-			'Kg of Fruit per Week': '4',
-			'Kg of Starchy roots per Week': '4',
+			'Kg of Cereals per Week': '6',
+			'Kg of Meat per Week': '6',
+			'Kg of Diary Products per Week': '6',
+			'Nº Eggs per Week': '6',
+			'Kg of Vegetables per Week': '6',
+			'Kg of Fruit per Week': '6',
+			'Kg of Starchy roots per Week': '6',
 		},
 		rowStructureComplex: {
 			'Kg of Cereals per Week': '',
@@ -133,7 +133,6 @@ export const PersonWaterQuizData = {
 			'Minutes you water your garden each time',
 			'Minutes per week you spend rising equipment, sidewalks or driveways',
 			'Capacity of your swimming pool',
-			'Time per year you empty your swimming pool',
 		],
 		placeHolder: {
 			'Times you wash your car per week': '',
@@ -141,7 +140,6 @@ export const PersonWaterQuizData = {
 			'Minutes you water your garden each time': '',
 			'Minutes per week you spend rising equipment, sidewalks or driveways': '',
 			'Capacity of your swimming pool': '',
-			'Time per year you empty your swimming pool': '',
 		},
 		rowStructureComplex: {
 			'Times you wash your car per week': '',
@@ -149,7 +147,6 @@ export const PersonWaterQuizData = {
 			'Minutes you water your garden each time': '',
 			'Minutes per week you spend rising equipment, sidewalks or driveways': '',
 			'Capacity of your swimming pool': '',
-			'Time per year you empty your swimming pool': '',
 		},
 		dropdownKey: [],
 		dropdown: {},

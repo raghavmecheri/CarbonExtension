@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { SideQuizMenu } from './QuizComponents/SideQuizMenu';
@@ -27,14 +27,20 @@ const QuizWrapper = styled.div`
 		align-items: center;
 		color: black;
 	}
+	@media (max-width: 380px) and (max-height: 812px) {
+		height: 130vh;
+		height: ${(props) => (props.carbonQuiz ? '130vh' : '113vh')};
+	}
 	@media (max-width: 430px) and (max-height: 750px) {
-		height: 110vh;
+		height: ${(props) => (props.carbonQuiz ? '110vh' : '120vh')};
 	}
 	@media (max-width: 400px) and (max-height: 700px) {
 		height: 110vh;
+		height: ${(props) => (props.carbonQuiz ? '116vh' : '125vh')};
 	}
 	@media (max-width: 350px) and (max-height: 600px) {
 		height: 130vh;
+		height: ${(props) => (props.carbonQuiz ? '130vh' : '135vh')};
 	}
 `;
 
@@ -89,13 +95,15 @@ const HomeMenuBackground = styled.div`
 	z-index: 99999;
 	background-color: #0000006b;
 	@media (max-width: 430px) and (max-height: 750px) {
-		height: 110vh;
+		height: ${(props) => (props.carbonQuiz ? '110vh' : '120vh')};
 	}
 	@media (max-width: 400px) and (max-height: 700px) {
 		height: 110vh;
+		height: ${(props) => (props.carbonQuiz ? '116vh' : '125vh')};
 	}
 	@media (max-width: 350px) and (max-height: 600px) {
 		height: 130vh;
+		height: ${(props) => (props.carbonQuiz ? '130vh' : '135vh')};
 	}
 `;
 
@@ -108,13 +116,15 @@ const HomeMenuWraper = styled.div`
 	z-index: 99999;
 	background-color: white;
 	@media (max-width: 430px) and (max-height: 750px) {
-		height: 110vh;
+		height: ${(props) => (props.carbonQuiz ? '110vh' : '120vh')};
 	}
 	@media (max-width: 400px) and (max-height: 700px) {
 		height: 110vh;
+		height: ${(props) => (props.carbonQuiz ? '116vh' : '125vh')};
 	}
 	@media (max-width: 350px) and (max-height: 600px) {
 		height: 130vh;
+		height: ${(props) => (props.carbonQuiz ? '130vh' : '135vh')};
 	}
 `;
 
@@ -260,7 +270,6 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 			},
 		});
 	};
-	console.log(formState);
 
 	const updateComplexFormState = ({ newState }) => {
 		setFormState({
@@ -339,12 +348,15 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 		setStateScreen({ ...stateScreen, formState });
 	};
 
-	const HomeMenu = () => {
+	const HomeMenu = ({ carbonQuiz }) => {
 		if (homeMenuState) {
 			return (
 				<>
-					<HomeMenuBackground onClick={handleCloseMenu} />
-					<HomeMenuWraper>
+					<HomeMenuBackground
+						carbonQuiz={carbonQuiz}
+						onClick={handleCloseMenu}
+					/>
+					<HomeMenuWraper carbonQuiz={carbonQuiz}>
 						<LogoStyle src={logo} alt='logo'></LogoStyle>
 						{homeMenuState ? (
 							<CrossStyle onClick={handleCloseMenu} size='60' />
@@ -363,28 +375,21 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 								</div>
 							</NavLink>
 							<NavLink
-								to='/a'
+								to='/information'
 								activeStyle={{
 									color: '#38a66d',
 								}}>
 								<div className='fill'>Information</div>
 							</NavLink>
 							<NavLink
-								to='/b'
-								activeStyle={{
-									color: '#38a66d',
-								}}>
-								<div className='fill'>Others</div>
-							</NavLink>
-							<NavLink
-								to='/c'
+								to='/about'
 								activeStyle={{
 									color: '#38a66d',
 								}}>
 								<div className='fill'>About</div>
 							</NavLink>
 							<NavLink
-								to='/d'
+								to='/contribute'
 								activeStyle={{
 									color: '#38a66d',
 								}}>
@@ -400,11 +405,11 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	};
 
 	return (
-		<QuizWrapper>
+		<QuizWrapper carbonQuiz={carbonQuiz}>
 			<HomeNavBarWrapper>
 				<HomeNavBar handleMenu={handleOpenMenu} />
 			</HomeNavBarWrapper>
-			<HomeMenu />
+			<HomeMenu carbonQuiz={carbonQuiz} />
 			<SideQuizMenu questionIndex={questionIndex} formState={formState} />
 			<QuizBox>
 				{businessQuiz ? (

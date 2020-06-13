@@ -24,7 +24,7 @@ const ButtonBox = styled.div`
 	}
 `;
 
-const Button = styled.button`
+const CalculateButton = styled.button`
 	width: 12em;
 	height: 50px;
 	border-radius: 10px;
@@ -32,13 +32,15 @@ const Button = styled.button`
 	padding: 0;
 	font-weight: 600;
 	color: white;
-	text-transform: uppercase;
 	background-color: lightgreen;
 	border: 2px solid lightgreen;
 	&:hover {
 		cursor: pointer;
 		background-color: cornflowerblue;
 		border-color: cornflowerblue;
+	}
+	@media only screen and (max-width: 850px) {
+		margin-left: 1em;
 	}
 `;
 
@@ -154,7 +156,7 @@ export const Buttons = ({
 					</MiddleBox>
 				) : null}
 				<Link to='/result'>
-					<Button onClick={finish}>Calculate</Button>
+					<CalculateButton onClick={finish}>{'Calculate'}</CalculateButton>
 				</Link>
 			</ButtonBox>
 		);

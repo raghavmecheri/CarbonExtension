@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { ArrowBackOutline } from '@styled-icons/typicons';
 import { Person } from '@styled-icons/evaicons-solid';
 
-import WaterImg from '../../assets/water_img.jpg';
+import WaterImg from '../../assets/water_img.png';
 
 const HidricWrapper = styled.div`
 	color: black;

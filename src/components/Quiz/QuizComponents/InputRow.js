@@ -37,7 +37,8 @@ const Selector = styled.select`
 	@media (max-width: 710px) {
 		width: ${(props) => (props.id === 2 ? '74%' : '36%')};
 		margin: ${(props) => (props.id === 2 ? '0' : '0em 1em')};
-		margin-left: ${(props) => (props.id === 2 ? '3em' : '')};
+		margin-left: ${(props) => (props.id === 2 ? '1em' : '')};
+		margin-right: ${(props) => (props.id === 2 ? '0.5em' : '')};
 	}
 `;
 

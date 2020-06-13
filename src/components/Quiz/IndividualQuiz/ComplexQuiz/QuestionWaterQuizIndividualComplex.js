@@ -3,8 +3,10 @@ import styled from 'styled-components';
 
 const ComplexQuestionBox = styled.div`
 	font-family: 'Heebo', sans-serif;
-	width: 100%;
 	padding: 0 2em;
+	@media (max-width: 530px) {
+		width: 90vw;
+	}
 `;
 
 const QuestionWrapper = styled.div`
@@ -16,6 +18,10 @@ const QuestionWrapper = styled.div`
 	@media (max-width: 810px) {
 		height: 4.5em;
 	}
+	@media (max-width: 610px) {
+		height: 6.5em;
+		padding: 0;
+	}
 `;
 
 const QuestionComplex = styled.div`
@@ -23,6 +29,9 @@ const QuestionComplex = styled.div`
 	font-size: 18px;
 	text-align: initial;
 	max-width: 60%;
+	@media (max-width: 610px) {
+		font-size: ${(props) => (props.id === 3 ? '15px' : '18px')};
+	}
 `;
 
 const QuestionInput = styled.input`
@@ -51,8 +60,10 @@ const QuestionInput = styled.input`
 	@media (max-width: 900px) {
 		width: 30%;
 	}
-	@media (max-width: 810px) {
+	@media (max-width: 610px) {
 		width: 30%;
+		width: 30%;
+		margin-right: 2%;
 	}
 `;
 
@@ -78,9 +89,10 @@ const Selector = styled.select`
 		width: 8em;
 		right: 8%;
 	}
-	@media (max-width: 810px) {
+	@media (max-width: 610px) {
 		width: 6em;
 		right: 5%;
+		margin-right: 0%;
 	}
 `;
 
@@ -89,6 +101,7 @@ export const QuestionWaterQuizIndividualComplex = ({
 	handleWaterInput,
 }) => {
 	const {
+		id,
 		dropdownKey,
 		dropdown,
 		rowTitles,
@@ -102,7 +115,7 @@ export const QuestionWaterQuizIndividualComplex = ({
 				{rowTitles.map((question, key) => {
 					return (
 						<QuestionWrapper>
-							<QuestionComplex>{question}</QuestionComplex>
+							<QuestionComplex id={id}>{question}</QuestionComplex>
 							{key === dropdownKey[0] || key === dropdownKey[1] ? (
 								<Selector
 									value={rowStructureComplex[question]}

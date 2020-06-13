@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { businessCarbonData } from '../../data/carbon/businessCarbonData';
 import { ResultIndividualCarbonData } from '../../data/carbon/ResultIndividualCarbonData';
-import { mediaIndividualCarbonData } from '../../data/carbon/mediaIndividualCarbonData';
+import { ResultIndividualWaterData } from '../../data/water/ResultIndividualWaterData';
+import { mediaCarbonData } from '../../data/carbon/media-carbon-data';
+import { mediaWaterData } from '../../data/water/media-water-data';
 import { fakeData } from '../../data/fakeData';
 import ResultsBackground from './Background';
 import logo from '../../assets/logo.png';
@@ -33,6 +35,9 @@ const LogoWrapper = styled.div`
 const LogoStyle = styled.img`
 	width: 12vw;
 	margin: auto;
+	@media (max-width: 640px) {
+		width: 25vw;
+	}
 `;
 
 const TitleResult = styled.h1`
@@ -106,7 +111,6 @@ export function Result({ stateScreen }) {
 	let result = 0;
 
 	// const stateScreen = fakeData;
-	console.log(stateScreen);
 
 	if (stateScreen.formState && stateScreen.formState[0].type === 'business') {
 		Object.keys(stateScreen.formState).map((key) => {
@@ -149,9 +153,8 @@ export function Result({ stateScreen }) {
 				let footprintFactor = ResultIndividualCarbonData[key][title];
 				let footprintFactorCar = ResultIndividualCarbonData[key][combustion];
 				let footprintFactorMoto = ResultIndividualCarbonData[key][moto];
-				let averageConsume = mediaIndividualCarbonData[key][title];
+				let averageConsume = mediaCarbonData[key][title];
 				if (footprintFactor) {
-					console.log('SimpleElectricity', footprintFactor);
 					result =
 						result +
 						Number(averageConsume) *
@@ -159,7 +162,6 @@ export function Result({ stateScreen }) {
 							Number(footprintFactor);
 				}
 				if (footprintFactorCar) {
-					console.log('SimpleCar', footprintFactorCar);
 					result =
 						Number(result) +
 						Number(averageConsume) *
@@ -168,7 +170,6 @@ export function Result({ stateScreen }) {
 							(Number(eficiencyCar) / 100);
 				}
 				if (moto) {
-					console.log('SimpleMoto', moto);
 					result =
 						Number(result) +
 						Number(averageConsume) *
@@ -192,7 +193,6 @@ export function Result({ stateScreen }) {
 						];
 					let carFactor = ResultIndividualCarbonData[key][combustible];
 					if (carFactor) {
-						console.log('car', carFactor);
 						result =
 							Number(result) +
 							Number(quantity) * Number(carFactor) * Number(eficiency);
@@ -208,7 +208,6 @@ export function Result({ stateScreen }) {
 						];
 					let motoFactor = ResultIndividualCarbonData[key][cilindrada];
 					if (motoFactor) {
-						console.log('moto', motoFactor);
 						result = Number(result) + Number(quantity) * Number(motoFactor);
 					}
 				}
@@ -217,7 +216,6 @@ export function Result({ stateScreen }) {
 						let quantity = stateScreen.formState[key].rowStructureComplex[0][i];
 						let footprintFactor = ResultIndividualCarbonData[key][i];
 						if (quantity && footprintFactor && key !== '1' && key !== '2') {
-							console.log(i);
 							if (key === '6') {
 								result =
 									Number(result) +
@@ -231,13 +229,144 @@ export function Result({ stateScreen }) {
 				);
 			}
 		});
+	} else if (
+		stateScreen.formState &&
+		stateScreen.formState[0].footprint == 'water'
+	) {
+		Object.keys(stateScreen.formState).map((key) => {
+			if (stateScreen.formState[key].ComplexFormState === true) {
+				Object.keys(stateScreen.formState[key].rowStructureComplex).map((i) => {
+					if (i == 'Nº Showers per day') {
+						const minutes =
+							stateScreen.formState[key].rowStructureComplex[
+								'Minutes of Shower'
+							];
+						const quantity = stateScreen.formState[key].rowStructureComplex[i];
+						const waterFactor =
+							ResultIndividualWaterData[key]['Minutes of Shower'];
+						if (quantity && waterFactor && minutes) {
+							result =
+								Number(result) +
+								Number(quantity) * Number(waterFactor) * Number(minutes);
+						}
+					} else if (i == 'Nº Times Dishes Wahsed each day') {
+						const minutes =
+							stateScreen.formState[key].rowStructureComplex[
+								'Minutes the water run each wash'
+							];
+						const quantity = stateScreen.formState[key].rowStructureComplex[i];
+						const waterFactor =
+							ResultIndividualWaterData[key]['Minutes the water run each wash'];
+						if (quantity && waterFactor && minutes) {
+							result =
+								Number(result) +
+								Number(quantity) * Number(waterFactor) * Number(minutes);
+						}
+					} else if (i == 'Times you water your garden per week') {
+						const minutes =
+							stateScreen.formState[key].rowStructureComplex[
+								'Minutes you water your garden each time'
+							];
+						const quantity = stateScreen.formState[key].rowStructureComplex[i];
+						const waterFactor =
+							ResultIndividualWaterData[key][
+								'Minutes you water your garden each time'
+							];
+						if (quantity && waterFactor && minutes) {
+							result =
+								Number(result) +
+								Number(quantity) * Number(waterFactor) * Number(minutes);
+						}
+					} else if (
+						i === 'Does the water run while brushing your teeth:' ||
+						i === 'Do you have dual flush toilet?' ||
+						i === 'Nº Showers per day'
+					) {
+						result = result;
+					} else {
+						const quantity = stateScreen.formState[key].rowStructureComplex[i];
+						const waterFactor = ResultIndividualWaterData[key][i];
+						if (quantity && waterFactor) {
+							result = Number(result) + Number(quantity) * Number(waterFactor);
+						}
+					}
+				});
+			}
+			if (stateScreen.formState[key].ComplexFormState === false) {
+				Object.keys(stateScreen.formState[key].rowStructureSimple).map((i) => {
+					const frecuency = stateScreen.formState[0].rowStructureSimple[i];
+					const waterFactor = ResultIndividualWaterData[0][i];
+					const mediaQuantity = mediaWaterData[0][i];
+					let frecuencyQuantity;
+					if (frecuency < 1) {
+						frecuencyQuantity = 0;
+					} else if (frecuency < 3) {
+						frecuencyQuantity = 1 / 3;
+					} else if (frecuency < 5) {
+						frecuencyQuantity = 1;
+					} else if (frecuency < 7) {
+						frecuencyQuantity = 1.5;
+					} else if (frecuency < 9) {
+						frecuencyQuantity = 3;
+					} else if (frecuency <= 10) {
+						frecuencyQuantity = 5;
+					}
+					if (mediaQuantity && waterFactor) {
+						result =
+							Number(result) +
+							Number(frecuencyQuantity) *
+								Number(waterFactor) *
+								Number(mediaQuantity);
+					}
+				});
+			}
+		});
+		if (stateScreen.formState[0].ComplexFormState === false) {
+			const coffe =
+				stateScreen.formState[0].rowStructureComplex['Cups of Coffe per day'];
+			const coffeFactor = ResultIndividualWaterData[0]['Cups of Coffe per day'];
+			const teaFactor = ResultIndividualWaterData[0]['Cups of Tea per day'];
+			const tea =
+				stateScreen.formState[0].rowStructureComplex['Cups of Tea per day'];
+			if (coffe) {
+				result = Number(result) + Number(coffe) * Number(coffeFactor);
+			}
+			if (tea) {
+				result = Number(result) + Number(tea) * Number(teaFactor);
+			}
+		}
 	}
-
-	result = result / 1000;
+	let carbon = true;
+	let units = 'm3 of water';
+	let Earths = 1;
+	let ArrayEarths = ['1'];
+	if (stateScreen.formState) {
+		carbon = stateScreen.formState[0].footprint == 'carbon';
+	}
 	result = result.toFixed(2);
-	console.log(result);
 
-	const countEarths = 5;
+	if (stateScreen.formState && stateScreen.formState[0].footprint == 'carbon') {
+		result = result / 1000;
+		result = result.toFixed(2);
+		units = 'ton CO2';
+		let earthFootprint = 2.5;
+		Earths = Math.round(result / earthFootprint);
+		let EarthsCount = Earths;
+		ArrayEarths = [];
+		if (EarthsCount > 6) {
+			EarthsCount = 6;
+		}
+		if (EarthsCount < 1) {
+			EarthsCount = 1;
+		}
+		if (Earths < 1) {
+			Earths = result / earthFootprint;
+			Earths = Earths.toFixed(2);
+		}
+		for (let i = 0; i < EarthsCount; i++) {
+			ArrayEarths.push(i);
+		}
+	}
 
 	return (
 		<>
@@ -253,22 +382,26 @@ export function Result({ stateScreen }) {
 					<SubTitleResult>Your carbon footprint is :</SubTitleResult>
 					<DataResult>
 						<DataResultTitle> {result} </DataResultTitle>
-						<DataResultExtra> ton CO2 </DataResultExtra>
-						{countEarths} Earths<AwarenessButton>See How</AwarenessButton>
+						<DataResultExtra> {units} </DataResultExtra>
+						<AwarenessButton>See How</AwarenessButton>
 					</DataResult>
-					<AwarenessText>
-						If everybody had your lifestyle, we would need
-					</AwarenessText>
-					<AwarenessResult>
-						{countEarths} Earths<AwarenessButton>See How</AwarenessButton>
-					</AwarenessResult>
-					<AwarenessWrapper>
+					{carbon ? (
+						<>
+							<AwarenessText>
+								If everybody had your lifestyle, we would need
+							</AwarenessText>
+							<AwarenessResult>
+								{Earths} Earths<AwarenessButton>See How</AwarenessButton>
+							</AwarenessResult>
+							<AwarenessWrapper>
+								{ArrayEarths.map((row, key) => (
+									<AwarenessImg key={key} src={earth}></AwarenessImg>
+								))}
+							</AwarenessWrapper>
+						</>
+					) : (
 						<AwarenessImg src={earth}></AwarenessImg>
-						<AwarenessImg src={earth}></AwarenessImg>
-						<AwarenessImg src={earth}></AwarenessImg>
-						<AwarenessImg src={earth}></AwarenessImg>
-						<AwarenessImg src={earth}></AwarenessImg>
-					</AwarenessWrapper>
+					)}
 				</Box>
 			</ResultWrapper>
 		</>
