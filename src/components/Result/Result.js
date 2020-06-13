@@ -111,7 +111,6 @@ export function Result({ stateScreen }) {
 	let result = 0;
 
 	// const stateScreen = fakeData;
-	console.log(stateScreen);
 
 	if (stateScreen.formState && stateScreen.formState[0].type === 'business') {
 		Object.keys(stateScreen.formState).map((key) => {
@@ -232,7 +231,7 @@ export function Result({ stateScreen }) {
 		});
 	} else if (
 		stateScreen.formState &&
-		stateScreen.formState[0].footprint === 'water'
+		stateScreen.formState[0].footprint == 'water'
 	) {
 		Object.keys(stateScreen.formState).map((key) => {
 			if (stateScreen.formState[key].ComplexFormState === true) {
@@ -278,11 +277,10 @@ export function Result({ stateScreen }) {
 								Number(result) +
 								Number(quantity) * Number(waterFactor) * Number(minutes);
 						}
-						console.log(result);
 					} else if (
-						i == 'Does the water run while brushing your teeth:' ||
-						'Do you have dual flush toilet?' ||
-						i == 'Nº Showers per day'
+						i === 'Does the water run while brushing your teeth:' ||
+						i === 'Do you have dual flush toilet?' ||
+						i === 'Nº Showers per day'
 					) {
 						result = result;
 					} else {
@@ -291,13 +289,11 @@ export function Result({ stateScreen }) {
 						if (quantity && waterFactor) {
 							result = Number(result) + Number(quantity) * Number(waterFactor);
 						}
-						console.log(result, i, quantity, waterFactor);
 					}
 				});
 			}
 			if (stateScreen.formState[key].ComplexFormState === false) {
 				Object.keys(stateScreen.formState[key].rowStructureSimple).map((i) => {
-					console.log(result);
 					const frecuency = stateScreen.formState[0].rowStructureSimple[i];
 					const waterFactor = ResultIndividualWaterData[0][i];
 					const mediaQuantity = mediaWaterData[0][i];
@@ -326,7 +322,6 @@ export function Result({ stateScreen }) {
 			}
 		});
 		if (stateScreen.formState[0].ComplexFormState === false) {
-			console.log(result);
 			const coffe =
 				stateScreen.formState[0].rowStructureComplex['Cups of Coffe per day'];
 			const coffeFactor = ResultIndividualWaterData[0]['Cups of Coffe per day'];

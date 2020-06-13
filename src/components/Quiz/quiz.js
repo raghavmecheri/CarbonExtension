@@ -270,7 +270,6 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 			},
 		});
 	};
-	console.log(formState);
 
 	const updateComplexFormState = ({ newState }) => {
 		setFormState({

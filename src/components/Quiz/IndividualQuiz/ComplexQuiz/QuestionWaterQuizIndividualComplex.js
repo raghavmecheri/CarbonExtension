@@ -30,7 +30,7 @@ const QuestionComplex = styled.div`
 	text-align: initial;
 	max-width: 60%;
 	@media (max-width: 610px) {
-		font-size: ${(props) => (props.id === 3 ? '15px' : console.log(props.id))};
+		font-size: ${(props) => (props.id === 3 ? '15px' : '18px')};
 	}
 `;
 

@@ -90,10 +90,6 @@ export const QuestionCarbonQuizIndividual = ({
 		ComplexFormState,
 	} = rowsValues;
 
-	console.log('ComplexForm', ComplexForm);
-	console.log('simpleQuiz', simpleQuiz);
-	console.log('ComplexFormState', ComplexFormState);
-
 	return (
 		<QuestionsWrapper id={id}>
 			<Tittle id={id} simpleQuiz={simpleQuiz}>
