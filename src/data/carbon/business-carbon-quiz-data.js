@@ -7,6 +7,7 @@ export const BusinessCarbonQuizData = {
 	0: {
 		id: 0,
 		title: 'Transportation Fuel',
+		footprint: 'carbon',
 		type: 'business',
 		description: 'How much travel do you do?',
 		rowTitles: ['Vehicle', 'Type of Fuel', "Fuel's Quantity"],

@@ -81,11 +81,11 @@ export const HomeNavBar = ({ handleMenu }) => {
 			<Link to='/information'>
 				<div className='fill'>Information</div>
 			</Link>
-			<Link to='/about'>
-				<div className='fill'>About</div>
-			</Link>
 			<Link to='/contribute'>
 				<div className='fill'>Contribute</div>
+			</Link>
+			<Link to='/about'>
+				<div className='fill'>About</div>
 			</Link>
 		</NavBarWrapper>
 	);

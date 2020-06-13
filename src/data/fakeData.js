@@ -103,14 +103,14 @@ export const fakeData = {
 				'Times Dish Washer is used per week': '0',
 			},
 			rowStructureComplex: {
-				'Nº Showers per day': '',
-				'Minutes of Shower': '',
+				'Nº Showers per day': '1',
+				'Minutes of Shower': '5',
 				'Nº Baths per week': '',
-				'Does the water run while brushing your teeth:': 'Yes',
-				'Do you have dual flush toilet?': 'No',
-				'Nº Times Dishes Wahsed each day': '',
-				'Minutes the water run each wash': '',
-				'Times Dish Washer is used per week': '',
+				'Does the water run while brushing your teeth:': '',
+				'Do you have dual flush toilet?': '',
+				'Nº Times Dishes Wahsed each day': '1',
+				'Minutes the water run each wash': '5',
+				'Times Dish Washer is used per week': '5',
 			},
 			dropdownKey: [3, 4],
 			dropdown: {
@@ -137,7 +137,6 @@ export const fakeData = {
 				'Minutes you water your garden each time',
 				'Minutes per week you spend rising equipment, sidewalks or driveways',
 				'Capacity of your swimming pool',
-				'Time per year you empty your swimming pool',
 			],
 			placeHolder: {
 				'Times you wash your car per week': '',
@@ -146,16 +145,14 @@ export const fakeData = {
 				'Minutes per week you spend rising equipment, sidewalks or driveways':
 					'',
 				'Capacity of your swimming pool': '',
-				'Time per year you empty your swimming pool': '',
 			},
 			rowStructureComplex: {
-				'Times you wash your car per week': '',
-				'Times you water your garden per week': '',
-				'Minutes you water your garden each time': '',
+				'Times you wash your car per week': '2',
+				'Times you water your garden per week': '2',
+				'Minutes you water your garden each time': '5',
 				'Minutes per week you spend rising equipment, sidewalks or driveways':
 					'',
-				'Capacity of your swimming pool': '',
-				'Time per year you empty your swimming pool': '',
+				'Capacity of your swimming pool': '10',
 			},
 			dropdownKey: [],
 			dropdown: {},
@@ -182,7 +179,7 @@ export const fakeData = {
 			},
 			rowStructureComplex: {
 				'What is your gross yearly income?(Only that part of income which is consumed by you)':
-					'',
+					'10000',
 			},
 			dropdownKey: [],
 			dropdown: {},

@@ -133,7 +133,6 @@ export const PersonWaterQuizData = {
 			'Minutes you water your garden each time',
 			'Minutes per week you spend rising equipment, sidewalks or driveways',
 			'Capacity of your swimming pool',
-			'Time per year you empty your swimming pool',
 		],
 		placeHolder: {
 			'Times you wash your car per week': '',
@@ -141,7 +140,6 @@ export const PersonWaterQuizData = {
 			'Minutes you water your garden each time': '',
 			'Minutes per week you spend rising equipment, sidewalks or driveways': '',
 			'Capacity of your swimming pool': '',
-			'Time per year you empty your swimming pool': '',
 		},
 		rowStructureComplex: {
 			'Times you wash your car per week': '',
@@ -149,7 +147,6 @@ export const PersonWaterQuizData = {
 			'Minutes you water your garden each time': '',
 			'Minutes per week you spend rising equipment, sidewalks or driveways': '',
 			'Capacity of your swimming pool': '',
-			'Time per year you empty your swimming pool': '',
 		},
 		dropdownKey: [],
 		dropdown: {},
