@@ -376,28 +376,21 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 								</div>
 							</NavLink>
 							<NavLink
-								to='/a'
+								to='/information'
 								activeStyle={{
 									color: '#38a66d',
 								}}>
 								<div className='fill'>Information</div>
 							</NavLink>
 							<NavLink
-								to='/b'
-								activeStyle={{
-									color: '#38a66d',
-								}}>
-								<div className='fill'>Others</div>
-							</NavLink>
-							<NavLink
-								to='/c'
+								to='/about'
 								activeStyle={{
 									color: '#38a66d',
 								}}>
 								<div className='fill'>About</div>
 							</NavLink>
 							<NavLink
-								to='/d'
+								to='/contribute'
 								activeStyle={{
 									color: '#38a66d',
 								}}>

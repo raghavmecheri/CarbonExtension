@@ -1,7 +1,7 @@
 import bg0 from '../../assets/bg_water_i_1.png';
-import bg1 from '../../assets/bg_water_i_1.png';
-import bg2 from '../../assets/bg_water_i_1.png';
-import bg3 from '../../assets/bg_water_i_1.png';
+import bg1 from '../../assets/bg_water_i_2.jpg';
+import bg2 from '../../assets/bg_water_i_3.png';
+import bg3 from '../../assets/bg_water_i_4.jpg';
 
 export const PersonWaterQuizData = {
 	0: {

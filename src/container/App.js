@@ -6,6 +6,9 @@ import Theme from '../style/Theme';
 import { Home } from '../components/Home/Home';
 import { Quiz } from '../components/Quiz/quiz';
 import { Result } from '../components/Result/Result';
+import { Information } from '../components/NavBarPages/Information/InformationPage';
+import { About } from '../components/NavBarPages/About/AboutPage';
+import { Contribute } from '../components/NavBarPages/Contribute/ContributePage';
 import { ErrorPage } from '../components/Error/ErrorPage';
 
 import { BusinessCarbonQuizData } from '../data/carbon/business-carbon-quiz-data';
@@ -56,6 +59,46 @@ function App() {
 							/>
 						)}
 					/>
+					<Route path='/information' component={Information} />
+					<Route path='/about' component={About} />
+					<Route path='/contribute' component={Contribute} />
+
+					<Route
+						path='/contribute/tree'
+						component={() => {
+							window.location.href = 'https://teamtrees.org/';
+							return null;
+						}}
+					/>
+					<Route
+						path='/contribute/wwf'
+						component={() => {
+							window.location.href = 'https://www.wwf.org.uk/';
+							return null;
+						}}
+					/>
+					<Route
+						path='/donate/wwf'
+						component={() => {
+							window.location.href = 'https://support.wwf.org.uk/donate-to-wwf';
+							return null;
+						}}
+					/>
+					<Route
+						path='/contribute/oceans'
+						component={() => {
+							window.location.href = 'https://4ocean.com/';
+							return null;
+						}}
+					/>
+					<Route
+						path='/donate/oceans'
+						component={() => {
+							window.location.href = 'https://4ocean.com/shop-all/';
+							return null;
+						}}
+					/>
+
 					<Route
 						path='/result'
 						component={() => <Result stateScreen={stateScreen} />}

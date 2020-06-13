@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { businessCarbonData } from '../../data/carbon/businessCarbonData';
 import { ResultIndividualCarbonData } from '../../data/carbon/ResultIndividualCarbonData';
 import { ResultIndividualWaterData } from '../../data/water/ResultIndividualWaterData';
-import { mediaIndividualCarbonData } from '../../data/carbon/mediaIndividualCarbonData';
+import { mediaCarbonData } from '../../data/carbon/media-carbon-data';
+import { mediaWaterData } from '../../data/water/media-water-data';
 import { fakeData } from '../../data/fakeData';
 import ResultsBackground from './Background';
 import logo from '../../assets/logo.png';
@@ -153,7 +154,7 @@ export function Result({}) {
 				let footprintFactor = ResultIndividualCarbonData[key][title];
 				let footprintFactorCar = ResultIndividualCarbonData[key][combustion];
 				let footprintFactorMoto = ResultIndividualCarbonData[key][moto];
-				let averageConsume = mediaIndividualCarbonData[key][title];
+				let averageConsume = mediaCarbonData[key][title];
 				if (footprintFactor) {
 					console.log('SimpleElectricity', footprintFactor);
 					result =
@@ -240,13 +241,46 @@ export function Result({}) {
 		stateScreen.formState[0].footprint === 'water'
 	) {
 		Object.keys(stateScreen.formState).map((key) => {
-			Object.keys(stateScreen.formState[key].rowStructureComplex).map((i) => {
-				const quantity = stateScreen.formState[0].rowStructureComplex[i];
-				const waterFactor = ResultIndividualWaterData[0][i];
-				if (quantity && waterFactor) {
-					result = Number(result) + Number(quantity) * Number(waterFactor);
-				}
-			});
+			if (stateScreen.formState[key].ComplexFormState === true) {
+				Object.keys(stateScreen.formState[key].rowStructureComplex).map((i) => {
+					const quantity = stateScreen.formState[0].rowStructureComplex[i];
+					const waterFactor = ResultIndividualWaterData[0][i];
+					if (quantity && waterFactor) {
+						result = Number(result) + Number(quantity) * Number(waterFactor);
+					}
+				});
+			}
+			if (stateScreen.formState[key].ComplexFormState === false) {
+				Object.keys(stateScreen.formState[key].rowStructureSimple).map((i) => {
+					const frecuency = stateScreen.formState[0].rowStructureSimple[i];
+					const waterFactor = ResultIndividualWaterData[0][i];
+					const mediaQuantity = mediaWaterData[0][i];
+					let frecuencyQuantity;
+					if (frecuency < 1) {
+						frecuencyQuantity = 0;
+					} else if (frecuency < 3) {
+						frecuencyQuantity = 1 / 3;
+					} else if (frecuency < 5) {
+						frecuencyQuantity = 1;
+					} else if (frecuency < 7) {
+						frecuencyQuantity = 1.5;
+					} else if (frecuency < 9) {
+						frecuencyQuantity = 3;
+					} else if (frecuency <= 10) {
+						frecuencyQuantity = 5;
+					}
+					if (mediaQuantity && waterFactor) {
+						console.log('frecuencyQuantity', frecuencyQuantity);
+						console.log('waterFactor', waterFactor);
+						console.log('mediaQuantity', mediaQuantity);
+						result =
+							Number(result) +
+							Number(frecuencyQuantity) *
+								Number(waterFactor) *
+								Number(mediaQuantity);
+					}
+				});
+			}
 		});
 	}
 
@@ -255,6 +289,8 @@ export function Result({}) {
 	console.log(result);
 
 	const countEarths = 5;
+	const units =
+		stateScreen.formState[0].footprint === 'water' ? 'm3 of water' : 'ton CO2';
 
 	return (
 		<>
@@ -270,8 +306,8 @@ export function Result({}) {
 					<SubTitleResult>Your carbon footprint is :</SubTitleResult>
 					<DataResult>
 						<DataResultTitle> {result} </DataResultTitle>
-						<DataResultExtra> ton CO2 </DataResultExtra>
-						{countEarths} Earths<AwarenessButton>See How</AwarenessButton>
+						<DataResultExtra> {units} </DataResultExtra>
+						<AwarenessButton>See How</AwarenessButton>
 					</DataResult>
 					<AwarenessText>
 						If everybody had your lifestyle, we would need
