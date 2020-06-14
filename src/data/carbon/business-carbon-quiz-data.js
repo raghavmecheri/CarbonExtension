@@ -6,13 +6,13 @@ import bgO4 from '../../assets/bg_carbon_b_4.jpg';
 export const BusinessCarbonQuizData = {
 	0: {
 		id: 0,
-		title: 'Transportation Fuel',
+		title: 'Combustible de transporte',
 		footprint: 'carbon',
 		type: 'business',
-		description: 'How much travel do you do?',
-		rowTitles: ['Vehicle', 'Type of Fuel', "Fuel's Quantity"],
+		description: '¿Cuánto viajas?',
+		rowTitles: ['Vehiculo', 'Tipo de combustible', 'Cantidad de Combustible'],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
-		placeHolder: { first: 'Audi A4', energyType: '', second: '1000 litres' },
+		placeHolder: { first: 'Audi A4', energyType: '', second: '1000 litros' },
 		rowStructure: [
 			{ title: '', energyType: '', quantity: '' },
 			{ title: '', energyType: '', quantity: '' },
@@ -36,19 +36,19 @@ export const BusinessCarbonQuizData = {
 			'H2',
 		],
 		image: bgO1,
-		sideTitle: 'Transport',
+		sideTitle: 'Transporte',
 		sideBody:
-			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
+			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
 		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'Que la tierra no es redonda y de hecho es plana. Todas esas personas se reían de eso y tenían razón todo el tiempo.',
 	},
 	1: {
 		id: 1,
-		title: 'Fixed Installations Fuel',
+		title: 'Instalaciones Fijas de Combustible',
 		description: '',
-		rowTitles: ['Building', 'Type of Fuel', "Fuel's Quantity"],
+		rowTitles: ['Edificio', 'Tipo de combustible', 'Cantidad de Combustible'],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
-		placeHolder: { first: 'Building A', energyType: '', second: '5000 litres' },
+		placeHolder: { first: 'Edificio A', energyType: '', second: '5000 litros' },
 		rowStructure: [
 			{ title: '', energyType: '', quantity: '' },
 			{ title: '', energyType: '', quantity: '' },
@@ -69,14 +69,14 @@ export const BusinessCarbonQuizData = {
 		image: bgO2,
 		sideTitle: 'Instalaciones Fijas',
 		sideBody:
-			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
+			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
 		infoPlusBody:
 			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 	2: {
 		id: 2,
-		title: 'Refrigeration and Air conditioning',
-		description: 'Fluorinated Gas Leaks',
+		title: 'Refrigeracion y Aire Acondicionado',
+		description: 'Fugas de Gas Fluorado',
 		rowStructure: [
 			{ title: '', title2: '', energyType: '', quantity: '' },
 			{ title: '', title2: '', energyType: '', quantity: '' },
@@ -84,12 +84,17 @@ export const BusinessCarbonQuizData = {
 		],
 		rowsType: [{ title: '', energyType: '', quantity: '' }],
 		placeHolder: {
-			first: 'Building A',
-			third: '100 litres',
+			first: 'Edificio A',
+			third: '100 litros',
 			energyType: '',
-			second: '100 litres',
+			second: '100 litros',
 		},
-		rowTitles: ['Building', 'Type of Fuel', 'Initial Load', 'Annual Reload'],
+		rowTitles: [
+			'Edificio',
+			'Tipo de combustible',
+			'Carga inicial',
+			'Recarga Anual',
+		],
 		dropdownTypes: [
 			'--',
 			'HFC-23',
@@ -115,13 +120,13 @@ export const BusinessCarbonQuizData = {
 		image: bgO3,
 		sideTitle: 'Fugas',
 		sideBody:
-			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
+			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
 		infoPlusBody:
 			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},
 	3: {
 		id: 3,
-		title: 'Electricity',
+		title: 'Electricidad',
 		description: '',
 		rowStructure: [
 			{ title: '', title2: '', energyType: '', quantity: '' },
@@ -130,12 +135,12 @@ export const BusinessCarbonQuizData = {
 		],
 		rowsType: [{ title: '', title2: '', energyType: '', quantity: '' }],
 		placeHolder: {
-			first: 'Building C',
+			first: 'Edificio C',
 			third: '',
 			energyType: '',
 			second: '1000 kWh',
 		},
-		rowTitles: ['Building', 'Electric Company', 'Gdp', 'kWh Consumed'],
+		rowTitles: ['Edificio', 'Compañia Electrica', 'Gdp', 'kWh Consumidos'],
 		dropdownTypes: [
 			'--',
 			'A-DOS ENERGíA, S.L.',
@@ -266,7 +271,7 @@ export const BusinessCarbonQuizData = {
 		image: bgO4,
 		sideTitle: 'Electricidad',
 		sideBody:
-			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
+			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
 		infoPlusBody:
 			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},

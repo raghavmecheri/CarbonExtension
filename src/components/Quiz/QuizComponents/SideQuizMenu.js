@@ -191,16 +191,16 @@ export const SideQuizMenu = ({ questionIndex, formState }) => {
 			</StepsQuiz>
 			<InfoQuiz>
 				<InfoQuizTitle>{sideTitle}</InfoQuizTitle>
-				<InfoQuizSubTitle>Step {questionIndex}</InfoQuizSubTitle>
+				<InfoQuizSubTitle>Paso {questionIndex}</InfoQuizSubTitle>
 				<InfoQuizImage
 					src={formState[questionIndex].image}
 					alt={formState[questionIndex]}
 				/>
 				<InfoQuizBody>{sideBody}</InfoQuizBody>
-				<InfoQuizPlus>
+				{/* <InfoQuizPlus>
 					<InfoQuizPlusTitle>Did you know:</InfoQuizPlusTitle>
 					<InfoQuizPlusBody>{infoPlusBody}</InfoQuizPlusBody>
-				</InfoQuizPlus>
+				</InfoQuizPlus> */}
 			</InfoQuiz>
 		</SideQuizMenuWrapper>
 	);

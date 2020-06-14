@@ -76,16 +76,16 @@ export const HomeNavBar = ({ handleMenu }) => {
 			</Link>
 			<MenuStyle onClick={handleMenu} size='40' />
 			<Link to='/'>
-				<div className='fill'>Home</div>
+				<div className='fill'>Inicio</div>
 			</Link>
 			<Link to='/information'>
-				<div className='fill'>Information</div>
+				<div className='fill'>Informacion</div>
 			</Link>
 			<Link to='/contribute'>
-				<div className='fill'>Contribute</div>
+				<div className='fill'>Contribuir</div>
 			</Link>
 			<Link to='/about'>
-				<div className='fill'>About</div>
+				<div className='fill'>Acerca</div>
 			</Link>
 		</NavBarWrapper>
 	);

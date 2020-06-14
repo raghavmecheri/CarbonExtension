@@ -295,17 +295,17 @@ export const Home = () => {
 	const Intro = () => {
 		return (
 			<>
-				<TitleHome>Calculate Your Footprint</TitleHome>
-				<TextHome>Are you being all the green that you can be?</TextHome>
+				<TitleHome>Calcula tu Huella</TitleHome>
+				<TextHome>¿Estás siendo todo el verde que puedes ser?</TextHome>
 				<ButtonBox>
 					<Button black id='Carbon' onClick={handleClick}>
-						Carbon
+						Carbono
 					</Button>
 					<Button blue id='Hidric' onClick={handleClick}>
-						Water
+						Hidrica
 					</Button>
 					<Button id='Ecological' onClick={handleClick}>
-						Ecological
+						Ecologica
 					</Button>
 				</ButtonBox>
 			</>
@@ -343,7 +343,7 @@ export const Home = () => {
 								}}>
 								<div className='fill'>
 									<HomeCircleStyle size='40' />
-									Home
+									Inicio
 								</div>
 							</NavLink>
 							<NavLink
@@ -351,21 +351,21 @@ export const Home = () => {
 								activeStyle={{
 									color: '#38a66d',
 								}}>
-								<div className='fill'>Information</div>
-							</NavLink>
-							<NavLink
-								to='/about'
-								activeStyle={{
-									color: '#38a66d',
-								}}>
-								<div className='fill'>About</div>
+								<div className='fill'>Informacion</div>
 							</NavLink>
 							<NavLink
 								to='/contribute'
 								activeStyle={{
 									color: '#38a66d',
 								}}>
-								<div className='fill'>Contribute</div>
+								<div className='fill'>Contribuir</div>
+							</NavLink>
+							<NavLink
+								to='/about'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Acerca De</div>
 							</NavLink>
 						</MenuNavBar>
 					</HomeMenuWraper>

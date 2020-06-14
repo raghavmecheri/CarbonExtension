@@ -1,12 +1,12 @@
 export const mediaCarbonData = {
 	0: {
-		Electricity: 3487,
+		Electricidad: 3487,
 	},
 	1: {
-		Car: 12562.9,
+		coche: 12562.9,
 	},
 	2: {
-		Moto: 2903,
+		moto: 2903,
 	},
 	3: {},
 	4: {},

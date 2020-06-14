@@ -45,7 +45,7 @@ export const Information = () => {
 				<HomeNavBar />
 			</HomeNavBarWrapper>
 			<InformationWrapper>
-				<Title>Information</Title>
+				<Title>Informacion</Title>
 			</InformationWrapper>
 		</>
 	);

@@ -246,7 +246,7 @@ export const QuestionWaterQuizIndividualSimple = ({
 						<StyleComplexSimple>
 							<TitleSlider2>{question}</TitleSlider2>
 							<SliderBox2>
-								<LeftText>Never</LeftText>
+								<LeftText>Nunca</LeftText>
 								<SliderInput
 									type='range'
 									id={id}
@@ -258,7 +258,7 @@ export const QuestionWaterQuizIndividualSimple = ({
 									value={rowStructureSimple.question}
 									onChange={(e) => handleWaterSlider(e, id, question)}
 								/>
-								<RightText>Always</RightText>
+								<RightText>Siempre</RightText>
 							</SliderBox2>
 						</StyleComplexSimple>
 					);

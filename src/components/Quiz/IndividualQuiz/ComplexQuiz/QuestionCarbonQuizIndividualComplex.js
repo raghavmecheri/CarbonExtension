@@ -152,13 +152,14 @@ export const QuestionQuizIndividualComplex = ({
 	return (
 		<>
 			<QuestionQuiz>{description2}</QuestionQuiz>
-			<SubQuestionQuiz>(Higher or Lower than average)</SubQuestionQuiz>
+			<SubQuestionQuiz>(Más alta o más baja que el promedio)</SubQuestionQuiz>
 			<ComplexQuestionBox>
 				{rowTitles.map((question, key) => {
 					let dropdown = false;
-					if (question === 'Fuel type' || question === "Motorbike's cc.") {
+					if (question === 'Tipo de Combustible' || question === 'Moto cc.') {
 						dropdown = true;
 					}
+					console.log(question);
 
 					return (
 						<QuestionWrapper>

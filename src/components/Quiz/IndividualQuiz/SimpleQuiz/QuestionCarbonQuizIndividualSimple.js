@@ -254,14 +254,14 @@ export const QuestionQuizIndividualSimple = ({
 		if (slider < 1) {
 			return (
 				<>
-					<SliderTextStyle>Never</SliderTextStyle>
+					<SliderTextStyle>Nunca</SliderTextStyle>
 					<SliderSubTextStyle>{'( x0 )'}</SliderSubTextStyle>
 				</>
 			);
 		} else if (slider < 3) {
 			return (
 				<>
-					<SliderTextStyle>Ocassionally</SliderTextStyle>
+					<SliderTextStyle>Ocasionalmente</SliderTextStyle>
 					<SliderSubTextStyle>{'( x1/3 )'}</SliderSubTextStyle>
 				</>
 			);
@@ -275,21 +275,21 @@ export const QuestionQuizIndividualSimple = ({
 		} else if (slider < 7) {
 			return (
 				<>
-					<SliderTextStyle>Often</SliderTextStyle>
+					<SliderTextStyle>Frecuentemente</SliderTextStyle>
 					<SliderSubTextStyle>{'( x1,5 )'}</SliderSubTextStyle>
 				</>
 			);
 		} else if (slider < 9) {
 			return (
 				<>
-					<SliderTextStyle>Very Often</SliderTextStyle>
+					<SliderTextStyle>Muy Frecuentemente</SliderTextStyle>
 					<SliderSubTextStyle>{'( x3 )'}</SliderSubTextStyle>
 				</>
 			);
 		} else if (slider <= 10) {
 			return (
 				<>
-					<SliderTextStyle>Always</SliderTextStyle>
+					<SliderTextStyle>Siempre</SliderTextStyle>
 					<SliderSubTextStyle>{'( x5 )'}</SliderSubTextStyle>
 				</>
 			);
@@ -299,13 +299,13 @@ export const QuestionQuizIndividualSimple = ({
 	return (
 		<>
 			<QuestionQuiz>{description2}</QuestionQuiz>
-			<SubQuestionQuiz>(Higher or Lower than average)</SubQuestionQuiz>
+			<SubQuestionQuiz>(Más alta o más baja que el promedio)</SubQuestionQuiz>
 			{id === 1 ? (
 				<WrapperComplexSimple>
 					<StyleComplexSimple>
 						<TitleSlider2>Km recorridos</TitleSlider2>
 						<SliderBox2>
-							<LeftText>Never</LeftText>
+							<LeftText>Nunca</LeftText>
 							<SliderInput
 								type='range'
 								id={id}
@@ -316,26 +316,26 @@ export const QuestionQuizIndividualSimple = ({
 								value={slider}
 								onChange={(e) => handleSliderInput(e, id, 'slider')}
 							/>
-							<RightText>Always</RightText>
+							<RightText>Siempre</RightText>
 						</SliderBox2>
 					</StyleComplexSimple>
 					<StyleComplexSimple>
-						<TitleSlider2>Fuel Type</TitleSlider2>
+						<TitleSlider2>Tipo de Combustible</TitleSlider2>
 						<Selector
-							value={rowStructureSimple.car}
-							onChange={(e) => handleSliderInput(e, id, 'car')}>
+							value={rowStructureSimple.coche}
+							onChange={(e) => handleSliderInput(e, id, 'coche')}>
 							{dropdownTypes.map((item, i) => {
 								return <option key={i}>{item}</option>;
 							})}
 						</Selector>
 					</StyleComplexSimple>
 					<StyleComplexSimple>
-						<TitleSlider2>Eficiency</TitleSlider2>
+						<TitleSlider2>Eficiencia</TitleSlider2>
 						<QuestionInput
 							type='number'
 							placeholder='5L / 100km'
-							value={rowStructureSimple.eficiency}
-							onChange={(e) => handleSliderInput(e, id, 'eficiency')}
+							value={rowStructureSimple.eficiencia}
+							onChange={(e) => handleSliderInput(e, id, 'eficiencia')}
 						/>
 					</StyleComplexSimple>
 				</WrapperComplexSimple>
@@ -344,7 +344,7 @@ export const QuestionQuizIndividualSimple = ({
 					<StyleComplexSimple>
 						<TitleSlider2>Km recorridos</TitleSlider2>
 						<SliderBox2>
-							<LeftText>Never</LeftText>
+							<LeftText>Nunca</LeftText>
 							<SliderInput
 								type='range'
 								id={id}
@@ -355,7 +355,7 @@ export const QuestionQuizIndividualSimple = ({
 								value={slider}
 								onChange={(e) => handleSliderInput(e, id, 'slider')}
 							/>
-							<RightText>Always</RightText>
+							<RightText>Siempre</RightText>
 						</SliderBox2>
 					</StyleComplexSimple>
 					<StyleComplexSimple>
@@ -372,7 +372,7 @@ export const QuestionQuizIndividualSimple = ({
 			) : (
 				<>
 					<SliderBox>
-						<LeftText>Never</LeftText>
+						<LeftText>Nunca</LeftText>
 						<SliderInput
 							type='range'
 							id={id}
@@ -383,7 +383,7 @@ export const QuestionQuizIndividualSimple = ({
 							value={slider}
 							onChange={(e) => handleSliderInput(e, id, 'slider')}
 						/>
-						<RightText>Always</RightText>
+						<RightText>Siempre</RightText>
 					</SliderBox>
 					<SliderText />
 				</>

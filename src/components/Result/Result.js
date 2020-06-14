@@ -128,11 +128,12 @@ export function Result({ stateScreen }) {
 		stateScreen.formState[0].type === 'individual' &&
 		stateScreen.formState[0].footprint === 'carbon'
 	) {
+		console.log(stateScreen.formState);
 		Object.keys(stateScreen.formState).map((key) => {
 			let frecuency = stateScreen.formState[key].rowStructureSimple['slider'];
-			let combustion = stateScreen.formState[key].rowStructureSimple['car'];
+			let combustion = stateScreen.formState[key].rowStructureSimple['coche'];
 			let eficiencyCar =
-				stateScreen.formState[key].rowStructureSimple['eficiency'];
+				stateScreen.formState[key].rowStructureSimple['eficiencia'];
 			let moto = stateScreen.formState[key].rowStructureSimple['moto'];
 			let title = stateScreen.formState[key].simpleName;
 			let frecuencyMultiplier;
@@ -169,7 +170,7 @@ export function Result({ stateScreen }) {
 							Number(footprintFactorCar) *
 							(Number(eficiencyCar) / 100);
 				}
-				if (moto) {
+				if (moto && footprintFactorMoto && averageConsume) {
 					result =
 						Number(result) +
 						Number(averageConsume) *
@@ -181,11 +182,11 @@ export function Result({ stateScreen }) {
 				if (key === '1') {
 					let quantity =
 						stateScreen.formState[key].rowStructureComplex[0][
-							'Km recorridos al año'
+							'Km. recorrido por año'
 						];
 					let eficiency =
 						stateScreen.formState[key].rowStructureComplex[0][
-							'Eficiencia Del Vehiculo'
+							'Eficiencia del vehículo'
 						];
 					let combustible =
 						stateScreen.formState[key].rowStructureComplex[0][
@@ -200,12 +201,10 @@ export function Result({ stateScreen }) {
 				} else if (key === '2') {
 					let quantity =
 						stateScreen.formState[key].rowStructureComplex[0][
-							'Km Recorridos al año'
+							'Km. recorrido por año'
 						];
 					let cilindrada =
-						stateScreen.formState[key].rowStructureComplex[0][
-							'Cilindarada Motocicleta'
-						];
+						stateScreen.formState[key].rowStructureComplex[0]['Moto cc.'];
 					let motoFactor = ResultIndividualCarbonData[key][cilindrada];
 					if (motoFactor) {
 						result = Number(result) + Number(quantity) * Number(motoFactor);
@@ -341,7 +340,9 @@ export function Result({ stateScreen }) {
 	let Earths = 1;
 	let ArrayEarths = ['1'];
 	if (stateScreen.formState) {
-		carbon = stateScreen.formState[0].footprint == 'carbon';
+		carbon =
+			stateScreen.formState[0].footprint == 'carbon' &&
+			stateScreen.formState[0].type == 'individual';
 	}
 	result = result.toFixed(2);
 
@@ -378,20 +379,21 @@ export function Result({ stateScreen }) {
 					</Link>
 				</LogoWrapper>
 				<Box>
-					<TitleResult>Congratulations 🥳🥳</TitleResult>
-					<SubTitleResult>Your carbon footprint is :</SubTitleResult>
+					<TitleResult>Enhorabuena 🥳🥳</TitleResult>
+					<SubTitleResult>Tu Huella de Carbono es:</SubTitleResult>
 					<DataResult>
 						<DataResultTitle> {result} </DataResultTitle>
 						<DataResultExtra> {units} </DataResultExtra>
-						<AwarenessButton>See How</AwarenessButton>
+						{/* <AwarenessButton>See How</AwarenessButton> */}
 					</DataResult>
 					{carbon ? (
 						<>
 							<AwarenessText>
-								If everybody had your lifestyle, we would need
+								Si todo el mundo tuviese tu estilo de vida, necesitariamos
 							</AwarenessText>
 							<AwarenessResult>
-								{Earths} Earths<AwarenessButton>See How</AwarenessButton>
+								{Earths} Tierras
+								{/* <AwarenessButton>See How</AwarenessButton> */}
 							</AwarenessResult>
 							<AwarenessWrapper>
 								{ArrayEarths.map((row, key) => (

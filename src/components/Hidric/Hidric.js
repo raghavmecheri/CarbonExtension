@@ -218,25 +218,25 @@ export const Hidric = ({ handleReturn }) => {
 		<HidricWrapper>
 			<TitleWrapper>
 				<ArrowIcon size='48' onClick={handleReturn} />
-				<TitleHidric>Water Footprint</TitleHidric>
-				<SubtitleHidric>Calculate your water footprint!</SubtitleHidric>
+				<TitleHidric>Huella Hidrica</TitleHidric>
+				<SubtitleHidric>Calcula tu Huella Hidrica!</SubtitleHidric>
 				<TitleIcon></TitleIcon>
 				<BodyHidric>
 					<HidricImage src={WaterImg} alt='image-water' />
 					<TextHidric>
-						With this calculator you can see
-						<br /> whats impact do you or your company <br /> have in the world.
+						Con esta calculadora
+						<br /> puedes ver tu impacto en el mundo.
 						<br />
 						<br />
-						Choose what type of water footprint
-						<br /> do you want to calcualte?
+						Responde el cuestionario
+						<br />y calcula tu Huella Hidrica
 					</TextHidric>
 				</BodyHidric>
 			</TitleWrapper>
 			<ButtonBox>
 				<Link to='/water/quiz/person'>
 					<Button>
-						<PersonIcon size='30' /> Person
+						<PersonIcon size='30' /> Persona
 					</Button>
 				</Link>
 			</ButtonBox>

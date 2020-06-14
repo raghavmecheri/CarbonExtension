@@ -179,6 +179,8 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	const businessQuiz = formState[0].type === 'business';
 	const carbonQuiz = formState[0].footprint === 'carbon';
 
+	console.log(formState);
+
 	const handleOpenMenu = () => {
 		setHomeMenuState(true);
 	};
@@ -371,7 +373,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 								}}>
 								<div className='fill'>
 									<HomeCircleStyle size='40' />
-									Home
+									Inicio
 								</div>
 							</NavLink>
 							<NavLink
@@ -379,21 +381,21 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 								activeStyle={{
 									color: '#38a66d',
 								}}>
-								<div className='fill'>Information</div>
-							</NavLink>
-							<NavLink
-								to='/about'
-								activeStyle={{
-									color: '#38a66d',
-								}}>
-								<div className='fill'>About</div>
+								<div className='fill'>Informacion</div>
 							</NavLink>
 							<NavLink
 								to='/contribute'
 								activeStyle={{
 									color: '#38a66d',
 								}}>
-								<div className='fill'>Contribute</div>
+								<div className='fill'>Contribuir</div>
+							</NavLink>
+							<NavLink
+								to='/about'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Acerca</div>
 							</NavLink>
 						</MenuNavBar>
 					</HomeMenuWraper>

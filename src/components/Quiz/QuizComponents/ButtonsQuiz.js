@@ -123,40 +123,40 @@ export const Buttons = ({
 	if (!end) {
 		return (
 			<ButtonBox carbonQuiz={carbonQuiz} rowsValues={rowsValues}>
-				<BackwardIcon onClick={back}>{'< Last Question'}</BackwardIcon>
+				<BackwardIcon onClick={back}>{'< Pregunta Atras'}</BackwardIcon>
 				{businessQuiz ? (
 					<MiddleBox>
 						<div>
 							<DeleteButton onClick={handleDeleteQuestion} />
-							<ButtonText>Delete Row</ButtonText>
+							<ButtonText>Eliminar Fila</ButtonText>
 						</div>
 						<div>
 							<AddButton onClick={handleAddRow} />
-							<ButtonText>Add Row</ButtonText>
+							<ButtonText>Añadir Fila</ButtonText>
 						</div>
 					</MiddleBox>
 				) : null}
-				<ForwardIcon onClick={next}>{'Next Question >'}</ForwardIcon>
+				<ForwardIcon onClick={next}>{'Siguiente Pregunta >'}</ForwardIcon>
 			</ButtonBox>
 		);
 	} else {
 		return (
 			<ButtonBox>
-				<BackwardIcon onClick={back}>{'< Last Question'}</BackwardIcon>
+				<BackwardIcon onClick={back}>{'< Pregunta Atras'}</BackwardIcon>
 				{businessQuiz ? (
 					<MiddleBox>
 						<div>
 							<DeleteButton onClick={handleDeleteQuestion} />
-							<ButtonText>Delete Row</ButtonText>
+							<ButtonText>Eliminar Fila</ButtonText>
 						</div>
 						<div>
 							<AddButton onClick={handleAddRow} />
-							<ButtonText>Add Row</ButtonText>
+							<ButtonText>Añadir Fila</ButtonText>
 						</div>
 					</MiddleBox>
 				) : null}
 				<Link to='/result'>
-					<CalculateButton onClick={finish}>{'Calculate'}</CalculateButton>
+					<CalculateButton onClick={finish}>{'Calcular'}</CalculateButton>
 				</Link>
 			</ButtonBox>
 		);

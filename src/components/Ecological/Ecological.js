@@ -233,15 +233,15 @@ export const Ecological = ({ handleReturn }) => {
 		<HidricWrapper>
 			<TitleWrapper>
 				<ArrowIcon size='48' onClick={handleReturn} />
-				<TitleHidric>Ecological Footprint</TitleHidric>
-				<SubtitleHidric>Calculate your Ecological footprint!</SubtitleHidric>
+				<TitleHidric>Huella Ecologica</TitleHidric>
+				<SubtitleHidric>Calcula tu Huella Ecologica!</SubtitleHidric>
 				<TitleIcon></TitleIcon>
 				<BodyHidric>
 					<HidricImage src={EcologicalImg} alt='image-ecological' />
 					<div>
-						<h1>Under Contruction</h1>
-						<h3>It will be realese soon!</h3>
-						<h3>Sorry fo the inconvenients</h3>
+						<h1>En Construccion</h1>
+						<h3>Estara disponible pronto!</h3>
+						<h3>Disculpa las Inconveniencias</h3>
 					</div>
 					{/* <TextHidric>
 						With this calculator you can see
