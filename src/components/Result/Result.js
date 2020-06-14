@@ -235,41 +235,43 @@ export function Result({ stateScreen }) {
 		Object.keys(stateScreen.formState).map((key) => {
 			if (stateScreen.formState[key].ComplexFormState === true) {
 				Object.keys(stateScreen.formState[key].rowStructureComplex).map((i) => {
-					if (i == 'Nº Showers per day') {
+					if (i == 'Nº de Duchas al dia') {
 						const minutes =
 							stateScreen.formState[key].rowStructureComplex[
-								'Minutes of Shower'
+								'Minutos en la Ducha'
 							];
 						const quantity = stateScreen.formState[key].rowStructureComplex[i];
 						const waterFactor =
-							ResultIndividualWaterData[key]['Minutes of Shower'];
+							ResultIndividualWaterData[key]['Minutos en la Ducha'];
 						if (quantity && waterFactor && minutes) {
 							result =
 								Number(result) +
 								Number(quantity) * Number(waterFactor) * Number(minutes);
 						}
-					} else if (i == 'Nº Times Dishes Wahsed each day') {
+					} else if (i == 'Nº veces que lavas los platos al dia') {
 						const minutes =
 							stateScreen.formState[key].rowStructureComplex[
-								'Minutes the water run each wash'
-							];
-						const quantity = stateScreen.formState[key].rowStructureComplex[i];
-						const waterFactor =
-							ResultIndividualWaterData[key]['Minutes the water run each wash'];
-						if (quantity && waterFactor && minutes) {
-							result =
-								Number(result) +
-								Number(quantity) * Number(waterFactor) * Number(minutes);
-						}
-					} else if (i == 'Times you water your garden per week') {
-						const minutes =
-							stateScreen.formState[key].rowStructureComplex[
-								'Minutes you water your garden each time'
+								'Min. que corre el agua al lavar los platos'
 							];
 						const quantity = stateScreen.formState[key].rowStructureComplex[i];
 						const waterFactor =
 							ResultIndividualWaterData[key][
-								'Minutes you water your garden each time'
+								'Min. que corre el agua al lavar los platos'
+							];
+						if (quantity && waterFactor && minutes) {
+							result =
+								Number(result) +
+								Number(quantity) * Number(waterFactor) * Number(minutes);
+						}
+					} else if (i == 'Nº veces que riegas el jardin por semana') {
+						const minutes =
+							stateScreen.formState[key].rowStructureComplex[
+								'Min. que riegas el jardin cada vez'
+							];
+						const quantity = stateScreen.formState[key].rowStructureComplex[i];
+						const waterFactor =
+							ResultIndividualWaterData[key][
+								'Min. que riegas el jardin cada vez'
 							];
 						if (quantity && waterFactor && minutes) {
 							result =
@@ -277,9 +279,9 @@ export function Result({ stateScreen }) {
 								Number(quantity) * Number(waterFactor) * Number(minutes);
 						}
 					} else if (
-						i === 'Does the water run while brushing your teeth:' ||
-						i === 'Do you have dual flush toilet?' ||
-						i === 'Nº Showers per day'
+						i === 'Cierras el agua cuando te cepillas lo dientes?' ||
+						i === 'Tienes un tirador dual de cadena?' ||
+						i === 'Nº de Duchas al dia'
 					) {
 						result = result;
 					} else {
@@ -322,11 +324,11 @@ export function Result({ stateScreen }) {
 		});
 		if (stateScreen.formState[0].ComplexFormState === false) {
 			const coffe =
-				stateScreen.formState[0].rowStructureComplex['Cups of Coffe per day'];
-			const coffeFactor = ResultIndividualWaterData[0]['Cups of Coffe per day'];
-			const teaFactor = ResultIndividualWaterData[0]['Cups of Tea per day'];
+				stateScreen.formState[0].rowStructureComplex['Tazas de Cafe por Dia'];
+			const coffeFactor = ResultIndividualWaterData[0]['Tazas de Cafe por Dia'];
+			const teaFactor = ResultIndividualWaterData[0]['Tazas de Te por Dia'];
 			const tea =
-				stateScreen.formState[0].rowStructureComplex['Cups of Tea per day'];
+				stateScreen.formState[0].rowStructureComplex['Tazas de Te por Dia'];
 			if (coffe) {
 				result = Number(result) + Number(coffe) * Number(coffeFactor);
 			}
