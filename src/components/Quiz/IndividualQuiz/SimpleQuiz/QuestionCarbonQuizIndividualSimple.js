@@ -181,6 +181,7 @@ const StyleComplexSimple = styled.div`
 const TitleSlider2 = styled.div`
 	font-family: 'Heebo', sans-serif;
 	font-size: 20px;
+	text-align: initial;
 `;
 const QuestionInput = styled.input`
 	background: #90ee9052;
@@ -230,6 +231,8 @@ const Selector = styled.select`
 	}
 	@media (max-width: 810px) {
 		width: 47%;
+		height: 2em;
+		margin: auto;
 	}
 `;
 
@@ -359,7 +362,7 @@ export const QuestionQuizIndividualSimple = ({
 						</SliderBox2>
 					</StyleComplexSimple>
 					<StyleComplexSimple>
-						<TitleSlider2>Cilindrada</TitleSlider2>
+						<TitleSlider2>Cilindrada Moto</TitleSlider2>
 						<Selector
 							value={rowStructureSimple.moto}
 							onChange={(e) => handleSliderInput(e, id, 'moto')}>

@@ -51,6 +51,7 @@ const QuestionWrapper = styled.div`
 	position: relative;
 	@media (max-width: 810px) {
 		height: 4.5em;
+		padding: 30px 0px;
 	}
 `;
 
@@ -152,7 +153,6 @@ export const QuestionQuizIndividualComplex = ({
 	return (
 		<>
 			<QuestionQuiz>{description2}</QuestionQuiz>
-			<SubQuestionQuiz>(Más alta o más baja que el promedio)</SubQuestionQuiz>
 			<ComplexQuestionBox>
 				{rowTitles.map((question, key) => {
 					let dropdown = false;

@@ -6,7 +6,11 @@ const HeaderWrapper = styled.div`
 	padding-top: 20px;
 	width: 100%;
 	@media (max-width: 810px) {
-		font-size: 22px;
+		font-size: 20px;
+		padding: 0.5em;
+	}
+	@media (max-width: 320px) {
+		font-size: 18px;
 		padding: 0.5em;
 	}
 `;

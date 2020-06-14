@@ -8,12 +8,15 @@ import { MinusCircle } from '@styled-icons/boxicons-solid';
 const ButtonBox = styled.div`
 	position: absolute;
 	bottom: 2em;
-	width: ${(props) => (props.carbonQuiz ? '70%' : '90%')};
+	width: ${(props) => (props.carbonQuiz ? '85%' : '90%')};
 	padding: 1em 1em;
 	display: flex;
 	align-items: center;
 	justify-content: ${(props) =>
-		props.carbonQuiz ? 'space-around' : 'space-between'};
+		props.carbonQuiz ? 'space-between' : 'space-between'};
+	@media (max-width: 1400px) and (max-height: 700px) {
+		bottom: 0em;
+	}
 	@media only screen and (max-width: 850px) {
 		display: flex;
 		align-items: center;
@@ -21,6 +24,17 @@ const ButtonBox = styled.div`
 		margin-top: 0;
 		padding: 0;
 		width: 90%;
+	}
+	@media (max-width: 380px) and (max-height: 812px) {
+		bottom: 1em;
+	}
+	@media (max-width: 430px) and (max-height: 750px) {
+	}
+	@media (max-width: 400px) and (max-height: 700px) {
+		bottom: 1em;
+	}
+	@media (max-width: 350px) and (max-height: 600px) {
+		bottom: 1em;
 	}
 `;
 

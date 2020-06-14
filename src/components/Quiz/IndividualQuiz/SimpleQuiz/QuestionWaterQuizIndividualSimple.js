@@ -235,6 +235,7 @@ export const QuestionWaterQuizIndividualSimple = ({
 		rowTitlesSlider,
 		rowTitlesInput,
 		rowStructureSimple,
+		placeHolder,
 		rowStructureComplex,
 	} = rowsValues;
 
@@ -270,7 +271,7 @@ export const QuestionWaterQuizIndividualSimple = ({
 							<QuestionInput
 								key={'waterSimpleInput' + key}
 								type='number'
-								placeholder='5L / 100km'
+								placeholder={placeHolder[question]}
 								value={rowStructureComplex[question]}
 								onChange={(e) => handleWaterInput(e, question)}
 							/>

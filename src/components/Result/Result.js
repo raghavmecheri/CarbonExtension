@@ -338,7 +338,7 @@ export function Result({ stateScreen }) {
 		}
 	}
 	let carbon = true;
-	let units = 'm3 of water';
+	let units = 'm3 de agua al año';
 	let Earths = 1;
 	let ArrayEarths = ['1'];
 	if (stateScreen.formState) {
@@ -351,7 +351,7 @@ export function Result({ stateScreen }) {
 	if (stateScreen.formState && stateScreen.formState[0].footprint == 'carbon') {
 		result = result / 1000;
 		result = result.toFixed(2);
-		units = 'ton CO2';
+		units = 'tones de CO2 al año';
 		let earthFootprint = 2.5;
 		Earths = Math.round(result / earthFootprint);
 		let EarthsCount = Earths;
