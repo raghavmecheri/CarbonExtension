@@ -76,9 +76,9 @@ export const CheckBox = ({ handleQuizDesign, ComplexForm }) => {
 				<CheckBoxLabel htmlFor='checkbox' />
 			</CheckBoxWrapper>
 			<TextDropdown>
-				Change to Detail Quiz
+				Añadir Mas Informacion
 				<br />
-				Improve Accuracy
+				Mejorar Exactitud
 			</TextDropdown>
 		</>
 	);

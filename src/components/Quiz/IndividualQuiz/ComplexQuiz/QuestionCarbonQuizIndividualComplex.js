@@ -51,6 +51,7 @@ const QuestionWrapper = styled.div`
 	position: relative;
 	@media (max-width: 810px) {
 		height: 4.5em;
+		padding: 30px 0px;
 	}
 `;
 
@@ -152,13 +153,13 @@ export const QuestionQuizIndividualComplex = ({
 	return (
 		<>
 			<QuestionQuiz>{description2}</QuestionQuiz>
-			<SubQuestionQuiz>(Higher or Lower than average)</SubQuestionQuiz>
 			<ComplexQuestionBox>
 				{rowTitles.map((question, key) => {
 					let dropdown = false;
-					if (question === 'Fuel type' || question === "Motorbike's cc.") {
+					if (question === 'Tipo de Combustible' || question === 'Moto cc.') {
 						dropdown = true;
 					}
+					console.log(question);
 
 					return (
 						<QuestionWrapper>

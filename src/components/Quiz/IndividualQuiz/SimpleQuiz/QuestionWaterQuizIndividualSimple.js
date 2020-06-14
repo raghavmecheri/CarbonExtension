@@ -235,6 +235,7 @@ export const QuestionWaterQuizIndividualSimple = ({
 		rowTitlesSlider,
 		rowTitlesInput,
 		rowStructureSimple,
+		placeHolder,
 		rowStructureComplex,
 	} = rowsValues;
 
@@ -246,7 +247,7 @@ export const QuestionWaterQuizIndividualSimple = ({
 						<StyleComplexSimple>
 							<TitleSlider2>{question}</TitleSlider2>
 							<SliderBox2>
-								<LeftText>Never</LeftText>
+								<LeftText>Nunca</LeftText>
 								<SliderInput
 									type='range'
 									id={id}
@@ -258,7 +259,7 @@ export const QuestionWaterQuizIndividualSimple = ({
 									value={rowStructureSimple.question}
 									onChange={(e) => handleWaterSlider(e, id, question)}
 								/>
-								<RightText>Always</RightText>
+								<RightText>Siempre</RightText>
 							</SliderBox2>
 						</StyleComplexSimple>
 					);
@@ -270,7 +271,7 @@ export const QuestionWaterQuizIndividualSimple = ({
 							<QuestionInput
 								key={'waterSimpleInput' + key}
 								type='number'
-								placeholder='5L / 100km'
+								placeholder={placeHolder[question]}
 								value={rowStructureComplex[question]}
 								onChange={(e) => handleWaterInput(e, question)}
 							/>

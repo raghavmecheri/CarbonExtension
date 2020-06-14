@@ -114,36 +114,37 @@ export const About = ({ handleMenu }) => {
 				<HomeNavBar />
 			</HomeNavBarWrapper>
 			<AboutWrapper>
-				<Title>About</Title>
+				<Title>Acerca</Title>
 				<TextWrapper>
 					<TextLeft>
-						This is a carbon and water calculator footprint. The purpose of this
-						calculator is to raise awareness about our consumption habits and
-						about how our actions as individual persons impact the world.
+						Esta es una calculadora de la huella de carbono y de agua. El
+						propósito de esta calculadora es crear conciencia sobre nuestros
+						hábitos de consumo y sobre cómo nuestras acciones como personas
+						individuales impactan el mundo.
 						<br />
 						<br />
-						This calculator can calculate the carbon footprint of a business and
-						of individual persons. It can also calculate the water footprint of
-						individual persons.
+						Esta calculadora puede calcular la huella de Carbono de un negocio o
+						de personas individuales. También puede calcular la huella Hídrica
+						de personas individuales.
 						<br />
 						<br />
 						<br />
 						<AboutImage src={AboutImg} />
 					</TextLeft>
 					<TextRigth>
-						In some questions you can enter your exact consumption data or you
-						can choose to enter it more easily with a slider. These data are
-						obtained from the average consumption of spanish citizens provided
-						by the differents ministries of the spanish government.
+						En algunas preguntas, puede ingresar tus datos de consumo exactos o
+						puede elegir ingresarlos más fácilmente con un control deslizante.
+						Estos datos se obtienen del consumo medio de ciudadanos españoles
+						proporcionado por los diferentes ministerios del gobierno español.
 						<br />
 						<br />
-						The emission factors on which the calculator is based, are also
-						calculated and obtained with respect to the data from Spain. Since
-						your footprint varies depending on the country in which you live.
+						Los factores de emisión en los que se basa la calculadora también se
+						calculan y obtienen con respecto a los datos de España. Dado que su
+						huella varía según el país en el que vive.
 						<br />
 						<br />
-						This page is made by me. A student from Burgos University. Who made
-						this page as my final degree project.
+						Esta página está hecha por mí. Un estudiante de la Universidad de
+						Burgos. Quién hizo esta página como mi proyecto final de grado.
 						<AboutImage2 src={AboutImg2} />
 					</TextRigth>
 				</TextWrapper>

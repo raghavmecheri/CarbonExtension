@@ -110,7 +110,9 @@ export const QuestionWaterQuizIndividual = ({
 			</Tittle>
 			<Description>{description}</Description>
 			<QuestionQuiz>{description2}</QuestionQuiz>
-			<SubQuestionQuiz>(Higher or Lower than average)</SubQuestionQuiz>
+			{simpleQuiz && ComplexForm ? (
+				<SubQuestionQuiz>(Más alta o más baja que el promedio)</SubQuestionQuiz>
+			) : null}
 			<InputBox ComplexForm={ComplexForm}>
 				{simpleQuiz && ComplexForm ? (
 					<QuestionWaterQuizIndividualSimple

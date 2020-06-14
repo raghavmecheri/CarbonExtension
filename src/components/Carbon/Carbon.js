@@ -228,31 +228,33 @@ export const Carbon = ({ handleReturn }) => {
 			<TitleWrapper>
 				<TitleCarbon>
 					<ArrowIcon size='48' onClick={handleReturn} />
-					Carbon Footprint
+					Huella de Carbono
 				</TitleCarbon>
-				<SubtitleCarbon>Calculate your carbon footprint!</SubtitleCarbon>
+				<SubtitleCarbon>Calcula tu Huella de Carbono!</SubtitleCarbon>
 				<TitleIcon />
 				<BodyCarbon>
 					<CarbonImage src={CarImg} alt='image-carbon' />
 					<TextCarbon>
-						With this calculator you can see
-						<br /> whats impact do you or your company <br /> have in the world.
+						Con esta calculadora puedes ver que impacto
+						<br />
+						tu personalmente o tu empresa tiene en el mundo.
 						<br />
 						<br />
-						Choose what type of carbon footprint
-						<br /> do you want to calcualte?
+						Elige que Huella de Carbono
+						<br />
+						te interesa calcular.
 					</TextCarbon>
 				</BodyCarbon>
 			</TitleWrapper>
 			<ButtonBox>
 				<Link to='/carbon/quiz/person'>
 					<Button>
-						<PersonIcon size='30' /> Person
+						<PersonIcon size='30' /> Persona
 					</Button>
 				</Link>
 				<Link to='/carbon/quiz/organization'>
 					<Button>
-						<FactoryIcon size='30' /> Organization
+						<FactoryIcon size='30' /> Organizacion
 					</Button>
 				</Link>
 			</ButtonBox>

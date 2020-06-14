@@ -193,7 +193,7 @@ export const Contribute = () => {
 			<ImageWrapper>
 				<BgImage src={bgImg} />
 				<ContributeWrapper>
-					<Title>You Can Contribute By Donating to the next pages:</Title>
+					<Title>Puedes Contribuir Donando a las siguientes paginas:</Title>
 				</ContributeWrapper>
 			</ImageWrapper>
 			<BoxCard>
@@ -203,10 +203,10 @@ export const Contribute = () => {
 					</ImgCardWrapper>
 					<ButtonWrapper>
 						<Link to='/contribute/tree'>
-							<ButtonCard>Visit Page</ButtonCard>
+							<ButtonCard>Visitar</ButtonCard>
 						</Link>
 						<Link to='/contribute/tree'>
-							<ButtonCard>Donate</ButtonCard>
+							<ButtonCard>Donar</ButtonCard>
 						</Link>
 					</ButtonWrapper>
 				</Card>
@@ -216,10 +216,10 @@ export const Contribute = () => {
 					</ImgCardWrapper>
 					<ButtonWrapper>
 						<Link to='/contribute/wwf'>
-							<ButtonCard>Visit Page</ButtonCard>
+							<ButtonCard>Visitar</ButtonCard>
 						</Link>
 						<Link to='/donate/wwf'>
-							<ButtonCard>Donate</ButtonCard>
+							<ButtonCard>Donar</ButtonCard>
 						</Link>
 					</ButtonWrapper>
 				</Card>
@@ -229,10 +229,10 @@ export const Contribute = () => {
 					</ImgCardWrapper>
 					<ButtonWrapper>
 						<Link to='/contribute/oceans' target='_blank'>
-							<ButtonCard>Visit Page</ButtonCard>
+							<ButtonCard>Visitar</ButtonCard>
 						</Link>
 						<Link to='/donate/oceans'>
-							<ButtonCard>Donate</ButtonCard>
+							<ButtonCard>Donar</ButtonCard>
 						</Link>
 					</ButtonWrapper>
 				</Card>

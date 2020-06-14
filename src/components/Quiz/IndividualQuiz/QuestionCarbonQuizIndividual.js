@@ -66,10 +66,10 @@ const InputBox = styled.div`
 		padding: 1em;
 	}
 	@media (max-width: 510px) {
-		margin: auto;
+		margin: none;
 		max-height: ${(props) =>
 			props.id === 6 || props.id === 0 ? '72vh' : '50vh'};
-		width: ${(props) => (props.id === 6 ? '90%' : '85%')};
+		width: ${(props) => (props.id === 6 ? '90%' : '90%')};
 		margin-top: ${(props) => (props.id === 0 ? '1em' : '0.5em')};
 	}
 `;

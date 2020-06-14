@@ -29,7 +29,7 @@ const QuizWrapper = styled.div`
 	}
 	@media (max-width: 380px) and (max-height: 812px) {
 		height: 130vh;
-		height: ${(props) => (props.carbonQuiz ? '130vh' : '113vh')};
+		height: ${(props) => (props.carbonQuiz ? '100vh' : '113vh')};
 	}
 	@media (max-width: 430px) and (max-height: 750px) {
 		height: ${(props) => (props.carbonQuiz ? '110vh' : '120vh')};
@@ -164,9 +164,21 @@ const QuizBox = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	@media (max-width: 1400px) and (max-height: 700px) {
+		padding-top: 1em;
+	}
 	@media (max-width: 810px) {
 		max-width: 100%;
 		padding-top: 5em;
+	}
+	@media (max-width: 450px) {
+		max-width: 100%;
+		margin: 0;
+		padding: 0;
+		padding-top: 5em;
+		margin: ${(props) => (props.businessQuiz ? null : '0')};
+		padding: ${(props) => (props.businessQuiz ? null : '0')};
+		padding-top: ${(props) => (props.businessQuiz ? null : '5em')};
 	}
 `;
 
@@ -178,6 +190,8 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	const [simpleQuiz, setSimpleQuiz] = useState(true);
 	const businessQuiz = formState[0].type === 'business';
 	const carbonQuiz = formState[0].footprint === 'carbon';
+
+	console.log(formState);
 
 	const handleOpenMenu = () => {
 		setHomeMenuState(true);
@@ -371,7 +385,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 								}}>
 								<div className='fill'>
 									<HomeCircleStyle size='40' />
-									Home
+									Inicio
 								</div>
 							</NavLink>
 							<NavLink
@@ -379,21 +393,21 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 								activeStyle={{
 									color: '#38a66d',
 								}}>
-								<div className='fill'>Information</div>
-							</NavLink>
-							<NavLink
-								to='/about'
-								activeStyle={{
-									color: '#38a66d',
-								}}>
-								<div className='fill'>About</div>
+								<div className='fill'>Informacion</div>
 							</NavLink>
 							<NavLink
 								to='/contribute'
 								activeStyle={{
 									color: '#38a66d',
 								}}>
-								<div className='fill'>Contribute</div>
+								<div className='fill'>Contribuir</div>
+							</NavLink>
+							<NavLink
+								to='/about'
+								activeStyle={{
+									color: '#38a66d',
+								}}>
+								<div className='fill'>Acerca</div>
 							</NavLink>
 						</MenuNavBar>
 					</HomeMenuWraper>
@@ -411,7 +425,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 			</HomeNavBarWrapper>
 			<HomeMenu carbonQuiz={carbonQuiz} />
 			<SideQuizMenu questionIndex={questionIndex} formState={formState} />
-			<QuizBox>
+			<QuizBox businessQuiz={businessQuiz}>
 				{businessQuiz ? (
 					<QuestionQuizBusiness
 						rowsValues={formState[questionIndex]}
