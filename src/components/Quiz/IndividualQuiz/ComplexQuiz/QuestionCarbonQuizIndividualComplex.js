@@ -46,7 +46,7 @@ const ComplexQuestionBox = styled.div`
 
 const QuestionWrapper = styled.div`
 	display: flex;
-	justify-content: end;
+	justify-content: initial;
 	align-items: center;
 	position: relative;
 	@media (max-width: 810px) {
