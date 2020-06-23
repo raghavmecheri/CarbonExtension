@@ -70,7 +70,7 @@ export const PersonWaterQuizData = {
 		image: bg0,
 		sideTitle: 'Consumo de Comida',
 		sideBody:
-			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
+			'En esta pregunta calculamos tu consumo de agua asociado a los productos alimenticios que consumes. Dentro de los productos alimenticios el producto que mayor agua rquiere es la carne.',
 		infoPlusBody:
 			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},

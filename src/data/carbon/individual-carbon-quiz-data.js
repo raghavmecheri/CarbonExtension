@@ -57,9 +57,9 @@ export const IndividualCarbonQuizData = {
 		dropdownTypes: [],
 		image: bgO1,
 		image2: bgO11,
-		sideTitle: 'Casa',
+		sideTitle: 'Hogar',
 		sideBody:
-			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
+			'En esta pregunta se calcula la Huella de Carbono que produce el consumo de electricidad en su hogar. La media esta calculada por persona por hogar en España. Y este calculo corresponderia al Alcance 1.',
 		infoPlusBody:
 			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
 	},

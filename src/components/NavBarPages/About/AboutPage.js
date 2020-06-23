@@ -143,8 +143,9 @@ export const About = ({ handleMenu }) => {
 						huella varía según el país en el que vive.
 						<br />
 						<br />
-						Esta página está hecha por mí. Un estudiante de la Universidad de
-						Burgos. Quién hizo esta página como mi proyecto final de grado.
+						Esta página está desarrollada por mí. Un estudiante de la
+						Universidad de Burgos. Quién hizo esta página como mi proyecto final
+						de grado.
 						<AboutImage2 src={AboutImg2} />
 					</TextRigth>
 				</TextWrapper>

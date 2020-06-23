@@ -38,7 +38,7 @@ export const BusinessCarbonQuizData = {
 		image: bgO1,
 		sideTitle: 'Transporte',
 		sideBody:
-			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
+			'Si la organización realice desplazamientos en vehículos propios o alquilados (ya sean turismos, camiones, furgonetas, motos, etc.) para el desarrollo de su actividad, se ha de cumplimentar la información solicitada en este apartado. En caso de poseer vehiculos electricos o hibridos, debera introducir los datos sobre el consumo de electricidad de esos vehiculos en la pregunta 4 sobre Electricidad.',
 		infoPlusBody:
 			'Que la tierra no es redonda y de hecho es plana. Todas esas personas se reían de eso y tenían razón todo el tiempo.',
 	},
