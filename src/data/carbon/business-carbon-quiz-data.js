@@ -38,9 +38,9 @@ export const BusinessCarbonQuizData = {
 		image: bgO1,
 		sideTitle: 'Transporte',
 		sideBody:
-			'Si la organización realice desplazamientos en vehículos propios o alquilados (ya sean turismos, camiones, furgonetas, motos, etc.) para el desarrollo de su actividad, se ha de cumplimentar la información solicitada en este apartado. En caso de poseer vehiculos electricos o hibridos, debera introducir los datos sobre el consumo de electricidad de esos vehiculos en la pregunta 4 sobre Electricidad.',
-		infoPlusBody:
-			'Que la tierra no es redonda y de hecho es plana. Todas esas personas se reían de eso y tenían razón todo el tiempo.',
+			'Si la organización realice desplazamientos en vehículos propios o alquilados (ya sean turismos, camiones, furgonetas, motos, etc.) para el desarrollo de su actividad, se ha de cumplimentar la información solicitada en este apartado.',
+		sideBody2:
+			'En caso de poseer vehiculos electricos o hibridos, debera introducir los datos sobre el consumo de electricidad de esos vehiculos en la pregunta 4 sobre Electricidad.',
 	},
 	1: {
 		id: 1,
@@ -69,9 +69,9 @@ export const BusinessCarbonQuizData = {
 		image: bgO2,
 		sideTitle: 'Instalaciones Fijas',
 		sideBody:
-			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
-		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'En este apartado se incluyen las emisiones derivadas del consumo de combustibles en instalaciones fijas, como calderas, hornos, quemadores, turbinas, calentadores, incineradores, motores, etc.',
+		sideBody2:
+			'Por ejemplo, si se tiene una caldera de gasoil que se recarga cada cierto tiempo, el dato de la actividad se corresponderá con la suma de los litros de remanente del año anterior al de estudio y de los litros comprados el año de estudio, menos los litros de remanente.',
 	},
 	2: {
 		id: 2,
@@ -120,9 +120,9 @@ export const BusinessCarbonQuizData = {
 		image: bgO3,
 		sideTitle: 'Fugas',
 		sideBody:
-			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
-		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'Se puede considerar que para empresas u organizaciones de pequeña magnitud, las emisiones de GEI asociadas a los gases fluorados son las originadas por los equipos de refrigeración (neveras, congeladores) y climatización (aire acondicionado y bombas de calor).',
+		sideBody2:
+			'Para simplificar los cálculos, a efectos de esta guía se pueden despreciar las emisiones derivadas de la instalación y eliminación de los equipos.',
 	},
 	3: {
 		id: 3,
@@ -271,8 +271,8 @@ export const BusinessCarbonQuizData = {
 		image: bgO4,
 		sideTitle: 'Electricidad',
 		sideBody:
-			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
-		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'El dato de actividad será el consumo de electricidad procedente de proveedores externos del año para el que se esté realizando el cálculo.',
+		sideBody2:
+			'En el caso en el que el consumidor tenga contratada la electricidad con redención completa de Garantía de Origen (GdO, la redención concierne a energías renovables), se considerará nulo. ',
 	},
 };

@@ -70,9 +70,9 @@ export const PersonWaterQuizData = {
 		image: bg0,
 		sideTitle: 'Consumo de Comida',
 		sideBody:
-			'En esta pregunta calculamos tu consumo de agua asociado a los productos alimenticios que consumes. Dentro de los productos alimenticios el producto que mayor agua rquiere es la carne.',
-		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'En esta pregunta calculamos tu consumo de agua asociado a los productos alimenticios que consumes.',
+		sideBody2:
+			'Dentro de los productos alimenticios el producto que mayor agua requiere es la carne.',
 	},
 	1: {
 		id: 1,
@@ -116,9 +116,8 @@ export const PersonWaterQuizData = {
 		image: bg1,
 		sideTitle: 'Consumo en Casa',
 		sideBody:
-			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
-		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'En esta pregunta calculamos tu consumo de agua asociado a las actividades cotidianas que realizas en tu hogar.',
+		sideBody2: '',
 	},
 	2: {
 		id: 2,
@@ -153,9 +152,8 @@ export const PersonWaterQuizData = {
 		image: bg2,
 		sideTitle: 'Consumo en Casa',
 		sideBody:
-			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
-		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'En esta pregunta calculamos tu consumo de agua asociado a las actividades cotidianas que realizas en tu hogar',
+		sideBody2: '',
 	},
 	3: {
 		id: 3,
@@ -180,8 +178,8 @@ export const PersonWaterQuizData = {
 		image: bg3,
 		sideTitle: 'Bienes de Consumo',
 		sideBody:
-			'This is the footprint produced by the use of different uses of trasnports. And it would be included inside the First scope of the Carbon Footprint.',
-		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'Solo esa parte del ingreso familiar que consume usted. Es el consumo que realiza al año en relacion a su salario.',
+		sideBody2:
+			'Estos datos no son guardados de ninguna manera en ninguna base de datos.',
 	},
 };

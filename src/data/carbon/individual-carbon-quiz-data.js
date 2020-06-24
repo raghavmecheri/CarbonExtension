@@ -59,9 +59,9 @@ export const IndividualCarbonQuizData = {
 		image2: bgO11,
 		sideTitle: 'Hogar',
 		sideBody:
-			'En esta pregunta se calcula la Huella de Carbono que produce el consumo de electricidad en su hogar. La media esta calculada por persona por hogar en España. Y este calculo corresponderia al Alcance 1.',
-		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'En esta pregunta se calcula la Huella de Carbono que produce el consumo de electricidad en su hogar. Se refiere a la huella que te corresponde en tu hogar. Si viven 4 personas deberas dividir el total de consumo entre 4.',
+		sideBody2:
+			'La media esta calculada por persona por hogar en España. Y este calculo corresponderia al Alcance 1.',
 	},
 	1: {
 		id: 1,
@@ -94,9 +94,9 @@ export const IndividualCarbonQuizData = {
 		image2: bgO22,
 		sideTitle: 'Transporte',
 		sideBody:
-			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
-		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'En esta pregunta se calcula la Huella de Carbono que produce el uso del coche.',
+		sideBody2:
+			'En el caso de que sea un coche electrico o hibrido deberas contabilizarlo como gasto electrico de la pregunta anterior.',
 	},
 	2: {
 		id: 2,
@@ -120,11 +120,10 @@ export const IndividualCarbonQuizData = {
 		dropdownTypes: ['--', '- 125cc', '125cc - 500cc', '500cc -'],
 		image: bgO3,
 		image2: bgO33,
-		sideTitle: 'Transporte',
+		sideTitle: 'Moto',
 		sideBody:
-			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
-		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'En esta pregunta se calcula la Huella de Carbono que produce el uso de una moto.',
+		sideBody2: '',
 	},
 	3: {
 		id: 3,
@@ -146,11 +145,10 @@ export const IndividualCarbonQuizData = {
 		dropdownTypes: [],
 		image: bgO4,
 		image2: bgO44,
-		sideTitle: 'Tranporte',
+		sideTitle: 'RENFE',
 		sideBody:
-			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
-		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'En esta pregunta se calcula la Huella de Carbono que produce el uso de los servicios de trenes de RENFE.',
+		sideBody2: '',
 	},
 	4: {
 		id: 4,
@@ -172,11 +170,10 @@ export const IndividualCarbonQuizData = {
 		dropdownTypes: [],
 		image: bgO5,
 		image2: bgO55,
-		sideTitle: 'Tranporte',
+		sideTitle: 'Tranporte Publico',
 		sideBody:
-			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
-		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'En esta pregunta se calcula la Huella de Carbono que produce el uso de los servicios de transporte publico tales como bus, tranvia, metro, etc.',
+		sideBody2: '',
 	},
 	5: {
 		id: 5,
@@ -198,11 +195,11 @@ export const IndividualCarbonQuizData = {
 		dropdownTypes: [],
 		image: bgO6,
 		image2: bgO66,
-		sideTitle: 'Tranporte',
+		sideTitle: 'Tranporte Aereo',
 		sideBody:
-			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
-		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'En esta pregunta se calcula la Huella de Carbono que produce el uso de transporte aereo. La cantidad de km que realizas al año.',
+		sideBody2:
+			'Esta calculado usando la media del consumo medio del modelo de avion mas populares y el factor de emision de su combustible. Por lo que es calculo aproximado.',
 	},
 	6: {
 		id: 6,
@@ -273,8 +270,8 @@ export const IndividualCarbonQuizData = {
 		image2: '',
 		sideTitle: 'Gastos',
 		sideBody:
-			'Esta es la huella producida por el uso de diferentes usos de los transportes. Y se incluiría dentro del primer alcance de la Huella de Carbono.',
-		infoPlusBody:
-			"That the earth isn't round and it is in fact flat. All those people laughing about it and they were rigth all along.",
+			'En esta pregunta se calcula la Huella de Carbono que produce el consumo de bienes.',
+		sideBody2:
+			'Debes introducir el consumo que realizas de las siguientes categorias de productos al mes.',
 	},
 };
