@@ -5,14 +5,14 @@ import styled from 'styled-components';
 import { SideQuizMenu } from './QuizComponents/SideQuizMenu';
 import { QuestionQuizBusiness } from './BusinessQuiz/QuestionQuizBusiness';
 import { QuestionCarbonQuizIndividual } from './IndividualQuiz/QuestionCarbonQuizIndividual';
-import { QuestionWaterQuizIndividual } from './IndividualQuiz/QuestionWaterQuizIndividual';
+
 import { Buttons } from './QuizComponents/ButtonsQuiz';
-import { HomeNavBar } from '../Home/HomeNavBar';
+import Navbar from '../Navbar/navbar';
 import logo from '../../assets/logo.png';
 import { Menu } from '@styled-icons/heroicons-outline';
 import { Cross } from '@styled-icons/entypo';
 import { HomeCircle } from '@styled-icons/boxicons-regular';
-import '../Home/HomeNavBar.css';
+import '../Home/style/HomeNavBar.css';
 
 const QuizWrapper = styled.div`
 	height: 100vh;
@@ -233,11 +233,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 		});
 	};
 
-	const updateSliderValueCarbonIndividualSimpleForm = ({
-		value,
-		id,
-		input,
-	}) => {
+	const updateSliderValueCarbonIndividualSimpleForm = ({ value, id, input }) => {
 		const screenRows = formState[questionIndex].rowStructureSimple;
 		screenRows[input] = value;
 		setFormState({
@@ -298,10 +294,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	const handleAddRow = () => {
 		const newScreenState = {
 			...formState[questionIndex],
-			rowStructure: [
-				...formState[questionIndex].rowStructure,
-				{ ...formState[questionIndex].rowsType[0] },
-			],
+			rowStructure: [...formState[questionIndex].rowStructure, { ...formState[questionIndex].rowsType[0] }],
 		};
 		setFormState({
 			...formState,
@@ -366,10 +359,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 		if (homeMenuState) {
 			return (
 				<>
-					<HomeMenuBackground
-						carbonQuiz={carbonQuiz}
-						onClick={handleCloseMenu}
-					/>
+					<HomeMenuBackground carbonQuiz={carbonQuiz} onClick={handleCloseMenu} />
 					<HomeMenuWraper carbonQuiz={carbonQuiz}>
 						<LogoStyle src={logo} alt='logo'></LogoStyle>
 						{homeMenuState ? (
@@ -421,16 +411,13 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 	return (
 		<QuizWrapper carbonQuiz={carbonQuiz}>
 			<HomeNavBarWrapper>
-				<HomeNavBar handleMenu={handleOpenMenu} />
+				<Navbar handleMenu={handleOpenMenu} />
 			</HomeNavBarWrapper>
 			<HomeMenu carbonQuiz={carbonQuiz} />
 			<SideQuizMenu questionIndex={questionIndex} formState={formState} />
 			<QuizBox businessQuiz={businessQuiz}>
 				{businessQuiz ? (
-					<QuestionQuizBusiness
-						rowsValues={formState[questionIndex]}
-						handleInput={handleInput}
-					/>
+					<QuestionQuizBusiness rowsValues={formState[questionIndex]} handleInput={handleInput} />
 				) : carbonQuiz ? (
 					<QuestionCarbonQuizIndividual
 						rowsValues={formState[questionIndex]}
@@ -439,16 +426,7 @@ export const Quiz = ({ stateScreen, setStateScreen, QuizData }) => {
 						handleQuizDesign={handleQuizDesign}
 						simpleQuiz={simpleQuiz}
 					/>
-				) : (
-					<QuestionWaterQuizIndividual
-						rowsValues={formState[questionIndex]}
-						handleWaterSlider={handleWaterSlider}
-						handleWaterInput={handleWaterInput}
-						handleInputIndividual={handleInputIndividual}
-						handleQuizDesign={handleQuizDesign}
-						simpleQuiz={simpleQuiz}
-					/>
-				)}
+				) : null}
 				<Buttons
 					back={back}
 					next={next}

@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { HomeNavBar } from '../../Home/HomeNavBar';
-import InformationImg from '../../../assets/bg_informationPage1.jpg';
+// import { Link } from 'react-router-dom';
+// import HomeNavBar from '../../Navbar/home-navbar';
+// import InformationImg from '../../../assets/bg_informationPage1.jpg';
 
-import '../../Home/HomeNavBar.css';
+import '../../Home/style/HomeNavBar.css';
 
 const HomeNavBarWrapper = styled.div`
 	position: absolute;
@@ -21,8 +21,8 @@ const InformationWrapper = styled.div`
 	margin-top: 20vh;
 	margin-bottom: 10vh;
 	padding: 1em 2em;
-	box-shadow: 0px 1px 1px rgba(10, 10, 10, 0.1),
-		0px 1px 2px rgba(10, 10, 10, 0.1), 0px 0px 1px rgba(10, 10, 10, 0.8);
+	box-shadow: 0px 1px 1px rgba(10, 10, 10, 0.1), 0px 1px 2px rgba(10, 10, 10, 0.1),
+		0px 0px 1px rgba(10, 10, 10, 0.8);
 	box-shadow: var(
 		--theme-container-box-shadow,
 		0px 1px 1px rgba(10, 10, 10, 0.1),
@@ -77,39 +77,34 @@ const AboutImage = styled.img`
 export const Information = () => {
 	return (
 		<>
-			<HomeNavBarWrapper>
+			{/* <HomeNavBarWrapper>
 				<HomeNavBar />
 			</HomeNavBarWrapper>
 			<InformationWrapper>
 				<Title>Información</Title>
 				<TextWrapper>
 					<TextLeft>
-						La huella de carbono representa el impacto que tiene sobre el clima
-						el desarrollo de una actividad, y mide la cantidad de gases de
-						efecto invernadero que emitimos a la atmósfera. Nuestra calculadora
-						de huella de carbono puede utilizarse para personas y
-						organizaciones.
+						La huella de carbono representa el impacto que tiene sobre el clima el desarrollo de una
+						actividad, y mide la cantidad de gases de efecto invernadero que emitimos a la atmósfera. Nuestra
+						calculadora de huella de carbono puede utilizarse para personas y organizaciones.
 						<br />
 						<br />
-						La heulla de carbono se divide en Alcance 1, 2 y 3. La mayor parte
-						de todas las emisiones de CO2 tienen que ver con el consumo de
-						energía: electricidad, gas y combustibles. Dicho esto, existen
-						grandes diferencias en el nivel de emisiones contaminantes, o lo que
-						es lo mismo, entre las huellas que dejan unos y otros, en función
-						del uso de vehículos, los consumos de energía, o el grado de
-						reciclaje.
+						La heulla de carbono se divide en Alcance 1, 2 y 3. La mayor parte de todas las emisiones de CO2
+						tienen que ver con el consumo de energía: electricidad, gas y combustibles. Dicho esto, existen
+						grandes diferencias en el nivel de emisiones contaminantes, o lo que es lo mismo, entre las
+						huellas que dejan unos y otros, en función del uso de vehículos, los consumos de energía, o el
+						grado de reciclaje.
 						<br />
 						<br />
-						El primer paso para minimizar nuestra huella de carbono es sin duda
-						conocerla, para poder así plantearnos el reducirla. Si tu duda es
-						cómo puedes calcular tu huella de carbono para conocer cuántos gases
-						de efecto invernadero emites, puedes echar mano de nuestra
-						calculadora interactiva. ¡Es muy sencilla!
+						El primer paso para minimizar nuestra huella de carbono es sin duda conocerla, para poder así
+						plantearnos el reducirla. Si tu duda es cómo puedes calcular tu huella de carbono para conocer
+						cuántos gases de efecto invernadero emites, puedes echar mano de nuestra calculadora interactiva.
+						¡Es muy sencilla!
 						<br />
 						<AboutImage src={InformationImg} />
 					</TextLeft>
 				</TextWrapper>
-			</InformationWrapper>
+			</InformationWrapper> */}
 		</>
 	);
 };

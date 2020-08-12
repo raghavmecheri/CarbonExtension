@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, useParams } from 'react-router-dom';
-import { HomeNavBar } from '../../Home/HomeNavBar';
-import bgImg from '../../../assets/bg_contribute.jpg';
-import ImgWWF from '../../../assets/contribute_img_1.jpg';
-import Oceans from '../../../assets/contribute_img_2.png';
-import Trees from '../../../assets/contribute_img_3.png';
+// import { Link, useParams } from 'react-router-dom';
+// import Navbar from '../../Navbar/home-navbar';
+// import bgImg from '../../../assets/bg_contribute.jpg';
+// import ImgWWF from '../../../assets/contribute_img_1.jpg';
+// import Oceans from '../../../assets/contribute_img_2.png';
+// import Trees from '../../../assets/contribute_img_3.png';
 
-import '../../Home/HomeNavBar.css';
+import '../../Home/style/HomeNavBar.css';
 
 const HomeNavBarWrapper = styled.div`
 	position: absolute;
@@ -187,8 +187,8 @@ const ButtonCard = styled.button`
 export const Contribute = () => {
 	return (
 		<>
-			<HomeNavBarWrapper>
-				<HomeNavBar />
+			{/* <HomeNavBarWrapper>
+				<Navbar />
 			</HomeNavBarWrapper>
 			<ImageWrapper>
 				<BgImage src={bgImg} />
@@ -236,7 +236,7 @@ export const Contribute = () => {
 						</Link>
 					</ButtonWrapper>
 				</Card>
-			</BoxCard>
+			</BoxCard> */}
 		</>
 	);
 };

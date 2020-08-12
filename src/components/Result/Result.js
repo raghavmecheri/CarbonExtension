@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { businessCarbonData } from '../../data/carbon/businessCarbonData';
 import { ResultIndividualCarbonData } from '../../data/carbon/ResultIndividualCarbonData';
-import { ResultIndividualWaterData } from '../../data/water/ResultIndividualWaterData';
 import { mediaCarbonData } from '../../data/carbon/media-carbon-data';
-import { mediaWaterData } from '../../data/water/media-water-data';
 import { fakeData } from '../../data/fakeData';
 import ResultsBackground from './Background';
 import logo from '../../assets/logo.png';
@@ -118,8 +116,7 @@ export function Result({ stateScreen }) {
 				let energy = stateScreen.formState[key].rowStructure[i].energyType;
 				let quantity = stateScreen.formState[key].rowStructure[i].quantity;
 				if (energy && quantity) {
-					result =
-						result + Number(quantity) * Number(businessCarbonData[key][energy]);
+					result = result + Number(quantity) * Number(businessCarbonData[key][energy]);
 				}
 			});
 		});
@@ -132,8 +129,7 @@ export function Result({ stateScreen }) {
 		Object.keys(stateScreen.formState).map((key) => {
 			let frecuency = stateScreen.formState[key].rowStructureSimple['slider'];
 			let combustion = stateScreen.formState[key].rowStructureSimple['coche'];
-			let eficiencyCar =
-				stateScreen.formState[key].rowStructureSimple['eficiencia'];
+			let eficiencyCar = stateScreen.formState[key].rowStructureSimple['eficiencia'];
 			let moto = stateScreen.formState[key].rowStructureSimple['moto'];
 			let title = stateScreen.formState[key].simpleName;
 			let frecuencyMultiplier;
@@ -156,11 +152,7 @@ export function Result({ stateScreen }) {
 				let footprintFactorMoto = ResultIndividualCarbonData[key][moto];
 				let averageConsume = mediaCarbonData[key][title];
 				if (footprintFactor) {
-					result =
-						result +
-						Number(averageConsume) *
-							Number(frecuencyMultiplier) *
-							Number(footprintFactor);
+					result = result + Number(averageConsume) * Number(frecuencyMultiplier) * Number(footprintFactor);
 				}
 				if (footprintFactorCar) {
 					result =
@@ -173,178 +165,47 @@ export function Result({ stateScreen }) {
 				if (moto && footprintFactorMoto && averageConsume) {
 					result =
 						Number(result) +
-						Number(averageConsume) *
-							Number(frecuencyMultiplier) *
-							Number(footprintFactorMoto);
+						Number(averageConsume) * Number(frecuencyMultiplier) * Number(footprintFactorMoto);
 				}
 			}
 			if (stateScreen.formState[key].ComplexFormState === true) {
 				if (key === '1') {
-					let quantity =
-						stateScreen.formState[key].rowStructureComplex[0][
-							'Km. recorrido por año'
-						];
-					let eficiency =
-						stateScreen.formState[key].rowStructureComplex[0][
-							'Eficiencia del vehículo'
-						];
-					let combustible =
-						stateScreen.formState[key].rowStructureComplex[0][
-							'Tipo de Combustible'
-						];
+					let quantity = stateScreen.formState[key].rowStructureComplex[0]['Km. recorrido por año'];
+					let eficiency = stateScreen.formState[key].rowStructureComplex[0]['Eficiencia del vehículo'];
+					let combustible = stateScreen.formState[key].rowStructureComplex[0]['Tipo de Combustible'];
 					let carFactor = ResultIndividualCarbonData[key][combustible];
 					if (carFactor) {
-						result =
-							Number(result) +
-							Number(quantity) * Number(carFactor) * Number(eficiency);
+						result = Number(result) + Number(quantity) * Number(carFactor) * Number(eficiency);
 					}
 				} else if (key === '2') {
-					let quantity =
-						stateScreen.formState[key].rowStructureComplex[0][
-							'Km. recorrido por año'
-						];
-					let cilindrada =
-						stateScreen.formState[key].rowStructureComplex[0]['Moto cc.'];
+					let quantity = stateScreen.formState[key].rowStructureComplex[0]['Km. recorrido por año'];
+					let cilindrada = stateScreen.formState[key].rowStructureComplex[0]['Moto cc.'];
 					let motoFactor = ResultIndividualCarbonData[key][cilindrada];
 					if (motoFactor) {
 						result = Number(result) + Number(quantity) * Number(motoFactor);
 					}
 				}
-				Object.keys(stateScreen.formState[key].rowStructureComplex[0]).map(
-					(i) => {
-						let quantity = stateScreen.formState[key].rowStructureComplex[0][i];
-						let footprintFactor = ResultIndividualCarbonData[key][i];
-						if (quantity && footprintFactor && key !== '1' && key !== '2') {
-							if (key === '6') {
-								result =
-									Number(result) +
-									Number(quantity) * Number(footprintFactor) * 12;
-							} else {
-								result =
-									Number(result) + Number(quantity) * Number(footprintFactor);
-							}
-						}
-					}
-				);
-			}
-		});
-	} else if (
-		stateScreen.formState &&
-		stateScreen.formState[0].footprint == 'water'
-	) {
-		Object.keys(stateScreen.formState).map((key) => {
-			if (stateScreen.formState[key].ComplexFormState === true) {
-				Object.keys(stateScreen.formState[key].rowStructureComplex).map((i) => {
-					if (i == 'Nº de Duchas al dia') {
-						const minutes =
-							stateScreen.formState[key].rowStructureComplex[
-								'Minutos en la Ducha'
-							];
-						const quantity = stateScreen.formState[key].rowStructureComplex[i];
-						const waterFactor =
-							ResultIndividualWaterData[key]['Minutos en la Ducha'];
-						if (quantity && waterFactor && minutes) {
-							result =
-								Number(result) +
-								Number(quantity) * Number(waterFactor) * Number(minutes);
-						}
-					} else if (i == 'Nº veces que lavas los platos al dia') {
-						const minutes =
-							stateScreen.formState[key].rowStructureComplex[
-								'Min. que corre el agua al lavar los platos'
-							];
-						const quantity = stateScreen.formState[key].rowStructureComplex[i];
-						const waterFactor =
-							ResultIndividualWaterData[key][
-								'Min. que corre el agua al lavar los platos'
-							];
-						if (quantity && waterFactor && minutes) {
-							result =
-								Number(result) +
-								Number(quantity) * Number(waterFactor) * Number(minutes);
-						}
-					} else if (i == 'Nº veces que riegas el jardin por semana') {
-						const minutes =
-							stateScreen.formState[key].rowStructureComplex[
-								'Min. que riegas el jardin cada vez'
-							];
-						const quantity = stateScreen.formState[key].rowStructureComplex[i];
-						const waterFactor =
-							ResultIndividualWaterData[key][
-								'Min. que riegas el jardin cada vez'
-							];
-						if (quantity && waterFactor && minutes) {
-							result =
-								Number(result) +
-								Number(quantity) * Number(waterFactor) * Number(minutes);
-						}
-					} else if (
-						i === 'Cierras el agua cuando te cepillas lo dientes?' ||
-						i === 'Tienes un tirador dual de cadena?' ||
-						i === 'Nº de Duchas al dia'
-					) {
-						result = result;
-					} else {
-						const quantity = stateScreen.formState[key].rowStructureComplex[i];
-						const waterFactor = ResultIndividualWaterData[key][i];
-						if (quantity && waterFactor) {
-							result = Number(result) + Number(quantity) * Number(waterFactor);
+				Object.keys(stateScreen.formState[key].rowStructureComplex[0]).map((i) => {
+					let quantity = stateScreen.formState[key].rowStructureComplex[0][i];
+					let footprintFactor = ResultIndividualCarbonData[key][i];
+					if (quantity && footprintFactor && key !== '1' && key !== '2') {
+						if (key === '6') {
+							result = Number(result) + Number(quantity) * Number(footprintFactor) * 12;
+						} else {
+							result = Number(result) + Number(quantity) * Number(footprintFactor);
 						}
 					}
 				});
 			}
-			if (stateScreen.formState[key].ComplexFormState === false) {
-				Object.keys(stateScreen.formState[key].rowStructureSimple).map((i) => {
-					const frecuency = stateScreen.formState[0].rowStructureSimple[i];
-					const waterFactor = ResultIndividualWaterData[0][i];
-					const mediaQuantity = mediaWaterData[0][i];
-					let frecuencyQuantity;
-					if (frecuency < 1) {
-						frecuencyQuantity = 0;
-					} else if (frecuency < 3) {
-						frecuencyQuantity = 1 / 3;
-					} else if (frecuency < 5) {
-						frecuencyQuantity = 1;
-					} else if (frecuency < 7) {
-						frecuencyQuantity = 1.5;
-					} else if (frecuency < 9) {
-						frecuencyQuantity = 3;
-					} else if (frecuency <= 10) {
-						frecuencyQuantity = 5;
-					}
-					if (mediaQuantity && waterFactor) {
-						result =
-							Number(result) +
-							Number(frecuencyQuantity) *
-								Number(waterFactor) *
-								Number(mediaQuantity);
-					}
-				});
-			}
 		});
-		if (stateScreen.formState[0].ComplexFormState === false) {
-			const coffe =
-				stateScreen.formState[0].rowStructureComplex['Tazas de Cafe por Dia'];
-			const coffeFactor = ResultIndividualWaterData[0]['Tazas de Cafe por Dia'];
-			const teaFactor = ResultIndividualWaterData[0]['Tazas de Te por Dia'];
-			const tea =
-				stateScreen.formState[0].rowStructureComplex['Tazas de Te por Dia'];
-			if (coffe) {
-				result = Number(result) + Number(coffe) * Number(coffeFactor);
-			}
-			if (tea) {
-				result = Number(result) + Number(tea) * Number(teaFactor);
-			}
-		}
 	}
+
 	let carbon = true;
 	let units = 'm3 de agua al año';
 	let Earths = 1;
 	let ArrayEarths = ['1'];
 	if (stateScreen.formState) {
-		carbon =
-			stateScreen.formState[0].footprint == 'carbon' &&
-			stateScreen.formState[0].type == 'individual';
+		carbon = stateScreen.formState[0].footprint == 'carbon' && stateScreen.formState[0].type == 'individual';
 	}
 	result = result.toFixed(2);
 
@@ -390,9 +251,7 @@ export function Result({ stateScreen }) {
 					</DataResult>
 					{carbon ? (
 						<>
-							<AwarenessText>
-								Si todo el mundo tuviese tu estilo de vida, necesitariamos
-							</AwarenessText>
+							<AwarenessText>Si todo el mundo tuviese tu estilo de vida, necesitariamos</AwarenessText>
 							<AwarenessResult>
 								{Earths} Tierras
 								{/* <AwarenessButton>See How</AwarenessButton> */}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './BackgroundAnimation.scss';
+import './style/BackgroundAnimation.scss';
 
 export const HomeBackgroundAnimation = () => {
 	return (

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { HomeNavBar } from '../../Home/HomeNavBar';
-import AboutImg from '../../../assets/bg_aboutPage.jpg';
-import AboutImg2 from '../../../assets/bg_aboutPage2.jpg';
+// import Navbar from '../../Navbar/navbar';
+// import AboutImg from '../../../assets/bg_aboutPage.jpg';
+// import AboutImg2 from '../../../assets/bg_aboutPage2.jpg';
 
-import '../../Home/HomeNavBar.css';
+import '../../Home/style/HomeNavBar.css';
 
 const HomeNavBarWrapper = styled.div`
 	position: absolute;
@@ -22,8 +22,8 @@ const AboutWrapper = styled.div`
 	margin-top: 20vh;
 	margin-bottom: 10vh;
 	padding: 1em 2em;
-	box-shadow: 0px 1px 1px rgba(10, 10, 10, 0.1),
-		0px 1px 2px rgba(10, 10, 10, 0.1), 0px 0px 1px rgba(10, 10, 10, 0.8);
+	box-shadow: 0px 1px 1px rgba(10, 10, 10, 0.1), 0px 1px 2px rgba(10, 10, 10, 0.1),
+		0px 0px 1px rgba(10, 10, 10, 0.8);
 	box-shadow: var(
 		--theme-container-box-shadow,
 		0px 1px 1px rgba(10, 10, 10, 0.1),
@@ -110,46 +110,41 @@ const AboutImage2 = styled.img`
 export const About = ({ handleMenu }) => {
 	return (
 		<>
-			<HomeNavBarWrapper>
-				<HomeNavBar />
+			{/* <HomeNavBarWrapper>
+				<Navbar />
 			</HomeNavBarWrapper>
 			<AboutWrapper>
 				<Title>Acerca</Title>
 				<TextWrapper>
 					<TextLeft>
-						Esta es una calculadora de la huella de carbono y de agua. El
-						propósito de esta calculadora es crear conciencia sobre nuestros
-						hábitos de consumo y sobre cómo nuestras acciones como personas
+						Esta es una calculadora de la huella de carbono y de agua. El propósito de esta calculadora es
+						crear conciencia sobre nuestros hábitos de consumo y sobre cómo nuestras acciones como personas
 						individuales impactan el mundo.
 						<br />
 						<br />
-						Esta calculadora puede calcular la huella de Carbono de un negocio o
-						de personas individuales. También puede calcular la huella Hídrica
-						de personas individuales.
+						Esta calculadora puede calcular la huella de Carbono de un negocio o de personas individuales.
+						También puede calcular la huella Hídrica de personas individuales.
 						<br />
 						<br />
 						<br />
 						<AboutImage src={AboutImg} />
 					</TextLeft>
 					<TextRigth>
-						En algunas preguntas, puede ingresar tus datos de consumo exactos o
-						puede elegir ingresarlos más fácilmente con un control deslizante.
-						Estos datos se obtienen del consumo medio de ciudadanos españoles
-						proporcionado por los diferentes ministerios del gobierno español.
+						En algunas preguntas, puede ingresar tus datos de consumo exactos o puede elegir ingresarlos más
+						fácilmente con un control deslizante. Estos datos se obtienen del consumo medio de ciudadanos
+						españoles proporcionado por los diferentes ministerios del gobierno español.
 						<br />
 						<br />
-						Los factores de emisión en los que se basa la calculadora también se
-						calculan y obtienen con respecto a los datos de España. Dado que su
-						huella varía según el país en el que vive.
+						Los factores de emisión en los que se basa la calculadora también se calculan y obtienen con
+						respecto a los datos de España. Dado que su huella varía según el país en el que vive.
 						<br />
 						<br />
-						Esta página está desarrollada por mí. Un estudiante de la
-						Universidad de Burgos. Quién hizo esta página como mi proyecto final
-						de grado.
+						Esta página está desarrollada por mí. Un estudiante de la Universidad de Burgos. Quién hizo esta
+						página como mi proyecto final de grado.
 						<AboutImage2 src={AboutImg2} />
 					</TextRigth>
 				</TextWrapper>
-			</AboutWrapper>
+			</AboutWrapper> */}
 		</>
 	);
 };

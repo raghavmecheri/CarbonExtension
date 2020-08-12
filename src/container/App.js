@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import Theme from '../style/Theme';
 
-import { Home } from '../components/Home/Home';
+import { Home } from '../components/Home';
 import { Quiz } from '../components/Quiz/quiz';
 import { Result } from '../components/Result/Result';
 import { Information } from '../components/NavBarPages/Information/InformationPage';
@@ -13,8 +13,6 @@ import { ErrorPage } from '../components/Error/ErrorPage';
 
 import { BusinessCarbonQuizData } from '../data/carbon/business-carbon-quiz-data';
 import { IndividualCarbonQuizData } from '../data/carbon/individual-carbon-quiz-data';
-
-import { PersonWaterQuizData } from '../data/water/individual-water-quiz-data';
 
 const AppContainer = styled.div`
 	color: ${(props) => props.theme.colors.ligth};
@@ -46,16 +44,6 @@ function App() {
 								stateScreen={stateScreen}
 								setStateScreen={setStateScreen}
 								QuizData={BusinessCarbonQuizData}
-							/>
-						)}
-					/>
-					<Route
-						path='/water/quiz/person'
-						component={() => (
-							<Quiz
-								stateScreen={stateScreen}
-								setStateScreen={setStateScreen}
-								QuizData={PersonWaterQuizData}
 							/>
 						)}
 					/>
@@ -98,11 +86,7 @@ function App() {
 							return null;
 						}}
 					/>
-
-					<Route
-						path='/result'
-						component={() => <Result stateScreen={stateScreen} />}
-					/>
+					<Route path='/result' component={() => <Result stateScreen={stateScreen} />} />
 					{/* <Route path='/errorPage' component={ErrorPage} />
 					<Route render={() => <Redirect to='/' />} /> */}
 				</AppContainer>
