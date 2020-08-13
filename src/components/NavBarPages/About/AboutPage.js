@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import AboutImg from '../../../assets/bg_aboutPage.jpg';
 // import AboutImg2 from '../../../assets/bg_aboutPage2.jpg';
 
-import '../../Home/style/HomeNavBar.css';
+// import '../../Home/style/HomeNavBar.css';
 
 const HomeNavBarWrapper = styled.div`
 	position: absolute;

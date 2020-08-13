@@ -1,26 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { HomeBackgroundAnimation } from './HomeBackgroundAnimation';
+import BirdAnimation from './bird-animation';
 import bgTree from '../../assets/bg_home.svg';
 
-const BackgroundAnimationWrapper = styled.div`
+const AnimationWrapper = styled.div`
 	position: absolute;
-	height: 500px;
+	height: 100vh;
 	width: 100vw;
-	top: 5em;
+	top: 0;
 	left: 0;
-	padding-left: 16vw;
-	z-index: -99999999;
-	@media (max-width: 550px) {
-		padding-left: 0;
-	}
+	z-index: -999;
 `;
 
 const BackgroundTree = styled.img`
-	position: absolute;
-	bottom: 1em;
-	left: -1em;
 	width: 35em;
 	z-index: -9999;
 	@media (max-height: 750px) {
@@ -43,15 +36,15 @@ const BackgroundTree = styled.img`
 	}
 `;
 
-const BackgroundStyle = () => {
+const HomeBackground = () => {
 	return (
 		<>
 			<BackgroundTree src={bgTree} alt='TreeBackground' />
-			<BackgroundAnimationWrapper>
-				<HomeBackgroundAnimation />
-			</BackgroundAnimationWrapper>
+			<AnimationWrapper>
+				<BirdAnimation />
+			</AnimationWrapper>
 		</>
 	);
 };
 
-export default BackgroundStyle;
+export default HomeBackground;

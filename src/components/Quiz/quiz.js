@@ -12,7 +12,6 @@ import logo from '../../assets/logo.png';
 import { Menu } from '@styled-icons/heroicons-outline';
 import { Cross } from '@styled-icons/entypo';
 import { HomeCircle } from '@styled-icons/boxicons-regular';
-import '../Home/style/HomeNavBar.css';
 
 const QuizWrapper = styled.div`
 	height: 100vh;

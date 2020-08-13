@@ -7,7 +7,7 @@ import styled from 'styled-components';
 // import Oceans from '../../../assets/contribute_img_2.png';
 // import Trees from '../../../assets/contribute_img_3.png';
 
-import '../../Home/style/HomeNavBar.css';
+// import '../../Home/style/HomeNavBar.css';
 
 const HomeNavBarWrapper = styled.div`
 	position: absolute;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // import HomeNavBar from '../../Navbar/home-navbar';
 // import InformationImg from '../../../assets/bg_informationPage1.jpg';
 
-import '../../Home/style/HomeNavBar.css';
+// import '../../Home/style/HomeNavBar.css';
 
 const HomeNavBarWrapper = styled.div`
 	position: absolute;
