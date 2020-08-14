@@ -1,14 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import IntroBackground from '../../assets/carbon-dioxide.svg';
+import Title from './intro-title';
+
+const IntroWrapper = styled.div`
+	background: -webkit-linear-gradient(#ebece7, #fff);
+	background: linear-gradient(#ebece7, #fff);
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	font-family: 'Raleway', sans-serif;
+`;
 
 const Intro = ({ handleIntro }) => {
 	return (
-		<div>
-			<button onClick={handleIntro}>Start</button>
-			<img src={IntroBackground} alt='backgrnd' />
-		</div>
+		<IntroWrapper>
+			<Title handleIntro={handleIntro} />
+		</IntroWrapper>
 	);
 };
 

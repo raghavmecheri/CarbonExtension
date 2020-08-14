@@ -21,17 +21,6 @@ const ButtonBox = styled.div`
 	}
 `;
 
-const Intro = ({ handleIntro }) => {
-	return (
-		<>
-			<HeroText>Calculate your carbon footprint</HeroText>
-			<ButtonBox>
-				<ButtonComponent content={'Started'} handleClick={handleIntro} />
-			</ButtonBox>
-		</>
-	);
-};
-
 const CalculatorSelection = ({ handleIndividual, handleOrganization }) => {
 	return (
 		<>
@@ -45,23 +34,14 @@ const CalculatorSelection = ({ handleIndividual, handleOrganization }) => {
 };
 
 const HeroBody = () => {
-	const [heroBodyState, setHeroBodyState] = useState(false);
-
-	const handleIntro = () => {
-		console.log('handleIntro');
-		setHeroBodyState(true);
-	};
 	const handleIndividual = () => {
 		console.log('handleIndividual');
 	};
 	const handleOrganization = () => {
 		console.log('handleOrganization');
 	};
-	if (heroBodyState)
-		return (
-			<CalculatorSelection handleIndividual={handleIndividual} handleOrganization={handleOrganization} />
-		);
-	return <Intro handleIntro={handleIntro} />;
+
+	return <CalculatorSelection handleIndividual={handleIndividual} handleOrganization={handleOrganization} />;
 };
 
 export default HeroBody;

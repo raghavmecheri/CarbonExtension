@@ -28,6 +28,7 @@ const HomePage = () => {
 	const [start, setStart] = useState(false);
 
 	const handleIntro = () => {
+		console.log('eneter');
 		setStart(true);
 	};
 
