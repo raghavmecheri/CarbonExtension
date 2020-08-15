@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import BirdAnimation from './bird-animation';
+import TreeAnimation from './tree-animation/tree-animation';
 import bgTree from '../../assets/bg_home.svg';
 
 const AnimationWrapper = styled.div`
@@ -39,10 +40,11 @@ const BackgroundTree = styled.img`
 const HomeBackground = () => {
 	return (
 		<>
-			<BackgroundTree src={bgTree} alt='TreeBackground' />
-			<AnimationWrapper>
+			{/* <BackgroundTree src={bgTree} alt='TreeBackground' /> */}
+			<TreeAnimation />
+			{/* <AnimationWrapper>
 				<BirdAnimation />
-			</AnimationWrapper>
+			</AnimationWrapper> */}
 		</>
 	);
 };

@@ -1,57 +1,27 @@
 import React, { useState } from 'react';
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 
-import HomeBackground from './home-background';
-import Hero from './hero';
-import Intro from './intro';
-import Navbar from '../Navbar/navbar';
+import HomePage from './home-page';
 
-const HomeWrapper = styled.div`
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-`;
-
-const BackgroundWrapper = styled.div`
-	height: 100;
-	width: 45%;
-`;
-
-const HeroWrapper = styled.div`
-	height: 100;
-	width: 55%;
-`;
-
-const HomePage = () => {
+const Home = () => {
 	const [start, setStart] = useState(false);
 
 	const handleIntro = () => {
-		console.log('eneter');
 		setStart(true);
 	};
 
-	if (start)
-		return (
-			<>
-				<BackgroundWrapper>
-					<HomeBackground />
-				</BackgroundWrapper>
-				<HeroWrapper>
-					<Hero />
-				</HeroWrapper>
-			</>
-		);
-
-	return <Intro handleIntro={handleIntro} />;
-};
-
-const Home = () => {
 	return (
-		<HomeWrapper>
-			<HomePage />
-		</HomeWrapper>
+		<SwitchTransition mode='out-in'>
+			<CSSTransition
+				key={start}
+				addEndListener={(node, done) => {
+					node.addEventListener('transitionend', done, false);
+				}}
+				classNames='fade'>
+				<HomePage start={start} handleIntro={handleIntro} />
+			</CSSTransition>
+		</SwitchTransition>
 	);
 };
 

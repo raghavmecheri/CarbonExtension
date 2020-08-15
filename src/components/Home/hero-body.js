@@ -7,7 +7,7 @@ import HeroText from './hero-text';
 const ButtonBox = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-around;
 	margin: auto;
 	padding-top: 2em;
 	@media only screen and (max-width: 1180px) {
@@ -21,7 +21,14 @@ const ButtonBox = styled.div`
 	}
 `;
 
-const CalculatorSelection = ({ handleIndividual, handleOrganization }) => {
+const HeroBody = () => {
+	const handleIndividual = () => {
+		console.log('handleIndividual');
+	};
+	const handleOrganization = () => {
+		console.log('handleOrganization');
+	};
+
 	return (
 		<>
 			<HeroText>Are you being all the green that you can be?</HeroText>
@@ -31,17 +38,6 @@ const CalculatorSelection = ({ handleIndividual, handleOrganization }) => {
 			</ButtonBox>
 		</>
 	);
-};
-
-const HeroBody = () => {
-	const handleIndividual = () => {
-		console.log('handleIndividual');
-	};
-	const handleOrganization = () => {
-		console.log('handleOrganization');
-	};
-
-	return <CalculatorSelection handleIndividual={handleIndividual} handleOrganization={handleOrganization} />;
 };
 
 export default HeroBody;

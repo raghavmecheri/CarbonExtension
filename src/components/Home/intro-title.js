@@ -1,17 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import Background from '../../assets/intro_earth.jpg';
+import Background from '../../assets/titlebg.jpg';
 
 const Container = styled.div`
-	position: absolute;
 	width: 90vw;
 	background: transparent;
-	-webkit-transform: translate(-50%, -45%);
-	-ms-transform: translate(-50%, -45%);
-	transform: translate(-50%, -45%);
-	left: 50%;
-	top: 40%;
 	font-family: 'Anonymous Pro', monospace;
 `;
 
@@ -21,7 +15,7 @@ const TitleStyle = styled.div`
 	font-size: 170px;
 	background: url(${Background});
 	background-repeat: repeat;
-	background-size: 600px;
+	background-size: 690px;
 	background-position: 45% 40%;
 	-webkit-background-clip: text;
 	position: relative;

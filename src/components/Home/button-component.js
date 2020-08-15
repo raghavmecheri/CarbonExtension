@@ -11,12 +11,12 @@ const Button = styled.button`
 	font-weight: 500;
 	text-transform: uppercase;
 	transition: background-color 1s ease;
-	color: ${(props) => (props.black ? 'black' : props.blue ? 'cornflowerblue' : '#a67171')};
-	border-color: ${(props) => (props.black ? 'black' : props.blue ? 'cornflowerblue' : '#a67171')};
+	color: palegoldenrod;
+	border-color: palegoldenrod;
 	&:hover {
 		cursor: pointer;
-		color: ${(props) => props.theme.colors.ligth};
-		background-color: #38a66dab;
+		color: palegoldenrod;
+		background-color: transparent;
 		font-weight: 500;
 	}
 	@media only screen and (max-width: 950px) {

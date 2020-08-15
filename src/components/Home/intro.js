@@ -8,7 +8,10 @@ const IntroWrapper = styled.div`
 	background: linear-gradient(#ebece7, #fff);
 	margin: 0;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	font-family: 'Raleway', sans-serif;
 `;
 
