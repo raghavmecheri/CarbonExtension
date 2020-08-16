@@ -2,11 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TextStyle = styled.div`
-	padding: 1em;
-	text-transform: uppercase;
+	padding-top: 2em;
 	text-align: center;
-	color: #38a66d;
-	font-family: ${(props) => props.theme.fonts.tittle}, serif;
+	color: ${(props) => props.theme.colors.secondary};
 	font-weight: 700;
 	font-size: 20px;
 `;

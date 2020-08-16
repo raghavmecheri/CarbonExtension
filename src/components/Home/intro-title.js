@@ -6,22 +6,22 @@ import Background from '../../assets/titlebg.jpg';
 const Container = styled.div`
 	width: 90vw;
 	background: transparent;
-	font-family: 'Anonymous Pro', monospace;
 `;
 
 const TitleStyle = styled.div`
 	font-weight: 800;
 	color: transparent;
-	font-size: 170px;
+	font-size: 160px;
+	font-family: ${(props) => props.theme.fontFamily.title2};
 	background: url(${Background});
 	background-repeat: repeat;
-	background-size: 690px;
-	background-position: 45% 40%;
+	background-size: 770px;
+	background-position: 50% 40%;
 	-webkit-background-clip: text;
 	position: relative;
 	text-align: center;
-	line-height: 110px;
-	letter-spacing: -8px;
+	line-height: 120px;
+	letter-spacing: -14px;
 `;
 
 const Subtitle = styled.div`

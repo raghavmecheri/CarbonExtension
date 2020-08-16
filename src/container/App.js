@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
-import Theme from '../style/Theme';
+import Theme from '../Theme';
 
 import { Home } from '../components/Home';
 import { Quiz } from '../components/Quiz/quiz';
@@ -15,7 +15,7 @@ import { BusinessCarbonQuizData } from '../data/carbon/business-carbon-quiz-data
 import { IndividualCarbonQuizData } from '../data/carbon/individual-carbon-quiz-data';
 
 const AppContainer = styled.div`
-	color: ${(props) => props.theme.colors.ligth};
+	color: ${(props) => props.theme.colors.secondary};
 	text-align: center;
 	height: 100%;
 `;

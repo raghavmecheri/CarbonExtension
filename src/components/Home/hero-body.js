@@ -31,7 +31,7 @@ const HeroBody = () => {
 
 	return (
 		<>
-			<HeroText>Are you being all the green that you can be?</HeroText>
+			<HeroText>Select the type of carbon footprint calculation</HeroText>
 			<ButtonBox>
 				<ButtonComponent content={'Individual'} handleClick={handleIndividual} />
 				<ButtonComponent content={'Small Organization'} handleClick={handleOrganization} />

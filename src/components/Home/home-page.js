@@ -16,13 +16,13 @@ const HomeWrapper = styled.div`
 
 const BackgroundWrapper = styled.div`
 	height: 100;
-	width: 45%;
+	width: 40%;
+	z-index: -999;
 `;
 
 const HeroWrapper = styled.div`
 	height: 100;
-	width: 55%;
-	z-index: 999;
+	width: 60%;
 `;
 
 const AnimationIntro = styled.div`
