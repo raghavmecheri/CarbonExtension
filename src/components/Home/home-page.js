@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import HomeBackground from './home-background';
+import MobileHomeBackground from './home-background-mobile';
 import Hero from './hero';
 import Intro from './intro';
 import Navbar from '../Navbar/navbar';
@@ -12,17 +13,41 @@ const HomeWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	@media only screen and (max-width: 800px) {
+		display: block;
+		height: auto;
+	}
 `;
 
 const BackgroundWrapper = styled.div`
-	height: 100;
+	height: 100%;
 	width: 40%;
 	z-index: -999;
+	@media only screen and (max-width: 1200px) {
+		display: none;
+	}
+`;
+
+const MobileBackgroundWrapper = styled.div`
+	display: none;
+	@media only screen and (max-width: 1200px) {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		width: 40%;
+	}
+	@media only screen and (max-width: 800px) {
+		width: 100%;
+	}
 `;
 
 const HeroWrapper = styled.div`
-	height: 100;
+	height: auto;
 	width: 60%;
+	@media only screen and (max-width: 800px) {
+		width: 100%;
+	}
 `;
 
 const AnimationIntro = styled.div`
@@ -62,6 +87,9 @@ const HomePage = ({ start, handleIntro }) => {
 					<BackgroundWrapper>
 						<HomeBackground />
 					</BackgroundWrapper>
+					<MobileBackgroundWrapper>
+						<MobileHomeBackground />
+					</MobileBackgroundWrapper>
 					<HeroWrapper>
 						<Hero />
 					</HeroWrapper>

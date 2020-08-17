@@ -6,7 +6,6 @@ import tree1 from './assets/tree2.svg';
 import tree2 from './assets/tree1.svg';
 import tree3 from './assets/tree5.svg';
 import tree4 from './assets/tree6.svg';
-import './styles.css';
 
 const doubleSide = THREE.DoubleSide;
 const deg = THREE.Math.degToRad;

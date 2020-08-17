@@ -22,15 +22,60 @@ const TitleStyle = styled.div`
 	text-align: center;
 	line-height: 120px;
 	letter-spacing: -14px;
+	@media only screen and (max-width: 1200px) {
+		font-size: 140px;
+		line-height: 110px;
+		letter-spacing: -14px;
+	}
+	@media only screen and (max-width: 850px) {
+		font-size: 120px;
+		line-height: 97px;
+		letter-spacing: -12px;
+	}
+	@media only screen and (max-width: 710px) {
+		font-size: 100px;
+		line-height: 85px;
+		letter-spacing: -10px;
+	}
+	@media only screen and (max-width: 600px) {
+		font-size: 70px;
+		line-height: 53px;
+		-webkit-letter-spacing: -7px;
+		-moz-letter-spacing: -7px;
+		-ms-letter-spacing: -7px;
+		letter-spacing: -7px;
+		background-size: 346px;
+	}
+	@media only screen and (max-width: 400px) {
+		font-size: 61px;
+		line-height: 46px;
+		letter-spacing: -7px;
+		background-size: 300px;
+	}
+	@media only screen and (max-width: 350px) {
+		font-size: 54px;
+		line-height: 43px;
+	}
 `;
 
-const Subtitle = styled.div`
+const Subtitle = styled.h3`
 	display: block;
 	text-align: center;
 	text-transform: uppercase;
-	padding-top: 10px;
 	color: black;
-	padding-top: 1em;
+	padding-top: 0.5em;
+	@media only screen and (max-width: 1200px) {
+		padding-top: 0;
+		font-size: 16px;
+	}
+	@media only screen and (max-width: 850px) {
+		padding-top: 0;
+		font-size: 14px;
+	}
+	@media only screen and (max-width: 600px) {
+		padding-top: 1em;
+		font-size: 12px;
+	}
 `;
 
 const ButtonWrapper = styled.div`
@@ -55,6 +100,15 @@ const Button = styled.button`
 	padding: 17px 60px;
 	margin: 0 auto;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+	@media only screen and (max-width: 850px) {
+		padding: 12px 40px;
+	}
+	@media only screen and (max-width: 600px) {
+		padding: 12px 25px;
+	}
+	@media only screen and (max-width: 400px) {
+		padding: 8px 13px;
+	}
 	&:after {
 		content: '';
 		position: absolute;

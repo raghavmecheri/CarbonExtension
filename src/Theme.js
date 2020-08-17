@@ -35,12 +35,13 @@ const fontWeights = {
 
 WebFont.load({
 	google: {
-		families: ['Boogaloo&family=Raleway:wght@800&display=swap'],
+		families: ['Boogaloo&family=Raleway:wght@800&family=Yanone+Kaffeesatz:wght@700&display=swap'],
 	},
 });
 
 const fontFamily = {
-	title: 'Boogaloo, cursive',
+	// title: 'Boogaloo, cursive',
+	title: 'Yanone Kaffeesatz, sans-serif',
 	title2: 'Raleway, sans-serif',
 };
 

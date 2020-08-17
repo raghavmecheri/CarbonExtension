@@ -12,7 +12,6 @@ const IntroWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: 'Raleway', sans-serif;
 `;
 
 const Intro = ({ handleIntro }) => {

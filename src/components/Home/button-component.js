@@ -19,8 +19,13 @@ const Button = styled.button`
 		transform: scale(1.1);
 	}
 	@media only screen and (max-width: 950px) {
-		width: 10em;
+		width: 14em;
+		padding: 0.6em;
 		margin: 0.3em;
+		font-size: 16px;
+	}
+	@media only screen and (max-width: 500px) {
+		font-size: 15px;
 	}
 `;
 

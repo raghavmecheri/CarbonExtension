@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import errorImg from '../../assets/ErrorImg2.png';
-
 import './ErrorPage.css';
 
 export const ErrorPage = () => {
 	return (
 		<div className='ErrorWrapper'>
-			<img src={errorImg} alt='ErrorImage' className='ErrorImage' />
+			{/* <img src={errorImg} alt='ErrorImage' className='ErrorImage' /> */}
 			<div className='ErrorPage'>
 				<div className='space'>
 					Er<span className='R'>r</span>o<span>r</span>

@@ -9,6 +9,16 @@ const Title = styled.h1`
 	text-align: center;
 	font-size: 80px;
 	margin-bottom: 0;
+	letter-spacing: -5px;
+	@media only screen and (max-width: 1000px) {
+		font-size: 75px;
+	}
+	@media only screen and (max-width: 800px) {
+		margin-top: 0.3em;
+	}
+	@media only screen and (max-width: 550px) {
+		font-size: 60px;
+	}
 `;
 
 const Subtitle = styled.h4`
@@ -17,7 +27,13 @@ const Subtitle = styled.h4`
 	font-weight: 500;
 	text-align: center;
 	font-size: 20px;
-	margin-top: 1em;
+	margin-top: 0.3em;
+	@media only screen and (max-width: 1000px) {
+		font-size: 16px;
+	}
+	@media only screen and (max-width: 550px) {
+		font-size: 14px;
+	}
 `;
 
 const HeroTitle = ({ children }) => {

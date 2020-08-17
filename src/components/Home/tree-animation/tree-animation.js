@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
-// A React renderer for Three-js: https://github.com/drcmda/react-three-fiber
+import styled from 'styled-components';
 import { Canvas } from 'react-three-fiber';
-// A React x-platform animation library: https://github.com/react-spring/react-spring
 import { useTransition, useSpring, a } from 'react-spring/three';
 import { svgs, colors, deg, doubleSide } from './resources/helpers';
+
+const Wrapper = styled.div`
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	color: #fff8de;
+	overflow: hidden;
+`;
 
 /** This component renders a shape */
 function Shape({ shape, rotation, position, color, opacity, index }) {
@@ -47,7 +54,7 @@ function Scene() {
 				<planeGeometry attach='geometry' args={[1, 1]} />
 				<a.meshPhongMaterial attach='material' color={color} depthTest={false} />
 			</mesh>
-			<group position={[-3000, 1500, page]} rotation={[0, deg(180), deg(180)]}>
+			<group position={[-2900, 1500, page]} rotation={[0, deg(180), deg(180)]}>
 				{transitions.map(({ item, key, props }) => (
 					<Shape key={key} {...item} {...props} />
 				))}
@@ -59,7 +66,7 @@ function Scene() {
 /** Main component */
 function TreeAnimation() {
 	return (
-		<div className='main'>
+		<Wrapper>
 			<Canvas
 				invalidateFrameloop
 				camera={{
@@ -73,7 +80,7 @@ function TreeAnimation() {
 				<spotLight intensity={0.5} position={[300, 300, 4000]} />
 				<Scene />
 			</Canvas>
-		</div>
+		</Wrapper>
 	);
 }
 
