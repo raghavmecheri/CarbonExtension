@@ -33,19 +33,25 @@ const NavbarWrapper = styled.div`
 	&.appear-active {
 		width: 14em;
 		height: 14em;
-		transition: all 400ms;
+		transition: all 500ms;
 	}
 	&.exit {
-		width: 14em;
-		height: 14em;
-		color: transparent;
+		transform-origin: 90% 10%;
+		transform: scaleY(0.8);
+		opacity: 0.5;
+		background: #1d976c;
+		background: -webkit-linear-gradient(to bottom, #93f9b9, #1d976c);
+		background: linear-gradient(to bottom, #93f9b9, #1d976c);
 	}
 	/* fires as element leaves the DOM*/
 	&.exit-active {
-		width: 3em;
-		height: 3em;
-		color: transparent;
-		transition: all 400ms;
+		transform: scale(0.1);
+		opacity: 1;
+		border-radius: 50%;
+		background: #1d976c;
+		background: -webkit-linear-gradient(to bottom, #93f9b9, #1d976c);
+		background: linear-gradient(to bottom, #93f9b9, #1d976c);
+		transition: all 500ms;
 	}
 	@media (max-width: 500px) {
 		top: ${(props) => (props.open ? '1em' : '0')};
@@ -58,6 +64,9 @@ const NavbarWrapper = styled.div`
 	@media (max-width: 350px) {
 		top: ${(props) => (props.open ? '1em' : '-1em')};
 		right: ${(props) => (props.open ? '1em' : '-1.2em')};
+		&.exit {
+			transform-origin: 80% 15%;
+		}
 	}
 `;
 
@@ -75,6 +84,7 @@ const NavbarLogo = styled(MenuAlt3)`
 	cursor: pointer;
 	display: block;
 	transform: ${(props) => (props.open ? 'scaleX(-1)' : null)};
+	transition: all 500ms;
 	@media (max-width: 500px) {
 		top: ${(props) => (props.open ? '1.5em' : '1.5em')};
 		right: ${(props) => (props.open ? '15em' : '1.5em')};
@@ -93,32 +103,19 @@ const OpacityNavbar = styled.div`
 	z-index: 1;
 	&.enter,
 	&.appear {
-		/*We give the list the initial dimension of the list button*/
-		top: 0;
-		right: 0;
-		height: 0vh;
-		width: 0vw;
+		opacity: 0.5;
 	}
 	&.enter-active,
 	&.appear-active {
-		top: 0;
-		right: 0;
-		height: 100vh;
-		width: 100vw;
+		opacity: 1;
 		transition: all 400ms;
 	}
 	&.exit {
-		top: 0;
-		right: 0;
-		height: 100vh;
-		width: 100vw;
+		opacity: 0.9;
 	}
-	/* fires as element leaves the DOM*/
+
 	&.exit-active {
-		top: 0;
-		right: 0;
-		height: 0vh;
-		width: 0vw;
+		opacity: 0;
 		transition: all 400ms;
 	}
 `;

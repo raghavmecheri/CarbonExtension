@@ -28,7 +28,7 @@ function App() {
 				<AppContainer>
 					<Route exact path='/' component={Home} />
 					<Route
-						path='/carbon/quiz/person'
+						path='/quiz/person'
 						component={() => (
 							<Quiz
 								stateScreen={stateScreen}
@@ -38,7 +38,7 @@ function App() {
 						)}
 					/>
 					<Route
-						path='/carbon/quiz/organization'
+						path='/quiz/organization'
 						component={() => (
 							<Quiz
 								stateScreen={stateScreen}

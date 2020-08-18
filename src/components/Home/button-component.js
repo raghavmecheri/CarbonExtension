@@ -15,6 +15,7 @@ const Button = styled.button`
 	border-color: white;
 	background: forestgreen;
 	z-index: 0;
+	transition: all 300ms;
 	&:hover {
 		cursor: pointer;
 		transform: scale(1.1);
