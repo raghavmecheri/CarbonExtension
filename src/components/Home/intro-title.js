@@ -22,6 +22,9 @@ const TitleStyle = styled.div`
 	text-align: center;
 	line-height: 120px;
 	letter-spacing: -14px;
+	@media only screen and (max-height: 650px) {
+		font-size: 135px;
+	}
 	@media only screen and (max-width: 1200px) {
 		font-size: 140px;
 		line-height: 110px;
@@ -64,6 +67,9 @@ const Subtitle = styled.h3`
 	text-transform: uppercase;
 	color: black;
 	padding-top: 0.5em;
+	@media only screen and (max-height: 650px) {
+		font-size: 16px;
+	}
 	@media only screen and (max-width: 1200px) {
 		padding-top: 0;
 		font-size: 16px;

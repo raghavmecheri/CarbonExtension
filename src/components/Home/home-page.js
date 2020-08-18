@@ -45,6 +45,7 @@ const MobileBackgroundWrapper = styled.div`
 const HeroWrapper = styled.div`
 	height: auto;
 	width: 60%;
+	padding: 1em;
 	@media only screen and (max-width: 800px) {
 		width: 100%;
 	}
