@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import tree from '../../assets/bg_home.svg';
+import BirdAnimation from './bird-animation';
 
 const BgImg = styled.img`
 	width: 30em;
@@ -26,6 +27,7 @@ const MobileHomeBackground = () => {
 	return (
 		<>
 			<BgImg src={tree} alt='tree' />
+			<BirdAnimation />
 		</>
 	);
 };

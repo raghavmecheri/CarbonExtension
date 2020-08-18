@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
-import styled from 'styled-components';
 
 import HomePage from './home-page';
 
 const Home = () => {
-	const [start, setStart] = useState(false);
+	const [start, setStart] = useState(true);
 
 	const handleIntro = () => {
 		setStart(true);

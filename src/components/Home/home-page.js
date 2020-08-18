@@ -84,6 +84,7 @@ const HomePage = ({ start, handleIntro }) => {
 		return (
 			<AnimationHero>
 				<HomeWrapper>
+					<Navbar />
 					<BackgroundWrapper>
 						<HomeBackground />
 					</BackgroundWrapper>

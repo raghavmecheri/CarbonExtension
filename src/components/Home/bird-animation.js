@@ -17,15 +17,17 @@ const flyRightOne = keyframes`
 `;
 
 const Container = styled.div`
-	z-index: 1;
-	position: relative;
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
 	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	width: 100vw;
 	background-color: transparent;
-	min-height: 35rem;
-	padding: 2rem;
+	height: 100vh;
+	@media only screen and (max-width: 800px) {
+		height: 30vh;
+	}
 `;
 
 const Bird = styled.div`

@@ -4,10 +4,13 @@ import { Link } from 'react-router-dom';
 
 const NavbarLinkStyle = styled.div`
 	position: relative;
+	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	font-weight: 500;
 	padding: 5px;
-	border-bottom: 1px solid black;
+	border-bottom: 2px solid black;
+	padding: 0.8em 0em;
+	font-size: 22px;
 
 	&:before {
 		content: '';
@@ -16,7 +19,7 @@ const NavbarLinkStyle = styled.div`
 		left: 0;
 		width: 100%;
 		height: 3px;
-		background: #38a66d;
+		background: white;
 		z-index: 1;
 		transform: scaleX(0);
 		transform-origin: left;
@@ -25,16 +28,16 @@ const NavbarLinkStyle = styled.div`
 
 	&:hover {
 		cursor: pointer;
-		color: #38a66d;
+		color: white;
 	}
 
 	&:hover:before {
 		transform: scaleX(1);
 		transform-origin: left;
 	}
-
-	@media (max-width: 700px) {
-		display: none;
+	@media (max-width: 500px) {
+		border-bottom: 2px solid black;
+		font-size: 22px;
 	}
 `;
 
