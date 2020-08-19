@@ -8,14 +8,21 @@ const TextStyle = styled.h2`
 	font-size: 20px;
 	padding-top: 2em;
 	margin-bottom: 0;
-	@media only screen and (max-width: 1000px) {
-		font-size: 18px;
-		margin-bottom: 1em;
-	}
-	@media only screen and (max-width: 500px) {
-		font-size: 15px;
-		margin-bottom: 1em;
-	}
+	${({ theme }) =>
+		theme.query.desktop({
+			'font-size': '18px',
+			'margin-bottom': '1em',
+		})}
+	${({ theme }) =>
+		theme.query.bigMobile({
+			'font-size': '15px',
+			'margin-bottom': '1em',
+		})}
+	${({ theme }) =>
+		theme.query.smallMobile({
+			'font-size': '12px',
+			'margin-bottom': '1em',
+		})}
 `;
 
 const HeroText = ({ children }) => {

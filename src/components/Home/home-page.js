@@ -13,42 +13,48 @@ const HomeWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	@media only screen and (max-width: 800px) {
-		display: block;
-		height: auto;
-	}
+	${({ theme }) =>
+		theme.query.smallDesktop({
+			display: 'block',
+			height: 'auto',
+		})}
 `;
 
 const BackgroundWrapper = styled.div`
 	height: 100%;
 	width: 40%;
 	z-index: -999;
-	@media only screen and (max-width: 1200px) {
-		display: none;
-	}
+	${({ theme }) =>
+		theme.query.bigDesktop({
+			display: 'none',
+		})}
 `;
 
 const MobileBackgroundWrapper = styled.div`
 	display: none;
-	@media only screen and (max-width: 1200px) {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100%;
-		width: 40%;
-	}
-	@media only screen and (max-width: 800px) {
-		width: 100%;
-	}
+	${({ theme }) =>
+		theme.query.bigDesktop({
+			display: 'flex',
+			'justify-content': 'center',
+			'align-items': 'center',
+			height: '100%',
+			width: '40%',
+		})}
+	${({ theme }) =>
+		theme.query.smallDesktop({
+			width: '100%',
+		})}
 `;
 
 const HeroWrapper = styled.div`
 	height: auto;
 	width: 60%;
 	padding: 1em;
-	@media only screen and (max-width: 800px) {
-		width: 100%;
-	}
+	${({ theme }) =>
+		theme.query.smallDesktop({
+			width: '100%',
+			padding: '0',
+		})}
 `;
 
 const AnimationIntro = styled.div`

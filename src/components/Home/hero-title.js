@@ -10,15 +10,22 @@ const Title = styled.h1`
 	font-size: 80px;
 	margin-bottom: 0;
 	letter-spacing: -5px;
-	@media only screen and (max-width: 1000px) {
-		font-size: 75px;
-	}
-	@media only screen and (max-width: 800px) {
-		margin-top: 0.3em;
-	}
-	@media only screen and (max-width: 550px) {
-		font-size: 60px;
-	}
+	${({ theme }) =>
+		theme.query.desktop({
+			'font-size': '75px',
+		})}
+	${({ theme }) =>
+		theme.query.smallDesktop({
+			'margin-top': '0.3em',
+		})}
+	${({ theme }) =>
+		theme.query.bigMobile({
+			'font-size': '60px',
+		})}
+	${({ theme }) =>
+		theme.query.smallMobile({
+			'font-size': '55px',
+		})}
 `;
 
 const Subtitle = styled.h4`
@@ -28,12 +35,18 @@ const Subtitle = styled.h4`
 	text-align: center;
 	font-size: 20px;
 	margin-top: 0.3em;
-	@media only screen and (max-width: 1000px) {
-		font-size: 16px;
-	}
-	@media only screen and (max-width: 550px) {
-		font-size: 14px;
-	}
+	${({ theme }) =>
+		theme.query.desktop({
+			'font-size': '16px',
+		})}
+	${({ theme }) =>
+		theme.query.bigMobile({
+			'font-size': '14px',
+		})}
+	${({ theme }) =>
+		theme.query.smallMobile({
+			'font-size': '12px',
+		})}
 `;
 
 const HeroTitle = ({ children }) => {

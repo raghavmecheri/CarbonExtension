@@ -11,15 +11,13 @@ const ButtonBox = styled.div`
 	justify-content: space-around;
 	margin: auto;
 	padding-top: 2em;
-	@media only screen and (max-width: 1180px) {
-		justify-content: space-around;
-	}
-	@media only screen and (max-width: 950px) {
-		display: grid;
-		align-items: center;
-		justify-content: center;
-		padding-top: 0;
-	}
+	${({ theme }) =>
+		theme.query.desktop({
+			display: 'grid',
+			'align-items': 'center',
+			'justify-content': 'center',
+			'padding-top': '0',
+		})}
 `;
 
 const HeroBody = () => {

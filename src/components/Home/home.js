@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
-import { InitializeAnalytics } from '../..//utils/analytics';
+import { InitializeAnalytics } from '../../utils/analytics';
 
 import HomePage from './home-page';
 
 const Home = () => {
 	const [start, setStart] = useState(false);
+	const homePageRef = useRef(null);
 
 	useEffect(() => {
 		try {
@@ -18,7 +19,7 @@ const Home = () => {
 	const handleIntro = () => {
 		setStart(true);
 	};
-
+	console.log({ start });
 	return (
 		<SwitchTransition mode='out-in'>
 			<CSSTransition

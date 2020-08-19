@@ -10,12 +10,12 @@ const colors = {
 };
 
 const breakpoints = {
-	xxl: '1180px',
-	xl: '70%',
-	l: '55%',
-	m: '30%',
-	s: '20%',
-	xs: '15%',
+	xxl: 1200,
+	xl: 950,
+	l: 800,
+	m: 550,
+	s: 450,
+	xs: 350,
 };
 
 const fontSizes = {
@@ -24,6 +24,50 @@ const fontSizes = {
 	header: '16',
 	subheader: '16',
 	text: '16',
+};
+
+const constructCssCode = (children, item) => `${item}:${children[item]}`;
+
+const createMeidaQuery = (children, breakpoint) => {
+	return `
+	@media (max-width: ${breakpoint}px) {
+		${Object.keys(children)
+			.map((item) => constructCssCode(children, item))
+			.join(';')}
+	}`;
+};
+
+const bigDesktopMedia = (children) => {
+	return createMeidaQuery(children, breakpoints.xxl);
+};
+
+const desktopMedia = (children) => {
+	return createMeidaQuery(children, breakpoints.xl);
+};
+
+const smallDesktopMedia = (children) => {
+	return createMeidaQuery(children, breakpoints.l);
+};
+
+const bigMobileMedia = (children) => {
+	return createMeidaQuery(children, breakpoints.m);
+};
+
+const mobileMedia = (children) => {
+	return createMeidaQuery(children, breakpoints.s);
+};
+
+const smallMobileMedia = (children) => {
+	return createMeidaQuery(children, breakpoints.xs);
+};
+
+const query = {
+	smallMobile: smallMobileMedia,
+	mobile: mobileMedia,
+	bigMobile: bigMobileMedia,
+	smallDesktop: smallDesktopMedia,
+	desktop: desktopMedia,
+	bigDesktop: bigDesktopMedia,
 };
 
 const fontWeights = {
@@ -51,6 +95,7 @@ const theme = {
 	fontSizes,
 	fontWeights,
 	fontFamily,
+	query,
 };
 
 const Theme = ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
