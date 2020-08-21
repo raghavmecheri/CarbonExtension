@@ -19,7 +19,7 @@ const Home = () => {
 	const handleIntro = () => {
 		setStart(true);
 	};
-	console.log({ start });
+
 	return (
 		<SwitchTransition mode='out-in'>
 			<CSSTransition

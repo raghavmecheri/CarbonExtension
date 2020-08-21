@@ -132,7 +132,6 @@ const SliderBox = styled.div`
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	margin: auto;
 `;
 const SliderBox2 = styled.div`
 	display: flex;
@@ -232,165 +231,78 @@ const Selector = styled.select`
 	@media (max-width: 810px) {
 		width: 47%;
 		height: 2em;
-		margin: auto;
 	}
 `;
 
-export const QuestionQuizIndividualSimple = ({
-	rowsValues,
-	handleSliderInput,
-}) => {
-	const {
-		id,
-		title,
-		description,
-		description2,
-		image2,
-		rowStructureSimple,
-		dropdownTypes,
-		placeHolder,
-	} = rowsValues;
+const QuizIndividualSimple = ({ state }) => {
+	const { quizData, questionIndex } = state;
 
-	const { slider } = rowStructureSimple;
-
-	const SliderText = () => {
-		if (slider < 1) {
-			return (
-				<>
-					<SliderTextStyle>Nunca</SliderTextStyle>
-					<SliderSubTextStyle>{'( x0 )'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (slider < 3) {
-			return (
-				<>
-					<SliderTextStyle>Ocasionalmente</SliderTextStyle>
-					<SliderSubTextStyle>{'( x1/3 )'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (slider < 5) {
-			return (
-				<>
-					<SliderTextStyle>Normal</SliderTextStyle>
-					<SliderSubTextStyle>{'( x1 )'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (slider < 7) {
-			return (
-				<>
-					<SliderTextStyle>Frecuentemente</SliderTextStyle>
-					<SliderSubTextStyle>{'( x1,5 )'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (slider < 9) {
-			return (
-				<>
-					<SliderTextStyle>Muy Frecuentemente</SliderTextStyle>
-					<SliderSubTextStyle>{'( x3 )'}</SliderSubTextStyle>
-				</>
-			);
-		} else if (slider <= 10) {
-			return (
-				<>
-					<SliderTextStyle>Siempre</SliderTextStyle>
-					<SliderSubTextStyle>{'( x5 )'}</SliderSubTextStyle>
-				</>
-			);
-		}
-	};
+	// const SliderText = () => {
+	// 	if (slider < 1) {
+	// 		return (
+	// 			<>
+	// 				<SliderTextStyle>Nunca</SliderTextStyle>
+	// 				<SliderSubTextStyle>{'( x0 )'}</SliderSubTextStyle>
+	// 			</>
+	// 		);
+	// 	} else if (slider < 3) {
+	// 		return (
+	// 			<>
+	// 				<SliderTextStyle>Ocasionalmente</SliderTextStyle>
+	// 				<SliderSubTextStyle>{'( x1/3 )'}</SliderSubTextStyle>
+	// 			</>
+	// 		);
+	// 	} else if (slider < 5) {
+	// 		return (
+	// 			<>
+	// 				<SliderTextStyle>Normal</SliderTextStyle>
+	// 				<SliderSubTextStyle>{'( x1 )'}</SliderSubTextStyle>
+	// 			</>
+	// 		);
+	// 	} else if (slider < 7) {
+	// 		return (
+	// 			<>
+	// 				<SliderTextStyle>Frecuentemente</SliderTextStyle>
+	// 				<SliderSubTextStyle>{'( x1,5 )'}</SliderSubTextStyle>
+	// 			</>
+	// 		);
+	// 	} else if (slider < 9) {
+	// 		return (
+	// 			<>
+	// 				<SliderTextStyle>Muy Frecuentemente</SliderTextStyle>
+	// 				<SliderSubTextStyle>{'( x3 )'}</SliderSubTextStyle>
+	// 			</>
+	// 		);
+	// 	} else if (slider <= 10) {
+	// 		return (
+	// 			<>
+	// 				<SliderTextStyle>Siempre</SliderTextStyle>
+	// 				<SliderSubTextStyle>{'( x5 )'}</SliderSubTextStyle>
+	// 			</>
+	// 		);
+	// 	}
+	// };
 
 	return (
 		<>
-			<QuestionQuiz>{description2}</QuestionQuiz>
-			<SubQuestionQuiz>(Más alta o más baja que el promedio)</SubQuestionQuiz>
-			{id === 1 ? (
-				<WrapperComplexSimple>
-					<StyleComplexSimple>
-						<TitleSlider2>Km recorridos</TitleSlider2>
-						<SliderBox2>
-							<LeftText>Nunca</LeftText>
-							<SliderInput
-								type='range'
-								id={id}
-								name='slider'
-								min='0'
-								max='10'
-								step='2'
-								value={slider}
-								onChange={(e) => handleSliderInput(e, id, 'slider')}
-							/>
-							<RightText>Siempre</RightText>
-						</SliderBox2>
-					</StyleComplexSimple>
-					<StyleComplexSimple>
-						<TitleSlider2>Tipo de Combustible</TitleSlider2>
-						<Selector
-							value={rowStructureSimple.coche}
-							onChange={(e) => handleSliderInput(e, id, 'coche')}>
-							{dropdownTypes.map((item, i) => {
-								return <option key={i}>{item}</option>;
-							})}
-						</Selector>
-					</StyleComplexSimple>
-					<StyleComplexSimple>
-						<TitleSlider2>Eficiencia</TitleSlider2>
-						<QuestionInput
-							type='number'
-							placeholder='5L / 100km'
-							value={rowStructureSimple.eficiencia}
-							onChange={(e) => handleSliderInput(e, id, 'eficiencia')}
-						/>
-					</StyleComplexSimple>
-				</WrapperComplexSimple>
-			) : id === 2 ? (
-				<WrapperComplexSimple>
-					<StyleComplexSimple>
-						<TitleSlider2>Km recorridos</TitleSlider2>
-						<SliderBox2>
-							<LeftText>Nunca</LeftText>
-							<SliderInput
-								type='range'
-								id={id}
-								name='slider'
-								min='0'
-								max='10'
-								step='2'
-								value={slider}
-								onChange={(e) => handleSliderInput(e, id, 'slider')}
-							/>
-							<RightText>Siempre</RightText>
-						</SliderBox2>
-					</StyleComplexSimple>
-					<StyleComplexSimple>
-						<TitleSlider2>Cilindrada Moto</TitleSlider2>
-						<Selector
-							value={rowStructureSimple.moto}
-							onChange={(e) => handleSliderInput(e, id, 'moto')}>
-							{dropdownTypes.map((item, i) => {
-								return <option key={i}>{item}</option>;
-							})}
-						</Selector>
-					</StyleComplexSimple>
-				</WrapperComplexSimple>
-			) : (
-				<>
-					<SliderBox>
-						<LeftText>Nunca</LeftText>
-						<SliderInput
-							type='range'
-							id={id}
-							name='slider'
-							min='0'
-							max='10'
-							step='2'
-							value={slider}
-							onChange={(e) => handleSliderInput(e, id, 'slider')}
-						/>
-						<RightText>Siempre</RightText>
-					</SliderBox>
-					<SliderText />
-				</>
-			)}
+			<QuestionQuiz>{quizData[questionIndex].title2}</QuestionQuiz>
+			<>
+				<SliderBox>
+					<LeftText>Nunca</LeftText>
+					<SliderInput
+						type='range'
+						name='slider'
+						min='0'
+						max='10'
+						step='2'
+						// onChange={(e) => handleSliderInput(e, id, 'slider')}
+					/>
+					<RightText>Siempre</RightText>
+				</SliderBox>
+				{/* <SliderText /> */}
+			</>
 		</>
 	);
 };
+
+export default QuizIndividualSimple;

@@ -12,8 +12,7 @@ const ButtonBox = styled.div`
 	padding: 1em 1em;
 	display: flex;
 	align-items: center;
-	justify-content: ${(props) =>
-		props.carbonQuiz ? 'space-between' : 'space-between'};
+	justify-content: ${(props) => (props.carbonQuiz ? 'space-between' : 'space-between')};
 	@media (max-width: 1400px) and (max-height: 700px) {
 		bottom: 0em;
 	}
@@ -132,11 +131,10 @@ export const Buttons = ({
 	handleDeleteQuestion,
 	businessQuiz,
 	carbonQuiz,
-	rowsValues,
 }) => {
 	if (!end) {
 		return (
-			<ButtonBox carbonQuiz={carbonQuiz} rowsValues={rowsValues}>
+			<ButtonBox carbonQuiz={carbonQuiz}>
 				<BackwardIcon onClick={back}>{'< Pregunta Atras'}</BackwardIcon>
 				{businessQuiz ? (
 					<MiddleBox>

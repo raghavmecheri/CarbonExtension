@@ -5,12 +5,12 @@ exports[`renders correctly enzyme 1`] = `
   theme={
     Object {
       "breakpoints": Object {
-        "l": "55%",
-        "m": "30%",
-        "s": 350,
-        "xl": "70%",
-        "xs": "15%",
-        "xxl": "1180px",
+        "l": 800,
+        "m": 550,
+        "s": 450,
+        "xl": 950,
+        "xs": 350,
+        "xxl": 1200,
       },
       "colors": Object {
         "forest": "#38a66d",
@@ -36,8 +36,12 @@ exports[`renders correctly enzyme 1`] = `
         "normal": "500",
       },
       "query": Object {
-        "bigMobileMedia": [Function],
+        "bigDesktop": [Function],
+        "bigMobile": [Function],
+        "desktop": [Function],
         "mobile": [Function],
+        "smallDesktop": [Function],
+        "smallMobile": [Function],
       },
     }
   }

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const NavbarLinkStyle = styled.div`
 	position: relative;
-	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	font-weight: 500;
 	padding: 5px;

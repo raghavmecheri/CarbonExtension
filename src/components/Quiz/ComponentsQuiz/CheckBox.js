@@ -8,8 +8,7 @@ const TextDropdown = styled.div`
 
 const CheckBoxWrapper = styled.div`
 	position: relative;
-	z-index: 9999;
-	margin: auto;
+	z-index: 0;
 	margin-top: 1em;
 	width: 6em;
 `;
@@ -56,22 +55,12 @@ const CheckBoxStyle = styled.input`
 
 export const CheckBox = ({ handleQuizDesign, ComplexForm }) => {
 	return (
-		<>
+		<div>
 			<CheckBoxWrapper>
 				{ComplexForm ? (
-					<CheckBoxStyle
-						onChange={handleQuizDesign}
-						id='checkbox'
-						type='checkbox'
-					/>
+					<CheckBoxStyle onChange={handleQuizDesign} id='checkbox' type='checkbox' />
 				) : (
-					<CheckBoxStyle
-						onChange={handleQuizDesign}
-						id='checkbox'
-						type='checkbox'
-						checked
-						disabled
-					/>
+					<CheckBoxStyle onChange={handleQuizDesign} id='checkbox' type='checkbox' checked disabled />
 				)}
 				<CheckBoxLabel htmlFor='checkbox' />
 			</CheckBoxWrapper>
@@ -80,6 +69,6 @@ export const CheckBox = ({ handleQuizDesign, ComplexForm }) => {
 				<br />
 				Mejorar Exactitud
 			</TextDropdown>
-		</>
+		</div>
 	);
 };
