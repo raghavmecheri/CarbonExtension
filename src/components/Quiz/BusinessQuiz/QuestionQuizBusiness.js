@@ -62,16 +62,7 @@ const InputRowWrapper = styled.div`
 `;
 
 export const QuestionQuizBusiness = ({ rowsValues, handleInput, value }) => {
-	const {
-		id,
-		title,
-		description,
-		rowTitles,
-		rowStructure,
-		dropdownTypes,
-		placeHolder,
-		gdp,
-	} = rowsValues;
+	const { id, title, description, rowTitles, rowStructure, dropdownTypes, placeHolder, gdp } = rowsValues;
 
 	return (
 		<QuestionsWrapper>

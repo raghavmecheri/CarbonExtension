@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { QuestionQuizBusiness } from './BusinessQuiz/QuestionQuizBusiness';
-import { Buttons } from './QuizComponents/ButtonsQuiz';
+// import { QuestionQuizBusiness } from './BusinessQuiz/QuestionQuizBusiness';
+// import { Buttons } from './QuizComponents/ButtonsQuiz';
 import Quiz from './quiz';
 
 const BusinessQuiz = ({ stateScreen, setStateScreen, QuizData }) => {
@@ -78,8 +78,9 @@ const BusinessQuiz = ({ stateScreen, setStateScreen, QuizData }) => {
 
 	return (
 		<Quiz>
-			<QuestionQuizBusiness rowsValues={formState[questionIndex]} handleInput={handleInput} />
-			<Buttons
+			{/* <QuestionQuizBusiness rowsValues={formState[questionIndex]} handleInput={handleInput} /> */}
+			<h1>hola</h1>
+			{/* <Buttons
 				back={back}
 				next={next}
 				finish={finish}
@@ -87,7 +88,7 @@ const BusinessQuiz = ({ stateScreen, setStateScreen, QuizData }) => {
 				handleDeleteQuestion={handleDeleteQuestion}
 				handleAddRow={handleAddRow}
 				rowsValues={formState[questionIndex]}
-			/>
+			/> */}
 		</Quiz>
 	);
 };
