@@ -16,6 +16,7 @@ const ButtonBox = styled.div`
 const SVG = styled.button`
 	border: 0px solid transparent;
 	cursor: pointer;
+	background: transparent;
 	svg {
 		border: 2px solid black;
 		width: 50px;

@@ -25,6 +25,26 @@ const reducer = (state, action) => {
 			return { ...state, questionIndex: state.questionIndex - 1 };
 		case 'reset':
 			return { ...state, questionIndex: 0 };
+		case 'slider':
+			console.log(state);
+			const value = action.value;
+			const questionIndex = state.questionIndex;
+			const newState = { ...state };
+			// newState.quizData[0].simpleState.slider = value;
+			return {
+				...state,
+				quizData: {
+					...state.quizData,
+					[questionIndex]: {
+						...state.quizData[questionIndex],
+						simpleState: {
+							...state.quizData[questionIndex].simpleState,
+							slider: value,
+						},
+					},
+				},
+			};
+		// return state;
 		default:
 			throw new Error('Unexpected action');
 	}
@@ -33,17 +53,20 @@ const reducer = (state, action) => {
 const IndividualQuiz = () => {
 	const [state, dispatch] = useReducer(reducer, { quizData: { ...quizData }, questionIndex: 0 });
 
-	console.log(state.questionIndex);
-
 	const handleClick = useCallback((e) => {
 		dispatch({ type: e.currentTarget.id });
+	});
+
+	const handleSlider = useCallback((e, name) => {
+		const { value } = e.target;
+		dispatch({ type: name, value: value });
 	});
 
 	return (
 		<Quiz handleClick={handleClick}>
 			<QuestionsWrapper>
 				<QuizHeader state={state} />
-				<QuizBody state={state} />
+				<QuizBody state={state} handleSlider={handleSlider} />
 			</QuestionsWrapper>
 		</Quiz>
 	);

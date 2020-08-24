@@ -6,11 +6,15 @@ const TitleWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	color: #38a66d;
-	padding-bottom: '0%';
 `;
 const Tittle = styled.h1`
 	font-size: 50px;
 	font-weight: 600;
+	${({ theme, open }) =>
+		theme.query.bigMobile({
+			'margin-top': '1.5em',
+			'margin-bottom': '0em',
+		})}
 `;
 
 const ImageWrapper = styled.div`
@@ -21,6 +25,10 @@ const ImageWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	${({ theme, open }) =>
+		theme.query.bigMobile({
+			height: '20vh',
+		})}
 `;
 
 const SimpleQuizImage = styled.img`

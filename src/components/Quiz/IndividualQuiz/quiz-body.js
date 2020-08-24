@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import QuizIndividualSimple from './SimpleQuiz/QuizIndividualSimple';
-import { QuestionQuizIndividualComplex } from './ComplexQuiz/QuestionCarbonQuizIndividualComplex';
+import QuizIndividualSimple from './quiz-individual-simple';
+import { QuestionQuizIndividualComplex } from './quiz-individual-complex';
 import { CheckBox } from '../ComponentsQuiz/CheckBox';
 
 const InputBox = styled.div`
@@ -36,10 +36,10 @@ const InputBox = styled.div`
 	}
 `;
 
-const QuizBody = ({ state }) => {
+const QuizBody = ({ state, handleSlider }) => {
 	return (
 		<InputBox>
-			<QuizIndividualSimple state={state} />
+			<QuizIndividualSimple state={state} handleSlider={handleSlider} />
 			{/* <QuizIndividualComplex state={state} /> */}
 			<CheckBox />
 		</InputBox>

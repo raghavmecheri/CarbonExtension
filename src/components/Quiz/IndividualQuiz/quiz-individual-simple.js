@@ -234,7 +234,7 @@ const Selector = styled.select`
 	}
 `;
 
-const QuizIndividualSimple = ({ state }) => {
+const QuizIndividualSimple = ({ state, handleSlider }) => {
 	const { quizData, questionIndex } = state;
 
 	// const SliderText = () => {
@@ -288,16 +288,17 @@ const QuizIndividualSimple = ({ state }) => {
 			<QuestionQuiz>{quizData[questionIndex].title2}</QuestionQuiz>
 			<>
 				<SliderBox>
-					<LeftText>Nunca</LeftText>
+					<LeftText>Never</LeftText>
 					<SliderInput
 						type='range'
 						name='slider'
 						min='0'
 						max='10'
 						step='2'
-						// onChange={(e) => handleSliderInput(e, id, 'slider')}
+						value={quizData[questionIndex].simpleState.slider}
+						onChange={(e) => handleSlider(e, 'slider')}
 					/>
-					<RightText>Siempre</RightText>
+					<RightText>Always</RightText>
 				</SliderBox>
 				{/* <SliderText /> */}
 			</>
