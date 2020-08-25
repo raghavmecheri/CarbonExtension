@@ -43,10 +43,14 @@ const QuizBox = styled.div`
 `;
 
 const MobileStyle = styled.div`
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	width: 100%;
+	display: none;
+	${({ theme }) =>
+		theme.query.bigMobile({
+			display: 'flex',
+			'justify-content': 'space-around',
+			'align-items': 'center',
+			width: '100%',
+		})}
 `;
 
 const Quiz = ({ children, handleClick }) => {
