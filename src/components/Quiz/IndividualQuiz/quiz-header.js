@@ -26,9 +26,9 @@ const ImageWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	${({ theme, open }) =>
+	${({ theme }) =>
 		theme.query.bigMobile({
-			height: '20vh',
+			height: '25vh',
 		})}
 `;
 

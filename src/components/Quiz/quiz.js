@@ -39,6 +39,7 @@ const QuizBox = styled.div`
 	${({ theme }) =>
 		theme.query.bigMobile({
 			height: 'auto',
+			width: '90vw',
 		})}
 `;
 

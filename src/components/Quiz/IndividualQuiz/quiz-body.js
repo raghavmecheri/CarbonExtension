@@ -26,6 +26,7 @@ const InputBox = styled.div`
 	${({ theme, open }) =>
 		theme.query.bigMobile({
 			'margin-bottom': '2em',
+			width: 'auto',
 		})}
 `;
 

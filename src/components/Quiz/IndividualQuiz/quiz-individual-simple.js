@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import SliderText from './SliderText';
+
 // START SLIDER -------------------------------------------------------------------------------------------------------------------
 const height = '16px';
 const thumbHeight = 36;
@@ -117,6 +119,7 @@ const QuestionQuiz = styled.div`
 	font-size: 25px;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
+	font-weight: 700;
 	display: flex;
 	justify-content: center;
 	${({ theme }) =>
@@ -125,12 +128,14 @@ const QuestionQuiz = styled.div`
 		})}
 `;
 
-const SubQuestionQuiz = styled.div`
-	font-size: 15px;
-	padding-bottom: 1.5em;
+const SliderWrapper = styled.div`
+	width: 100%;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 `;
+
 const SliderBox = styled.div`
 	display: flex;
 	justify-content: center;
@@ -152,70 +157,14 @@ const RightText = styled.div`
 	padding-left: 0.5em;
 `;
 
-const SliderTextStyle = styled.div`
-	font-family: 'Heebo', sans-serif;
-	font-size: 20px;
-	font-weight: 600;
-`;
-
-const SliderSubTextStyle = styled.div`
-	font-family: 'Heebo', sans-serif;
-	font-size: 15px;
-`;
-
 const QuizIndividualSimple = ({ state, handleSlider }) => {
 	const { quizData, questionIndex } = state;
-
-	// const SliderText = () => {
-	// 	if (slider < 1) {
-	// 		return (
-	// 			<>
-	// 				<SliderTextStyle>Nunca</SliderTextStyle>
-	// 				<SliderSubTextStyle>{'( x0 )'}</SliderSubTextStyle>
-	// 			</>
-	// 		);
-	// 	} else if (slider < 3) {
-	// 		return (
-	// 			<>
-	// 				<SliderTextStyle>Ocasionalmente</SliderTextStyle>
-	// 				<SliderSubTextStyle>{'( x1/3 )'}</SliderSubTextStyle>
-	// 			</>
-	// 		);
-	// 	} else if (slider < 5) {
-	// 		return (
-	// 			<>
-	// 				<SliderTextStyle>Normal</SliderTextStyle>
-	// 				<SliderSubTextStyle>{'( x1 )'}</SliderSubTextStyle>
-	// 			</>
-	// 		);
-	// 	} else if (slider < 7) {
-	// 		return (
-	// 			<>
-	// 				<SliderTextStyle>Frecuentemente</SliderTextStyle>
-	// 				<SliderSubTextStyle>{'( x1,5 )'}</SliderSubTextStyle>
-	// 			</>
-	// 		);
-	// 	} else if (slider < 9) {
-	// 		return (
-	// 			<>
-	// 				<SliderTextStyle>Muy Frecuentemente</SliderTextStyle>
-	// 				<SliderSubTextStyle>{'( x3 )'}</SliderSubTextStyle>
-	// 			</>
-	// 		);
-	// 	} else if (slider <= 10) {
-	// 		return (
-	// 			<>
-	// 				<SliderTextStyle>Siempre</SliderTextStyle>
-	// 				<SliderSubTextStyle>{'( x5 )'}</SliderSubTextStyle>
-	// 			</>
-	// 		);
-	// 	}
-	// };
+	const value = quizData[questionIndex].simpleState.slider;
 
 	return (
 		<>
 			<QuestionQuiz>{quizData[questionIndex].title2}</QuestionQuiz>
-			<>
+			<SliderWrapper>
 				<SliderBox>
 					<LeftText>Never</LeftText>
 					<SliderInput
@@ -224,13 +173,13 @@ const QuizIndividualSimple = ({ state, handleSlider }) => {
 						min='0'
 						max='10'
 						step='2'
-						value={quizData[questionIndex].simpleState.slider}
+						value={value}
 						onChange={(e) => handleSlider(e, 'slider')}
 					/>
 					<RightText>Always</RightText>
 				</SliderBox>
-				{/* <SliderText /> */}
-			</>
+				<SliderText value={value} />
+			</SliderWrapper>
 		</>
 	);
 };
