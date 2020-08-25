@@ -2,20 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TextDropdown = styled.div`
-	font-size: 17px;
+	font-size: 15px;
 	font-weight: 600;
 `;
 
 const CheckBoxWrapper = styled.div`
 	position: relative;
 	z-index: 0;
-	margin-top: 1em;
-	width: 6em;
+	width: 100%;
 `;
 const CheckBoxLabel = styled.label`
 	position: absolute;
 	top: 0;
-	left: 25%;
+	left: 30%;
 	width: 3em;
 	height: 26px;
 	border-radius: 15px;
@@ -65,9 +64,9 @@ export const CheckBox = ({ handleQuizDesign, ComplexForm }) => {
 				<CheckBoxLabel htmlFor='checkbox' />
 			</CheckBoxWrapper>
 			<TextDropdown>
-				Añadir Mas Informacion
+				Add Details
 				<br />
-				Mejorar Exactitud
+				Improve Accuracy
 			</TextDropdown>
 		</div>
 	);

@@ -9,9 +9,10 @@ import quizData from '../../data/individual-carbon-data';
 const QuestionsWrapper = styled.div`
 	height: 100%;
 	width: 100%;
-	@media (max-height: 740px) {
-		padding-top: 0;
-	}
+	${({ theme }) =>
+		theme.query.bigMobile({
+			height: 'auto',
+		})}
 `;
 
 const reducer = (state, action) => {
@@ -26,25 +27,11 @@ const reducer = (state, action) => {
 		case 'reset':
 			return { ...state, questionIndex: 0 };
 		case 'slider':
-			console.log(state);
 			const value = action.value;
 			const questionIndex = state.questionIndex;
 			const newState = { ...state };
-			// newState.quizData[0].simpleState.slider = value;
-			return {
-				...state,
-				quizData: {
-					...state.quizData,
-					[questionIndex]: {
-						...state.quizData[questionIndex],
-						simpleState: {
-							...state.quizData[questionIndex].simpleState,
-							slider: value,
-						},
-					},
-				},
-			};
-		// return state;
+			newState.quizData[questionIndex].simpleState.slider = value;
+			return newState;
 		default:
 			throw new Error('Unexpected action');
 	}

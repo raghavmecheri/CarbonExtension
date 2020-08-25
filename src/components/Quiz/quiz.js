@@ -11,12 +11,42 @@ const QuizWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	${({ theme }) =>
+		theme.query.bigMobile({
+			display: 'flex',
+			'flex-direction': 'column',
+			'justify-content': 'center',
+			'align-items': 'center',
+		})}
 `;
 
 const QuizBox = styled.div`
 	color: black;
-	width: 60vw;
+	width: 43vw;
 	height: 100%;
+	${({ theme }) =>
+		theme.query.bigDesktop({
+			width: '50vw',
+		})}
+	${({ theme }) =>
+		theme.query.desktop({
+			width: '65vw',
+		})}
+	${({ theme }) =>
+		theme.query.smallDesktop({
+			width: '80vw',
+		})}
+	${({ theme }) =>
+		theme.query.bigMobile({
+			height: 'auto',
+		})}
+`;
+
+const MobileStyle = styled.div`
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
 `;
 
 const Quiz = ({ children, handleClick }) => {
@@ -26,6 +56,10 @@ const Quiz = ({ children, handleClick }) => {
 			<ButtonArrow handleClick={handleClick} content='back' />
 			<QuizBox>{children}</QuizBox>
 			<ButtonArrow handleClick={handleClick} content='next' />
+			<MobileStyle>
+				<ButtonArrow mobile handleClick={handleClick} content='back' />
+				<ButtonArrow mobile handleClick={handleClick} content='next' />
+			</MobileStyle>
 		</QuizWrapper>
 	);
 };

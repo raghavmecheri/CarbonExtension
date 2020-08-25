@@ -26,7 +26,7 @@ const SliderInput = styled.input`
 	appearance: none;
 	max-width: 700px;
 	border: 1px solid black;
-	width: 30em;
+	width: 100%;
 	border-radius: 10px;
 	height: ${height};
 	cursor: pointer;
@@ -119,6 +119,10 @@ const QuestionQuiz = styled.div`
 	padding-bottom: 0.5em;
 	display: flex;
 	justify-content: center;
+	${({ theme }) =>
+		theme.query.bigMobile({
+			'font-size': '20px',
+		})}
 `;
 
 const SubQuestionQuiz = styled.div`
@@ -131,22 +135,21 @@ const SliderBox = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
-`;
-const SliderBox2 = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 47%;
+	width: 80%;
+	${({ theme }) =>
+		theme.query.bigMobile({
+			width: '100%',
+		})}
 `;
 
 const LeftText = styled.div`
 	padding-right: 0.5em;
-	width: 4em;
 	font-family: 'Heebo', sans-serif;
-	@media (max-width: 640px) {
-		display: none;
-	}
+`;
+
+const RightText = styled.div`
+	font-family: 'Heebo', sans-serif;
+	padding-left: 0.5em;
 `;
 
 const SliderTextStyle = styled.div`
@@ -158,80 +161,6 @@ const SliderTextStyle = styled.div`
 const SliderSubTextStyle = styled.div`
 	font-family: 'Heebo', sans-serif;
 	font-size: 15px;
-`;
-
-const RightText = styled.div`
-	font-family: 'Heebo', sans-serif;
-	padding-left: 0.5em;
-	width: 4em;
-	@media (max-width: 640px) {
-		display: none;
-	}
-`;
-const WrapperComplexSimple = styled.div`
-	padding-left: 10%;
-	padding-right: 5%;
-`;
-const StyleComplexSimple = styled.div`
-	display: flex;
-	justify-content: space-between;
-	padding: 0.5em;
-`;
-const TitleSlider2 = styled.div`
-	font-family: 'Heebo', sans-serif;
-	font-size: 20px;
-	text-align: initial;
-`;
-const QuestionInput = styled.input`
-	background: #90ee9052;
-	border: none;
-	border-bottom: 2px solid lightgreen;
-	border-radius: 0.5em;
-	height: 2em;
-	width: 47%;
-	text-align: center;
-	font-weight: 600;
-	font-size: 15px;
-	&:focus {
-		background: white;
-	}
-	@media (max-width: 1200px) {
-		width: 47%;
-	}
-	@media (max-width: 1150px) {
-		width: 47%;
-	}
-	@media (max-width: 1000px) {
-		width: 47%;
-	}
-	@media (max-width: 900px) {
-		width: 47%;
-	}
-	@media (max-width: 810px) {
-		width: 47%;
-	}
-`;
-
-const Selector = styled.select`
-	width: 47%;
-	font-size: medium;
-	border-radius: 0.3em;
-	@media (max-width: 1200px) {
-		width: 47%;
-	}
-	@media (max-width: 1150px) {
-		width: 47%;
-	}
-	@media (max-width: 1000px) {
-		width: 47%;
-	}
-	@media (max-width: 900px) {
-		width: 47%;
-	}
-	@media (max-width: 810px) {
-		width: 47%;
-		height: 2em;
-	}
 `;
 
 const QuizIndividualSimple = ({ state, handleSlider }) => {

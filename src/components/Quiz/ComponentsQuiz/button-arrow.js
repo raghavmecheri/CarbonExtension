@@ -11,6 +11,17 @@ const ButtonBox = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	${({ theme }) =>
+		theme.query.bigMobile({
+			display: 'none',
+		})}
+`;
+const MobileButtonBox = styled(ButtonBox)`
+	display: none;
+	${({ theme }) =>
+		theme.query.bigMobile({
+			display: 'flex',
+		})}
 `;
 
 const SVG = styled.button`
@@ -24,19 +35,26 @@ const SVG = styled.button`
 	}
 `;
 
-const Buttons = ({ content, handleClick }) => {
+const Buttons = ({ content, handleClick, mobile }) => {
 	const Selected = {
 		next: ArrowRightShort,
 		back: ArrowLeftShort,
 		done: DoneAll,
 	}[content];
 
+	const ResponsiveButton = ({ children }) => {
+		if (mobile) {
+			return <MobileButtonBox>{children}</MobileButtonBox>;
+		}
+		return <ButtonBox>{children}</ButtonBox>;
+	};
+
 	return (
-		<ButtonBox>
+		<ResponsiveButton>
 			<SVG id={content} onClick={handleClick}>
 				<Selected />
 			</SVG>
-		</ButtonBox>
+		</ResponsiveButton>
 	);
 };
 

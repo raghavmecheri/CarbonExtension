@@ -10,9 +10,10 @@ const TitleWrapper = styled.div`
 const Tittle = styled.h1`
 	font-size: 50px;
 	font-weight: 600;
+	margin-top: 1.5em;
 	${({ theme, open }) =>
 		theme.query.bigMobile({
-			'margin-top': '1.5em',
+			'margin-top': '0em',
 			'margin-bottom': '0em',
 		})}
 `;
