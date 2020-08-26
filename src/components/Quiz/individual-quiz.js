@@ -18,17 +18,35 @@ const QuestionsWrapper = styled.div`
 
 	&.next-enter {
 		transform: translateX(100vw);
+		${({ theme }) =>
+			theme.query.bigMobile({
+				transform: 'translateX(180vw)',
+			})}
 	}
 	&.next-enter-active {
 		transform: translateX(0%);
 		transition: transform 1000ms ease-in-out;
+		${({ theme }) =>
+			theme.query.bigMobile({
+				transform: 'translateX(0vw)',
+				transition: 'transform 1000ms ease-in-out',
+			})}
 	}
 	&.next-exit {
-		transform: translateX(5%);
+		transform: translateX(-50vw);
+		${({ theme }) =>
+			theme.query.bigMobile({
+				transform: 'translateX(-80vw)',
+			})}
 	}
 	&.next-exit-active {
-		transform: translateX(-100vw);
+		transform: translateX(-200vw);
 		transition: transform 1000ms ease-in-out;
+		${({ theme }) =>
+			theme.query.bigMobile({
+				transform: 'translateX(-200vw)',
+				transition: 'transform 1000ms ease-in-out',
+			})}
 	}
 
 	&.back-enter {
@@ -39,17 +57,12 @@ const QuestionsWrapper = styled.div`
 		transition: transform 1000ms ease-in-out;
 	}
 	&.back-exit {
-		transform: translateX(0%);
+		transform: translateX(-80vw);
 	}
 	&.back-exit-active {
 		transform: translateX(100vw);
 		transition: transform 1000ms ease-in-out;
 	}
-`;
-
-const AnimationDiv = styled.div`
-	display: flex;
-	align-items: center;
 `;
 
 const reducer = (state, action) => {
@@ -97,7 +110,7 @@ const IndividualQuiz = () => {
 	return (
 		<Quiz handleClick={handleClick}>
 			<TransitionGroup
-				style={{ display: 'flex', width: '100%' }}
+				style={{ display: 'flex' }}
 				childFactory={(child) => React.cloneElement(child, { classNames: slideTransition, timeout: 1000 })}>
 				<CSSTransition key={state.questionIndex}>
 					<QuestionsWrapper>

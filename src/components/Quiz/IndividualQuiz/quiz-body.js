@@ -9,6 +9,23 @@ const InputBox = styled.div`
 	background-color: white;
 	border-radius: 10px;
 	width: 100%;
+	min-width: 43vw;
+	${({ theme }) =>
+		theme.query.bigDesktop({
+			'min-width': '47vw',
+		})}
+	${({ theme }) =>
+		theme.query.desktop({
+			'min-width': '63vw',
+		})}
+	${({ theme }) =>
+		theme.query.smallDesktop({
+			'min-width': '77vw',
+		})}
+	${({ theme }) =>
+		theme.query.bigMobile({
+			'min-width': '87vw',
+		})}
 	height: 30vh;
 	padding: 0 0.5em;
 	overflow-y: hidden;
