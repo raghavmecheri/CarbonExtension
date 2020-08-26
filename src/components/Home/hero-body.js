@@ -21,22 +21,15 @@ const ButtonBox = styled.div`
 `;
 
 const HeroBody = () => {
-	const handleIndividual = () => {
-		console.log('handleIndividual');
-	};
-	const handleOrganization = () => {
-		console.log('handleOrganization');
-	};
-
 	return (
 		<>
 			<HeroText>Select the type of carbon footprint calculation</HeroText>
 			<ButtonBox>
 				<Link to='/quiz/person'>
-					<ButtonComponent content={'Individual'} handleClick={handleIndividual} />
+					<ButtonComponent content={'Individual'} />
 				</Link>
 				<Link to='/quiz/organization'>
-					<ButtonComponent content={'Small Organization'} handleClick={handleOrganization} />
+					<ButtonComponent content={'Small Organization'} />
 				</Link>
 			</ButtonBox>
 		</>

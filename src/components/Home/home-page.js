@@ -65,9 +65,6 @@ const AnimationIntro = styled.div`
 	&.fade-exit-active {
 		opacity: 0;
 		transform: translateY(-100%);
-	}
-
-	&.fade-exit-active {
 		transition: opacity 700ms, transform 700ms;
 	}
 `;
@@ -80,8 +77,6 @@ const AnimationHero = styled.div`
 	&.fade-enter-active {
 		opacity: 1;
 		transform: translateY(0%);
-	}
-	&.fade-enter-active {
 		transition: opacity 700ms, transform 700ms;
 	}
 `;

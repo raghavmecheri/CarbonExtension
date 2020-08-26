@@ -52,15 +52,16 @@ const CheckBoxStyle = styled.input`
 	}
 `;
 
-export const CheckBox = ({ handleQuizDesign, ComplexForm }) => {
+const CheckedBox = ({ changeState, handleQuizState }) => {
+	if (changeState) return <CheckBoxStyle onChange={handleQuizState} id='checkbox' type='checkbox' />;
+	return <CheckBoxStyle onChange={handleQuizState} id='checkbox' type='checkbox' checked disabled />;
+};
+
+export const CheckBox = ({ handleQuizState, changeState }) => {
 	return (
 		<div>
 			<CheckBoxWrapper>
-				{ComplexForm ? (
-					<CheckBoxStyle onChange={handleQuizDesign} id='checkbox' type='checkbox' />
-				) : (
-					<CheckBoxStyle onChange={handleQuizDesign} id='checkbox' type='checkbox' checked disabled />
-				)}
+				<CheckedBox handleQuizState={handleQuizState} changeState={changeState} />
 				<CheckBoxLabel htmlFor='checkbox' />
 			</CheckBoxWrapper>
 			<TextDropdown>

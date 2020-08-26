@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 
 import QuizIndividualSimple from './quiz-individual-simple';
@@ -23,19 +23,39 @@ const InputBox = styled.div`
 		background-color: rgba(0, 0, 0, 0.5);
 		box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 	}
-	${({ theme, open }) =>
+	${({ theme }) =>
 		theme.query.bigMobile({
 			'margin-bottom': '2em',
 			width: 'auto',
 		})}
 `;
 
-const QuizBody = ({ state, handleSlider }) => {
+const QuizIndividualState = ({ state, handleSlider, quizType }) => {
+	if (quizType) return <QuizIndividualSimple state={state} handleSlider={handleSlider} />;
+	{
+		/* <QuizIndividualComplex state={state} /> */
+	}
+	return <h1>Hola</h1>;
+};
+
+const QuizBody = ({ state, dispatch }) => {
+	const { questionIndex } = state;
+	let { quizType, changeState, ...rest } = state.quizData[questionIndex];
+
+	const handleSlider = useCallback((e, name) => {
+		const { value } = e.target;
+		dispatch({ type: name, value: value });
+	});
+
+	const handleQuizState = useCallback(() => {
+		dispatch({ type: 'quizState', payload: quizType });
+	});
+
 	return (
 		<InputBox>
-			<QuizIndividualSimple state={state} handleSlider={handleSlider} />
-			{/* <QuizIndividualComplex state={state} /> */}
-			<CheckBox />
+			{/* {quizType ? <QuizIndividualSimple state={state} handleSlider={handleSlider} /> : <h1>Hola</h1>} */}
+			<QuizIndividualState state={rest} handleSlider={handleSlider} quizType={quizType} />
+			<CheckBox handleQuizState={handleQuizState} changeState={changeState} />
 		</InputBox>
 	);
 };

@@ -22,7 +22,7 @@ const SliderSubTextStyle = styled.div`
 const SliderText = ({ value }) => {
 	let frecuency;
 	let ratio;
-	console.log(value);
+
 	switch (value) {
 		case '0':
 			frecuency = 'Never';

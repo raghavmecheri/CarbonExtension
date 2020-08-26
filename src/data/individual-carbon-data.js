@@ -11,7 +11,7 @@ import bgO7 from '../assets/bg_carbon_side_i_7.png';
 const IndividualCarbonData = {
 	0: {
 		id: 0,
-		initialState: 'simple',
+		quizType: true,
 		changeState: true,
 		title: 'Living',
 		title2: 'How much electricity do you consume?',
@@ -47,7 +47,7 @@ const IndividualCarbonData = {
 	},
 	1: {
 		id: 1,
-		initialState: 'simple',
+		quizType: true,
 		changeState: true,
 		title: 'Car',
 		title2: 'How much do use the car?',
@@ -77,7 +77,7 @@ const IndividualCarbonData = {
 	},
 	2: {
 		id: 2,
-		initialState: 'simple',
+		quizType: true,
 		changeState: true,
 		title: 'Bike',
 		title2: 'How often do you ride?',

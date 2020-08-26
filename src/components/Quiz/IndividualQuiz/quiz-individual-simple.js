@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import SliderText from './SliderText';
+import SliderText from './silder-text';
 
 // START SLIDER -------------------------------------------------------------------------------------------------------------------
 const height = '16px';
@@ -158,12 +158,11 @@ const RightText = styled.div`
 `;
 
 const QuizIndividualSimple = ({ state, handleSlider }) => {
-	const { quizData, questionIndex } = state;
-	const value = quizData[questionIndex].simpleState.slider;
+	const value = state.simpleState.slider;
 
 	return (
 		<>
-			<QuestionQuiz>{quizData[questionIndex].title2}</QuestionQuiz>
+			<QuestionQuiz>{state.title2}</QuestionQuiz>
 			<SliderWrapper>
 				<SliderBox>
 					<LeftText>Never</LeftText>

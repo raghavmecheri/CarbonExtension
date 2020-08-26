@@ -31,8 +31,8 @@ const Button = styled.button`
 	}
 `;
 
-const ButtonComponent = ({ handleClick, content }) => {
-	return <Button onClick={handleClick}>{content}</Button>;
+const ButtonComponent = ({ content }) => {
+	return <Button>{content}</Button>;
 };
 
 export default ButtonComponent;
