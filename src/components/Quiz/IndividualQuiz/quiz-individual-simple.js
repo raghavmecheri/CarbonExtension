@@ -158,11 +158,12 @@ const RightText = styled.div`
 `;
 
 const QuizIndividualSimple = ({ state, handleSlider }) => {
-	const value = state.simpleState.slider;
+	const value = state.quizData[state.questionIndex].simpleState.slider;
+	const title2 = state.quizData[state.questionIndex].title2;
 
 	return (
 		<>
-			<QuestionQuiz>{state.title2}</QuestionQuiz>
+			<QuestionQuiz>{title2}</QuestionQuiz>
 			<SliderWrapper>
 				<SliderBox>
 					<LeftText>Never</LeftText>

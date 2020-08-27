@@ -1,5 +1,5 @@
 import React, { useState, useReducer, useCallback } from 'react';
-import { TransitionGroup, CSSTransition, SwitchTransition } from 'react-transition-group';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 
 import Quiz from './quiz';
@@ -57,7 +57,11 @@ const QuestionsWrapper = styled.div`
 		transition: transform 1000ms ease-in-out;
 	}
 	&.back-exit {
-		transform: translateX(-80vw);
+		transform: translateX(-50vw);
+		${({ theme }) =>
+			theme.query.bigMobile({
+				transform: 'translateX(-80vw)',
+			})}
 	}
 	&.back-exit-active {
 		transform: translateX(100vw);
@@ -104,8 +108,6 @@ const IndividualQuiz = () => {
 		if (e.currentTarget.id === 'next') return setSlideTransition('next');
 		return setSlideTransition('back');
 	};
-
-	console.log(slideTransition);
 
 	return (
 		<Quiz handleClick={handleClick}>

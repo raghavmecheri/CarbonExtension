@@ -52,16 +52,17 @@ const CheckBoxStyle = styled.input`
 	}
 `;
 
-const CheckedBox = ({ changeState, handleQuizState }) => {
-	if (changeState) return <CheckBoxStyle onChange={handleQuizState} id='checkbox' type='checkbox' />;
-	return <CheckBoxStyle onChange={handleQuizState} id='checkbox' type='checkbox' checked disabled />;
+const CheckedBox = ({ changeState, handleQuizState, quizType }) => {
+	if (changeState)
+		return <CheckBoxStyle onChange={handleQuizState} id='checkbox' type='checkbox' checked={!quizType} />;
+	return <CheckBoxStyle id='checkbox' type='checkbox' checked disabled />;
 };
 
-export const CheckBox = ({ handleQuizState, changeState }) => {
+export const CheckBox = ({ handleQuizState, changeState, quizType }) => {
 	return (
 		<div>
 			<CheckBoxWrapper>
-				<CheckedBox handleQuizState={handleQuizState} changeState={changeState} />
+				<CheckedBox handleQuizState={handleQuizState} changeState={changeState} quizType={quizType} />
 				<CheckBoxLabel htmlFor='checkbox' />
 			</CheckBoxWrapper>
 			<TextDropdown>

@@ -11,7 +11,6 @@ const ButtonBox = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	z-index: 99999;
 	${({ theme }) =>
 		theme.query.bigMobile({
 			display: 'none',
@@ -26,6 +25,7 @@ const MobileButtonBox = styled(ButtonBox)`
 `;
 
 const SVG = styled.button`
+	z-index: 99999;
 	border: 0px solid transparent;
 	cursor: pointer;
 	background: transparent;

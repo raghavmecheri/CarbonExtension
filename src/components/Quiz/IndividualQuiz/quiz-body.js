@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 import QuizIndividualSimple from './quiz-individual-simple';
-import { QuestionQuizIndividualComplex } from './quiz-individual-complex';
+import QuizIndividualComplex from './quiz-individual-complex';
 import { CheckBox } from '../ComponentsQuiz/CheckBox';
 
 const InputBox = styled.div`
@@ -26,7 +27,7 @@ const InputBox = styled.div`
 		theme.query.bigMobile({
 			'min-width': '87vw',
 		})}
-	height: 30vh;
+	height: ${(props) => (props.quizType ? '30vh' : '45vh')};
 	padding: 0 0.5em;
 	overflow-y: hidden;
 	overflow-y: scroll;
@@ -45,19 +46,33 @@ const InputBox = styled.div`
 			'margin-bottom': '2em',
 			width: 'auto',
 		})}
+
+	&.expand-enter {
+		transform: scaleY(0.1);
+	}
+	&.expand-enter-active {
+		transform-origin: 50% 0%;
+		transform: scaleY(1);
+		transition: transform 1000ms, opacity 1000ms;
+	}
+	&.expand-exit {
+		transform-origin: 50% 0%;
+		transform: scaleY(1);
+	}
+	&.expand-exit-active {
+		transform: scaleY(0.1);
+		transition: transform 1000ms, opacity 1000ms;
+	}
 `;
 
 const QuizIndividualState = ({ state, handleSlider, quizType }) => {
 	if (quizType) return <QuizIndividualSimple state={state} handleSlider={handleSlider} />;
-	{
-		/* <QuizIndividualComplex state={state} /> */
-	}
-	return <h1>Hola</h1>;
+	return <QuizIndividualComplex state={state} />;
 };
 
 const QuizBody = ({ state, dispatch }) => {
 	const { questionIndex } = state;
-	let { quizType, changeState, ...rest } = state.quizData[questionIndex];
+	let { quizType, changeState } = state.quizData[questionIndex];
 
 	const handleSlider = useCallback((e, name) => {
 		const { value } = e.target;
@@ -69,11 +84,19 @@ const QuizBody = ({ state, dispatch }) => {
 	});
 
 	return (
-		<InputBox>
-			{/* {quizType ? <QuizIndividualSimple state={state} handleSlider={handleSlider} /> : <h1>Hola</h1>} */}
-			<QuizIndividualState state={rest} handleSlider={handleSlider} quizType={quizType} />
-			<CheckBox handleQuizState={handleQuizState} changeState={changeState} />
-		</InputBox>
+		<SwitchTransition mode='out-in'>
+			<CSSTransition
+				key={quizType}
+				addEndListener={(node, done) => {
+					node.addEventListener('transitionend', done, true);
+				}}
+				classNames='expand'>
+				<InputBox quizType={quizType}>
+					<QuizIndividualState state={state} handleSlider={handleSlider} quizType={quizType} />
+					<CheckBox handleQuizState={handleQuizState} changeState={changeState} quizType={quizType} />
+				</InputBox>
+			</CSSTransition>
+		</SwitchTransition>
 	);
 };
 
