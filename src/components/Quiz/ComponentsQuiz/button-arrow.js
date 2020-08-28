@@ -25,7 +25,7 @@ const MobileButtonBox = styled(ButtonBox)`
 `;
 
 const SVG = styled.button`
-	z-index: 99999;
+	z-index: 1;
 	border: 0px solid transparent;
 	cursor: pointer;
 	background: transparent;
