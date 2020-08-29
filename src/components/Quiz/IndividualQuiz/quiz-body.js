@@ -84,7 +84,7 @@ const QuizBody = ({ state, dispatch }) => {
 	});
 
 	return (
-		<div style={{ perspective: '1000px' }}>
+		<div style={{ perspective: '1200px' }}>
 			<SwitchTransition mode='out-in'>
 				<CSSTransition
 					key={quizType}
