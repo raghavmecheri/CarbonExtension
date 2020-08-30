@@ -70,13 +70,15 @@ const QuestionsWrapper = styled.div`
 `;
 
 const reducer = (state, action) => {
-	const questionsLenght = Object.keys(state.quizData).length;
+	const questionsLenght = Object.keys(state.quizData).length - 1;
 	let questionIndex = state.questionIndex;
 	let newState = { ...state };
 	switch (action.type) {
 		case 'next':
-			if (state.questionIndex === questionsLenght - 1) return state;
+			if (state.questionIndex === questionsLenght) return state;
 			return { ...state, questionIndex: state.questionIndex + 1 };
+		case 'done':
+			return state;
 		case 'back':
 			if (state.questionIndex === 0) return state;
 			return { ...state, questionIndex: state.questionIndex - 1 };
