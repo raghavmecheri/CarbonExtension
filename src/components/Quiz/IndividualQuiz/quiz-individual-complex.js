@@ -36,20 +36,58 @@ const QuestionInput = styled.input`
 	font-size: 15px;
 	width: 45%;
 	&:focus {
-		color: white;
 	}
 `;
 
-const QuestionQuizIndividualComplex = ({ state }) => {
+const QuestionSelector = styled.select`
+	background: #90ee9052;
+	border: none;
+	border-bottom: 2px solid lightgreen;
+	border-radius: 0.5em;
+	height: 2em;
+	text-align: center;
+	font-weight: 600;
+	font-size: 15px;
+	width: 45%;
+	text-align-last: center;
+`;
+
+const QuestionQuizIndividualComplex = ({ state, handleInput }) => {
 	const { quizData, questionIndex } = state;
-	const { questions, placeHolder } = quizData[questionIndex].complexState;
+	const { questions, placeHolder, dropdownQuestion, dropdownOptions, savedValue } = quizData[
+		questionIndex
+	].complexState;
 	return (
 		<ComplexQuestionBox>
 			{Object.keys(questions).map((question, key) => {
+				const keyName = questions[question];
+				const value = savedValue[question];
+				if (question === 'dropdown') {
+					return (
+						<RowWrapper key={key}>
+							<Question>{dropdownQuestion[keyName]}</Question>
+							<QuestionSelector id={question} name={keyName} onChange={handleInput}>
+								{dropdownOptions[keyName].map((type, index) => {
+									return (
+										<option key={index} value={value}>
+											{type}
+										</option>
+									);
+								})}
+							</QuestionSelector>
+						</RowWrapper>
+					);
+				}
 				return (
 					<RowWrapper key={key}>
-						<Question>{question}</Question>
-						<QuestionInput type='number' value='' placeholder={placeHolder[question]} />
+						<Question>{keyName}</Question>
+						<QuestionInput
+							type='number'
+							value={value}
+							name={question}
+							placeholder={placeHolder[question]}
+							onChange={handleInput}
+						/>
 					</RowWrapper>
 				);
 			})}

@@ -174,7 +174,7 @@ const QuizIndividualSimple = ({ state, handleSlider }) => {
 						max='10'
 						step='2'
 						value={value}
-						onChange={(e) => handleSlider(e, 'slider')}
+						onChange={(e) => handleSlider(e, 'quizSlider')}
 					/>
 					<RightText>Always</RightText>
 				</SliderBox>

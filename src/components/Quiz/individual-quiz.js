@@ -71,20 +71,22 @@ const QuestionsWrapper = styled.div`
 
 const reducer = (state, action) => {
 	const questionsLenght = Object.keys(state.quizData).length;
+	let questionIndex = state.questionIndex;
 	let newState = { ...state };
 	switch (action.type) {
 		case 'next':
-			if (state.questionIndex === questionsLenght) return state;
+			if (state.questionIndex === questionsLenght - 1) return state;
 			return { ...state, questionIndex: state.questionIndex + 1 };
 		case 'back':
 			if (state.questionIndex === 0) return state;
 			return { ...state, questionIndex: state.questionIndex - 1 };
 		case 'reset':
 			return { ...state, questionIndex: 0 };
-		case 'slider':
-			const value = action.value;
-			const questionIndex = state.questionIndex;
-			newState.quizData[questionIndex].simpleState.slider = value;
+		case 'quizSlider':
+			newState.quizData[questionIndex].simpleState.slider = action.value;
+			return newState;
+		case 'quizInput':
+			newState.quizData[questionIndex].complexState.savedValue[action.name] = action.value;
 			return newState;
 		case 'quizState':
 			newState.quizData[state.questionIndex].quizType = !action.payload;
@@ -110,11 +112,11 @@ const IndividualQuiz = () => {
 	};
 
 	return (
-		<Quiz handleClick={handleClick}>
+		<Quiz handleClick={handleClick} state={state}>
 			<TransitionGroup
 				style={{ display: 'flex' }}
 				childFactory={(child) => React.cloneElement(child, { classNames: slideTransition, timeout: 1000 })}>
-				<CSSTransition key={state.questionIndex}>
+				<CSSTransition key={state.questionIndex} timeout={1000} classNames={slideTransition}>
 					<QuestionsWrapper>
 						<QuizHeader state={state} />
 						<QuizBody state={state} dispatch={dispatch} />

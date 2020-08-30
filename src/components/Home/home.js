@@ -24,6 +24,7 @@ const Home = () => {
 		<SwitchTransition mode='out-in'>
 			<CSSTransition
 				key={start}
+				timeout={700}
 				addEndListener={(node, done) => {
 					node.addEventListener('transitionend', done, false);
 				}}

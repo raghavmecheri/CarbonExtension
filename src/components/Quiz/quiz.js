@@ -54,13 +54,20 @@ const MobileStyle = styled.div`
 		})}
 `;
 
-const Quiz = ({ children, handleClick }) => {
+const Quiz = ({ children, handleClick, state }) => {
+	const questionsLenght = Object.keys(state.quizData).length - 1;
+	const questionIndex = state.questionIndex;
+
 	return (
 		<QuizWrapper>
 			<Navbar />
 			<ButtonArrow handleClick={handleClick} content='back' />
 			<QuizBox>{children}</QuizBox>
-			<ButtonArrow handleClick={handleClick} content='next' />
+			{questionIndex === questionsLenght ? (
+				<ButtonArrow handleClick={handleClick} content='done' />
+			) : (
+				<ButtonArrow handleClick={handleClick} content='next' />
+			)}
 			<MobileStyle>
 				<ButtonArrow mobile handleClick={handleClick} content='back' />
 				<ButtonArrow mobile handleClick={handleClick} content='next' />

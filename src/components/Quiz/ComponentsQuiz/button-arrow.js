@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ArrowLeftShort } from '@styled-icons/bootstrap';
 import { ArrowRightShort } from '@styled-icons/bootstrap';
-import { DoneAll } from '@styled-icons/evaicons-solid';
+import { Check } from '@styled-icons/remix-fill';
+import { FlagCheckered } from '@styled-icons/fa-solid';
 
 const ButtonBox = styled.div`
 	width: 20vw;
@@ -40,7 +41,7 @@ const Buttons = ({ content, handleClick, mobile }) => {
 	const Selected = {
 		next: ArrowRightShort,
 		back: ArrowLeftShort,
-		done: DoneAll,
+		done: Check,
 	}[content];
 
 	const ResponsiveButton = ({ children }) => {

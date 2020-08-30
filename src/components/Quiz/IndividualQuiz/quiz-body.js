@@ -53,7 +53,7 @@ const InputBox = styled.div`
 	&.expand-enter-active {
 		transform: rotateY(0deg);
 		transform-style: preserve-3d;
-		transition: transform 1000ms, opacity 1000ms;
+		transition: transform 600ms, opacity 1000ms;
 	}
 	&.expand-exit {
 		transform: rotateY(0deg);
@@ -61,13 +61,13 @@ const InputBox = styled.div`
 	&.expand-exit-active {
 		transform: rotateY(90deg);
 		transform-style: preserve-3d;
-		transition: transform 1000ms, opacity 1000ms;
+		transition: transform 600ms, opacity 1000ms;
 	}
 `;
 
-const QuizIndividualState = ({ state, handleSlider, quizType }) => {
+const QuizIndividualState = ({ state, handleSlider, handleInput, quizType }) => {
 	if (quizType) return <QuizIndividualSimple state={state} handleSlider={handleSlider} />;
-	return <QuizIndividualComplex state={state} />;
+	return <QuizIndividualComplex state={state} handleInput={handleInput} />;
 };
 
 const QuizBody = ({ state, dispatch }) => {
@@ -79,6 +79,11 @@ const QuizBody = ({ state, dispatch }) => {
 		dispatch({ type: name, value: value });
 	});
 
+	const handleInput = useCallback((e) => {
+		const { name, value } = e.target;
+		dispatch({ type: 'quizInput', name: name, value: value });
+	});
+
 	const handleQuizState = useCallback(() => {
 		dispatch({ type: 'quizState', payload: quizType });
 	});
@@ -88,12 +93,18 @@ const QuizBody = ({ state, dispatch }) => {
 			<SwitchTransition mode='out-in'>
 				<CSSTransition
 					key={quizType}
+					timeout={600}
 					addEndListener={(node, done) => {
 						node.addEventListener('transitionend', done, true);
 					}}
 					classNames='expand'>
 					<InputBox quizType={quizType}>
-						<QuizIndividualState state={state} handleSlider={handleSlider} quizType={quizType} />
+						<QuizIndividualState
+							state={state}
+							handleSlider={handleSlider}
+							handleInput={handleInput}
+							quizType={quizType}
+						/>
 						<CheckBox handleQuizState={handleQuizState} changeState={changeState} quizType={quizType} />
 					</InputBox>
 				</CSSTransition>
