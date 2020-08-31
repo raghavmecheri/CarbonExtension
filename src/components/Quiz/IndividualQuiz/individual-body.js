@@ -4,7 +4,7 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 import QuizBodySimple from './quiz-body-simple';
 import QuizBodyComplex from './quiz-body-complex';
-import { CheckBox } from '../ComponentsQuiz/CheckBox';
+import FormCheck from './form-check';
 
 const InputBox = styled.div`
 	background-color: white;
@@ -105,7 +105,7 @@ const QuizBody = ({ state, dispatch }) => {
 							handleInput={handleInput}
 							quizType={quizType}
 						/>
-						<CheckBox handleQuizState={handleQuizState} changeState={changeState} quizType={quizType} />
+						<FormCheck handleQuizState={handleQuizState} changeState={changeState} quizType={quizType} />
 					</InputBox>
 				</CSSTransition>
 			</SwitchTransition>

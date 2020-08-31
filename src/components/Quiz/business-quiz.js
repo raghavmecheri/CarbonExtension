@@ -1,13 +1,11 @@
-import React, { useState, useReducer, useCallback } from 'react';
+import React, { useState, useReducer } from 'react';
 import styled from 'styled-components';
 
 import Quiz from './quiz';
+import quizData from '../../data/business-carbon-data';
 import BuisnessHeader from './BusinessQuiz/buisness-header';
 import BuisnessBody from './BusinessQuiz/buisness-body';
-import quizData from '../../data/business-carbon-data';
-
-import { PlusCircle } from '@styled-icons/boxicons-solid';
-import { MinusCircle } from '@styled-icons/boxicons-solid';
+import ButtonRows from './BusinessQuiz/button-rows';
 
 const BuisnessWrapper = styled.div`
 	height: 100%;
@@ -65,56 +63,36 @@ const BuisnessWrapper = styled.div`
 	}
 `;
 
-const MiddleBox = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 10em;
-`;
-
-const AddButton = styled(PlusCircle)`
-	width: 50px;
-	color: cornflowerblue;
-	&:hover {
-		cursor: pointer;
-		color: limegreen;
-	}
-`;
-const DeleteButton = styled(MinusCircle)`
-	width: 50px;
-	color: #9b9b9b;
-	&:hover {
-		cursor: pointer;
-		color: orangered;
-		border-color: orangered;
-	}
-`;
-const ButtonText = styled.div``;
-
 const reducer = (state, action) => {
-	const questionsLenght = Object.keys(state.quizData).length - 1;
-	let questionIndex = state.questionIndex;
 	let newState = { ...state };
+	let questionIndex = state.questionIndex;
+	let currentQuizState = newState.quizData[questionIndex];
+
 	switch (action.type) {
 		case 'next':
+			const questionsLenght = Object.keys(state.quizData).length - 1;
 			if (state.questionIndex === questionsLenght) return state;
-			return { ...state, questionIndex: state.questionIndex + 1 };
+			return { ...state, questionIndex: questionIndex + 1 };
 		case 'done':
 			return state;
 		case 'back':
-			if (state.questionIndex === 0) return state;
-			return { ...state, questionIndex: state.questionIndex - 1 };
+			if (questionIndex === 0) return state;
+			return { ...state, questionIndex: questionIndex - 1 };
 		case 'reset':
 			return { ...state, questionIndex: 0 };
 		case 'addRow':
-			newState.quizData[questionIndex].simpleState.slider = action.value;
+			const newRow = { ...currentQuizState.rowStructure[0] };
+			currentQuizState.rowStructure.push(newRow);
+			currentQuizState.savedValue.push(newRow);
+			console.log(newState);
 			return newState;
 		case 'deleteRow':
-			newState.quizData[questionIndex].complexState.savedValue[action.name] = action.value;
+			if (currentQuizState.rowStructure.length <= 2) return newState;
+			currentQuizState.rowStructure.pop();
+			currentQuizState.savedValue.pop();
 			return newState;
 		case 'handleInput':
-			console.log(newState);
-			newState.quizData[state.questionIndex].savedValue[action.row][action.name] = action.value;
+			currentQuizState.savedValue[action.row][action.name] = action.value;
 			return newState;
 		default:
 			throw new Error('Unexpected action');
@@ -128,18 +106,6 @@ const initialState = {
 
 const BusinessQuiz = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
-
-	// const updateInputValueBusinessForm = ({ columName, rowIndex, value }) => {
-	// 	const screenRows = formState[questionIndex].rowStructure;
-	// 	screenRows[rowIndex][columName] = value;
-	// 	setFormState({
-	// 		...formState,
-	// 		[questionIndex]: {
-	// 			...formState[questionIndex],
-	// 			rowStructure: screenRows,
-	// 		},
-	// 	});
-	// };
 
 	// const handleAddRow = () => {
 	// 	const newScreenState = {
@@ -163,48 +129,15 @@ const BusinessQuiz = () => {
 	// 	});
 	// };
 
-	// const handleInput = (e, rowIndex, columName) => {
-	// 	e.preventDefault();
-	// 	const { value } = e.target;
-	// 	updateInputValueBusinessForm({ value, rowIndex, columName });
-	// };
-
-	const handleClick = useCallback((e) => {
-		const { name } = e.target;
-		console.log(name);
-		// dispatch({ type: 'handleInput', name: name, value: value, row: dataset.row });
-	});
-
 	return (
 		<Quiz state={state} dispatch={dispatch}>
 			<BuisnessWrapper>
 				<BuisnessHeader state={state} />
 				<BuisnessBody state={state} dispatch={dispatch} />
-				<MiddleBox>
-					<div>
-						<DeleteButton onClick={handleClick} />
-						<ButtonText>Delete Row</ButtonText>
-					</div>
-					<div>
-						<AddButton onClick={handleClick} />
-						<ButtonText>Add Row</ButtonText>
-					</div>
-				</MiddleBox>
+				<ButtonRows dispatch={dispatch} />
 			</BuisnessWrapper>
 		</Quiz>
 	);
 };
 
 export default BusinessQuiz;
-
-// {/* <QuestionQuizBusiness rowsValues={formState[questionIndex]} handleInput={handleInput} /> */}
-// 	 <Buttons
-// 		back={back}
-// 		next={next}
-// 		finish={finish}
-// 		end={endQuestion}
-// 		handleDeleteQuestion={handleDeleteQuestion}
-// 		handleAddRow={handleAddRow}
-// 		rowsValues={formState[questionIndex]}
-// 	/>
-//  </Quiz>

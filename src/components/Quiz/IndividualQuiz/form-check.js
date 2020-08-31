@@ -58,7 +58,7 @@ const CheckedBox = ({ changeState, handleQuizState, quizType }) => {
 	return <CheckBoxStyle id='checkbox' type='checkbox' checked disabled />;
 };
 
-export const CheckBox = ({ handleQuizState, changeState, quizType }) => {
+const FormCheck = ({ handleQuizState, changeState, quizType }) => {
 	return (
 		<div>
 			<CheckBoxWrapper>
@@ -73,3 +73,5 @@ export const CheckBox = ({ handleQuizState, changeState, quizType }) => {
 		</div>
 	);
 };
+
+export default FormCheck;

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { ArrowLeftShort } from '@styled-icons/bootstrap';
 import { ArrowRightShort } from '@styled-icons/bootstrap';
 import { Check } from '@styled-icons/remix-fill';
-import { FlagCheckered } from '@styled-icons/fa-solid';
 
 const ButtonBox = styled.div`
 	width: 20vw;

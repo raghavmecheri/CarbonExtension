@@ -75,13 +75,13 @@ const reducer = (state, action) => {
 	let newState = { ...state };
 	switch (action.type) {
 		case 'next':
-			if (state.questionIndex === questionsLenght) return state;
-			return { ...state, questionIndex: state.questionIndex + 1 };
+			if (questionIndex === questionsLenght) return state;
+			return { ...state, questionIndex: questionIndex + 1 };
 		case 'done':
 			return state;
 		case 'back':
-			if (state.questionIndex === 0) return state;
-			return { ...state, questionIndex: state.questionIndex - 1 };
+			if (questionIndex === 0) return state;
+			return { ...state, questionIndex: questionIndex - 1 };
 		case 'reset':
 			return { ...state, questionIndex: 0 };
 		case 'quizSlider':
@@ -91,7 +91,7 @@ const reducer = (state, action) => {
 			newState.quizData[questionIndex].complexState.savedValue[action.name] = action.value;
 			return newState;
 		case 'quizState':
-			newState.quizData[state.questionIndex].quizType = !action.payload;
+			newState.quizData[questionIndex].quizType = !action.payload;
 			return newState;
 		default:
 			throw new Error('Unexpected action');
