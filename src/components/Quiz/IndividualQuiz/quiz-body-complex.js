@@ -52,11 +52,12 @@ const QuestionSelector = styled.select`
 	text-align-last: center;
 `;
 
-const QuestionQuizIndividualComplex = ({ state, handleInput }) => {
+const QuizBodyComplex = ({ state, handleInput }) => {
 	const { quizData, questionIndex } = state;
 	const { questions, placeHolder, dropdownQuestion, dropdownOptions, savedValue } = quizData[
 		questionIndex
 	].complexState;
+
 	return (
 		<ComplexQuestionBox>
 			{Object.keys(questions).map((question, key) => {
@@ -66,10 +67,10 @@ const QuestionQuizIndividualComplex = ({ state, handleInput }) => {
 					return (
 						<RowWrapper key={key}>
 							<Question>{dropdownQuestion[keyName]}</Question>
-							<QuestionSelector id={question} name={keyName} onChange={handleInput}>
+							<QuestionSelector id={question} name={keyName} value={value} onChange={handleInput}>
 								{dropdownOptions[keyName].map((type, index) => {
 									return (
-										<option key={index} value={value}>
+										<option key={index} value={type}>
 											{type}
 										</option>
 									);
@@ -95,4 +96,4 @@ const QuestionQuizIndividualComplex = ({ state, handleInput }) => {
 	);
 };
 
-export default QuestionQuizIndividualComplex;
+export default QuizBodyComplex;

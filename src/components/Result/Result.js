@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { businessCarbonData } from '../../data/carbon/businessCarbonData';
 import { ResultIndividualCarbonData } from '../../data/carbon/ResultIndividualCarbonData';
 import { mediaCarbonData } from '../../data/carbon/media-carbon-data';
-import { fakeData } from '../../data/fakeData';
+import { fakeData } from '../../data/dummyData';
 import ResultsBackground from './Background';
 import logo from '../../assets/logo.png';
 import earth from '../../assets/earth.png';

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import ButtonArrow from './ComponentsQuiz/button-arrow';
 import Navbar from '../Navbar/navbar';
@@ -54,24 +55,41 @@ const MobileStyle = styled.div`
 		})}
 `;
 
-const Quiz = ({ children, handleClick, state }) => {
-	const questionsLenght = Object.keys(state.quizData).length - 1;
-	const questionIndex = state.questionIndex;
+const MobileButtonArrow = ({ handleClick }) => {
+	return (
+		<MobileStyle>
+			<ButtonArrow mobile handleClick={handleClick} content='back' />
+			<ButtonArrow mobile handleClick={handleClick} content='next' />
+		</MobileStyle>
+	);
+};
+
+const Quiz = ({ children, state, dispatch }) => {
+	const [slideTransition, setSlideTransition] = useState(true);
+	const quizLenght = Object.keys(state.quizData).length - 1;
+	const quizIndex = state.questionIndex;
+
+	const handleClick = (e) => {
+		dispatch({ type: e.currentTarget.id });
+		if (e.currentTarget.id === 'next') return setSlideTransition('next');
+		return setSlideTransition('back');
+	};
 
 	return (
 		<QuizWrapper>
 			<Navbar />
 			<ButtonArrow handleClick={handleClick} content='back' />
-			<QuizBox>{children}</QuizBox>
-			{questionIndex === questionsLenght ? (
-				<ButtonArrow handleClick={handleClick} content='done' />
-			) : (
-				<ButtonArrow handleClick={handleClick} content='next' />
-			)}
-			<MobileStyle>
-				<ButtonArrow mobile handleClick={handleClick} content='back' />
-				<ButtonArrow mobile handleClick={handleClick} content='next' />
-			</MobileStyle>
+			<QuizBox>
+				<TransitionGroup
+					style={{ display: 'flex' }}
+					childFactory={(child) => React.cloneElement(child, { classNames: slideTransition, timeout: 1000 })}>
+					<CSSTransition key={state.questionIndex} timeout={1000} classNames={slideTransition}>
+						{children}
+					</CSSTransition>
+				</TransitionGroup>
+			</QuizBox>
+			<ButtonArrow handleClick={handleClick} content={quizIndex === quizLenght ? 'done' : 'next'} />
+			<MobileButtonArrow handleClick={handleClick} />
 		</QuizWrapper>
 	);
 };

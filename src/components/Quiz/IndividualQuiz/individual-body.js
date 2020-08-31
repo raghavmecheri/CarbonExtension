@@ -2,8 +2,8 @@ import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
-import QuizIndividualSimple from './quiz-individual-simple';
-import QuizIndividualComplex from './quiz-individual-complex';
+import QuizBodySimple from './quiz-body-simple';
+import QuizBodyComplex from './quiz-body-complex';
 import { CheckBox } from '../ComponentsQuiz/CheckBox';
 
 const InputBox = styled.div`
@@ -66,8 +66,8 @@ const InputBox = styled.div`
 `;
 
 const QuizIndividualState = ({ state, handleSlider, handleInput, quizType }) => {
-	if (quizType) return <QuizIndividualSimple state={state} handleSlider={handleSlider} />;
-	return <QuizIndividualComplex state={state} handleInput={handleInput} />;
+	if (quizType) return <QuizBodySimple state={state} handleSlider={handleSlider} />;
+	return <QuizBodyComplex state={state} handleInput={handleInput} />;
 };
 
 const QuizBody = ({ state, dispatch }) => {

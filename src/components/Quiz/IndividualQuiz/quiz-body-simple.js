@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import SliderText from './silder-text';
+import SliderText from './slider-text';
 
 // START SLIDER -------------------------------------------------------------------------------------------------------------------
 const height = '16px';
@@ -157,7 +157,7 @@ const RightText = styled.div`
 	padding-left: 0.5em;
 `;
 
-const QuizIndividualSimple = ({ state, handleSlider }) => {
+const QuizBodySimple = ({ state, handleSlider }) => {
 	const value = state.quizData[state.questionIndex].simpleState.slider;
 	const title2 = state.quizData[state.questionIndex].title2;
 
@@ -184,4 +184,4 @@ const QuizIndividualSimple = ({ state, handleSlider }) => {
 	);
 };
 
-export default QuizIndividualSimple;
+export default QuizBodySimple;

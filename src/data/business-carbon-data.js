@@ -1,42 +1,54 @@
-import bgO1 from '../../assets/bg_carbon_b_1.jpg';
-import bgO2 from '../../assets/bg_carbon_b_2.jpg';
-import bgO3 from '../../assets/bg_carbon_b_3.jpg';
-import bgO4 from '../../assets/bg_carbon_b_4.jpg';
+import bgO1 from '../assets/bg_carbon_b_1.jpg';
+import bgO2 from '../assets/bg_carbon_b_2.jpg';
+import bgO3 from '../assets/bg_carbon_b_3.jpg';
+import bgO4 from '../assets/bg_carbon_b_4.jpg';
 
-export const BusinessCarbonQuizData = {
+const BusinessCarbonData = {
 	0: {
 		id: 0,
-		title: 'Combustible de transporte',
-		footprint: 'carbon',
-		type: 'business',
-		description: '¿Cuánto viajas?',
-		rowTitles: ['Vehiculo', 'Tipo de combustible', 'Cantidad de Combustible'],
-		rowsType: [{ title: '', energyType: '', quantity: '' }],
-		placeHolder: { first: 'Audi A4', energyType: '', second: '1000 litros' },
+		title: 'Vehicle Fuel',
+		title2: 'How much do you travel for work?',
+		columnTitle: {
+			vehicle: 'Vehicle',
+			fuel: 'Type of Fuel',
+			quantity: 'Quantity of Fuel',
+		},
+		placeHolder: {
+			vehicle: 'Audi A4',
+			fuel: '',
+			quantity: '1000 litros',
+		},
+		dropdownOptions: {
+			fuel: [
+				'--',
+				'Gasolina',
+				'Gasoleo A o B',
+				'E10',
+				'E86',
+				'B7',
+				'B10',
+				'B20',
+				'B30',
+				'B100',
+				'XTL',
+				'LNG',
+				'CNG',
+				'LPG',
+				'H2',
+			],
+		},
 		rowStructure: [
-			{ title: '', energyType: '', quantity: '' },
-			{ title: '', energyType: '', quantity: '' },
-			{ title: '', energyType: '', quantity: '' },
+			{ vehicle: '', fuel: 'dropdown', quantity: '' },
+			{ vehicle: '', fuel: 'dropdown', quantity: '' },
+			{ vehicle: '', fuel: 'dropdown', quantity: '' },
 		],
-		dropdownTypes: [
-			'--',
-			'Gasolina',
-			'Gasoleo A o B',
-			'E10',
-			'E86',
-			'B7',
-			'B10',
-			'B20',
-			'B30',
-			'B100',
-			'XTL',
-			'LNG',
-			'CNG',
-			'LPG',
-			'H2',
+		savedValue: [
+			{ vehicle: '', fuel: '', quantity: '' },
+			{ vehicle: '', fuel: '', quantity: '' },
+			{ vehicle: '', fuel: '', quantity: '' },
 		],
 		image: bgO1,
-		sideTitle: 'Transporte',
+		sideTitle: 'Transport',
 		sideBody:
 			'Si la organización realice desplazamientos en vehículos propios o alquilados (ya sean turismos, camiones, furgonetas, motos, etc.) para el desarrollo de su actividad, se ha de cumplimentar la información solicitada en este apartado.',
 		sideBody2:
@@ -89,12 +101,7 @@ export const BusinessCarbonQuizData = {
 			energyType: '',
 			second: '100 litros',
 		},
-		rowTitles: [
-			'Edificio',
-			'Tipo de combustible',
-			'Carga inicial',
-			'Recarga Anual',
-		],
+		rowTitles: ['Edificio', 'Tipo de combustible', 'Carga inicial', 'Recarga Anual'],
 		dropdownTypes: [
 			'--',
 			'HFC-23',
@@ -276,3 +283,5 @@ export const BusinessCarbonQuizData = {
 			'En el caso en el que el consumidor tenga contratada la electricidad con redención completa de Garantía de Origen (GdO, la redención concierne a energías renovables), se considerará nulo. ',
 	},
 };
+
+export default BusinessCarbonData;

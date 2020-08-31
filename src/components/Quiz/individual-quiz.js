@@ -3,8 +3,8 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 
 import Quiz from './quiz';
-import QuizHeader from './IndividualQuiz/quiz-header';
-import QuizBody from './IndividualQuiz/quiz-body';
+import IndividualHeader from './IndividualQuiz/individual-header';
+import IndividualBody from './IndividualQuiz/individual-body';
 import quizData from '../../data/individual-carbon-data';
 
 const QuestionsWrapper = styled.div`
@@ -105,26 +105,13 @@ const initialState = {
 
 const IndividualQuiz = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
-	const [slideTransition, setSlideTransition] = useState(true);
-
-	const handleClick = (e) => {
-		dispatch({ type: e.currentTarget.id });
-		if (e.currentTarget.id === 'next') return setSlideTransition('next');
-		return setSlideTransition('back');
-	};
 
 	return (
-		<Quiz handleClick={handleClick} state={state}>
-			<TransitionGroup
-				style={{ display: 'flex' }}
-				childFactory={(child) => React.cloneElement(child, { classNames: slideTransition, timeout: 1000 })}>
-				<CSSTransition key={state.questionIndex} timeout={1000} classNames={slideTransition}>
-					<QuestionsWrapper>
-						<QuizHeader state={state} />
-						<QuizBody state={state} dispatch={dispatch} />
-					</QuestionsWrapper>
-				</CSSTransition>
-			</TransitionGroup>
+		<Quiz state={state} dispatch={dispatch}>
+			<QuestionsWrapper>
+				<IndividualHeader state={state} />
+				<IndividualBody state={state} dispatch={dispatch} />
+			</QuestionsWrapper>
 		</Quiz>
 	);
 };
