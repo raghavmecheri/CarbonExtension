@@ -17,7 +17,6 @@ The intention of this open-source is to be coding friendly for newbies so everyo
 
 * [About](#about)
 * [Inspiration](#inspiration)
-* [Contributing](#contributing)
 * [Documentation](#documentation)
 * [Features](#features)
 * [Contributing](#contributing)
@@ -47,21 +46,6 @@ I thought that an open-source for helping the enviroment it was something that j
 
 
 
-
-## Contributing
-
->**Under construction.**
-
-If you are interested in contribute just send me a message or talk to me on twitter (I answer quicker on twitter) or file an issue saying what you want to work on.
-
-Although the rules are pretty simple, if you think you can improve something of the page, you do it. If you think you can write a cool feature, you do it. If you can clean code or make reusable components, you do it. All ideas are welcome. 
-
-**The only rule is** to make the design super simple (minimalist) and easy to use by the user. :)
-
-
-
-
-
 ## Documentation
 
 >**Under construction.**
@@ -80,6 +64,14 @@ Although the rules are pretty simple, if you think you can improve something of 
 
 
 ## Contributing
+
+>**Under construction.**
+
+If you are interested in contribute just send me a message or talk to me on twitter (I answer quicker on twitter) or file an issue saying what you want to work on.
+
+Although the rules are pretty simple, if you think you can improve something of the page, you do it. If you think you can write a cool feature, you do it. If you can clean code or make reusable components, you do it. All ideas are welcome. 
+
+**The only rule is** to make the design super simple (minimalist) and easy to use by the user. :)
 
 
 For now it is a pretty simple project, so it shouldn't be hard find features to add or fix bugs. I am going to write a to-do list of things to add or fix depending on its difficulty so you can take the ones that suits you or seems more fun to you.
