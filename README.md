@@ -17,7 +17,9 @@ The intention of this open-source is to be coding friendly for newbies so everyo
 * [Contributing](#contributing)
 * [Documentation](#documentation)
 * [Features](#features)
-* [Work to do on the page](#work)
+* [Contributing](#contributing)
+* [Installation](#installation)
+* [Licence](#licence)
 
 
 
@@ -74,7 +76,7 @@ Although the rules are pretty simple, if you think you can improve something of 
   + Contribute Page
 
 
-## Work to do on the page
+## Contributing
 
 
 For now it is a pretty simple project, so it shouldn't be hard find features to add or fix bugs. I am going to write a to-do list of things to add or fix depending on its difficulty so you can take the ones that suits you or seems more fun to you.
@@ -92,13 +94,34 @@ For now it is a pretty simple project, so it shouldn't be hard find features to 
 * Make a simple country selector so the calculator it is more accurated
 * Identifies the ip's country.
 * Improve rules of quiz. So you can't continue until you fill all inputs.
+* Add Testing
+* Add blog-posts for information or discussions. --> so you would also need to add authentification
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Contributors
 
 
+  
+ ## Installation
+ 
+ ```bash
+cd carbon-footprint
+yarn add
+yarn start
+```
 
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
 
 ### Reason to contribute to the project:
- Although there already a lot of footprints calculator online I beleave that we, the dev comunity, can create an open-source calculator way better than the ones that already exists. and it is a good way for a first contact with contributions to open-source projects. And who knows... maybe at the end we come up with some cool ideas and change the main topic of the project for an even better one. 
+ Although there already a lot of footprints calculator online I beleave that we, the dev comunity, can create an open-source calculator way better than the ones that already exists. And it is a good way for a first contact with contributions to open-source projects. And who knows... maybe at the end we come up with some cool ideas for the page and make a cool open-source enviroment project that recieve donations and really help the enviroment. 
+ 
+ ### Acknowledgements
+
+Icon by [`Freepik`](https://www.freepik.com/).
 
 
 
