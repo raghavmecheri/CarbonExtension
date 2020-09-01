@@ -1,6 +1,6 @@
 # Carbon Footprint Calculator
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <img width="1440" alt="Captura de pantalla 2020-08-31 a las 23 23 14" src="https://user-images.githubusercontent.com/44972334/91770153-f3943700-ebe0-11ea-9b16-5762d7125d74.png">
@@ -111,6 +111,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 <table>
   <tr>
     <td align="center"><a href="https://github.com/Achiaga"><img src="https://avatars0.githubusercontent.com/u/44972334?v=4" width="100px;" alt=""/><br /><sub><b>Alfonso Achiaga</b></sub></a><br /><a href="https://github.com/Achiaga/carbon_footprint/commits?author=Achiaga" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/thepranavjain"><img src="https://avatars1.githubusercontent.com/u/27448565?v=4" width="100px;" alt=""/><br /><sub><b>Pranav Jain</b></sub></a><br /><a href="https://github.com/Achiaga/carbon_footprint/commits?author=thepranavjain" title="Code">💻</a></td>
   </tr>
 </table>
 
