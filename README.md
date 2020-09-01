@@ -1,4 +1,7 @@
 # Carbon Footprint Calculator
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <img width="1440" alt="Captura de pantalla 2020-08-31 a las 23 23 14" src="https://user-images.githubusercontent.com/44972334/91770153-f3943700-ebe0-11ea-9b16-5762d7125d74.png">
 
@@ -102,6 +105,18 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## Contributors
 
 
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/Achiaga"><img src="https://avatars0.githubusercontent.com/u/44972334?v=4" width="100px;" alt=""/><br /><sub><b>Alfonso Achiaga</b></sub></a><br /><a href="https://github.com/Achiaga/carbon_footprint/commits?author=Achiaga" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
   
  ## Installation
  
