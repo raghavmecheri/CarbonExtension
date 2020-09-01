@@ -52,7 +52,7 @@ I thought that an open-source for helping the enviroment it was something that j
 
 >**Under construction.**
 
-If you are interested in contribute just send me a message or talk my on twitter. I answer quicker on twitter or file an issue so we can get in touch, and I can add you to contributors. 
+If you are interested in contribute just send me a message or talk to me on twitter (I answer quicker on twitter) or file an issue saying what you want to work on.
 
 Although the rules are pretty simple, if you think you can improve something of the page, you do it. If you think you can write a cool feature, you do it. If you can clean code or make reusable components, you do it. All ideas are welcome. 
 
@@ -133,7 +133,9 @@ yarn start
 
 
 ### Reason to contribute to the project:
- Although there already a lot of footprints calculator online I beleave that we, the dev comunity, can create an open-source calculator way better than the ones that already exists. And it is a good way for a first contact with contributions to open-source projects. And who knows... maybe at the end we come up with some cool ideas for the page and make a cool open-source enviroment project that recieve donations and really help the enviroment. 
+ Although there already a lot of footprints calculator online I beleave that we, the dev comunity, can create an open-source calculator way better than the ones that already exists. And it is a good way for a first contact with contributions to open-source projects.
+ 
+And who knows... maybe at the end we come up with some cool ideas for the page and make a cool open-source enviroment project that recieve donations and really help the enviroment. 
  
  ### Acknowledgements
 
