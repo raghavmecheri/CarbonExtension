@@ -5,7 +5,7 @@
 > ### *A web page to contribute to the enviroment.*
 
 
-### Welcome to the project.
+# Welcome to the project.
 This project is an open-source about an online calculator that quantify the amount of carbon foorptint a person or small organization generate through the year.
 
 The intention of this open-source is to be coding friendly for newbies so everyone can easily contribute.
@@ -17,7 +17,7 @@ The intention of this open-source is to be coding friendly for newbies so everyo
 * [Contributing](#contributing)
 * [Documentation](#documentation)
 * [Features](#features)
-* [Acknowledgements](#acknowledgements)
+* [Work to do on the page](#work)
 
 
 
@@ -36,14 +36,14 @@ The project is still in early development. If you have any suggestions, [file an
 
 
 
-### Inspiration
+## Inspiration
 
 I thought that an open-source for helping the enviroment it was something that just make sense. People contributing for the great of all. All the money (in case of donations) gets to where it needs to go. No middlemans where the money is lost. A cool page to raise awareness and try to change the world (or at least make it a bit better 😊 )
 
 
 
 
-### Contributing
+## Contributing
 
 >**Under construction.**
 
@@ -57,28 +57,47 @@ Although the rules are pretty simple, if you think you can improve something of 
 
 
 
-### Documentation
+## Documentation
 
 >**Under construction.**
 
 
-
-
-
-### Features
+## Features
 
 > #### [Individual Calculator](https://footprint.now.sh/quiz/person) | [Buisness Calculator](https://footprint.now.sh/quiz/organization) | [Result Calculator](/media/result.png) | [Demo](/media/demo.gif) | 
 
->Feel free to jump into the information, contribute or about page that are the ones that needs more fixing.
+- Cool landing page with react three fiber.
+- Calculate the carbon footprint of a person
+- Calculate the carbon footprint of a small organization
+- Deliver information of how to contribute to the enviroment through: 
+  + Information Page
+  + Contribute Page
 
 
-It is pretty simple projects:
+## Work to do on the page
 
-  - Cool landing page with react three fiber.
-  - Navbar Pages of Information, About and Contribute.
-  - And the carbon footprint calculator.
 
-Reason to contribute to the project:
+For now it is a pretty simple project, so it shouldn't be hard find features to add or fix bugs. I am going to write a to-do list of things to add or fix depending on its difficulty so you can take the ones that suits you or seems more fun to you.
+
+>Feel free to jump into the code and start tinkering with it so you understand how it works.
+
+#### Beginner
+* Do Information Page.
+* Do Contribute Page.
+* Add information button on the quiz questions so that on hover explains better the question.
+
+#### Advance
+* Fix Responsive layout through the page including the bugs produced by animations.
+* Add different languages i18n.
+* Make a simple country selector so the calculator it is more accurated
+* Identifies the ip's country.
+* Improve rules of quiz. So you can't continue until you fill all inputs.
+
+
+
+
+
+### Reason to contribute to the project:
  Although there already a lot of footprints calculator online I beleave that we, the dev comunity, can create an open-source calculator way better than the ones that already exists. and it is a good way for a first contact with contributions to open-source projects. And who knows... maybe at the end we come up with some cool ideas and change the main topic of the project for an even better one. 
 
 
