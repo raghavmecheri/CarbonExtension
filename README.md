@@ -2,7 +2,7 @@
 
 <img width="1440" alt="Captura de pantalla 2020-08-31 a las 23 23 14" src="https://user-images.githubusercontent.com/44972334/91770153-f3943700-ebe0-11ea-9b16-5762d7125d74.png">
 
-> ### *A web page to contribute in anyway to the enviroment.*
+> ### *A web page to contribute to the enviroment.*
 
 
 ### Welcome to the project.
