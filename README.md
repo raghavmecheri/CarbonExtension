@@ -4,8 +4,12 @@
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->	
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)	
 [![GitHub stars](https://img.shields.io/github/stars/Achiaga/carbon_footprint.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/Achiaga/carbon_footprint/stargazers/)
 [![GitHub forks](https://img.shields.io/github/forks/Achiaga/carbon_footprint.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/Achiaga/carbon_footprint)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 
 <img width="1440" alt="Captura de pantalla 2020-08-31 a las 23 23 14" src="https://user-images.githubusercontent.com/44972334/91770153-f3943700-ebe0-11ea-9b16-5762d7125d74.png">
 
