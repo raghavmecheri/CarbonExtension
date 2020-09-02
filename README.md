@@ -1,7 +1,15 @@
 # Carbon Footprint Calculator
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+
+[![Buy us a tree](https://img.shields.io/badge/Buy%20me%20a%20tree-%F0%9F%8C%B3-lightgreen)](https://offset.earth/philsturgeon)
+[![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->	
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)	
+[![GitHub stars](https://img.shields.io/github/stars/Achiaga/carbon_footprint.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/Achiaga/carbon_footprint/stargazers/)
+[![GitHub forks](https://img.shields.io/github/forks/Achiaga/carbon_footprint.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/Achiaga/carbon_footprint)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 
 <img width="1440" alt="Captura de pantalla 2020-08-31 a las 23 23 14" src="https://user-images.githubusercontent.com/44972334/91770153-f3943700-ebe0-11ea-9b16-5762d7125d74.png">
 
@@ -15,6 +23,7 @@ The intention of this open-source is to be coding friendly for newbies so everyo
 
 ### Table of Content
 
+* [Objective](#objective)
 * [About](#about)
 * [Inspiration](#inspiration)
 * [Documentation](#documentation)
@@ -24,7 +33,8 @@ The intention of this open-source is to be coding friendly for newbies so everyo
 * [Licence](#licence)
 
 
-
+## Objective
+The main propurse is to create a web-page that makes 'helping the enviroment' easy for people. Right now is oriented to calculating you carbon footprint but it should cover way more topics in the future such as making easy to post and join volunteer programs near you or in a remote way. It should basically the reference web in terms of enviroment and that is why making it open-source makes so much sense, a web page about helping the planet build by everyone and own of no organization or interest. It should provide information, raise awareness, news, easy communication between people and create a strong community.
 
 ## About
 
