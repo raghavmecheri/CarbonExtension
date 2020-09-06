@@ -96,11 +96,12 @@ For now it is a pretty simple project, so it shouldn't be hard find features to 
 #### Advance
 * Fix Responsive layout through the page including the bugs produced by animations.
 * Add different languages i18n.
-* Make a simple country selector so the calculator it is more accurated
+* Make a simple country selector so the calculator it is more accurated.
 * Identifies the ip's country.
 * Improve rules of quiz. So you can't continue until you fill all inputs.
-* Add Testing
-* Add blog-posts for information or discussions. --> so you would also need to add authentification
+* Add Testing.
+* Add blog-posts for information or discussions. --> so you would also need to add authentification.
+* Create CMS so no-programmers contributers can easily modify the data of each country.
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
