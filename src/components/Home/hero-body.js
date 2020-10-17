@@ -3,12 +3,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import ButtonComponent from './button-component';
-import HeroText from './hero-text';
 
 const ButtonBox = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: center;
 	margin: auto;
 	padding-top: 2em;
 	${({ theme }) =>
@@ -23,13 +22,12 @@ const ButtonBox = styled.div`
 const HeroBody = () => {
 	return (
 		<>
-			<HeroText>Select the type of carbon footprint calculation</HeroText>
 			<ButtonBox>
-				<Link to='/quiz/person'>
+				<Link style={{marginRight: "0.5vw"}}  to='/quiz/person'>
 					<ButtonComponent content={'Individual'} />
 				</Link>
-				<Link to='/quiz/organization'>
-					<ButtonComponent content={'Small Organization'} />
+				<Link style={{marginLeft: "0.5vw"}} to='/quiz/organization'>
+					<ButtonComponent content={'Organization'} />
 				</Link>
 			</ButtonBox>
 		</>

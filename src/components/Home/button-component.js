@@ -4,8 +4,9 @@ import styled from 'styled-components';
 const Button = styled.button`
 	background: transparent;
 	backdrop-filter: blur(2px);
-	padding: 8px;
-	font-size: 20px;
+	width: 120px;
+	padding: 10px;
+	font-size: 13px;
 	border: 2px solid;
 	border-radius: 5px;
 	font-weight: 500;
@@ -19,15 +20,6 @@ const Button = styled.button`
 	&:hover {
 		cursor: pointer;
 		transform: scale(1.1);
-	}
-	@media only screen and (max-width: 950px) {
-		width: 14em;
-		padding: 0.6em;
-		margin: 0.3em;
-		font-size: 16px;
-	}
-	@media only screen and (max-width: 500px) {
-		font-size: 15px;
 	}
 `;
 

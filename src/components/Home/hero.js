@@ -5,7 +5,7 @@ import HeroBody from './hero-body';
 const Hero = () => {
 	return (
 		<>
-			<HeroTitle>Carbon Footprint</HeroTitle>
+			<HeroTitle>Who are you?</HeroTitle>
 			<HeroBody />
 		</>
 	);
